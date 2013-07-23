@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
+	<metadata minClientVersion="2.6">
+		<id>GraduatedCylinder</id>
+		<version>0.1.0-alpha</version>
+		<title>Graduated Cylinder</title>
+		<authors>Eddie Garmon</authors>
+		<owners>Eddie Garmon</owners>
+		<licenseUrl>https://github.com/EddieGarmon/GraduatedCylinder/blob/master/LICENSE</licenseUrl>
+		<projectUrl>https://github.com/EddieGarmon/GraduatedCylinder</projectUrl>
+		<requireLicenseAcceptance>true</requireLicenseAcceptance>
+		<description>a modeling of measurable dimensions</description>
+		<language>en-US</language>
+		<tags>measures</tags>
+	</metadata>
+	<files>
+		<!--Portable: net45+sl4+wp71+win8-->
+		<file src="[Port]\bin\Release\GraduatedCylinder.dll" target="lib\portable-net45+sl4+wp71+win8" />
+		<!--F40-->
+		<file src="[F40]\bin\Release\GraduatedCylinder.dll" target="lib\net40" />
+		<!--F35-->
+		<file src="[F35]\bin\Release\GraduatedCylinder.dll" target="lib\net35" />
+		<!--Android-->
+		<!--Mono.Mac use Port/F40? here-->
+		<!--iOS-->
+	</files>
+</package>
