@@ -59,7 +59,11 @@ task Test -depends Build {
 		Where-Object { ($_.FullName -like "*\bin\Release\Specs.*.dll") } | 
 		ForEach-Object { 
 			Write-Host "> " $_.FullName
-			exec { & '.\XUnit\xunit.console.clr4.exe' $_.FullName /silent }
+			if ($_.FullName -like "*F35*") {
+				exec { & '.\XUnit\xunit.console.exe' $_.FullName /silent }
+			} else {
+				exec { & '.\XUnit\xunit.console.clr4.exe' $_.FullName /silent }
+			}
 		}
 }
 

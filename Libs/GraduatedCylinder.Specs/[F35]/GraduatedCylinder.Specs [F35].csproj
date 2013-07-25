@@ -37,11 +37,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="xunit">
-      <HintPath>..\..\..\Packages\xunit.1.9.1\lib\net20\xunit.dll</HintPath>
+      <HintPath>..\..\..\Build\XUnit\xunit.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\GraduatedCylinder\[Port]\Properties\AssemblyInfo.cs">
