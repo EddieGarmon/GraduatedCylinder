@@ -50,8 +50,8 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Libs\GraduatedCylinder\[Port]\GraduatedCylinder [F45 S40 P75 R45].csproj">
-      <Project>{50ADC26E-141E-4F11-A6C4-2A286B7242BA}</Project>
+    <ProjectReference Include="..\..\Libs\GraduatedCylinder\Port-104\GraduatedCylinder [F45 S40 P75 R45].csproj">
+      <Project>{86045a67-ccb1-445f-a72e-987446f7c33f}</Project>
       <Name>GraduatedCylinder [F45 S40 P75 R45]</Name>
     </ProjectReference>
   </ItemGroup>
