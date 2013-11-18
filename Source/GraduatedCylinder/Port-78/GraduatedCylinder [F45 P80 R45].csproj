@@ -316,9 +316,6 @@
     <Compile Include="..\Port-104\JetBrains\Annotations\UsedImplicitlyAttribute.cs">
       <Link>JetBrains\Annotations\UsedImplicitlyAttribute.cs</Link>
     </Compile>
-    <Compile Include="..\VersionInfo.cs">
-      <Link>Properties\VersionInfo.cs</Link>
-    </Compile>
     <Compile Include="GraduatedCylinder\[Dimensions]\UnitOfMeasure-TypeInfoReflection.cs" />
     <Compile Include="GraduatedCylinder\[Internals]\EnumReflector.cs" />
     <Compile Include="GraduatedCylinder\[Internals]\EnumValueDescriptor.cs" />

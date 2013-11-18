@@ -44,9 +44,6 @@
     <Compile Include="..\..\GraduatedCylinder\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="..\..\GraduatedCylinder\VersionInfo.cs">
-      <Link>Properties\VersionInfo.cs</Link>
-    </Compile>
     <Compile Include="..\Full-4.5\GraduatedCylinder\EnumerationVerification.cs">
       <Link>GraduatedCylinder\EnumerationVerification.cs</Link>
     </Compile>

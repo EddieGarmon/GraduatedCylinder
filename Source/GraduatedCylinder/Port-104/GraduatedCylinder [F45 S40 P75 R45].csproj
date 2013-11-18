@@ -37,9 +37,6 @@
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="..\VersionInfo.cs">
-      <Link>Properties\VersionInfo.cs</Link>
-    </Compile>
     <Compile Include="GraduatedCylinder\[Dimensions]\UnitOfMeasure-TypeReflection.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions]\[Typed]\SpeedSquared.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions]\[Typed]\SpeedSquaredUnit.cs" />

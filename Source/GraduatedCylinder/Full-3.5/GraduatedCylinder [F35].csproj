@@ -40,9 +40,6 @@
     <Compile Include="..\Port-104\GraduatedCylinder\[Dimensions]\UnitOfMeasure-TypeReflection.cs">
       <Link>GraduatedCylinder\[Dimensions]\UnitOfMeasure-TypeReflection.cs</Link>
     </Compile>
-    <Compile Include="..\VersionInfo.cs">
-      <Link>Properties\VersionInfo.cs</Link>
-    </Compile>
     <Compile Include="..\Port-104\GraduatedCylinder\[dimensions]\Dimension.cs">
       <Link>GraduatedCylinder\[Dimensions]\Dimension.cs</Link>
     </Compile>

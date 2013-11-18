@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{76895F49-8B8B-426B-BB91-E7DBD5C47CDE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Specs", "Specs", "{A636E49C-8E08-4B13-8806-88A6401BE1DF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Package Specification", "Package Specification", "{286A643F-8A22-4A86-94C5-9F94A0D697FA}"
 	ProjectSection(SolutionItems) = preProject
-		..\Libs\GraduatedCylinder\GraduatedCylinder.nuspec = ..\Libs\GraduatedCylinder\GraduatedCylinder.nuspec
+		GraduatedCylinder\GraduatedCylinder.nuspec = GraduatedCylinder\GraduatedCylinder.nuspec
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicUsage [F45]", "..\Samples\BasicUsage\BasicUsage [F45].csproj", "{3829BB2F-6BEE-4A70-AC06-7B6EEEEA52D2}"
