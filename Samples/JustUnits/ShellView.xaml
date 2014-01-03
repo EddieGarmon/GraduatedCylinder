@@ -1,0 +1,32 @@
+<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+    x:Class="JustUnits.ShellView"
+    Title="Graduated Cylinder - JustUnits"
+    Width="400">
+
+    <StackPanel Background="White">
+        <ComboBox Name="Dimensions" FontSize="20" />
+        <TextBox Name="UserInput" FontSize="20" />
+        <ComboBox Name="SourceUnits" FontSize="20" />
+        <TextBlock Text="Show all conversions here!"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontSize="20" />
+        <ContentControl Name="Results2" />
+        <ListBox Name="Results">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="--" />
+                        <TextBlock Name="Value" Text="{Binding Value}" />
+                        <TextBlock Name="UnitsAbbreviation" Text="{Binding UnitsAbbreviation}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </StackPanel>
+
+</Window>

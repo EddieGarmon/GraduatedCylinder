@@ -1,0 +1,1188 @@
+From: <Saved by Microsoft Internet Explorer 5>
+Subject: NMEA Transmitted Messages
+Date: Thu, 10 Aug 2006 16:03:27 -0400
+MIME-Version: 1.0
+Content-Type: text/html;
+	charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.geoaps.com/NMEA.htm
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.2869
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML xmlns=3D"http://www.w3.org/TR/REC-html40" xmlns:o =3D=20
+"urn:schemas-microsoft-com:office:office" xmlns:w =3D=20
+"urn:schemas-microsoft-com:office:word"><HEAD><TITLE>NMEA Transmitted =
+Messages</TITLE>
+<META http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Dwindows-1252">
+<META content=3DWord.Document name=3DProgId>
+<META content=3D"MSHTML 6.00.2900.2873" name=3DGENERATOR>
+<META content=3D"Microsoft Word 9" name=3DOriginator><LINK=20
+href=3D"./NMEA_files/filelist.xml" rel=3DFile-List><!--[if gte mso =
+9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Simon Wood</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Simon Wood</o:LastAuthor>
+  <o:Revision>1</o:Revision>
+  <o:TotalTime>1</o:TotalTime>
+  <o:Created>2001-10-21T13:04:00Z</o:Created>
+  <o:LastSaved>2001-10-21T13:05:00Z</o:LastSaved>
+  <o:Pages>4</o:Pages>
+  <o:Words>618</o:Words>
+  <o:Characters>3525</o:Characters>
+  <o:Lines>29</o:Lines>
+  <o:Paragraphs>7</o:Paragraphs>
+  <o:CharactersWithSpaces>4328</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<STYLE>@font-face {
+	font-family: MS Song;
+}
+@font-face {
+	font-family: @MS Song;
+}
+@page Section1 {size: 595.3pt 841.9pt; margin: 72.0pt 90.0pt 72.0pt =
+90.0pt; mso-header-margin: 35.4pt; mso-footer-margin: 35.4pt; =
+mso-paper-source: 0; }
+P.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0cm 0cm 0pt; FONT-FAMILY: "Times New Roman"; =
+mso-fareast-font-family: "Times New Roman"; mso-style-parent: ""; =
+mso-pagination: widow-orphan
+}
+LI.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0cm 0cm 0pt; FONT-FAMILY: "Times New Roman"; =
+mso-fareast-font-family: "Times New Roman"; mso-style-parent: ""; =
+mso-pagination: widow-orphan
+}
+DIV.MsoNormal {
+	FONT-SIZE: 12pt; MARGIN: 0cm 0cm 0pt; FONT-FAMILY: "Times New Roman"; =
+mso-fareast-font-family: "Times New Roman"; mso-style-parent: ""; =
+mso-pagination: widow-orphan
+}
+H2 {
+	FONT-WEIGHT: normal; FONT-SIZE: 12pt; MARGIN: 0cm 0cm 0pt; FONT-FAMILY: =
+"MS Song"; mso-pagination: widow-orphan; mso-style-next: Normal; =
+mso-outline-level: 2; mso-layout-grid-align: none; mso-ansi-language: =
+EN-US; mso-fareast-language: ZH-TW
+}
+H3 {
+	FONT-WEIGHT: normal; FONT-SIZE: 12pt; MARGIN: 0cm 0cm 0pt; FONT-FAMILY: =
+"MS Song"; TEXT-ALIGN: center; mso-pagination: widow-orphan; =
+mso-style-next: Normal; mso-outline-level: 3; mso-layout-grid-align: =
+none; mso-ansi-language: EN-US; mso-fareast-language: ZH-TW
+}
+P.MsoBodyTextIndent {
+	FONT-SIZE: 12pt; MARGIN: 0cm 0cm 0pt 18pt; FONT-FAMILY: "Times New =
+Roman"; mso-fareast-font-family: "Times New Roman"; mso-pagination: =
+widow-orphan
+}
+LI.MsoBodyTextIndent {
+	FONT-SIZE: 12pt; MARGIN: 0cm 0cm 0pt 18pt; FONT-FAMILY: "Times New =
+Roman"; mso-fareast-font-family: "Times New Roman"; mso-pagination: =
+widow-orphan
+}
+DIV.MsoBodyTextIndent {
+	FONT-SIZE: 12pt; MARGIN: 0cm 0cm 0pt 18pt; FONT-FAMILY: "Times New =
+Roman"; mso-fareast-font-family: "Times New Roman"; mso-pagination: =
+widow-orphan
+}
+P.MsoBodyText3 {
+	FONT-SIZE: 10pt; MARGIN: 0cm 0cm 0pt; FONT-FAMILY: "MS Song"; =
+TEXT-ALIGN: justify; mso-bidi-font-family: "Times New Roman"; =
+mso-pagination: widow-orphan; mso-layout-grid-align: none; =
+mso-ansi-language: EN-US; mso-fareast-language: ZH-TW; =
+mso-bidi-font-size: 12.0pt; mso-hansi-font-family: "Times New Roman"
+}
+LI.MsoBodyText3 {
+	FONT-SIZE: 10pt; MARGIN: 0cm 0cm 0pt; FONT-FAMILY: "MS Song"; =
+TEXT-ALIGN: justify; mso-bidi-font-family: "Times New Roman"; =
+mso-pagination: widow-orphan; mso-layout-grid-align: none; =
+mso-ansi-language: EN-US; mso-fareast-language: ZH-TW; =
+mso-bidi-font-size: 12.0pt; mso-hansi-font-family: "Times New Roman"
+}
+DIV.MsoBodyText3 {
+	FONT-SIZE: 10pt; MARGIN: 0cm 0cm 0pt; FONT-FAMILY: "MS Song"; =
+TEXT-ALIGN: justify; mso-bidi-font-family: "Times New Roman"; =
+mso-pagination: widow-orphan; mso-layout-grid-align: none; =
+mso-ansi-language: EN-US; mso-fareast-language: ZH-TW; =
+mso-bidi-font-size: 12.0pt; mso-hansi-font-family: "Times New Roman"
+}
+A:link {
+	COLOR: blue; TEXT-DECORATION: underline; text-underline: single
+}
+SPAN.MsoHyperlink {
+	COLOR: blue; TEXT-DECORATION: underline; text-underline: single
+}
+A:visited {
+	COLOR: purple; TEXT-DECORATION: underline; text-underline: single
+}
+SPAN.MsoHyperlinkFollowed {
+	COLOR: purple; TEXT-DECORATION: underline; text-underline: single
+}
+DIV.Section1 {
+	page: Section1
+}
+OL {
+	MARGIN-BOTTOM: 0cm
+}
+UL {
+	MARGIN-BOTTOM: 0cm
+}
+</STYLE>
+</HEAD>
+<BODY lang=3DEN-GB style=3D"tab-interval: 36.0pt" vLink=3Dpurple =
+link=3Dblue>
+<DIV class=3DSection1>
+<P class=3DMsoNormal style=3D"MARGIN-TOP: 9.35pt; TEXT-ALIGN: =
+justify"><B=20
+style=3D"mso-bidi-font-weight: normal"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">NMEA=20
+Transmitted Messages<o:p></o:p></SPAN></B></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-bidi-font-family: 'Times New =
+Roman'"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-bidi-font-family: 'Times New =
+Roman'"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-bidi-font-family: 'Times New =
+Roman'"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-bidi-font-family: 'Times New =
+Roman'">The default=20
+communication parameters for NMEA output are 4800 baud, 8 data bits, =
+stop bit,=20
+and no parity.</SPAN><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Table=20
+4-1 NMEA-0183 Output Messages<o:p></o:p></SPAN></P>
+<TABLE=20
+style=3D"BORDER-RIGHT: medium none; BORDER-TOP: medium none; =
+BORDER-LEFT: medium none; BORDER-BOTTOM: medium none; BORDER-COLLAPSE: =
+collapse; mso-border-alt: solid windowtext .5pt; mso-padding-alt: 0cm =
+1.4pt 0cm 1.4pt"=20
+cellSpacing=3D0 cellPadding=3D0 border=3D1>
+  <TBODY>
+  <TR>
+    <TD=20
+    style=3D"BORDER-RIGHT: windowtext 0.25pt solid; PADDING-RIGHT: =
+1.4pt; BORDER-TOP: windowtext 0.25pt solid; PADDING-LEFT: 1.4pt; =
+PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 0.25pt solid; WIDTH: =
+73.4pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.25pt solid"=20
+    vAlign=3Dtop width=3D98>
+      <H3 style=3D"TEXT-ALIGN: justify"><SPAN lang=3DEN-US=20
+      style=3D"FONT-SIZE: 10pt; FONT-FAMILY: Arial; =
+mso-bidi-font-family: 'Times New Roman'; mso-bidi-font-size: =
+12.0pt">NMEA=20
+      Record<A name=3D_NMEA_Record></A><o:p></o:p></SPAN></H3></TD>
+    <TD=20
+    style=3D"BORDER-RIGHT: windowtext 0.25pt solid; PADDING-RIGHT: =
+1.4pt; BORDER-TOP: windowtext 0.25pt solid; PADDING-LEFT: 1.4pt; =
+PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; WIDTH: 342pt; =
+PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 0.25pt solid; =
+mso-border-left-alt: solid windowtext .25pt"=20
+    vAlign=3Dtop width=3D456>
+      <P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+      style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New =
+Roman'">Description<o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD=20
+    style=3D"BORDER-RIGHT: windowtext 0.25pt solid; PADDING-RIGHT: =
+1.4pt; BORDER-TOP: medium none; PADDING-LEFT: 1.4pt; PADDING-BOTTOM: =
+0cm; BORDER-LEFT: windowtext 0.25pt solid; WIDTH: 73.4pt; PADDING-TOP: =
+0cm; BORDER-BOTTOM: windowtext 0.25pt solid; mso-border-top-alt: solid =
+windowtext .25pt"=20
+    vAlign=3Dtop width=3D98>
+      <H2 style=3D"TEXT-ALIGN: justify"><SPAN lang=3DEN-US=20
+      style=3D"FONT-SIZE: 10pt; FONT-FAMILY: Arial; =
+mso-bidi-font-family: 'Times New Roman'; mso-bidi-font-size: =
+12.0pt">GGA<o:p></o:p></SPAN></H2></TD>
+    <TD=20
+    style=3D"BORDER-RIGHT: windowtext 0.25pt solid; PADDING-RIGHT: =
+1.4pt; BORDER-TOP: medium none; PADDING-LEFT: 1.4pt; PADDING-BOTTOM: =
+0cm; BORDER-LEFT: medium none; WIDTH: 342pt; PADDING-TOP: 0cm; =
+BORDER-BOTTOM: windowtext 0.25pt solid; mso-border-left-alt: solid =
+windowtext .25pt; mso-border-top-alt: solid windowtext .25pt"=20
+    vAlign=3Dtop width=3D456>
+      <P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+      style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Global=20
+      positioning system fixed data<o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD=20
+    style=3D"BORDER-RIGHT: windowtext 0.25pt solid; PADDING-RIGHT: =
+1.4pt; BORDER-TOP: medium none; PADDING-LEFT: 1.4pt; PADDING-BOTTOM: =
+0cm; BORDER-LEFT: windowtext 0.25pt solid; WIDTH: 73.4pt; PADDING-TOP: =
+0cm; BORDER-BOTTOM: windowtext 0.25pt solid; mso-border-top-alt: solid =
+windowtext .25pt"=20
+    vAlign=3Dtop width=3D98>
+      <P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+      style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">GLL<o:p></o:p></SPAN></P></TD>
+    <TD=20
+    style=3D"BORDER-RIGHT: windowtext 0.25pt solid; PADDING-RIGHT: =
+1.4pt; BORDER-TOP: medium none; PADDING-LEFT: 1.4pt; PADDING-BOTTOM: =
+0cm; BORDER-LEFT: medium none; WIDTH: 342pt; PADDING-TOP: 0cm; =
+BORDER-BOTTOM: windowtext 0.25pt solid; mso-border-left-alt: solid =
+windowtext .25pt; mso-border-top-alt: solid windowtext .25pt"=20
+    vAlign=3Dtop width=3D456>
+      <P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+      style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Geographic=20
+      position- latitude/longitude<o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD=20
+    style=3D"BORDER-RIGHT: windowtext 0.25pt solid; PADDING-RIGHT: =
+1.4pt; BORDER-TOP: medium none; PADDING-LEFT: 1.4pt; PADDING-BOTTOM: =
+0cm; BORDER-LEFT: windowtext 0.25pt solid; WIDTH: 73.4pt; PADDING-TOP: =
+0cm; BORDER-BOTTOM: windowtext 0.25pt solid; mso-border-top-alt: solid =
+windowtext .25pt"=20
+    vAlign=3Dtop width=3D98>
+      <P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+      style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">GSA<o:p></o:p></SPAN></P></TD>
+    <TD=20
+    style=3D"BORDER-RIGHT: windowtext 0.25pt solid; PADDING-RIGHT: =
+1.4pt; BORDER-TOP: medium none; PADDING-LEFT: 1.4pt; PADDING-BOTTOM: =
+0cm; BORDER-LEFT: medium none; WIDTH: 342pt; PADDING-TOP: 0cm; =
+BORDER-BOTTOM: windowtext 0.25pt solid; mso-border-left-alt: solid =
+windowtext .25pt; mso-border-top-alt: solid windowtext .25pt"=20
+    vAlign=3Dtop width=3D456>
+      <P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+      style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">GNSS=20
+      DOP and active satellites<o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD=20
+    style=3D"BORDER-RIGHT: windowtext 0.25pt solid; PADDING-RIGHT: =
+1.4pt; BORDER-TOP: medium none; PADDING-LEFT: 1.4pt; PADDING-BOTTOM: =
+0cm; BORDER-LEFT: windowtext 0.25pt solid; WIDTH: 73.4pt; PADDING-TOP: =
+0cm; BORDER-BOTTOM: windowtext 0.25pt solid; mso-border-top-alt: solid =
+windowtext .25pt"=20
+    vAlign=3Dtop width=3D98>
+      <P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+      style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">GSV<o:p></o:p></SPAN></P></TD>
+    <TD=20
+    style=3D"BORDER-RIGHT: windowtext 0.25pt solid; PADDING-RIGHT: =
+1.4pt; BORDER-TOP: medium none; PADDING-LEFT: 1.4pt; PADDING-BOTTOM: =
+0cm; BORDER-LEFT: medium none; WIDTH: 342pt; PADDING-TOP: 0cm; =
+BORDER-BOTTOM: windowtext 0.25pt solid; mso-border-left-alt: solid =
+windowtext .25pt; mso-border-top-alt: solid windowtext .25pt"=20
+    vAlign=3Dtop width=3D456>
+      <P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+      style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">GNSS=20
+      satellites in view<o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD=20
+    style=3D"BORDER-RIGHT: windowtext 0.25pt solid; PADDING-RIGHT: =
+1.4pt; BORDER-TOP: medium none; PADDING-LEFT: 1.4pt; PADDING-BOTTOM: =
+0cm; BORDER-LEFT: windowtext 0.25pt solid; WIDTH: 73.4pt; PADDING-TOP: =
+0cm; BORDER-BOTTOM: windowtext 0.25pt solid; mso-border-top-alt: solid =
+windowtext .25pt"=20
+    vAlign=3Dtop width=3D98>
+      <P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+      style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">RMC<o:p></o:p></SPAN></P></TD>
+    <TD=20
+    style=3D"BORDER-RIGHT: windowtext 0.25pt solid; PADDING-RIGHT: =
+1.4pt; BORDER-TOP: medium none; PADDING-LEFT: 1.4pt; PADDING-BOTTOM: =
+0cm; BORDER-LEFT: medium none; WIDTH: 342pt; PADDING-TOP: 0cm; =
+BORDER-BOTTOM: windowtext 0.25pt solid; mso-border-left-alt: solid =
+windowtext .25pt; mso-border-top-alt: solid windowtext .25pt"=20
+    vAlign=3Dtop width=3D456>
+      <P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+      style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Recommended=20
+      minimum specific GNSS data<o:p></o:p></SPAN></P></TD></TR>
+  <TR>
+    <TD=20
+    style=3D"BORDER-RIGHT: windowtext 0.25pt solid; PADDING-RIGHT: =
+1.4pt; BORDER-TOP: medium none; PADDING-LEFT: 1.4pt; PADDING-BOTTOM: =
+0cm; BORDER-LEFT: windowtext 0.25pt solid; WIDTH: 73.4pt; PADDING-TOP: =
+0cm; BORDER-BOTTOM: windowtext 0.25pt solid; mso-border-top-alt: solid =
+windowtext .25pt"=20
+    vAlign=3Dtop width=3D98>
+      <P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+      style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">VTG<o:p></o:p></SPAN></P></TD>
+    <TD=20
+    style=3D"BORDER-RIGHT: windowtext 0.25pt solid; PADDING-RIGHT: =
+1.4pt; BORDER-TOP: medium none; PADDING-LEFT: 1.4pt; PADDING-BOTTOM: =
+0cm; BORDER-LEFT: medium none; WIDTH: 342pt; PADDING-TOP: 0cm; =
+BORDER-BOTTOM: windowtext 0.25pt solid; mso-border-left-alt: solid =
+windowtext .25pt; mso-border-top-alt: solid windowtext .25pt"=20
+    vAlign=3Dtop width=3D456>
+      <P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+      style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Course=20
+      over ground and ground =
+speed<o:p></o:p></SPAN></P></TD></TR></TBODY></TABLE>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><B=20
+style=3D"mso-bidi-font-weight: normal"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></B></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><B=20
+style=3D"mso-bidi-font-weight: normal"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></B></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><B=20
+style=3D"mso-bidi-font-weight: normal"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><SPAN=20
+style=3D"mso-spacerun: yes">&nbsp;</SPAN>Global Positioning System Fix =
+Data=20
+(GGA)</SPAN></B><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"MARGIN-TOP: 6.2pt; TEXT-ALIGN: =
+justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"MARGIN-TOP: 6.2pt; TEXT-ALIGN: =
+justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New =
+Roman'">$GPGGA,&lt;1&gt;,&lt;2&gt;,&lt;3&gt;,&lt;4&gt;,&lt;5&gt;,&lt;6&gt=
+;,&lt;7&gt;,&lt;8&gt;,&lt;9&gt;,M,&lt;11&gt;,&lt;12&gt;,&lt;13&gt;&lt;CR&=
+gt;&lt;LF&gt;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"MARGIN-TOP: 6.2pt; TEXT-ALIGN: =
+justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l5 level1 lfo6; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">1)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">UTC=20
+time of position fix, hhmmss.sss format<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l5 level1 lfo6; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">2)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Latitude,=20
+ddmm.mmmm format.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l5 level1 lfo6; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">3)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Latitude=20
+hemisphere, N or S.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l5 level1 lfo6; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">4)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Longitude,=20
+dddmm.mmmm format.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l5 level1 lfo6; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">5)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Longitude=20
+hemisphere, E or W.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l5 level1 lfo6; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">6)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Position=20
+Fix Indicator,<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><SPAN=20
+style=3D"mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>0 =3D =
+fix not=20
+available, or invalid.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-INDENT: 30pt; TEXT-ALIGN: =
+justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">1=20
+=3D GPS SPS Mode, fix valid.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-TOP: 0.45pt; TEXT-INDENT: 30pt; TEXT-ALIGN: =
+justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">2=20
+=3D Differential GPS, SPS Mode, fix valid.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-INDENT: 30pt; TEXT-ALIGN: =
+justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">3=20
+=3D GPS PPS Mode, fix valid.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l5 level1 lfo6; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">7)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Number=20
+of sate1lites in use, 00 to 12.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l5 level1 lfo6; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">8)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Horizontal=20
+Dilution of Precision, 0.5 to 99.9.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l5 level1 lfo6; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">9)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">MSL=20
+Altitude, -9999.9 to 99999.9 meters.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l5 level1 lfo6; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">10)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'"> </SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Geoidal=20
+height, -999.9 to 9999.9 meters.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l5 level1 lfo6; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">11)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'"> </SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Differential=20
+GPS (RTCM SC-104) data age, number of seconds since last valid RTCM =
+transmission=20
+(nu1l if non-DGPS).<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l5 level1 lfo6; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">12)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'"> </SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Differential=20
+Reference Station ID, 0000 to 1023. (null if =
+non-DGPS)<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l5 level1 lfo6; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">13)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'"> </SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New =
+Roman'">Checksum.<o:p></o:p></SPAN></P><SPAN=20
+style=3D"FONT-SIZE: 12pt; FONT-FAMILY: Arial; mso-fareast-font-family: =
+'MS Song'; mso-bidi-font-family: 'Times New Roman'; mso-ansi-language: =
+EN-GB; mso-fareast-language: EN-US; mso-bidi-language: AR-SA"><BR=20
+style=3D"PAGE-BREAK-BEFORE: always; mso-special-character: line-break"=20
+clear=3Dall></SPAN>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"MARGIN-TOP: 9.8pt; TEXT-ALIGN: justify"><B =
+
+style=3D"mso-bidi-font-weight: normal"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Geographic=20
+Position with Latitude/Longitude<o:p></o:p></SPAN></B></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-INDENT: 10pt; TEXT-ALIGN: =
+justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New =
+Roman'">$GPGLL,&lt;1&gt;,&lt;2&gt;,&lt;3&gt;,&lt;4&gt;,&lt;5&gt;,&lt;6&gt=
+;,&lt;7&gt;&lt;CR&gt;&lt;LF&gt;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-INDENT: 10pt; TEXT-ALIGN: =
+justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l0 level1 lfo1; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">1)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Latitude,=20
+ddmm.mmmm format.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l0 level1 lfo1; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">2)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Latitude=20
+hemisphere, N or S.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l0 level1 lfo1; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">3)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Longitude,=20
+dddmT1.mmmm format.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l0 level1 lfo1; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">4)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Longitude=20
+hemisphere, E or W.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l0 level1 lfo1; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">5)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">UTC=20
+time of position fix, hhmmss format.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l0 level1 lfo1; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">6)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Status,=20
+A =3D data valid or V =3D data not valid.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l0 level1 lfo1; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">7)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Checksum.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><B=20
+style=3D"mso-bidi-font-weight: normal"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">GNSS=20
+DOP and Active Satellites (GSA)<o:p></o:p></SPAN></B></P>
+<P class=3DMsoNormal style=3D"MARGIN-TOP: 10.05pt; TEXT-ALIGN: =
+justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New =
+Roman'">$GPGSA,&lt;1&gt;,&lt;2&gt;,&lt;3&gt;,&lt;3&gt;,,,,,&lt;3&gt;,&lt;=
+3&gt;,&lt;3&gt;,&lt;4&gt;,&lt;5&gt;,&lt;6&gt;,&lt;7&gt;&lt;CR&gt;&lt;LF&g=
+t;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"MARGIN-TOP: 10.05pt; TEXT-ALIGN: =
+justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l4 level1 lfo2; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">1)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Mode=20
+1, M =3D manual, A =3D automatic.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l4 level1 lfo2; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">2)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Mode=20
+2, Fix type, 1 =3Dnot available, 2 =3D 2D, 3 =3D =
+3D.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l4 level1 lfo2; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">3)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">PRN=20
+number, 01 to 32, of satellite used in solution, up to 12=20
+transmitted.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l4 level1 lfo2; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">4)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">PDOP-Position=20
+dilu1ion of precision, 0.5 to 99.9.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l4 level1 lfo2; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">5)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">HDOP-Horizontal=20
+dilution of precision, 0.5 to 99.9.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l4 level1 lfo2; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">6)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">VDOP-Vertical=20
+di1ution of precision, 0.5 to 99.9.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l4 level1 lfo2; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">7)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Checksum.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"MARGIN-TOP: 0.7pt; TEXT-ALIGN: =
+justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"MARGIN-TOP: 0.7pt; TEXT-ALIGN: =
+justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><B=20
+style=3D"mso-bidi-font-weight: normal"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">GNSS=20
+Satellites in View (GSV)<o:p></o:p></SPAN></B></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New =
+Roman'">$GPGSV,&lt;1&gt;,&lt;2&gt;,&lt;3&gt;,&lt;4&gt;,&lt;5&gt;,&lt;6&gt=
+;,&lt;7&gt;,=85&lt;4&gt;,&lt;5&gt;,&lt;6&gt;,&lt;7&gt;,&lt;8&gt;&lt;CR&gt=
+;&lt;LF&gt;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l1 level1 lfo3; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">1)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Total=20
+number of GSV sentences to be transmitted, 0~3.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l1 level1 lfo3; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">2)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Number=20
+of message, 0~3.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l1 level1 lfo3; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">3)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Total=20
+number of satellites in view, 00 to 12.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l1 level1 lfo3; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">4)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Satellite=20
+PRN number, 01 to 32.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l1 level1 lfo3; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">5)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Satellite=20
+elevation, 00 to 90 degrees.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l1 level1 lfo3; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">6)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Satellite=20
+azimuth, 000 to 359 degrees, true.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l1 level1 lfo3; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">7)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Signal=20
+to noise ratio (C/No) 00 to 99 dB, null when not =
+tracking.<o:p></o:p></SPAN></P>
+<P class=3DMsoBodyText3><SPAN lang=3DEN-US=20
+style=3D"FONT-FAMILY: Arial; mso-bidi-font-family: 'Times New =
+Roman'"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoBodyText3><B style=3D"mso-bidi-font-weight: normal"><SPAN =
+lang=3DEN-US=20
+style=3D"FONT-FAMILY: Arial; mso-bidi-font-family: 'Times New =
+Roman'">NOTE:</SPAN></B><SPAN=20
+lang=3DEN-US style=3D"FONT-FAMILY: Arial; mso-bidi-font-family: 'Times =
+New Roman'">=20
+Items &lt;4&gt;,&lt;5&gt;,&lt;6&gt; and &lt;7&gt; repeat for each =
+satellite in=20
+view to a maximum of four (4) satellites per sentence.<SPAN=20
+style=3D"mso-spacerun: yes">&nbsp; </SPAN>Additiona1 satellites in view=20
+information must be sent in subsequent sentences. These fields will be =
+null if=20
+unused.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">8)=20
+Checksum.<o:p></o:p></SPAN></P><SPAN=20
+style=3D"FONT-SIZE: 12pt; FONT-FAMILY: Arial; mso-fareast-font-family: =
+'MS Song'; mso-bidi-font-family: 'Times New Roman'; mso-ansi-language: =
+EN-GB; mso-fareast-language: EN-US; mso-bidi-language: AR-SA"><BR=20
+style=3D"PAGE-BREAK-BEFORE: always; mso-special-character: line-break"=20
+clear=3Dall></SPAN>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><B=20
+style=3D"mso-bidi-font-weight: normal"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Recommended=20
+Minimum Specific GNSS Data (RMC)<o:p></o:p></SPAN></B></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><B=20
+style=3D"mso-bidi-font-weight: normal"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></B></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New =
+Roman'">$GPRMC,&lt;1&gt;,&lt;2&gt;,&lt;3&gt;,&lt;4&gt;,&lt;5&gt;,&lt;6&gt=
+;,&lt;7&gt;,&lt;8&gt;,&lt;9&gt;,&lt;10&gt;,&lt;11&gt;&lt;CR&gt;&lt;LF&gt;=
+<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l3 level1 lfo5; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">1)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">UTC=20
+time of position fix, hhmmss.sss format.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l3 level1 lfo5; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">2)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Status,=20
+A =3D data valid, V =3D data not valid.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l3 level1 lfo5; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">3)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Latitude,=20
+ddmm.mmmm format.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l3 level1 lfo5; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">4)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Latitude=20
+hemisphere, N or S.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l3 level1 lfo5; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">5)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Longitude,=20
+dddmmm.mmmm format.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l3 level1 lfo5; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">6)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Longitude=20
+hemisphere, E or W.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l3 level1 lfo5; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">7)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Speed=20
+over ground, 0.0 to 1851.8 knots.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l3 level1 lfo5; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">8)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Course=20
+over ground, 000.0 to 359.9 degrees, true.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l3 level1 lfo5; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">9)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Date,=20
+ddmmyy format.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l3 level1 lfo5; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">10)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'"> </SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Magnetic=20
+variation, 000.0 to 180.O.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l3 level1 lfo5; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">11)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'"> </SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Degrees<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l3 level1 lfo5; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">12)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'"> </SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Checksum.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><B=20
+style=3D"mso-bidi-font-weight: normal"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Course=20
+Over Ground and Ground Speed <o:p></o:p></SPAN></B></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"MARGIN-TOP: 8.6pt; TEXT-ALIGN: =
+justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New =
+Roman'">$GPVTG,&lt;1&gt;,T,&lt;2&gt;,M,&lt;3&gt;,N,&lt;4&gt;,K,&lt;5&gt;&=
+lt;CR&gt;&lt;LF&gt;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l2 level1 lfo4; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">1)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">True=20
+course over ground, 000 to 359 degrees.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l2 level1 lfo4; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">2)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Magnetic=20
+course over ground, 000 to 359 degrees.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l2 level1 lfo4; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">3)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Speed=20
+over ground, 00.0 to 999.9 knots.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l2 level1 lfo4; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">4)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Speed=20
+over ground, 00.0 to 1851.8 ko/hr.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal=20
+style=3D"MARGIN-LEFT: 18pt; TEXT-INDENT: -18pt; TEXT-ALIGN: justify; =
+mso-list: l2 level1 lfo4; tab-stops: list 18.0pt"><![if =
+!supportLists]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">5)<SPAN=20
+style=3D"FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; =
+</SPAN></SPAN><![endif]><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">Checksum.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"TEXT-ALIGN: justify"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P><SPAN=20
+style=3D"FONT-SIZE: 12pt; FONT-FAMILY: 'Times New Roman'; =
+mso-fareast-font-family: 'Times New Roman'; mso-ansi-language: EN-GB; =
+mso-fareast-language: EN-US; mso-bidi-language: AR-SA"><BR=20
+style=3D"PAGE-BREAK-BEFORE: always" clear=3Dall></SPAN>
+<P class=3DMsoNormal style=3D"MARGIN-LEFT: 18pt"><A =
+name=3DFileFormat></A><B=20
+style=3D"mso-bidi-font-weight: normal"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'">File=20
+Format<o:p></o:p></SPAN></B></P>
+<P class=3DMsoNormal style=3D"MARGIN-LEFT: 18pt"><B=20
+style=3D"mso-bidi-font-weight: normal"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-fareast-font-family: 'MS Song'; =
+mso-bidi-font-family: 'Times New Roman'"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></B></P>
+<P class=3DMsoBodyTextIndent><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-bidi-font-weight: bold; =
+mso-fareast-font-family: 'MS Song'; mso-bidi-font-family: 'Times New =
+Roman'">The=20
+default extension for<SPAN style=3D"mso-spacerun: yes">&nbsp; =
+</SPAN>files used=20
+for saving GPS strings are .csv, the standard extension for Microsoft =
+Excel=20
+comma delimited files. You can change this if you wish. The files can be =
+edited=20
+in any text editor or spreadsheet programme. <o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"MARGIN-LEFT: 18pt"><SPAN=20
+style=3D"mso-bidi-font-weight: bold"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"MARGIN-LEFT: 18pt"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-bidi-font-weight: bold">Sample GPS =
+cature=20
+String<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"MARGIN-LEFT: 18pt"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-bidi-font-weight: bold"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"MARGIN-LEFT: 18pt"><SPAN=20
+style=3D"FONT-SIZE: 10pt; FONT-FAMILY: Arial; mso-bidi-font-weight: =
+bold; mso-bidi-font-size: =
+12.0pt">$GPGGA,145121.999,5121.2199,N,00032.5133,E,1,06,2.1,175.9,M,,,,00=
+00*0A<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"MARGIN-LEFT: 18pt"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-bidi-font-weight: bold"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"MARGIN-LEFT: 18pt"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-bidi-font-weight: bold">Included with =
+Xylon is a=20
+utility called OS Convert which converts the GPS raw data to the UK =
+Ordnance=20
+Survey co-ordinate system. You can use this to convert data captured =
+anywhere to=20
+real world co-ordinates in metres for plotting etc. though you should =
+check=20
+locally to see what corrections should be applied. There are many =
+utilities=20
+available on the internet to convert NMEA strings to various national =
+systems.=20
+Follow this <A=20
+href=3D"http://users.netonecom.net/~rburtch/geodesy/datums.html">link</A>=
+ for a=20
+listing of conversion information.<o:p></o:p></SPAN></P>
+<P class=3DMsoNormal style=3D"MARGIN-LEFT: 18pt"><SPAN=20
+style=3D"FONT-FAMILY: Arial; mso-bidi-font-weight: bold"><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P=20
+class=3DMsoNormal><![if =
+!supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P></DIV></BODY></HTML>

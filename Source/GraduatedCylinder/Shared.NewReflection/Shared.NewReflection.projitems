@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>4b14607d-7282-4e0f-8633-b480dd870657</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Shared.NewReflection</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)GraduatedCylinder\[Internals]\EnumReflector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GraduatedCylinder\[Internals]\EnumValueDescriptor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GraduatedCylinder\[Units]\UnitOfMeasure-TypeInfoReflection.cs" />
+  </ItemGroup>
+</Project>

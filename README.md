@@ -28,13 +28,15 @@ The main contributors to the project will manage releases and [SemVer-compliant]
     Length stoppingDistance = new Length(1234, LengthUnit.Feet);
     Acceleration deceleration = ((endSpeed * endSpeed) - (startSpeed * startSpeed)) / (2 * stoppingDistance);
     Force stoppingForceRequired = vehicleMass * deceleration;
-    Console.WriteLine("The stopping force required is:");
-    Console.WriteLine("\t{0}", stoppingForceRequired.ToString(ForceUnit.Newtons));
-    Console.WriteLine("\t{0}", stoppingForceRequired.ToString(ForceUnit.KilogramForce));
-    Console.WriteLine("\t{0}", stoppingForceRequired.ToString(ForceUnit.PoundForce));
-```
 
-### Future
-- [ ] Flush out missing dimensions
-- [ ] Flush out missing unit conversions
-- [ ] Create a good string parser/evaluator
+    Console.WriteLine("The stopping force required is:");
+    Console.WriteLine("\t{0}", stoppingForceRequired.ToString(ForceUnit.Newtons, 3));
+    Console.WriteLine("\t{0}", stoppingForceRequired.ToString(ForceUnit.KilogramForce, 3));
+    Console.WriteLine("\t{0}", stoppingForceRequired.ToString(ForceUnit.PoundForce, 3));
+    
+    The output is as follows:
+    The stopping force required is:
+        -1,561.721 N
+        -159.197 kgf
+        -351.089 lbf
+```

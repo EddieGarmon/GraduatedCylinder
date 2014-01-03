@@ -5,7 +5,7 @@ using System.Reflection;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Eddie Garmon")]
 [assembly: AssemblyProduct("GraduatedCylinder")]
-[assembly: AssemblyCopyright("Copyright © Eddie Garmon 2010-2013")]
+[assembly: AssemblyCopyright("Copyright © Eddie Garmon 2010-2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyVersion("0.0.0.0")]

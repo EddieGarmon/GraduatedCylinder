@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
+	<metadata>
+		<id>GraduatedCylinder.Geo</id>
+		<version>0.0.0-sv</version>
+		<title>Graduated Cylinder Geo</title>
+		<authors>Eddie Garmon</authors>
+		<owners>Eddie Garmon</owners>
+		<licenseUrl>https://github.com/EddieGarmon/GraduatedCylinder/blob/master/LICENSE</licenseUrl>
+		<projectUrl>https://github.com/EddieGarmon/GraduatedCylinder</projectUrl>
+    <iconUrl>http://eddiegarmon.github.io/MyLogo.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+		<description>Geo based extensions to the units modeling library. Includes latitude, longitude, and the like. NMEA parsing for GPS and LASERS.</description>
+		<language>en-US</language>
+		<tags>latitude longitude gps trupulse nmea</tags>
+	</metadata>
+	<files>
+    <!-- Full Framework -->
+    <!--F40-->
+		<file src="Full-4.0\bin\Release\GraduatedCylinder.Geo.dll" target="lib\net40" />
+		<!--F45-->
+		<file src="Full-4.5\bin\Release\GraduatedCylinder.Geo.dll" target="lib\net45" />
+    <!-- v4.6 -->
+    <file src="Full-4.6\bin\Release\GraduatedCylinder.Geo.dll" target="lib\net46" />
+
+    <!-- Silverlight -->
+    <!-- v5.0 -->
+    <file src="Silverlight-5.0\bin\Release\GraduatedCylinder.Geo.dll" target="lib\sl50" />
+
+    <!-- Windows Phone -->
+    <!-- v8.1 -->
+    <file src="Phone-8.1\bin\Release\GraduatedCylinder.Geo.dll" target="lib\wp81" />
+    <file src="Phone-8.1\bin\Release\GraduatedCylinder.Geo.dll" target="lib\wpa81" />
+
+    <!-- Windows -->
+    <!-- v8.1 -->
+    <file src="WinRT-8.1\bin\Release\GraduatedCylinder.Geo.dll" target="lib\netcore451" />
+    <!-- v10 -->
+    <file src="Win-10\bin\Release\GraduatedCylinder.Geo.dll" target="lib\uap10.0" />
+   
+    <!-- Xamarin Android -->
+    <!-- v5.0 -->
+    <file src="Android-5.0\bin\Release\GraduatedCylinder.Geo.dll" target="lib\MonoAndroid50" />
+    <!-- v6.0 -->
+    <file src="Android-6.0\bin\Release\GraduatedCylinder.Geo.dll" target="lib\MonoAndroid60" />
+
+    <!-- Xamarin iOS -->
+    <file src="iOS\bin\Release\GraduatedCylinder.Geo.dll" target="lib\Xamarin.iOS10" />
+
+    <!--NetStandard -->
+    <!-- v1.0 -->
+    <file src="NetStandard-1.0\bin\Release\GraduatedCylinder.Geo.dll" target="lib\netstandard1.0" />
+
+  </files>
+</package>

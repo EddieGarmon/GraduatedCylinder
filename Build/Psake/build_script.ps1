@@ -1,12 +1,12 @@
-# Psake (https://github.com/psake/psake) build script
+# Psake (https://github.com/psake/psake) build script for GraduatedCylinder
 
 FormatTaskName "-------- {0} --------"
-Framework 4.0x86
+Framework 4.5.1x86
 Properties {	
 	$script:sourcePath = $psake.build_script_dir + "\..\..\Source\"
 	$script:nuget = $psake.build_script_dir + "\..\NuGet\NuGet.exe"
-	$script:xunit = $psake.build_script_dir + "\..\XUnit\xunit.console.clr4.exe"
-	$script:xunit_x86 = $psake.build_script_dir + "\..\XUnit\xunit.console.clr4.x86.exe"
+	$script:xunit = $psake.build_script_dir + "\..\XUnit\xunit.console.exe"
+	$script:xunit_x86 = $psake.build_script_dir + "\..\XUnit\xunit.console.x86.exe"
 	$script:test_x86 = (!($(gwmi win32_processor | select description) -match "x86"))
 	$script:packageStage = $psake.build_script_dir + '\..\Artifacts\Stage'
 	$script:newPackagesPath = $psake.build_script_dir + '\..\Artifacts\Packages'
@@ -64,12 +64,14 @@ Task Rebuild -depends Clean, Build
 Task Test -depends Build { 
 	Get-ChildItem ($sourcePath) -Recurse | 
 		Where-Object { (!$_.PsIsContainer) } |
-		Where-Object { ($_.FullName -like "*\bin\Release\*.Tests.dll") } | 
+		Where-Object { ($_.FullName -like "*\bin\Release\*") } | 
+		Where-Object { ($_.FullName -like "*.Specs.dll") } | 
+		
 		ForEach-Object { 
 			Write-Host "Test " $_.FullName
-			Exec { & $xunit $_.FullName /silent }
+			Exec { & $xunit $_.FullName }
 			if ($test_x86) {
-				Exec { & $xunit_x86 $_.FullName /silent }
+				Exec { & $xunit_x86 $_.FullName }
 			}
 		}
 }

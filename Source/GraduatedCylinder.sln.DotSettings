@@ -1,0 +1,11 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:Boolean x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=2AFA248B93F6A844A78DF89902FD7911/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=2AFA248B93F6A844A78DF89902FD7911/AbsolutePath/@EntryValue">D:\Dev.Eddie\GraduatedCylinder\ReSharperSettings\Templates.DotSettings</s:String>
+	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=2AFA248B93F6A844A78DF89902FD7911/RelativePath/@EntryValue">..\..\ReSharperSettings\Templates.DotSettings</s:String>
+	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=4548091DE04B504EB0D1F822DA2E6EB7/AbsolutePath/@EntryValue">D:\Dev.Eddie\GraduatedCylinder\ReSharperSettings\Style.DotSettings</s:String>
+	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=4548091DE04B504EB0D1F822DA2E6EB7/RelativePath/@EntryValue">..\..\ReSharperSettings\Style.DotSettings</s:String>
+	<s:Boolean x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=4548091DE04B504EB0D1F822DA2E6EB7/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File2AFA248B93F6A844A78DF89902FD7911/@KeyIndexDefined">True</s:Boolean>
+	<s:Double x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File2AFA248B93F6A844A78DF89902FD7911/RelativePriority/@EntryValue">2</s:Double>
+	<s:Boolean x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File4548091DE04B504EB0D1F822DA2E6EB7/@KeyIndexDefined">True</s:Boolean>
+	<s:Double x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File4548091DE04B504EB0D1F822DA2E6EB7/RelativePriority/@EntryValue">1</s:Double></wpf:ResourceDictionary>

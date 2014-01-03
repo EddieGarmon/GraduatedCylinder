@@ -1,0 +1,824 @@
+From: <Saved by Microsoft Internet Explorer 5>
+Subject: TeleType GPS RMC Log NMEA strings
+Date: Fri, 25 Aug 2006 13:55:22 -0400
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0000_01C6C84E.1BEA6BF0"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.2869
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0000_01C6C84E.1BEA6BF0
+Content-Type: text/html;
+	charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.teletype.com/pages/support/Documentation/RMC_log_info.htm
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>TeleType GPS RMC Log NMEA strings</TITLE>
+<META http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Dwindows-1252">
+<META content=3D"MSHTML 6.00.2900.2873" name=3DGENERATOR>
+<META content=3DFrontPage.Editor.Document =
+name=3DProgId><CSACTIONS><CSACTION=20
+class=3D"Go Last Page" type=3D"onevent" =
+name=3D"B71A2E8D11"></CSACTIONS><CSSCRIPTDICT>
+<SCRIPT><!--
+function CSClickReturn () {
+	var bAgent =3D window.navigator.userAgent;=20
+	var bAppName =3D window.navigator.appName;
+	if ((bAppName.indexOf("Explorer") >=3D 0) && =
+(bAgent.indexOf("Mozilla/3") >=3D 0) && (bAgent.indexOf("Mac") >=3D 0))
+		return true; // dont follow link
+	else return false; // dont follow link
+}
+
+CSStopExecution =3D false;
+function CSAction(array) {=20
+	return CSAction2(CSAct, array);
+}
+
+function CSAction2(fct, array) {=20
+	var result;
+	for (var i=3D0;i<array.length;i++) {
+		if(CSStopExecution) return false;=20
+		var actArray =3D fct[array[i]];
+		if (actArray =3D=3D null) return false;
+		var tempArray =3D new Array;
+		for(var j=3D1;j<actArray.length;j++) {
+			if((actArray[j] !=3D null) && (typeof(actArray[j]) =3D=3D "object") =
+&& (actArray[j].length =3D=3D 2)) {
+				if(actArray[j][0] =3D=3D "VAR") {
+					tempArray[j] =3D CSStateArray[actArray[j][1]];
+				}
+				else {
+					if(actArray[j][0] =3D=3D "ACT") {
+						tempArray[j] =3D CSAction(new Array(new String(actArray[j][1])));
+					}
+				else
+					tempArray[j] =3D actArray[j];
+				}
+			}
+			else
+				tempArray[j] =3D actArray[j];
+		}		=09
+		result =3D actArray[0](tempArray);
+	}
+	return result;
+}
+CSAct =3D new Object;
+
+function CSGoBack1() { history.back() }
+
+// --></SCRIPT>
+</CSSCRIPTDICT><CSACTIONDICT>
+<SCRIPT><!--
+CSAct[/*CMP*/ 'B71A2E8D11'] =3D new Array(CSGoBack1);
+// --></SCRIPT>
+</CSACTIONDICT>
+<STYLE>.text {
+	FONT-SIZE: 10px; FONT-FAMILY: Vernada, Arial, Helvetica, sans-serif
+}
+</STYLE>
+</HEAD>
+<BODY background=3Dhttp://www.teletype.com/bkglined.gif>
+<CENTER>
+<TABLE cellSpacing=3D2 cellPadding=3D0 width=3D400 border=3D0>
+  <TBODY>
+  <TR>
+    <TD>
+      <P align=3Dcenter><FONT face=3DVerdana><IMG height=3D76 =
+alt=3D"TeleType GPS"=20
+      src=3D"http://www.teletype.com/images/teletypeMED.gif" width=3D111 =
+
+      border=3D0><BR><B><FONT color=3Dred>TELETYPE GPS<BR>&nbsp;NMEA =
+String=20
+      Information</FONT><FONT style=3D"FONT-SIZE: 11px" color=3Dred =
+size=3D1>=20
+      </FONT></B></FONT></P>
+      <P align=3Dcenter><FONT face=3DVerdana><A=20
+      onmouseover=3D"window.status=3D'back to last page'; return true;"=20
+      onclick=3D"CSAction(new Array(/*CMP*/'B71A2E8D11'));return =
+CSClickReturn()"=20
+      onmouseout=3D"window.status=3D''; return true;"=20
+      =
+href=3D"http://www.teletype.com/pages/support/Documentation/RMC_log_info.=
+htm#"><IMG=20
+      height=3D15 alt=3D"back to last page"=20
+      src=3D"http://www.teletype.com/images/backbutton.gif" width=3D43 =
+border=3D0=20
+      name=3Dbutton></A> <FONT style=3D"FONT-SIZE: 20px" color=3Dred=20
+      =
+size=3D1><B><BR></B></FONT></FONT></P></TD></TR></TBODY></TABLE></CENTER>=
+
+<P><FONT face=3DVerdana size=3D2>TeleType GPS supports standard NMEA GPS =
+strings and=20
+outputs this information to the file called RMCLog.txt. To understand =
+the data=20
+found in that file please see the descriptions found =
+below.<BR><BR></FONT></P>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD>
+      <H2><FONT face=3DVerdana size=3D2>Common NMEA Setence =
+types</FONT></H2>
+      <P><FONT face=3DVerdana size=3D2>The following information =
+describes the=20
+      NMEA-0183 sentences transmitted by TeleType GPS =
+receivers.</FONT></P>
+      <TABLE border=3D1>
+        <TBODY>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2><B>Sentence</B></FONT></TD>
+          <TD><FONT face=3DVerdana =
+size=3D2><B>Description</B></FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>$GPGGA</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Global positioning system =
+fixed=20
+            data</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>$GPGLL</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Geographic position - =
+latitude /=20
+            longitude</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>$GPGSA</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>GNSS DOP and active=20
+          satellites</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>$GPGSV</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>GNSS satellites in =
+view</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>$GPRMC</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Recommended minimum specific =
+GNSS=20
+            data</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>$GPVTG</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Course over ground and =
+ground=20
+            speed</FONT></TD></TR></TBODY></TABLE>
+      <H3><FONT face=3DVerdana size=3D2>$GPGGA Sentence (Fix =
+data)</FONT></H3>
+      <P><FONT face=3DVerdana size=3D2>Example (signal not acquired):=20
+      =
+$GPGGA,235947.000,0000.0000,N,00000.0000,E,0,00,0.0,0.0,M,,,,0000*00<BR>E=
+xample=20
+      (signal acquired):=20
+      =
+$GPGGA,092204.999,4250.5589,S,14718.5084,E,1,04,24.4,19.7,M,,,,0000*1F<BR=
+><BR>&nbsp;</FONT></P>
+      <TABLE border=3D1>
+        <TBODY>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2><B>Field</B></FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2><B>Example</B></FONT></TD>
+          <TD><FONT face=3DVerdana =
+size=3D2><B>Comments</B></FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Sentence ID</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>$GPGGA</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>UTC Time</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>092204.999</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>hhmmss.sss</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Latitude</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>4250.5589</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>ddmm.mmmm</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>N/S Indicator</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>S</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>N =3D North, S =3D =
+South</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Longitude</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>14718.5084</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>dddmm.mmmm</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>E/W Indicator</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>E</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>E =3D East, W =3D =
+West</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Position Fix</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>1</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>0 =3D Invalid, 1 =3D Valid =
+SPS, 2 =3D Valid=20
+            DGPS, 3 =3D Valid PPS</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Satellites Used</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>04</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Satellites being used=20
+        (0-12)</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>HDOP</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>24.4</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Horizontal dilution of=20
+          precision</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Altitude</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>19.7</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Altitude in meters according =
+to WGS-84=20
+            ellipsoid</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Altitude Units</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>M</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>M =3D =
+Meters</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Geoid Seperation</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Geoid seperation in meters =
+according=20
+            to WGS-84 ellipsoid</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Seperation Units</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>M =3D =
+Meters</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>DGPS Age</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Age of DGPS data in=20
+        seconds</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>DGPS Station ID</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>0000</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Checksum</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>*1F</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Terminator</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>CR/LF</FONT></TD>
+          <TD><FONT face=3DVerdana =
+size=3D2>&nbsp;</FONT></TD></TR></TBODY></TABLE>
+      <H3><FONT face=3DVerdana size=3D2>$GPGLL Sentence =
+(Position)</FONT></H3>
+      <P><FONT face=3DVerdana size=3D2>Example (signal not acquired):=20
+      $GPGLL,0000.0000,N,00000.0000,E,235947.000,V*2D<BR>Example (signal =
+
+      acquired):=20
+      =
+$GPGLL,4250.5589,S,14718.5084,E,092204.999,A*2D<BR><BR>&nbsp;</FONT></P>
+      <TABLE border=3D1>
+        <TBODY>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2><B>Field</B></FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2><B>Example</B></FONT></TD>
+          <TD><FONT face=3DVerdana =
+size=3D2><B>Comments</B></FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Sentence ID</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>$GPGLL</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Latitude</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>4250.5589</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>ddmm.mmmm</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>N/S Indicator</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>S</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>N =3D North, S =3D =
+South</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Longitude</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>14718.5084</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>dddmm.mmmm</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>E/W Indicator</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>E</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>E =3D East, W =3D =
+West</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>UTC Time</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>092204.999</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>hhmmss.sss</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Status</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>A</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>A =3D Valid, V =3D =
+Invalid</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Checksum</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>*2D</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Terminator</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>CR/LF</FONT></TD>
+          <TD><FONT face=3DVerdana =
+size=3D2>&nbsp;</FONT></TD></TR></TBODY></TABLE>
+      <H3><FONT face=3DVerdana size=3D2>$GPGSA Sentence (Active=20
+      satellites)</FONT></H3>
+      <P><FONT face=3DVerdana size=3D2>Example (signal not acquired):=20
+      $GPGSA,A,1,,,,,,,,,,,,,0.0,0.0,0.0*30<BR>Example (signal =
+acquired):=20
+      =
+$GPGSA,A,3,01,20,19,13,,,,,,,,,40.4,24.4,32.2*0A<BR><BR>&nbsp;</FONT></P>=
+
+      <TABLE border=3D1>
+        <TBODY>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2><B>Field</B></FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2><B>Example</B></FONT></TD>
+          <TD><FONT face=3DVerdana =
+size=3D2><B>Comments</B></FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Sentence ID</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>$GPGSA</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Mode 1</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>A</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>A =3D Auto 2D/3D, M =3D =
+Forced=20
+          2D/3D</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Mode 1</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>3</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>1 =3D No fix, 2 =3D 2D, 3 =
+=3D=20
+3D</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Satellite used 1</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>01</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Satellite used on channel=20
+        1</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Satellite used 2</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>20</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Satellite used on channel=20
+        2</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Satellite used 3</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>19</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Satellite used on channel=20
+        3</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Satellite used 4</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>13</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Satellite used on channel=20
+        4</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Satellite used 5</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Satellite used on channel=20
+        5</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Satellite used 6</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Satellite used on channel=20
+        6</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Satellite used 7</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Satellite used on channel=20
+        7</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Satellite used 8</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Satellite used on channel=20
+        8</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Satellite used 9</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Satellite used on channel=20
+        9</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Satellite used =
+10</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Satellite used on channel=20
+        10</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Satellite used =
+11</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Satellite used on channel=20
+        11</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Satellite used =
+12</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Satellite used on channel=20
+        12</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>PDOP</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>40.4</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Position dilution of=20
+          precision</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>HDOP</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>24.4</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Horizontal dilution of=20
+          precision</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>VDOP</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>32.2</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Vertical dilution of=20
+          precision</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Checksum</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>*0A</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Terminator</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>CR/LF</FONT></TD>
+          <TD><FONT face=3DVerdana =
+size=3D2>&nbsp;</FONT></TD></TR></TBODY></TABLE>
+      <H3><FONT face=3DVerdana size=3D2>$GPGSV Sentence (Satellites in=20
+      view)</FONT></H3>
+      <P><FONT face=3DVerdana size=3D2>Example (signal not acquired):=20
+      $GPGSV,1,1,01,21,00,000,*4B<BR>Example (signal acquired):=20
+      =
+$GPGSV,3,1,10,20,78,331,45,01,59,235,47,22,41,069,,13,32,252,45*70<BR><BR=
+>&nbsp;</FONT></P>
+      <TABLE border=3D1>
+        <TBODY>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2><B>Field</B></FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2><B>Example</B></FONT></TD>
+          <TD><FONT face=3DVerdana =
+size=3D2><B>Comments</B></FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Sentence ID</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>$GPGSV</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Number of =
+messages</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>3</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Number of messages in =
+complete message=20
+            (1-3)</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Sequence number</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>1</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Sequence number of this =
+entry=20
+            (1-3)</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Satellites in =
+view</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>10</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Satellite ID 1</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>20</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Range is =
+1-32</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Elevation 1</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>78</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Elevation in degrees=20
+        (0-90)</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Azimuth 1</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>331</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Azimuth in degrees=20
+(0-359)</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>SNR 1</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>45</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Signal to noise ration in =
+dBHZ=20
+            (0-99)</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Satellite ID 2</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>01</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Range is =
+1-32</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Elevation 2</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>59</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Elevation in degrees=20
+        (0-90)</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Azimuth 2</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>235</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Azimuth in degrees=20
+(0-359)</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>SNR 2</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>47</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Signal to noise ration in =
+dBHZ=20
+            (0-99)</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Satellite ID 3</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>22</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Range is =
+1-32</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Elevation 3</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>41</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Elevation in degrees=20
+        (0-90)</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Azimuth 3</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>069</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Azimuth in degrees=20
+(0-359)</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>SNR 3</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Signal to noise ration in =
+dBHZ=20
+            (0-99)</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Satellite ID 4</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>13</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Range is =
+1-32</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Elevation 4</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>32</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Elevation in degrees=20
+        (0-90)</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Azimuth 4</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>252</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Azimuth in degrees=20
+(0-359)</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>SNR 4</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>45</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Signal to noise ration in =
+dBHZ=20
+            (0-99)</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Checksum</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>*70</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Terminator</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>CR/LF</FONT></TD>
+          <TD><FONT face=3DVerdana =
+size=3D2>&nbsp;</FONT></TD></TR></TBODY></TABLE>
+      <H3><FONT face=3DVerdana size=3D2>$GPRMC Sentence (Position and=20
+      time)</FONT></H3>
+      <P><FONT face=3DVerdana size=3D2>Example (signal not acquired):=20
+      =
+$GPRMC,235947.000,V,0000.0000,N,00000.0000,E,,,041299,,*1D<BR>Example=20
+      (signal acquired):=20
+      =
+$GPRMC,092204.999,A,4250.5589,S,14718.5084,E,0.00,89.68,211200,,*25<BR><B=
+R>&nbsp;</FONT></P>
+      <TABLE border=3D1>
+        <TBODY>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2><B>Field</B></FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2><B>Example</B></FONT></TD>
+          <TD><FONT face=3DVerdana =
+size=3D2><B>Comments</B></FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Sentence ID</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>$GPRMC</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>UTC Time</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>092204.999</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>hhmmss.sss</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Status</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>A</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>A =3D Valid, V =3D =
+Invalid</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Latitude</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>4250.5589</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>ddmm.mmmm</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>N/S Indicator</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>S</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>N =3D North, S =3D =
+South</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Longitude</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>14718.5084</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>dddmm.mmmm</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>E/W Indicator</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>E</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>E =3D East, W =3D =
+West</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Speed over =
+ground</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>0.00</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Knots</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Course over =
+ground</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>0.00</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Degrees</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>UTC Date</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>211200</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>DDMMYY</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Magnetic =
+variation</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Degrees</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Magnetic =
+variation</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>E =3D East, W =3D =
+West</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Checksum</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>*25</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Terminator</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>CR/LF</FONT></TD>
+          <TD><FONT face=3DVerdana =
+size=3D2>&nbsp;</FONT></TD></TR></TBODY></TABLE>
+      <H3><FONT face=3DVerdana size=3D2>$GPVTG Sentence (Course over=20
+      ground)</FONT></H3>
+      <P><FONT face=3DVerdana size=3D2>Example (signal not acquired):=20
+      $GPVTG,,T,,M,,N,,K*4E<BR>Example (signal acquired):=20
+      $GPVTG,89.68,T,,M,0.00,N,0.0,K*5F<BR><BR>&nbsp;</FONT></P>
+      <TABLE border=3D1>
+        <TBODY>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2><B>Field</B></FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2><B>Example</B></FONT></TD>
+          <TD><FONT face=3DVerdana =
+size=3D2><B>Comments</B></FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Sentence ID</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>$GPVTG</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Course</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>89.68</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Course in =
+degrees</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Reference</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>89.68</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>T =3D True =
+heading</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Course</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Course in =
+degrees</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Reference</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>89.68</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>M =3D Magnetic =
+heading</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Speed</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>0.00</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Horizontal =
+speed</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Units</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>N</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>N =3D Knots</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Speed</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>0.00</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>Horizontal =
+speed</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Units</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>K</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>K =3D KM/h</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Checksum</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>*5F</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>&nbsp;</FONT></TD></TR>
+        <TR>
+          <TD><FONT face=3DVerdana size=3D2>Terminator</FONT></TD>
+          <TD><FONT face=3DVerdana size=3D2>CR/LF</FONT></TD>
+          <TD><FONT face=3DVerdana=20
+  =
+size=3D2>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE=
+>
+<TABLE cellSpacing=3D5 cellPadding=3D0 width=3D"100%" border=3D0>
+  <TBODY>
+  <TR><FONT face=3DVerdana size=3D2><FONT face=3DVerdana>
+    <TD width=3D"100%">
+      <DIV align=3Dleft><BR><BR><SPAN class=3Dtext><FONT=20
+      style=3D"TEXT-DECORATION: none" =
+face=3DVerdana,Arial,Helvetica,sans-serif=20
+      size=3D1><A href=3D"http://www.teletype.com/index.html">Home</A> | =
+<A=20
+      href=3D"http://www.teletype.com/pages/gps.html">Maps</A> | <A=20
+      href=3D"http://www.teletype.com/pages/tracking.html">Vehicle =
+Tracking</A> |=20
+      <A href=3D"http://www.teletype.com/pages/support.html">Technical =
+Support</A>=20
+      | <A =
+href=3D"http://www.teletype.com/pages/reviews.html">Reviews</A> | <A=20
+      =
+href=3D"http://www.teletype.com/pages/search.html">Search</A><BR><A=20
+      href=3D"http://www.teletype.com/pages/new.html">What's New</A> | =
+<A=20
+      href=3D"http://www.teletype.com/pages/about.html">About =
+TeleType</A> | <A=20
+      =
+href=3D"http://www.teletype.com/Merchant2/merchant.mv?">Shopping</A> | =
+<A=20
+      =
+href=3D"http://www.teletype.com/pages/customer_service.htm">Customer=20
+      Service</A>&nbsp; </FONT></SPAN><FONT style=3D"TEXT-DECORATION: =
+none"=20
+      face=3DVerdana,Arial,Helvetica,sans-serif =
+size=3D1><BR><BR></FONT><FONT=20
+      style=3D"TEXT-DECORATION: none" =
+face=3DVerdana,Arial,Helvetica,sans-serif=20
+      color=3Dblack size=3D1>(C) Copyright TeleType Co. Inc.. All Rights =
+
+      reserved.<BR>TeleType, all other product, brand or trade names =
+may<BR>be=20
+      registered trademarks of their respective holders.=20
+  </FONT></DIV></TD></TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<CENTER>
+<TABLE cellSpacing=3D2 cellPadding=3D0 width=3D400 border=3D0>
+  <TBODY>
+  <TR>
+    <TD>
+      <P align=3Dcenter><FONT face=3DVerdana><A=20
+      onmouseover=3D"window.status=3D'back to last page'; return true;"=20
+      onclick=3D"CSAction(new Array(/*CMP*/'B71A2E8D11'));return =
+CSClickReturn()"=20
+      onmouseout=3D"window.status=3D''; return true;"=20
+      =
+href=3D"http://www.teletype.com/pages/support/Documentation/RMC_log_info.=
+htm#"><IMG=20
+      height=3D15 alt=3D"back to last page"=20
+      src=3D"http://www.teletype.com/images/backbutton.gif" width=3D43 =
+border=3D0=20
+      =
+name=3Dbutton></A></FONT></P></TD></TR></TBODY></TABLE></CENTER></FONT></=
+FONT></BODY></HTML>
+
+------=_NextPart_000_0000_01C6C84E.1BEA6BF0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.teletype.com/images/teletypeMED.gif
+
+R0lGODlhbwBMALMPAP9KSoKCgqenp//FxUJCQsDAwP8pKWdnZ/r09P+AgCAgIP+lpdjY2AAAAP8A
+AP///yH5BAEAAA8ALAAAAABvAEwAAAT/8MlJq704631RQlwojmRpTojjAMvpvnAsJapjtHKu7xJi
+1DYcb0gcDYAqw6DIbF5oSMfHSW0CorZldbvzYR1CrvjlxQLGaFc5CgCl36I10uCmEA7wPCrxi9Ir
+DQR6gxIDV3N1D4GEjAiHNX8Sd4yUjkB0CJmalIwDfUoIDAIFmy4Ep6gMEgyokxMEqhWsqHiSrbCS
+ARMCgqu0BRQHrbEWfKEKDckNB5kuAQEECs+xBQ3PAQIUDcAV1dfZEs/R0+EKbgq1D94ByMSn18QV
+mdXJ0cnmiSXQ3Q0Y2xbVMuyjgMDaAwENiAV8UFBXLg6ZkjHLxCBZgGYnBk5YaOEfP4G9/4IpeICO
+AkeDDzcgQGhuARgE9DCa0ChhHTZt3ExaewZuAs1VgRLqLFDggFBb13QmI2X0Yo0BBbchIFCPxM9q
+tHACDHQqXbiQwZbxU+Y1GioKs2AhaGppRVSmXa2CVdfvgkedIC9Uy1mzrgUCDjUgCNAAn4oBMfON
+uOoXEN++ebc+5lgBMMSoE48tk6lvLmWtHzH87Du5sZ3AGTIhLHzqHufOY5VpU+aRnmwKo+mWxkBV
+2WOCK2kHKnWCQTyGRJObTE6qB/PHxjs0J/h7FXPFwFdOQ+BSi44CAr5Vp7JSmDIFd3oK1uThkwwG
+0ITTJqCewmr58tHVt8DAKP7zF4VQAP8Dj0jxQn//5YdaOAn+p8B4/jV4XgiBQFEDdhywI6F8BCTS
+24bC1YcAMiBaRCEBRwCRQAlrlZhfHSS6eA8xI8o40okPRIFhBzHKqExIPtKWzocl7ofBgA/0UcOK
+IkQYpG8PVPRkYX3ZaEKBNohA2JTnZWPbk6oQKRxgARwQ43gaWFhDGBgw0CN+6L15zwHEbIkfeGYm
+OGCCN+6C3glqqnDGBk7ml5Obc/5W6I+76HlffgLEEwqgWOzIUIPmdHOAkZL8l86jwg22oX6WbhCo
+CmxWACptmUb53KvJRYVfYGJOaOeoAZpw6goa1KpMT3L+JyV+ZAYr0QO3gtgqCbs6oIH/sY2V+CCX
+/wzr4lwhYHkhBrJyOIG1DQLGZZ/JgngcB0oikWqV+KXzZYNlchnPohIuqNIXBuqVYEjl/leAryDu
+1x+0wtmrgUtfDLqVgxPQmx9JQSpQn3qi5JmgwRloW4PCssArD7R4+ChNPhV1aAG0aFqQAr4cV0Bw
+rgJAqwAD7wp5DU/ndlpYrnQlWCoFCOObAcA+6rLqbQJyaM++JKSLRQY1B9lLv1SKQLCeIwQt9NDU
+tgowthgcvaFX9+IrqGBX7wujpyHUKPLPE2iMRMv8pS3fgheHQHW4cM9g9sYQEc3hceDSlrKfLkpD
+Qop/58vBv5jSeYHYDfR9kMUO8hwC/+ONe9d2eMK8E0DO38JKVHHhtYIN6Qc3DoTlnOjQbMKxi9GW
+66jKgMAAvPcOexpa4+4A7AMkkAAAcvuBvPEL8J7HAk7jzuQGxUcv/BcGAGC88060dz0Slhry/fhz
+aJ8A9zF4kDzu60oAPfnw/718As1DldoACxwf/9wYvL///wAM4CUU4wkBGvCA8POc3xDIwAb+TYEP
+4JwDJzhBCDKEghhsYCSekMEOBnAKGljf+LKHvBIiz4PwU0Lb4mc+9KmEd8ZDnvU8eAMSBO9vBjjf
+EGB4vBkekAWUwiEIt8BDAPjwetlbwO8qkDwAWDANuyve8WTIsuUpUQdyENQTa4cGOQy0j4twoEEb
+wAiHCAAAOw==
+
+------=_NextPart_000_0000_01C6C84E.1BEA6BF0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.teletype.com/images/backbutton.gif
+
+R0lGODlhKwAPAKIAAOTZ2biwsHFxcTAwMP9UVAAAAP8AAP///yH5BAAAAAAALAAAAAArAA8AAAO8
+eHogU0OERau9WIUXXRFAJo6K8IXLNqBkmxYThQ7rAtwVLgehfgORSsAwAXw0haTABklxYLSDSWBi
+AQgGA8pRKjRgClotAPkZJeAoA5vVIkOOgCO0IU+4TFrsOGxnUUYhYmBnB0dBL01hS1d+bgxeRhNR
+JjSHAxRxYAdqB31/SJ4wZGhUDpgmPDdBanY2bDOoSSedZHAQA66kJZgyBHSEPwoswzY8DDaAEcQa
+iC7PKhI3ckfP1gynYrnXLgkAOw==
+
+------=_NextPart_000_0000_01C6C84E.1BEA6BF0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://www.teletype.com/bkglined.gif
+
+R0lGODlhFgAnANX/AIGBgb+/v8vLy/Hx8erq6v////7+/uTk5PDw8NXV1eDg4Nra2u/v78PDw2dn
+Z/n5+f39/ZeXl9TU1PLy8vPz893d3e3t7fT09MjIyNfX18fHx8XFxdDQ0MnJydbW1tjY2Nzc3MDA
+wMbGxrW1tX9/f8/Pz9PT035+fubm5uXl5d7e3tvb27S0tO7u7t/f38TExLa2tre3t8HBwcLCwufn
+57Ozs+zs7OPj49nZ2X19ffb29vX19bi4uNHR0c7OztLS0iwAAAAAFgAnAEAGR0CCcEgsGo/IpHLJ
+bDqf0Kh0SlUWrtisdsvter/gsHhMLpvP6K5hzW6734aBfE6v2+/4vH7P7/v/gIGCg4SFhoeIiYqL
+jHxBADs=
+
+------=_NextPart_000_0000_01C6C84E.1BEA6BF0--

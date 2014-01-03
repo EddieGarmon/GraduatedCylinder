@@ -1,4 +1,5 @@
 ﻿using System;
+
 using GraduatedCylinder;
 
 namespace BasicUsage
@@ -6,16 +7,17 @@ namespace BasicUsage
     internal class Program
     {
         private static void Main(string[] args) {
-            Mass vehicleMass = new Mass(2500, MassUnit.Pounds);
-            Speed startSpeed = new Speed(72, SpeedUnit.MilesPerHour);
-            Speed endSpeed = new Speed(0, SpeedUnit.MilesPerHour);
-            Length stoppingDistance = new Length(1234, LengthUnit.Feet);
+            var vehicleMass = new Mass(2500, MassUnit.Pounds);
+            var startSpeed = new Speed(72, SpeedUnit.MilesPerHour);
+            var endSpeed = new Speed(0, SpeedUnit.MilesPerHour);
+            var stoppingDistance = new Length(1234, LengthUnit.Foot);
             Acceleration deceleration = ((endSpeed * endSpeed) - (startSpeed * startSpeed)) / (2 * stoppingDistance);
             Force stoppingForceRequired = vehicleMass * deceleration;
+
             Console.WriteLine("The stopping force required is:");
-            Console.WriteLine("\t{0}", stoppingForceRequired.ToString(ForceUnit.Newtons));
-            Console.WriteLine("\t{0}", stoppingForceRequired.ToString(ForceUnit.KilogramForce));
-            Console.WriteLine("\t{0}", stoppingForceRequired.ToString(ForceUnit.PoundForce));
+            Console.WriteLine("\t{0}", stoppingForceRequired.ToString(ForceUnit.Newtons, 3));
+            Console.WriteLine("\t{0}", stoppingForceRequired.ToString(ForceUnit.KilogramForce, 3));
+            Console.WriteLine("\t{0}", stoppingForceRequired.ToString(ForceUnit.PoundForce, 3));
             Console.ReadLine();
         }
     }

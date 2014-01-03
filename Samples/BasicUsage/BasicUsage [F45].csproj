@@ -50,9 +50,9 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Source\GraduatedCylinder\Port-78\GraduatedCylinder [F45 P80 R45].csproj">
-      <Project>{50adc26e-141e-4f11-a6c4-2a286b7242ba}</Project>
-      <Name>GraduatedCylinder [F45 P80 R45]</Name>
+    <ProjectReference Include="..\..\Source\GraduatedCylinder\Full-4.5\GraduatedCylinder [F45].csproj">
+      <Project>{1D38FF49-10A9-4B6A-AB1F-BE6C29EF8CA9}</Project>
+      <Name>GraduatedCylinder [F45]</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

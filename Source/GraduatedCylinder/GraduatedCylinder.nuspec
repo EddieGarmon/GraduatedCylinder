@@ -1,30 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
-	<metadata minClientVersion="2.6">
-		<id>GraduatedCylinder</id>
-		<version>0.0.0-sv</version>
-		<title>Graduated Cylinder</title>
-		<authors>Eddie Garmon</authors>
-		<owners>Eddie Garmon</owners>
-		<licenseUrl>https://github.com/EddieGarmon/GraduatedCylinder/blob/master/LICENSE</licenseUrl>
-		<projectUrl>https://github.com/EddieGarmon/GraduatedCylinder</projectUrl>
-        <iconUrl>http://eddiegarmon.github.io/MyLogo.png</iconUrl>
-        <requireLicenseAcceptance>true</requireLicenseAcceptance>
-		<description>a modeling of measurable dimensions</description>
-		<language>en-US</language>
-		<tags>measures UOM</tags>
-	</metadata>
-	<files>
-		<!--F35-->
-		<file src="Full-3.5\bin\Release\GraduatedCylinder.dll" target="lib\net35" />
-		<!--F40-->
-		<file src="Full-4.0\bin\Release\GraduatedCylinder.dll" target="lib\net40" />
-		<!--Portable: net45+sl4+wp71+win8-->
-		<file src="Port-104\bin\Release\GraduatedCylinder.dll" target="lib\portable-net45+sl4+wp71+win8" />
-		<!--Portable: net45+wp8+win8-->
-		<file src="Port-78\bin\Release\GraduatedCylinder.dll" target="lib\portable-net45+wp8+win8" />
-		<!--Android-->
-		<!--Mono.Mac use Port/F40? here-->
-		<!--iOS ?-->
-	</files>
+  <metadata>
+    <id>GraduatedCylinder</id>
+    <version>0.0.0-sv</version>
+    <title>Graduated Cylinder</title>
+    <authors>Eddie Garmon</authors>
+    <owners>Eddie Garmon</owners>
+    <licenseUrl>https://github.com/EddieGarmon/GraduatedCylinder/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/EddieGarmon/GraduatedCylinder</projectUrl>
+    <iconUrl>http://eddiegarmon.github.io/MyLogo.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>A modeling of measurable dimensions</description>
+    <language>en-US</language>
+    <tags>measure(s) dimension(s) unit(s) UOM </tags>
+  </metadata>
+  <files>
+    <!-- Full Framework -->
+    <!-- v4.0 -->
+    <file src="Full-4.0\bin\Release\GraduatedCylinder.dll" target="lib\net40" />
+    <!-- v4.5 -->
+    <file src="Full-4.5\bin\Release\GraduatedCylinder.dll" target="lib\net45" />
+    <!-- v4.6 -->
+    <file src="Full-4.6\bin\Release\GraduatedCylinder.dll" target="lib\net46" />
+
+    <!-- Silverlight -->
+    <!-- v5.0 -->
+    <file src="Silverlight-5.0\bin\Release\GraduatedCylinder.dll" target="lib\sl50" />
+
+    <!-- Windows Phone -->
+    <!-- v8.1 -->
+    <file src="Phone-8.1\bin\Release\GraduatedCylinder.dll" target="lib\wp81" />
+    <file src="Phone-8.1\bin\Release\GraduatedCylinder.dll" target="lib\wpa81" />
+
+    <!-- Windows -->
+    <!-- v8.1 -->
+    <file src="WinRT-8.1\bin\Release\GraduatedCylinder.dll" target="lib\netcore451" />
+    <!-- v10 -->
+    <file src="Win-10\bin\Release\GraduatedCylinder.dll" target="lib\uap10.0" />
+
+    <!-- Xamarin Android -->
+    <!-- v5.0 -->
+    <file src="Android-5.0\bin\Release\GraduatedCylinder.dll" target="lib\MonoAndroid50" />
+    <!-- v6.0 -->
+    <file src="Android-6.0\bin\Release\GraduatedCylinder.dll" target="lib\MonoAndroid60" />
+
+    <!-- Xamarin iOS -->
+    <file src="iOS\bin\Release\GraduatedCylinder.dll" target="lib\Xamarin.iOS10" />
+    
+    <!--NetStandard -->
+    <!-- v1.0 -->
+    <file src="NetStandard-1.0\bin\Release\GraduatedCylinder.dll" target="lib\netstandard1.0" />
+
+  </files>
 </package>
