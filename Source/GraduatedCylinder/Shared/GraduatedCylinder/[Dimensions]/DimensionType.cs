@@ -20,9 +20,6 @@ namespace GraduatedCylinder
         [UnitsType(typeof(AngularAccelerationUnit))]
         AngularAcceleration,
 
-        [UnitsType(typeof(AngularVelocityUnit))]
-        AngularVelocity,
-
         [UnitsType(typeof(AreaUnit))]
         Area,
 

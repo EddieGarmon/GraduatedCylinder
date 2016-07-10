@@ -12,7 +12,6 @@ namespace GraduatedCylinder
             var acceleration = new Acceleration(1, AccelerationUnit.BaseUnit);
             var angle = new Angle(1, AngleUnit.BaseUnit);
             var angularAcceleration = new AngularAcceleration(1, AngularAccelerationUnit.BaseUnit);
-            var angularVelocity = new AngularVelocity(1, AngularVelocityUnit.BaseUnit);
             var area = new Area(1, AreaUnit.BaseUnit);
             var density = new MassDensity(1, MassDensityUnit.BaseUnit);
             var electricCurrent = new ElectricCurrent(1, ElectricCurrentUnit.BaseUnit);

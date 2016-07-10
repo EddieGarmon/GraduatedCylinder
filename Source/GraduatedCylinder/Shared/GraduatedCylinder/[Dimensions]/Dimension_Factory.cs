@@ -13,7 +13,6 @@ namespace GraduatedCylinder
 					{ DimensionType.Acceleration, (value, unitOfMeasure) => new Acceleration(value, unitOfMeasure) },
 					{ DimensionType.Angle, (value, unitOfMeasure) => new Angle(value, unitOfMeasure) },
 					{ DimensionType.AngularAcceleration, (value, unitOfMeasure) => new AngularAcceleration(value, unitOfMeasure) },
-					{ DimensionType.AngularVelocity, (value, unitOfMeasure) => new AngularVelocity(value, unitOfMeasure) },
 					{ DimensionType.Area, (value, unitOfMeasure) => new Area(value, unitOfMeasure) },
 					{ DimensionType.ElectricCurrent, (value, unitOfMeasure) => new ElectricCurrent(value, unitOfMeasure) },
                     { DimensionType.ElectricPotential, (value, unitOfMeasure) => new ElectricPotential(value, unitOfMeasure) },

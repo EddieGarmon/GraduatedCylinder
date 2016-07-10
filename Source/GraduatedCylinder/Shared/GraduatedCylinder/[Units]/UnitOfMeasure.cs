@@ -127,11 +127,6 @@ namespace GraduatedCylinder
             return (AngularAccelerationUnit)(unitOfMeasure.EnumValue);
         }
 
-        public static implicit operator AngularVelocityUnit(UnitOfMeasure unitOfMeasure) {
-            unitOfMeasure.DimensionType.ShouldBe(DimensionType.AngularVelocity);
-            return (AngularVelocityUnit)(unitOfMeasure.EnumValue);
-        }
-
         public static implicit operator AreaUnit(UnitOfMeasure unitOfMeasure) {
             unitOfMeasure.DimensionType.ShouldBe(DimensionType.Area);
             return (AreaUnit)(unitOfMeasure.EnumValue);
@@ -266,10 +261,6 @@ namespace GraduatedCylinder
 
         public static implicit operator UnitOfMeasure(AngularAccelerationUnit angularAccelerationUnit) {
             return UomLookups[DimensionType.AngularAcceleration].ByValue((int)angularAccelerationUnit);
-        }
-
-        public static implicit operator UnitOfMeasure(AngularVelocityUnit angularVelocityUnit) {
-            return UomLookups[DimensionType.AngularVelocity].ByValue((int)angularVelocityUnit);
         }
 
         public static implicit operator UnitOfMeasure(AreaUnit areaUnit) {

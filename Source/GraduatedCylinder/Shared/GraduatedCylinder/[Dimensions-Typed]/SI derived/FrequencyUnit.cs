@@ -1,29 +1,35 @@
 namespace GraduatedCylinder
 {
-    /// <summary>
-    ///     Units of Frequency that are currently supported, Hertz is the Base Unit
-    /// </summary>
     public enum FrequencyUnit
     {
-        /// <summary>
-        ///     Hertz, This is the Base Unit
-        /// </summary>
         BaseUnit = Hertz,
 
-        /// <summary>
-        ///     Hertz, This is the Base Unit
-        /// </summary>
         [UnitAbbreviation("Hz")]
         [Scale(1.0)]
         Hertz = 0,
 
-        /// <summary>
-        ///     Number of Cycles/Second
-        /// </summary>
+        [UnitAbbreviation("MHz")]
+        [Scale(1e6)]
+        Megahertz = 6,
+
+        [UnitAbbreviation("GHz")]
+        [Scale(1e9)]
+        Gigahertz = 9,
+
+        [UnitAbbreviation("rad/s")]
+        [Scale(0.159154943274)]
+        RadiansPerSecond = 101,
+
         [UnitAbbreviation("n/s")]
         [Scale(1.0)]
-        NumberOfCyclesPerSecond = 1,
+        CyclePerSecond = 102,
 
-        //MHz
+        [UnitAbbreviation("r/s")]
+        [Scale(1.0)]
+        RevolutionPerSecond = 103,
+
+        [UnitAbbreviation("rpm")]
+        [Scale(0.0166666666667)]
+        RevolutionsPerMinute = 104
     }
 }

@@ -8,7 +8,7 @@ namespace GraduatedCylinder
         [Fact]
         public void OpAddition() {
             var frequency1 = new Frequency(1, FrequencyUnit.Hertz);
-            var frequency2 = new Frequency(1, FrequencyUnit.NumberOfCyclesPerSecond);
+            var frequency2 = new Frequency(1, FrequencyUnit.CyclePerSecond);
             var expected = new Frequency(2, FrequencyUnit.Hertz);
             (frequency1 + frequency2).ShouldEqual(expected);
             (frequency2 + frequency1).ShouldEqual(expected);
@@ -17,19 +17,19 @@ namespace GraduatedCylinder
         [Fact]
         public void OpDivision() {
             var frequency1 = new Frequency(2, FrequencyUnit.Hertz);
-            var frequency2 = new Frequency(2, FrequencyUnit.NumberOfCyclesPerSecond);
+            var frequency2 = new Frequency(2, FrequencyUnit.CyclePerSecond);
             (frequency1 / frequency2).ShouldBeWithinEpsilonOf(1);
             (frequency2 / frequency1).ShouldBeWithinEpsilonOf(1);
 
             (frequency1 / 2).ShouldEqual(new Frequency(1, FrequencyUnit.Hertz));
-            (frequency2 / 2).ShouldEqual(new Frequency(1, FrequencyUnit.NumberOfCyclesPerSecond));
+            (frequency2 / 2).ShouldEqual(new Frequency(1, FrequencyUnit.CyclePerSecond));
         }
 
         [Fact]
         public void OpEquals() {
             var frequency1 = new Frequency(1, FrequencyUnit.Hertz);
-            var frequency2 = new Frequency(1, FrequencyUnit.NumberOfCyclesPerSecond);
-            var frequency3 = new Frequency(2, FrequencyUnit.NumberOfCyclesPerSecond);
+            var frequency2 = new Frequency(1, FrequencyUnit.CyclePerSecond);
+            var frequency3 = new Frequency(2, FrequencyUnit.CyclePerSecond);
             (frequency1 == frequency2).ShouldBeTrue();
             (frequency2 == frequency1).ShouldBeTrue();
             (frequency1 == frequency3).ShouldBeFalse();
@@ -47,8 +47,8 @@ namespace GraduatedCylinder
         [Fact]
         public void OpGreaterThan() {
             var frequency1 = new Frequency(1, FrequencyUnit.Hertz);
-            var frequency2 = new Frequency(1, FrequencyUnit.NumberOfCyclesPerSecond);
-            var frequency3 = new Frequency(2, FrequencyUnit.NumberOfCyclesPerSecond);
+            var frequency2 = new Frequency(1, FrequencyUnit.CyclePerSecond);
+            var frequency3 = new Frequency(2, FrequencyUnit.CyclePerSecond);
             (frequency1 > frequency3).ShouldBeFalse();
             (frequency3 > frequency1).ShouldBeTrue();
             (frequency1 > frequency2).ShouldBeFalse();
@@ -58,8 +58,8 @@ namespace GraduatedCylinder
         [Fact]
         public void OpGreaterThanOrEqual() {
             var frequency1 = new Frequency(1, FrequencyUnit.Hertz);
-            var frequency2 = new Frequency(1, FrequencyUnit.NumberOfCyclesPerSecond);
-            var frequency3 = new Frequency(2, FrequencyUnit.NumberOfCyclesPerSecond);
+            var frequency2 = new Frequency(1, FrequencyUnit.CyclePerSecond);
+            var frequency3 = new Frequency(2, FrequencyUnit.CyclePerSecond);
             (frequency1 >= frequency3).ShouldBeFalse();
             (frequency3 >= frequency1).ShouldBeTrue();
             (frequency1 >= frequency2).ShouldBeTrue();
@@ -69,8 +69,8 @@ namespace GraduatedCylinder
         [Fact]
         public void OpInverseEquals() {
             var frequency1 = new Frequency(1, FrequencyUnit.Hertz);
-            var frequency2 = new Frequency(1, FrequencyUnit.NumberOfCyclesPerSecond);
-            var frequency3 = new Frequency(2, FrequencyUnit.NumberOfCyclesPerSecond);
+            var frequency2 = new Frequency(1, FrequencyUnit.CyclePerSecond);
+            var frequency3 = new Frequency(2, FrequencyUnit.CyclePerSecond);
             (frequency1 != frequency2).ShouldBeFalse();
             (frequency2 != frequency1).ShouldBeFalse();
             (frequency1 != frequency3).ShouldBeTrue();
@@ -80,8 +80,8 @@ namespace GraduatedCylinder
         [Fact]
         public void OpLessThan() {
             var frequency1 = new Frequency(1, FrequencyUnit.Hertz);
-            var frequency2 = new Frequency(1, FrequencyUnit.NumberOfCyclesPerSecond);
-            var frequency3 = new Frequency(2, FrequencyUnit.NumberOfCyclesPerSecond);
+            var frequency2 = new Frequency(1, FrequencyUnit.CyclePerSecond);
+            var frequency3 = new Frequency(2, FrequencyUnit.CyclePerSecond);
             (frequency1 < frequency3).ShouldBeTrue();
             (frequency3 < frequency1).ShouldBeFalse();
             (frequency1 < frequency2).ShouldBeFalse();
@@ -91,8 +91,8 @@ namespace GraduatedCylinder
         [Fact]
         public void OpLessThanOrEqual() {
             var frequency1 = new Frequency(1, FrequencyUnit.Hertz);
-            var frequency2 = new Frequency(1, FrequencyUnit.NumberOfCyclesPerSecond);
-            var frequency3 = new Frequency(2, FrequencyUnit.NumberOfCyclesPerSecond);
+            var frequency2 = new Frequency(1, FrequencyUnit.CyclePerSecond);
+            var frequency3 = new Frequency(2, FrequencyUnit.CyclePerSecond);
             (frequency1 <= frequency3).ShouldBeTrue();
             (frequency3 <= frequency1).ShouldBeFalse();
             (frequency1 <= frequency2).ShouldBeTrue();
@@ -110,9 +110,9 @@ namespace GraduatedCylinder
         [Fact]
         public void OpSubtraction() {
             var frequency1 = new Frequency(10, FrequencyUnit.Hertz);
-            var frequency2 = new Frequency(1, FrequencyUnit.NumberOfCyclesPerSecond);
+            var frequency2 = new Frequency(1, FrequencyUnit.CyclePerSecond);
             (frequency1 - frequency2).ShouldEqual(new Frequency(9, FrequencyUnit.Hertz));
-            (frequency2 - frequency1).ShouldEqual(new Frequency(-9, FrequencyUnit.NumberOfCyclesPerSecond));
+            (frequency2 - frequency1).ShouldEqual(new Frequency(-9, FrequencyUnit.CyclePerSecond));
         }
     }
 }

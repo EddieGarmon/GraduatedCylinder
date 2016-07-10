@@ -33,8 +33,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)GraduatedCylinder\[Dimensions-Typed]\SI derived\AngleUnit.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GraduatedCylinder\[Dimensions-Typed]\SI derived\AngularAcceleration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GraduatedCylinder\[Dimensions-Typed]\SI derived\AngularAccelerationUnit.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)GraduatedCylinder\[Dimensions-Typed]\SI derived\AngularVelocity.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)GraduatedCylinder\[Dimensions-Typed]\SI derived\AngularVelocityUnit.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GraduatedCylinder\[Dimensions-Typed]\SI derived\Area.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GraduatedCylinder\[Dimensions-Typed]\SI derived\AreaUnit.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GraduatedCylinder\[Dimensions-Typed]\SI derived\ElectricChargeUnit.cs" />

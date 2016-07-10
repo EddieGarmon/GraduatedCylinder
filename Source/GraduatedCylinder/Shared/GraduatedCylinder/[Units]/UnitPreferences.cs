@@ -32,7 +32,6 @@ namespace GraduatedCylinder
             _unitPreferences.Add(DimensionType.Acceleration, AccelerationUnit.BaseUnit);
             _unitPreferences.Add(DimensionType.Angle, AngleUnit.BaseUnit);
             _unitPreferences.Add(DimensionType.AngularAcceleration, AngularAccelerationUnit.BaseUnit);
-            _unitPreferences.Add(DimensionType.AngularVelocity, AngularVelocityUnit.BaseUnit);
             _unitPreferences.Add(DimensionType.Area, AreaUnit.BaseUnit);
             _unitPreferences.Add(DimensionType.ElectricCurrent, ElectricCurrentUnit.BaseUnit);
             _unitPreferences.Add(DimensionType.ElectricPotential, ElectricPotentialUnit.BaseUnit);
@@ -74,11 +73,6 @@ namespace GraduatedCylinder
         public UnitOfMeasure AngularAccelerationUnits {
             get { return _unitPreferences[DimensionType.AngularAcceleration]; }
             set { _unitPreferences[DimensionType.AngularAcceleration] = value; }
-        }
-
-        public UnitOfMeasure AngularVelocityUnits {
-            get { return _unitPreferences[DimensionType.AngularVelocity]; }
-            set { _unitPreferences[DimensionType.AngularVelocity] = value; }
         }
 
         public UnitOfMeasure AreaUnits {

@@ -56,7 +56,6 @@
     <Compile Include="[Conversions]\AccelerationConversionsFixture.cs" />
     <Compile Include="[Conversions]\AngleConversionsFixture.cs" />
     <Compile Include="[Conversions]\AngularAccelerationConversionsFixture.cs" />
-    <Compile Include="[Conversions]\AngularVelocityConversionsFixture.cs" />
     <Compile Include="[Conversions]\AreaConversionsFixture.cs" />
     <Compile Include="[Conversions]\CurrentConversionsFixture.cs" />
     <Compile Include="[Conversions]\DensityConversionsFixture.cs" />
@@ -82,7 +81,6 @@
     <Compile Include="[Operators]\AccelerationOperators.cs" />
     <Compile Include="[Operators]\AngleOperators.cs" />
     <Compile Include="[Operators]\AngularAccelerationOperators.cs" />
-    <Compile Include="[Operators]\AngularVelocityOperators.cs" />
     <Compile Include="[Operators]\AreaOperators.cs" />
     <Compile Include="[Operators]\ElectricCurrentOperators.cs" />
     <Compile Include="[Operators]\DensityOperators.cs" />

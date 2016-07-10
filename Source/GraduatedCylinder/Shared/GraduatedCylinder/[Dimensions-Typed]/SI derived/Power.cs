@@ -90,11 +90,11 @@ namespace GraduatedCylinder
             return new Momentum(momentumValue, MomentumUnit.KilogramMetersPerSecond);
         }
 
-        public static AngularVelocity operator /(Power power, Torque torque) {
+        public static Frequency operator /(Power power, Torque torque) {
             Guard.NotNull(power, "power");
             Guard.NotNull(torque, "torque");
             double revolutionsValue = power.In(PowerUnit.Watts) / torque.In(TorqueUnit.NewtonMeters);
-            return new AngularVelocity(revolutionsValue, AngularVelocityUnit.RevolutionsPerMinute);
+            return new Frequency(revolutionsValue, FrequencyUnit.RevolutionsPerMinute);
         }
 
         public static Speed operator /(Power power, Force force) {
@@ -104,10 +104,10 @@ namespace GraduatedCylinder
             return new Speed(speedValue, SpeedUnit.MeterPerSecond);
         }
 
-        public static Torque operator /(Power power, AngularVelocity angularVelocity) {
+        public static Torque operator /(Power power, Frequency angularVelocity) {
             Guard.NotNull(power, "power");
             Guard.NotNull(angularVelocity, "angularVelocity");
-            double torqueValue = power.In(PowerUnit.Watts) / angularVelocity.In(AngularVelocityUnit.RevolutionsPerSecond);
+            double torqueValue = power.In(PowerUnit.Watts) / angularVelocity.In(FrequencyUnit.RevolutionPerSecond);
             return new Torque(torqueValue, TorqueUnit.NewtonMeters);
         }
 

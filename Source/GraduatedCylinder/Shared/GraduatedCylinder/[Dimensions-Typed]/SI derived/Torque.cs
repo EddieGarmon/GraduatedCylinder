@@ -127,10 +127,10 @@ namespace GraduatedCylinder
             };
         }
 
-        public static Power operator *(Torque torque, AngularVelocity angularVelocity) {
+        public static Power operator *(Torque torque, Frequency angularVelocity) {
             Guard.NotNull(torque, "torque");
             Guard.NotNull(angularVelocity, "angularVelocity");
-            double powerValue = torque.In(TorqueUnit.NewtonMeters) * angularVelocity.In(AngularVelocityUnit.RevolutionsPerSecond);
+            double powerValue = torque.In(TorqueUnit.NewtonMeters) * angularVelocity.In(FrequencyUnit.RevolutionPerSecond);
             return new Power(powerValue, PowerUnit.Watts);
         }
 
