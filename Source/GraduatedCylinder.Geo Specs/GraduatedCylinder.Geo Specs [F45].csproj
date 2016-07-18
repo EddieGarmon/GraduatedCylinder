@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Devices\Gps\GPRMCSpec.cs" />
     <Compile Include="Devices\Laser\LaserSpec.cs" />
     <Compile Include="Devices\Laser\LaserDemo.cs" />
     <Compile Include="Geo\GreatArcSpec.cs" />
@@ -62,7 +63,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Devices\Gps\" />
     <Folder Include="Nmea\" />
   </ItemGroup>
   <ItemGroup>

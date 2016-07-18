@@ -21,19 +21,20 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
             // 9)  UTC Date, ddmmyy format.
             // 10) Magnetic variation, 000.0 to 180.O degrees
             // 11) Magnetic variation, E = East, W = West
+            // 12) (Optional) Fix mode indicator , A=autonomous, D=differential, E=Estimated, N=not valid, S=Simulator
             // *<CS>) Checksum.
             // <CR><LF>) Sentence terminator
 
             if (sentence.Id != "$GPRMC") {
                 return null;
             }
-            if (sentence.Parts.Length != 12) {
-                Debug.Assert(sentence.Parts.Length != 13, "Need to support NMEA 2.3");
+            if (sentence.Parts.Length != 12 && sentence.Parts.Length != 13) {
                 return null;
             }
             if (sentence.Parts[2] != "A") {
                 return null;
             }
+            
 
             DateTime fixTime = SentenceHelper.ParseUtcDate(sentence.Parts[9]) + SentenceHelper.ParseUtcTime(sentence.Parts[1]);
             Latitude latitude = SentenceHelper.ParseLatitude(sentence.Parts[3], sentence.Parts[4]);
@@ -45,6 +46,12 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
             double.TryParse(sentence.Parts[8], out heading);
 
             //todo: magnetic variation
+
+            if (sentence.Parts.Length == 13) {
+                if (sentence.Parts[12] != "A" && sentence.Parts[12] != "D") {
+                    return null;
+                }
+            }
 
             return new Decoded(new GeoPosition(latitude, longitude), fixTime, heading, new Speed(speed, SpeedUnit.NauticalMilesPerHour));
         }
