@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using GraduatedCylinder.Geo;
 using GraduatedCylinder.Nmea;
 
@@ -34,7 +33,6 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
             if (sentence.Parts[2] != "A") {
                 return null;
             }
-            
 
             DateTime fixTime = SentenceHelper.ParseUtcDate(sentence.Parts[9]) + SentenceHelper.ParseUtcTime(sentence.Parts[1]);
             Latitude latitude = SentenceHelper.ParseLatitude(sentence.Parts[3], sentence.Parts[4]);
