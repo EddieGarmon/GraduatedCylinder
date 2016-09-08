@@ -46,7 +46,7 @@ namespace GeoDemo
             CloseDevice();
         }
 
-        private void OnLocationChanged(GeoPosition position) {
+        private void OnLocationChanged(LocationChangedEventArgs locationChangedEventArgs) {
             NmeaLog = string.Format("Lat: {1}{0}Long: {2}{0}Alt: {3}{0}Fix: {4}{0}Heading: {5}{0}Speed: {6}{0}Time: {7}{0}",
                                     Environment.NewLine,
                                     _gps.CurrentLocation.Latitude,
