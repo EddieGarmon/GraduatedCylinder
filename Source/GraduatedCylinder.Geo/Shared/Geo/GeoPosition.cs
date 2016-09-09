@@ -28,7 +28,11 @@
             return "{" + Latitude + ", " + Longitude + "}";
         }
 
-        public static GeoPosition New(Latitude latitude, Longitude longitude, Length altitude = null) {
+        public static GeoPosition New(Latitude latitude, Longitude longitude) {
+            return new GeoPosition(latitude, longitude);
+        }
+
+        public static GeoPosition New(Latitude latitude, Longitude longitude, Length altitude) {
             return new GeoPosition(latitude, longitude, altitude);
         }
     }
