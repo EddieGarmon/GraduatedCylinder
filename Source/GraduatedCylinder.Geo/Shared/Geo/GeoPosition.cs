@@ -27,5 +27,9 @@
         public override string ToString() {
             return "{" + Latitude + ", " + Longitude + "}";
         }
+
+        public static GeoPosition New(Latitude latitude, Longitude longitude, Length altitude = null) {
+            return new GeoPosition(latitude, longitude, altitude);
+        }
     }
 }
