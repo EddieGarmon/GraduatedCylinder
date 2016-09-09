@@ -14,7 +14,10 @@
 		<description>Geo based extensions to the units modeling library. Includes latitude, longitude, and the like. NMEA parsing for GPS and LASERS.</description>
 		<language>en-US</language>
 		<tags>latitude longitude gps trupulse nmea</tags>
-	</metadata>
+    <dependencies>
+      <dependency id="GraduatedCylinder" version="0.0.0-sv" />
+    </dependencies>
+  </metadata>
 	<files>
     <!-- Full Framework -->
     <!--F40-->
