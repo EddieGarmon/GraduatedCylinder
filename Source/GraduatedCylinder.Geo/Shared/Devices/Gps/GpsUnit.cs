@@ -25,7 +25,7 @@ namespace GraduatedCylinder.Devices.Gps
         public GpsUnit(IProvideSentences nmeaProvider) {
             MinimumFixForNotification = GpsFixType.ThreeD;
             CurrentLocation = new GeoPosition(0, 0, new Length(0, LengthUnit.Meter));
-            CurrentHeading = new Heading(0);
+            CurrentHeading = Heading.Unknown;
 
             _nmeaProvider = nmeaProvider;
             _nmeaProvider.SentenceReceived += sentence => {
@@ -134,7 +134,8 @@ namespace GraduatedCylinder.Devices.Gps
             }
             var handler = LocationChanged;
             if (handler != null) {
-                handler(new LocationChangedEventArgs(CurrentLocation, CurrentHeading));
+                var args = new LocationChangedEventArgs(CurrentLocation, CurrentHeading);
+                handler(args);
             }
         }
     }

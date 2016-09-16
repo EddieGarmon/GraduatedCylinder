@@ -42,7 +42,7 @@ namespace GraduatedCylinder.Geo
         }
 
         public override string ToString() {
-            return new PrettyPrinter(this).AsDegreesMinutesSeconds();
+            return PrettyPrinter.AsDegreesMinutesSeconds(this);
         }
 
         public static bool operator ==(Latitude left, Latitude right) {

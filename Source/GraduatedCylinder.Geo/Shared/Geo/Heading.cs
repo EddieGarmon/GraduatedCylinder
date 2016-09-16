@@ -6,20 +6,30 @@ namespace GraduatedCylinder.Geo
     {
         public const double MaxValue = 360;
         public const double MinValue = 0;
+
+        private static readonly Heading _unknown = new Heading();
         private readonly double _value;
 
         public Heading(double value) {
             if (value < MinValue) {
-                throw new ArgumentOutOfRangeException("value", "Value less that minimum.");
+                throw new ArgumentOutOfRangeException("value", "Value is less than the minimum.");
             }
             if (value > MaxValue) {
-                throw new ArgumentOutOfRangeException("value", "Value greater than maximum.");
+                throw new ArgumentOutOfRangeException("value", "Value is greater than the maximum.");
             }
             _value = value;
         }
 
+        private Heading() {
+            _value = double.NaN;
+        }
+
         public double Value {
             get { return _value; }
+        }
+
+        public static Heading Unknown {
+            get { return _unknown; }
         }
 
         public override int GetHashCode() {

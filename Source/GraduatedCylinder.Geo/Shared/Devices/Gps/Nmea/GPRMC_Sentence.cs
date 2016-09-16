@@ -41,7 +41,6 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
             double speed,
                    heading;
             double.TryParse(sentence.Parts[7], out speed);
-            double.TryParse(sentence.Parts[8], out heading);
             if (!double.TryParse(sentence.Parts[8], out heading)) {
                 heading = double.NaN;
             }

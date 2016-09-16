@@ -27,7 +27,6 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
             }
 
             double trueCourse;
-            double.TryParse(sentence.Parts[1], out trueCourse);
             if (!double.TryParse(sentence.Parts[1], out trueCourse)) {
                 trueCourse = double.NaN;
             }
