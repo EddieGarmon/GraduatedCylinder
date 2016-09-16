@@ -1,4 +1,5 @@
-﻿using GraduatedCylinder.Nmea;
+﻿using System;
+using GraduatedCylinder.Nmea;
 using Xunit;
 using XunitShould;
 
@@ -24,6 +25,21 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
             provideGeoPosition.CurrentLocation.Latitude.Hemisphere.ShouldEqual(latHemisphere);
             provideGeoPosition.CurrentLocation.Longitude.Value.ShouldEqualWithinPrecision(longitude, 10);
             provideGeoPosition.CurrentLocation.Longitude.Hemisphere.ShouldEqual(longHemisphere);
+        }
+
+        [Theory]
+        [InlineData("$GPRMC,145710.00,A,3605.08678,N,07958.72572,W,0.037,,180716,,,D*6B", Double.NaN)]
+        [InlineData("$GPRMC,145930.00,A,3605.06933,N,07958.57358,W,38.579,94.11,180716,,,A*72", 94.11)]
+        [InlineData("$GPRMC,123519,A,4807.038,N,01131.000,E,022.4,084.4,230394,003.1,W*6A", 84.4)]
+        public void ValidateHeading(string nmea, double expectedHeading) {
+            GpsParser parser = new GpsParser();
+            Sentence sentence = Sentence.Parse(nmea);
+
+            Message message = parser.Parse(sentence);
+            message.Sentence.ShouldEqual(sentence);
+
+            IProvideTrajectory provideTrajectory = message.ValueAs<IProvideTrajectory>();
+            provideTrajectory.CurrentHeading.Value.ShouldEqual(expectedHeading);
         }
     }
 }
