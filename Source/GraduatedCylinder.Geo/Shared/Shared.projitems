@@ -55,6 +55,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Geo\Heading.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Geo\IGeoFence.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Geo\Latitude.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Geo\LocationChangedEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Geo\Longitude.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Geo\PrettyPrinter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Nmea\IProvideSentences.cs" />
