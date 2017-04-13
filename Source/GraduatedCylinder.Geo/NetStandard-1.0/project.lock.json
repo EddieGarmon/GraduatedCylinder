@@ -313,7 +313,7 @@
   },
   "libraries": {
     "Microsoft.NETCore.Jit/1.0.2": {
-      "sha512": "Ok2vWofa6X8WD9vc4pfLHwvJz1/B6t3gOAoZcjrjrQf7lQOlNIuZIZtLn3wnWX28DuQGpPJkRlBxFj7Z5txNqw==",
+      "sha512": "FlR+Ti64BwHK9GmShKVTA0odPWwEc0zRxXH7ge++agu1SuOnF2CebYNrRTMIbLTo8/MKyNB489EZw1UpqfV4jg==",
       "type": "package",
       "path": "Microsoft.NETCore.Jit/1.0.2",
       "files": [
@@ -420,7 +420,7 @@
       ]
     },
     "Microsoft.NETCore.Runtime.CoreCLR/1.0.2": {
-      "sha512": "A0x1xtTjYJWZr2DRzgfCOXgB0JkQg8twnmtTJ79wFje+IihlLbXtx6Z2AxyVokBM5ruwTedR6YdCmHk39QJdtQ==",
+      "sha512": "aI5FuUcG7lebOA/m6kYTjBgLokaDmi6FBj3d7XysNdrH6i/s6kmVCtMyZ4HGAlOViophoUMWZXUijopJ8OPvmg==",
       "type": "package",
       "path": "Microsoft.NETCore.Runtime.CoreCLR/1.0.2",
       "files": [
@@ -445,7 +445,7 @@
       ]
     },
     "Microsoft.NETCore.Windows.ApiSets/1.0.1": {
-      "sha512": "SaToCvvsGMxTgtLv/BrFQ5IFMPRE1zpWbnqbpwykJa8W5XiX82CXI6K2o7yf5xS7EP6t/JzFLV0SIDuWpvBZVw==",
+      "sha512": "FU1UY888zdTkXMgbR79LnFQaopb4PSUdJwLyUhuVLpm2sGuTkiZV3dPhV3eVSc9qRC5PC+IlEKVphF+gZmKNUw==",
       "type": "package",
       "path": "Microsoft.NETCore.Windows.ApiSets/1.0.1",
       "files": [

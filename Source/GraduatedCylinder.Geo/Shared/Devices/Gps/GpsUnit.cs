@@ -13,7 +13,6 @@ namespace GraduatedCylinder.Devices.Gps
                            IProvideSatelliteInfo,
                            IDisposable
     {
-        private static readonly Speed MinimumSpeedForHeadingUpdate = new Speed(.03, SpeedUnit.NauticalMilesPerHour);
         private readonly List<int> _activeSatellitePrns = new List<int>();
         private readonly IProvideSentences _nmeaProvider;
         private readonly GpsParser _parser = new GpsParser();
@@ -24,6 +23,7 @@ namespace GraduatedCylinder.Devices.Gps
 
         public GpsUnit(IProvideSentences nmeaProvider) {
             MinimumFixForNotification = GpsFixType.ThreeD;
+            MinimumSpeedForHeadingUpate = new Speed(1, SpeedUnit.MilesPerHour);
             CurrentLocation = new GeoPosition(0, 0, new Length(0, LengthUnit.Meter));
             CurrentHeading = Heading.Unknown;
 
@@ -66,7 +66,7 @@ namespace GraduatedCylinder.Devices.Gps
                                                       IProvideTrajectory trajectory = message.ValueAs<IProvideTrajectory>();
                                                       CurrentSpeed = trajectory.CurrentSpeed;
                                                       // NB don't update heading when speed is near zero
-                                                      if (CurrentSpeed > MinimumSpeedForHeadingUpdate) {
+                                                      if (CurrentSpeed > MinimumSpeedForHeadingUpate) {
                                                           CurrentHeading = trajectory.CurrentHeading;
                                                       }
                                                   }
@@ -74,9 +74,10 @@ namespace GraduatedCylinder.Devices.Gps
                                                       var newLocation = message.ValueAs<IProvideGeoPosition>()
                                                                                .CurrentLocation;
                                                       CurrentLocation = newLocation.Altitude == null
-                                                                            ? new GeoPosition(newLocation.Latitude,
-                                                                                              newLocation.Longitude,
-                                                                                              CurrentLocation.Altitude)
+                                                                            ? new GeoPosition(
+                                                                                newLocation.Latitude,
+                                                                                newLocation.Longitude,
+                                                                                CurrentLocation.Altitude)
                                                                             : newLocation;
                                                       RaiseLocationChanged();
                                                   }
@@ -104,6 +105,8 @@ namespace GraduatedCylinder.Devices.Gps
         }
 
         public GpsFixType MinimumFixForNotification { get; set; }
+
+        public Speed MinimumSpeedForHeadingUpate { get; set; }
 
         public double PositionDop {
             get { return _positionDop; }

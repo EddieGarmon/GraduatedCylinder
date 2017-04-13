@@ -40,19 +40,19 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
             return new Decoded(trueCourse, magneticCourse, new Speed(speedInKnots, SpeedUnit.NauticalMilesPerHour));
         }
 
-        public class Decoded
+        public class Decoded : IProvideTrajectory
         {
-            public Decoded(Heading trueCourse, Heading magneticCourse, Speed speed) {
-                TrueCourse = trueCourse;
+            public Decoded(Heading currentHeading, Heading magneticCourse, Speed currentSpeed) {
+                CurrentHeading = currentHeading;
                 MagneticCourse = magneticCourse;
-                Speed = speed;
+                CurrentSpeed = currentSpeed;
             }
 
+            public Heading CurrentHeading { get; private set; }
+
+            public Speed CurrentSpeed { get; private set; }
+
             public Heading MagneticCourse { get; private set; }
-
-            public Speed Speed { get; private set; }
-
-            public Heading TrueCourse { get; private set; }
         }
     }
 }
