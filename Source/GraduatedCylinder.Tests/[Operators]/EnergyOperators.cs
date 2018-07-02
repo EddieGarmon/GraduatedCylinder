@@ -1,5 +1,5 @@
+using DigitalHammer.Testing;
 using Xunit;
-using XunitShould;
 
 namespace GraduatedCylinder
 {
@@ -10,8 +10,8 @@ namespace GraduatedCylinder
             var energy1 = new Energy(2000, EnergyUnit.NewtonMeters);
             var energy2 = new Energy(2, EnergyUnit.Kilojoules);
             var expected = new Energy(4000, EnergyUnit.NewtonMeters);
-            (energy1 + energy2).ShouldEqual(expected);
-            (energy2 + energy1).ShouldEqual(expected);
+            (energy1 + energy2).ShouldBe(expected);
+            (energy2 + energy1).ShouldBe(expected);
         }
 
         [Fact]
@@ -21,8 +21,8 @@ namespace GraduatedCylinder
             (energy1 / energy2).ShouldBeWithinEpsilonOf(1);
             (energy2 / energy1).ShouldBeWithinEpsilonOf(1);
 
-            (energy1 / 2).ShouldEqual(new Energy(1000, EnergyUnit.NewtonMeters));
-            (energy2 / 2).ShouldEqual(new Energy(1, EnergyUnit.Kilojoules));
+            (energy1 / 2).ShouldBe(new Energy(1000, EnergyUnit.NewtonMeters));
+            (energy2 / 2).ShouldBe(new Energy(1, EnergyUnit.Kilojoules));
         }
 
         [Fact]
@@ -103,16 +103,16 @@ namespace GraduatedCylinder
         public void OpMultiplicationScaler() {
             var energy = new Energy(1, EnergyUnit.Kilojoules);
             var expected = new Energy(2, EnergyUnit.Kilojoules);
-            (energy * 2).ShouldEqual(expected);
-            (2 * energy).ShouldEqual(expected);
+            (energy * 2).ShouldBe(expected);
+            (2 * energy).ShouldBe(expected);
         }
 
         [Fact]
         public void OpSubtraction() {
             var energy1 = new Energy(2000, EnergyUnit.Joules);
             var energy2 = new Energy(1, EnergyUnit.Kilojoules);
-            (energy1 - energy2).ShouldEqual(new Energy(1000, EnergyUnit.Joules));
-            (energy2 - energy1).ShouldEqual(new Energy(-1, EnergyUnit.Kilojoules));
+            (energy1 - energy2).ShouldBe(new Energy(1000, EnergyUnit.Joules));
+            (energy2 - energy1).ShouldBe(new Energy(-1, EnergyUnit.Kilojoules));
         }
     }
 }

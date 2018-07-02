@@ -5,7 +5,7 @@ namespace GraduatedCylinder
     /// <summary>
     ///     This class is intended for book keeping and internal automation
     /// </summary>
-    [AttributeUsage(AttributeTargets.Field, AllowMultiple = false, Inherited = false)]
+    [AttributeUsage(AttributeTargets.Field)]
     public sealed class UnitsTypeAttribute : Attribute
     {
         private readonly Type _unitsType;

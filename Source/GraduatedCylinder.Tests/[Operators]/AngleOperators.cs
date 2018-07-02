@@ -1,5 +1,5 @@
+using DigitalHammer.Testing;
 using Xunit;
-using XunitShould;
 
 namespace GraduatedCylinder
 {
@@ -10,8 +10,8 @@ namespace GraduatedCylinder
             var angle1 = new Angle(180, AngleUnit.Degree);
             var angle2 = new Angle(200, AngleUnit.Grad);
             var expected = new Angle(360, AngleUnit.Degree);
-            (angle1 + angle2).ShouldEqual(expected);
-            (angle2 + angle1).ShouldEqual(expected);
+            (angle1 + angle2).ShouldBe(expected);
+            (angle2 + angle1).ShouldBe(expected);
         }
 
         [Fact]
@@ -21,8 +21,8 @@ namespace GraduatedCylinder
             (angle1 / angle2).ShouldBeWithinEpsilonOf(1);
             (angle2 / angle1).ShouldBeWithinEpsilonOf(1);
 
-            (angle1 / 2).ShouldEqual(new Angle(90, AngleUnit.Degree));
-            (angle2 / 2).ShouldEqual(new Angle(100, AngleUnit.Grad));
+            (angle1 / 2).ShouldBe(new Angle(90, AngleUnit.Degree));
+            (angle2 / 2).ShouldBe(new Angle(100, AngleUnit.Grad));
         }
 
         [Fact]
@@ -103,16 +103,16 @@ namespace GraduatedCylinder
         public void OpMultiplicationScaler() {
             var angle = new Angle(100, AngleUnit.Degree);
             var expected = new Angle(200, AngleUnit.Degree);
-            (angle * 2).ShouldEqual(expected);
-            (2 * angle).ShouldEqual(expected);
+            (angle * 2).ShouldBe(expected);
+            (2 * angle).ShouldBe(expected);
         }
 
         [Fact]
         public void OpSubtraction() {
             var angle1 = new Angle(180, AngleUnit.Degree);
             var angle2 = new Angle(100, AngleUnit.Grad);
-            (angle1 - angle2).ShouldEqual(new Angle(90, AngleUnit.Degree));
-            (angle2 - angle1).ShouldEqual(new Angle(-100, AngleUnit.Grad));
+            (angle1 - angle2).ShouldBe(new Angle(90, AngleUnit.Degree));
+            (angle2 - angle1).ShouldBe(new Angle(-100, AngleUnit.Grad));
         }
     }
 }

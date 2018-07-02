@@ -1,5 +1,5 @@
-﻿using Xunit;
-using XunitShould;
+﻿using DigitalHammer.Testing;
+using Xunit;
 
 namespace GraduatedCylinder.Geo
 {
@@ -14,7 +14,7 @@ namespace GraduatedCylinder.Geo
             GeoPosition stop = new GeoPosition(lat2, long2);
             GreatArc.Distance(start, stop)
                     .In(LengthUnit.Kilometer)
-                    .ShouldEqualWithinPrecision(expectedLengthInMeters, 2);
+                    .ShouldBeNear(expectedLengthInMeters, .0001);
         }
     }
 }

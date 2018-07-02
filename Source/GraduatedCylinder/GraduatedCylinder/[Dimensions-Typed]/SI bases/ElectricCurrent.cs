@@ -123,7 +123,8 @@ namespace GraduatedCylinder
         public static ElectricPotential operator *(ElectricCurrent electricCurrent, ElectricResistance resistance) {
             Guard.NotNull(resistance, "resistance");
             Guard.NotNull(electricCurrent, "electricCurrent");
-            double voltageValue = electricCurrent.In(ElectricCurrentUnit.Ampere) * resistance.In(ElectricResistanceUnit.Ohm);
+            double voltageValue = electricCurrent.In(ElectricCurrentUnit.Ampere)
+                                  * resistance.In(ElectricResistanceUnit.Ohm);
             return new ElectricPotential(voltageValue, ElectricPotentialUnit.Volt);
         }
 

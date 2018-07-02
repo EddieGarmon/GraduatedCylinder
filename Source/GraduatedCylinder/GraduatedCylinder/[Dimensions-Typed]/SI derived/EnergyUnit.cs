@@ -78,6 +78,6 @@ namespace GraduatedCylinder
         /// </summary>
         [UnitAbbreviation("BTU")]
         [Scale(1055.056)]
-        BritishThermalUnit = 9,
+        BritishThermalUnit = 9
     }
 }

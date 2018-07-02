@@ -1,5 +1,5 @@
+using DigitalHammer.Testing;
 using Xunit;
-using XunitShould;
 
 namespace GraduatedCylinder
 {
@@ -9,8 +9,8 @@ namespace GraduatedCylinder
         public void OpAddition() {
             var acceleration1 = new Acceleration(3600, AccelerationUnit.MeterPerSecondSquared);
             var acceleration2 = new Acceleration(3.6, AccelerationUnit.KilometerPerSecondSquared);
-            (acceleration1 + acceleration2).ShouldEqual(new Acceleration(7200, AccelerationUnit.MeterPerSecondSquared));
-            (acceleration2 + acceleration1).ShouldEqual(new Acceleration(7.2, AccelerationUnit.KilometerPerSecondSquared));
+            (acceleration1 + acceleration2).ShouldBe(new Acceleration(7200, AccelerationUnit.MeterPerSecondSquared));
+            (acceleration2 + acceleration1).ShouldBe(new Acceleration(7.2, AccelerationUnit.KilometerPerSecondSquared));
         }
 
         [Fact]
@@ -20,8 +20,8 @@ namespace GraduatedCylinder
             (acceleration1 / acceleration2).ShouldBeWithinEpsilonOf(1);
             (acceleration2 / acceleration1).ShouldBeWithinEpsilonOf(1);
 
-            (acceleration1 / 2).ShouldEqual(new Acceleration(1800, AccelerationUnit.MeterPerSecondSquared));
-            (acceleration2 / 2).ShouldEqual(new Acceleration(1.8, AccelerationUnit.KilometerPerSecondSquared));
+            (acceleration1 / 2).ShouldBe(new Acceleration(1800, AccelerationUnit.MeterPerSecondSquared));
+            (acceleration2 / 2).ShouldBe(new Acceleration(1.8, AccelerationUnit.KilometerPerSecondSquared));
         }
 
         [Fact]
@@ -102,16 +102,16 @@ namespace GraduatedCylinder
         public void OpMultiplicationScaler() {
             var acceleration = new Acceleration(1, AccelerationUnit.MeterPerSecondSquared);
             var expected = new Acceleration(2, AccelerationUnit.MeterPerSecondSquared);
-            (acceleration * 2).ShouldEqual(expected);
-            (2 * acceleration).ShouldEqual(expected);
+            (acceleration * 2).ShouldBe(expected);
+            (2 * acceleration).ShouldBe(expected);
         }
 
         [Fact]
         public void OpSubtraction() {
             var acceleration1 = new Acceleration(7200, AccelerationUnit.MeterPerSecondSquared);
             var acceleration2 = new Acceleration(3.6, AccelerationUnit.KilometerPerSecondSquared);
-            (acceleration1 - acceleration2).ShouldEqual(new Acceleration(3600, AccelerationUnit.MeterPerSecondSquared));
-            (acceleration2 - acceleration1).ShouldEqual(new Acceleration(-3.6, AccelerationUnit.KilometerPerSecondSquared));
+            (acceleration1 - acceleration2).ShouldBe(new Acceleration(3600, AccelerationUnit.MeterPerSecondSquared));
+            (acceleration2 - acceleration1).ShouldBe(new Acceleration(-3.6, AccelerationUnit.KilometerPerSecondSquared));
         }
     }
 }

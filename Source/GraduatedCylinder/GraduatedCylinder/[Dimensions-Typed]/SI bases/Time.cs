@@ -151,7 +151,8 @@ namespace GraduatedCylinder
         public static Volume operator *(Time time, VolumetricFlowRate volumetricFlowRate) {
             Guard.NotNull(time, "time");
             Guard.NotNull(volumetricFlowRate, "volumetricFlowRate");
-            double value = time.In(TimeUnit.Second) * volumetricFlowRate.In(VolumetricFlowRateUnit.CubicMetersPerSecond);
+            double value = time.In(TimeUnit.Second)
+                           * volumetricFlowRate.In(VolumetricFlowRateUnit.CubicMetersPerSecond);
             return new Volume(value, VolumeUnit.CubicMeters);
         }
 

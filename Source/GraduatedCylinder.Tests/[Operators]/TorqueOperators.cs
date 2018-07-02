@@ -1,5 +1,5 @@
+using DigitalHammer.Testing;
 using Xunit;
-using XunitShould;
 
 namespace GraduatedCylinder
 {
@@ -10,8 +10,8 @@ namespace GraduatedCylinder
             var torque1 = new Torque(9.81, TorqueUnit.NewtonMeters);
             var torque2 = new Torque(1, TorqueUnit.KilogramForceMeters);
             var expected = new Torque(19.62, TorqueUnit.NewtonMeters);
-            (torque1 + torque2).ShouldEqual(expected);
-            (torque2 + torque1).ShouldEqual(expected);
+            (torque1 + torque2).ShouldBe(expected);
+            (torque2 + torque1).ShouldBe(expected);
         }
 
         [Fact]
@@ -21,8 +21,8 @@ namespace GraduatedCylinder
             (torque1 / torque2).ShouldBeWithinEpsilonOf(1);
             (torque2 / torque1).ShouldBeWithinEpsilonOf(1);
 
-            (torque1 / 2).ShouldEqual(new Torque(9.81, TorqueUnit.NewtonMeters));
-            (torque2 / 2).ShouldEqual(new Torque(1, TorqueUnit.KilogramForceMeters));
+            (torque1 / 2).ShouldBe(new Torque(9.81, TorqueUnit.NewtonMeters));
+            (torque2 / 2).ShouldBe(new Torque(1, TorqueUnit.KilogramForceMeters));
         }
 
         [Fact]
@@ -103,16 +103,16 @@ namespace GraduatedCylinder
         public void OpMultiplicationScaler() {
             var torque = new Torque(1, TorqueUnit.NewtonMeters);
             var expected = new Torque(2, TorqueUnit.NewtonMeters);
-            (torque * 2).ShouldEqual(expected);
-            (2 * torque).ShouldEqual(expected);
+            (torque * 2).ShouldBe(expected);
+            (2 * torque).ShouldBe(expected);
         }
 
         [Fact]
         public void OpSubtraction() {
             var torque1 = new Torque(19.62, TorqueUnit.NewtonMeters);
             var torque2 = new Torque(1, TorqueUnit.KilogramForceMeters);
-            (torque1 - torque2).ShouldEqual(new Torque(9.81, TorqueUnit.NewtonMeters));
-            (torque2 - torque1).ShouldEqual(new Torque(-1, TorqueUnit.KilogramForceMeters));
+            (torque1 - torque2).ShouldBe(new Torque(9.81, TorqueUnit.NewtonMeters));
+            (torque2 - torque1).ShouldBe(new Torque(-1, TorqueUnit.KilogramForceMeters));
         }
     }
 }

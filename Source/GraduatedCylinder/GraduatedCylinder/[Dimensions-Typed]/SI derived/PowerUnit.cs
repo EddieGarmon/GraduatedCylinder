@@ -85,6 +85,6 @@ namespace GraduatedCylinder
         /// </summary>
         [UnitAbbreviation("hp")]
         [Scale(0.7457e3)]
-        Horsepower = 10,
+        Horsepower = 10
     }
 }

@@ -1,5 +1,5 @@
+using DigitalHammer.Testing;
 using Xunit;
-using XunitShould;
 
 namespace GraduatedCylinder
 {
@@ -10,8 +10,8 @@ namespace GraduatedCylinder
             var voltage1 = new ElectricPotential(3000, ElectricPotentialUnit.Volt);
             var voltage2 = new ElectricPotential(1, ElectricPotentialUnit.Kilovolt);
             var expected = new ElectricPotential(4000, ElectricPotentialUnit.Volt);
-            (voltage1 + voltage2).ShouldEqual(expected);
-            (voltage2 + voltage1).ShouldEqual(expected);
+            (voltage1 + voltage2).ShouldBe(expected);
+            (voltage2 + voltage1).ShouldBe(expected);
         }
 
         [Fact]
@@ -21,8 +21,8 @@ namespace GraduatedCylinder
             (voltage1 / voltage2).ShouldBeWithinEpsilonOf(1);
             (voltage2 / voltage1).ShouldBeWithinEpsilonOf(1);
 
-            (voltage1 / 2).ShouldEqual(new ElectricPotential(1500, ElectricPotentialUnit.Volt));
-            (voltage2 / 2).ShouldEqual(new ElectricPotential(1.5, ElectricPotentialUnit.Kilovolt));
+            (voltage1 / 2).ShouldBe(new ElectricPotential(1500, ElectricPotentialUnit.Volt));
+            (voltage2 / 2).ShouldBe(new ElectricPotential(1.5, ElectricPotentialUnit.Kilovolt));
         }
 
         [Fact]
@@ -103,16 +103,16 @@ namespace GraduatedCylinder
         public void OpMultiplicationScaler() {
             var voltage = new ElectricPotential(1, ElectricPotentialUnit.Volt);
             var expected = new ElectricPotential(2, ElectricPotentialUnit.Volt);
-            (voltage * 2).ShouldEqual(expected);
-            (2 * voltage).ShouldEqual(expected);
+            (voltage * 2).ShouldBe(expected);
+            (2 * voltage).ShouldBe(expected);
         }
 
         [Fact]
         public void OpSubtraction() {
             var voltage1 = new ElectricPotential(7000, ElectricPotentialUnit.Volt);
             var voltage2 = new ElectricPotential(1, ElectricPotentialUnit.Kilovolt);
-            (voltage1 - voltage2).ShouldEqual(new ElectricPotential(6000, ElectricPotentialUnit.Volt));
-            (voltage2 - voltage1).ShouldEqual(new ElectricPotential(-6, ElectricPotentialUnit.Kilovolt));
+            (voltage1 - voltage2).ShouldBe(new ElectricPotential(6000, ElectricPotentialUnit.Volt));
+            (voltage2 - voltage1).ShouldBe(new ElectricPotential(-6, ElectricPotentialUnit.Kilovolt));
         }
     }
 }

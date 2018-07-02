@@ -29,6 +29,6 @@ namespace GraduatedCylinder
         /// </summary>
         [UnitAbbreviation("ft-lbs")]
         [Scale(1.35581795)]
-        FootPounds = 2,
+        FootPounds = 2
     }
 }

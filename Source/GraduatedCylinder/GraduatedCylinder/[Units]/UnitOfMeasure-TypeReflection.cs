@@ -8,9 +8,10 @@ namespace GraduatedCylinder
     public partial class UnitOfMeasure
     {
         public static UnitOfMeasure FindFirst(string abbreviationOrName) {
-            IEnumerable<DimensionType> dimensions = typeof(DimensionType).GetFields(BindingFlags.Public | BindingFlags.Static)
-                                                                         .Where(field => field.IsLiteral)
-                                                                         .Select(field => (DimensionType)field.GetValue(null));
+            IEnumerable<DimensionType> dimensions = typeof(DimensionType)
+                                                    .GetFields(BindingFlags.Public | BindingFlags.Static)
+                                                    .Where(field => field.IsLiteral)
+                                                    .Select(field => (DimensionType)field.GetValue(null));
 
             return dimensions.Select(dimensionType => Find(dimensionType, abbreviationOrName))
                              .FirstOrDefault(result => result != null);

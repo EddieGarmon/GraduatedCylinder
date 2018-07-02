@@ -1,5 +1,5 @@
+using DigitalHammer.Testing;
 using Xunit;
-using XunitShould;
 
 namespace GraduatedCylinder
 {
@@ -10,8 +10,8 @@ namespace GraduatedCylinder
             var frequency1 = new Frequency(1, FrequencyUnit.Hertz);
             var frequency2 = new Frequency(1, FrequencyUnit.CyclePerSecond);
             var expected = new Frequency(2, FrequencyUnit.Hertz);
-            (frequency1 + frequency2).ShouldEqual(expected);
-            (frequency2 + frequency1).ShouldEqual(expected);
+            (frequency1 + frequency2).ShouldBe(expected);
+            (frequency2 + frequency1).ShouldBe(expected);
         }
 
         [Fact]
@@ -21,8 +21,8 @@ namespace GraduatedCylinder
             (frequency1 / frequency2).ShouldBeWithinEpsilonOf(1);
             (frequency2 / frequency1).ShouldBeWithinEpsilonOf(1);
 
-            (frequency1 / 2).ShouldEqual(new Frequency(1, FrequencyUnit.Hertz));
-            (frequency2 / 2).ShouldEqual(new Frequency(1, FrequencyUnit.CyclePerSecond));
+            (frequency1 / 2).ShouldBe(new Frequency(1, FrequencyUnit.Hertz));
+            (frequency2 / 2).ShouldBe(new Frequency(1, FrequencyUnit.CyclePerSecond));
         }
 
         [Fact]
@@ -103,16 +103,16 @@ namespace GraduatedCylinder
         public void OpMultiplicationScaler() {
             var frequency = new Frequency(1, FrequencyUnit.Hertz);
             var expected = new Frequency(2, FrequencyUnit.Hertz);
-            (frequency * 2).ShouldEqual(expected);
-            (2 * frequency).ShouldEqual(expected);
+            (frequency * 2).ShouldBe(expected);
+            (2 * frequency).ShouldBe(expected);
         }
 
         [Fact]
         public void OpSubtraction() {
             var frequency1 = new Frequency(10, FrequencyUnit.Hertz);
             var frequency2 = new Frequency(1, FrequencyUnit.CyclePerSecond);
-            (frequency1 - frequency2).ShouldEqual(new Frequency(9, FrequencyUnit.Hertz));
-            (frequency2 - frequency1).ShouldEqual(new Frequency(-9, FrequencyUnit.CyclePerSecond));
+            (frequency1 - frequency2).ShouldBe(new Frequency(9, FrequencyUnit.Hertz));
+            (frequency2 - frequency1).ShouldBe(new Frequency(-9, FrequencyUnit.CyclePerSecond));
         }
     }
 }

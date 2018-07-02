@@ -7,7 +7,7 @@ namespace GraduatedCylinder
     ///     Apply this attribute to a dimensions unit to specify the string representation
     ///     of the unit.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
+    [AttributeUsage(AttributeTargets.Field)]
     [DebuggerDisplay("{Value}")]
     public sealed class UnitAbbreviationAttribute : Attribute
     {

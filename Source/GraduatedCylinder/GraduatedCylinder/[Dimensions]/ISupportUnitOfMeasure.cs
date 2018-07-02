@@ -5,7 +5,8 @@ namespace GraduatedCylinder
     /// <summary>
     ///     Interface for supporting units of measure
     /// </summary>
-    public interface ISupportUnitOfMeasure : IComparable<ISupportUnitOfMeasure>, IEquatable<ISupportUnitOfMeasure>
+    public interface ISupportUnitOfMeasure : IComparable<ISupportUnitOfMeasure>,
+                                             IEquatable<ISupportUnitOfMeasure>
     {
         /// <summary>
         ///     Gets the type of the dimension.

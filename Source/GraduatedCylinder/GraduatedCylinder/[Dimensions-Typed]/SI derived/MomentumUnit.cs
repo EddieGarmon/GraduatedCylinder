@@ -43,6 +43,6 @@ namespace GraduatedCylinder
         /// </summary>
         [UnitAbbreviation("lbm/h")]
         [Scale(0.2027739)]
-        PoundsMilesPerHour = 4,
+        PoundsMilesPerHour = 4
     }
 }

@@ -6,10 +6,6 @@ namespace GraduatedCylinder
                                IEquatable<Temperature>,
                                IComparable<Temperature>
     {
-        public static readonly Temperature WaterBoilsAt = new Temperature(100, TemperatureUnit.Celsius);
-
-        public static readonly Temperature WaterFreezesAt = new Temperature(0, TemperatureUnit.Celsius);
-
         public Temperature(double value, TemperatureUnit units)
             : base(value, units) { }
 
@@ -57,6 +53,10 @@ namespace GraduatedCylinder
         public string ToString(TemperatureUnit units, int precision) {
             return base.ToString(units, precision);
         }
+
+        public static readonly Temperature WaterBoilsAt = new Temperature(100, TemperatureUnit.Celsius);
+
+        public static readonly Temperature WaterFreezesAt = new Temperature(0, TemperatureUnit.Celsius);
 
         public static Temperature operator +(Temperature temperature1, Temperature temperature2) {
             Guard.NotNull(temperature1, "temperature1");

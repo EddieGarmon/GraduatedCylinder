@@ -17,6 +17,6 @@ namespace GraduatedCylinder
 
         [UnitAbbreviation("°F")]
         [ScaleAndOffset(9.0 / 5.0, 32.0)]
-        Fahrenheit = 2,
+        Fahrenheit = 2
     }
 }

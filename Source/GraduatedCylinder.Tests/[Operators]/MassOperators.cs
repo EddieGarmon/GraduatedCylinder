@@ -1,5 +1,5 @@
+using DigitalHammer.Testing;
 using Xunit;
-using XunitShould;
 
 namespace GraduatedCylinder
 {
@@ -10,8 +10,8 @@ namespace GraduatedCylinder
             var mass1 = new Mass(2000, MassUnit.Gram);
             var mass2 = new Mass(1, MassUnit.Kilogram);
             var expected = new Mass(3000, MassUnit.Gram);
-            (mass1 + mass2).ShouldEqual(expected);
-            (mass2 + mass1).ShouldEqual(expected);
+            (mass1 + mass2).ShouldBe(expected);
+            (mass2 + mass1).ShouldBe(expected);
         }
 
         [Fact]
@@ -21,8 +21,8 @@ namespace GraduatedCylinder
             (mass1 / mass2).ShouldBeWithinEpsilonOf(1);
             (mass2 / mass1).ShouldBeWithinEpsilonOf(1);
 
-            (mass1 / 2).ShouldEqual(new Mass(1000, MassUnit.Gram));
-            (mass2 / 2).ShouldEqual(new Mass(1, MassUnit.Kilogram));
+            (mass1 / 2).ShouldBe(new Mass(1000, MassUnit.Gram));
+            (mass2 / 2).ShouldBe(new Mass(1, MassUnit.Kilogram));
         }
 
         [Fact]
@@ -103,16 +103,16 @@ namespace GraduatedCylinder
         public void OpMultiplicationScaler() {
             var mass = new Mass(1, MassUnit.Kilogram);
             var expected = new Mass(2, MassUnit.Kilogram);
-            (mass * 2).ShouldEqual(expected);
-            (2 * mass).ShouldEqual(expected);
+            (mass * 2).ShouldBe(expected);
+            (2 * mass).ShouldBe(expected);
         }
 
         [Fact]
         public void OpSubtraction() {
             var mass1 = new Mass(7000, MassUnit.Gram);
             var mass2 = new Mass(1, MassUnit.Kilogram);
-            (mass1 - mass2).ShouldEqual(new Mass(6000, MassUnit.Gram));
-            (mass2 - mass1).ShouldEqual(new Mass(-6, MassUnit.Kilogram));
+            (mass1 - mass2).ShouldBe(new Mass(6000, MassUnit.Gram));
+            (mass2 - mass1).ShouldBe(new Mass(-6, MassUnit.Kilogram));
         }
     }
 }

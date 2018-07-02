@@ -1,5 +1,5 @@
+using DigitalHammer.Testing;
 using Xunit;
-using XunitShould;
 
 namespace GraduatedCylinder
 {
@@ -10,8 +10,8 @@ namespace GraduatedCylinder
             var temperature1 = new Temperature(68, TemperatureUnit.Fahrenheit);
             var temperature2 = new Temperature(20, TemperatureUnit.Celsius);
             var expected = new Temperature(104, TemperatureUnit.Fahrenheit);
-            (temperature1 + temperature2).ShouldEqual(expected);
-            (temperature2 + temperature1).ShouldEqual(expected);
+            (temperature1 + temperature2).ShouldBe(expected);
+            (temperature2 + temperature1).ShouldBe(expected);
         }
 
         [Fact]
@@ -21,8 +21,8 @@ namespace GraduatedCylinder
             (temperature1 / temperature2).ShouldBeWithinEpsilonOf(1);
             (temperature2 / temperature1).ShouldBeWithinEpsilonOf(1);
 
-            (temperature1 / 2).ShouldEqual(new Temperature(50, TemperatureUnit.Fahrenheit));
-            (temperature2 / 2).ShouldEqual(new Temperature(10, TemperatureUnit.Celsius));
+            (temperature1 / 2).ShouldBe(new Temperature(50, TemperatureUnit.Fahrenheit));
+            (temperature2 / 2).ShouldBe(new Temperature(10, TemperatureUnit.Celsius));
         }
 
         [Fact]
@@ -103,16 +103,16 @@ namespace GraduatedCylinder
         public void OpMultiplicationScaler() {
             var temperature = new Temperature(1, TemperatureUnit.Celsius);
             var expected = new Temperature(2, TemperatureUnit.Celsius);
-            (temperature * 2).ShouldEqual(expected);
-            (2 * temperature).ShouldEqual(expected);
+            (temperature * 2).ShouldBe(expected);
+            (2 * temperature).ShouldBe(expected);
         }
 
         [Fact]
         public void OpSubtraction() {
             var temperature1 = new Temperature(104, TemperatureUnit.Fahrenheit);
             var temperature2 = new Temperature(20, TemperatureUnit.Celsius);
-            (temperature1 - temperature2).ShouldEqual(new Temperature(68, TemperatureUnit.Fahrenheit));
-            (temperature2 - temperature1).ShouldEqual(new Temperature(-20, TemperatureUnit.Celsius));
+            (temperature1 - temperature2).ShouldBe(new Temperature(68, TemperatureUnit.Fahrenheit));
+            (temperature2 - temperature1).ShouldBe(new Temperature(-20, TemperatureUnit.Celsius));
         }
     }
 }

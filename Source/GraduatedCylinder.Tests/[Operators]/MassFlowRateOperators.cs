@@ -1,5 +1,5 @@
+using DigitalHammer.Testing;
 using Xunit;
-using XunitShould;
 
 namespace GraduatedCylinder
 {
@@ -10,8 +10,8 @@ namespace GraduatedCylinder
             var massFlowRate1 = new MassFlowRate(4000, MassFlowRateUnit.GramsPerSecond);
             var massFlowRate2 = new MassFlowRate(1, MassFlowRateUnit.KilogramsPerSecond);
             var expected = new MassFlowRate(5000, MassFlowRateUnit.GramsPerSecond);
-            (massFlowRate1 + massFlowRate2).ShouldEqual(expected);
-            (massFlowRate2 + massFlowRate1).ShouldEqual(expected);
+            (massFlowRate1 + massFlowRate2).ShouldBe(expected);
+            (massFlowRate2 + massFlowRate1).ShouldBe(expected);
         }
 
         [Fact]
@@ -21,8 +21,8 @@ namespace GraduatedCylinder
             (massFlowRate1 / massFlowRate2).ShouldBeWithinEpsilonOf(1);
             (massFlowRate2 / massFlowRate1).ShouldBeWithinEpsilonOf(1);
 
-            (massFlowRate1 / 2).ShouldEqual(new MassFlowRate(1800, MassFlowRateUnit.GramsPerSecond));
-            (massFlowRate2 / 2).ShouldEqual(new MassFlowRate(1.8, MassFlowRateUnit.KilogramsPerSecond));
+            (massFlowRate1 / 2).ShouldBe(new MassFlowRate(1800, MassFlowRateUnit.GramsPerSecond));
+            (massFlowRate2 / 2).ShouldBe(new MassFlowRate(1.8, MassFlowRateUnit.KilogramsPerSecond));
         }
 
         [Fact]
@@ -103,16 +103,16 @@ namespace GraduatedCylinder
         public void OpMultiplicationScaler() {
             var massFlowRate = new MassFlowRate(1, MassFlowRateUnit.KilogramsPerSecond);
             var expected = new MassFlowRate(2, MassFlowRateUnit.KilogramsPerSecond);
-            (massFlowRate * 2).ShouldEqual(expected);
-            (2 * massFlowRate).ShouldEqual(expected);
+            (massFlowRate * 2).ShouldBe(expected);
+            (2 * massFlowRate).ShouldBe(expected);
         }
 
         [Fact]
         public void OpSubtraction() {
             var massFlowRate1 = new MassFlowRate(5000, MassFlowRateUnit.GramsPerSecond);
             var massFlowRate2 = new MassFlowRate(1, MassFlowRateUnit.KilogramsPerSecond);
-            (massFlowRate1 - massFlowRate2).ShouldEqual(new MassFlowRate(4000, MassFlowRateUnit.GramsPerSecond));
-            (massFlowRate2 - massFlowRate1).ShouldEqual(new MassFlowRate(-4, MassFlowRateUnit.KilogramsPerSecond));
+            (massFlowRate1 - massFlowRate2).ShouldBe(new MassFlowRate(4000, MassFlowRateUnit.GramsPerSecond));
+            (massFlowRate2 - massFlowRate1).ShouldBe(new MassFlowRate(-4, MassFlowRateUnit.KilogramsPerSecond));
         }
     }
 }

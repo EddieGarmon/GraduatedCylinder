@@ -1,5 +1,5 @@
+using DigitalHammer.Testing;
 using Xunit;
-using XunitShould;
 
 namespace GraduatedCylinder
 {
@@ -10,8 +10,8 @@ namespace GraduatedCylinder
             var area1 = new Area(36000000, AreaUnit.MeterSquared);
             var area2 = new Area(36, AreaUnit.KilometerSquared);
             var expected = new Area(72000000, AreaUnit.MeterSquared);
-            (area1 + area2).ShouldEqual(expected);
-            (area2 + area1).ShouldEqual(expected);
+            (area1 + area2).ShouldBe(expected);
+            (area2 + area1).ShouldBe(expected);
         }
 
         [Fact]
@@ -21,8 +21,8 @@ namespace GraduatedCylinder
             (area1 / area2).ShouldBeWithinEpsilonOf(1);
             (area2 / area1).ShouldBeWithinEpsilonOf(1);
 
-            (area1 / 2).ShouldEqual(new Area(18000000, AreaUnit.MeterSquared));
-            (area2 / 2).ShouldEqual(new Area(18, AreaUnit.KilometerSquared));
+            (area1 / 2).ShouldBe(new Area(18000000, AreaUnit.MeterSquared));
+            (area2 / 2).ShouldBe(new Area(18, AreaUnit.KilometerSquared));
         }
 
         [Fact]
@@ -103,16 +103,16 @@ namespace GraduatedCylinder
         public void OpMultiplicationScaler() {
             var area = new Area(1, AreaUnit.KilometerSquared);
             var expected = new Area(2, AreaUnit.KilometerSquared);
-            (area * 2).ShouldEqual(expected);
-            (2 * area).ShouldEqual(expected);
+            (area * 2).ShouldBe(expected);
+            (2 * area).ShouldBe(expected);
         }
 
         [Fact]
         public void OpSubtraction() {
             var area1 = new Area(72000000, AreaUnit.MeterSquared);
             var area2 = new Area(36, AreaUnit.KilometerSquared);
-            (area1 - area2).ShouldEqual(new Area(36000000, AreaUnit.MeterSquared));
-            (area2 - area1).ShouldEqual(new Area(-36, AreaUnit.KilometerSquared));
+            (area1 - area2).ShouldBe(new Area(36000000, AreaUnit.MeterSquared));
+            (area2 - area1).ShouldBe(new Area(-36, AreaUnit.KilometerSquared));
         }
     }
 }

@@ -5,7 +5,9 @@ namespace GraduatedCylinder
     /// <summary>
     ///     A 'unitless' dimension.
     /// </summary>
-    public class Numeric : Dimension, IEquatable<Numeric>, IComparable<Numeric>
+    public class Numeric : Dimension,
+                           IEquatable<Numeric>,
+                           IComparable<Numeric>
     {
         public Numeric(double value, NumericUnit units = NumericUnit.Empty)
             : base(value, units) { }
@@ -53,18 +55,24 @@ namespace GraduatedCylinder
         public static Numeric operator +(Numeric left, Numeric right) {
             Guard.NotNull(left, "left");
             Guard.NotNull(right, "right");
-            return new Numeric(left.ValueInBaseUnits + right.ValueInBaseUnits) { Units = left.Units };
+            return new Numeric(left.ValueInBaseUnits + right.ValueInBaseUnits) {
+                Units = left.Units
+            };
         }
 
         public static Numeric operator /(Numeric top, Numeric bottom) {
             Guard.NotNull(top, "top");
             Guard.NotNull(bottom, "bottom");
-            return new Numeric(top.ValueInBaseUnits / bottom.ValueInBaseUnits) { Units = top.Units };
+            return new Numeric(top.ValueInBaseUnits / bottom.ValueInBaseUnits) {
+                Units = top.Units
+            };
         }
 
         public static Numeric operator /(Numeric top, double scaler) {
             Guard.NotNull(top, "top");
-            return new Numeric(top.ValueInBaseUnits / scaler) { Units = top.Units };
+            return new Numeric(top.ValueInBaseUnits / scaler) {
+                Units = top.Units
+            };
         }
 
         public static bool operator ==(Numeric left, Numeric right) {
@@ -77,6 +85,22 @@ namespace GraduatedCylinder
 
         public static bool operator >=(Numeric left, Numeric right) {
             return (((object)left) == null) ? (((object)right) == null) : left.CompareTo(right) >= 0;
+        }
+
+        public static implicit operator double(Numeric value) {
+            return value.In(NumericUnit.Empty);
+        }
+
+        public static implicit operator int(Numeric value) {
+            return (int)value.In(NumericUnit.Empty);
+        }
+
+        public static implicit operator Numeric(double value) {
+            return new Numeric(value, NumericUnit.Empty);
+        }
+
+        public static implicit operator Numeric(int value) {
+            return new Numeric(value, NumericUnit.Empty);
         }
 
         public static bool operator !=(Numeric left, Numeric right) {
@@ -94,34 +118,24 @@ namespace GraduatedCylinder
         public static Numeric operator *(Numeric left, Numeric right) {
             Guard.NotNull(left, "left");
             Guard.NotNull(right, "right");
-            return new Numeric(left.ValueInBaseUnits * right.ValueInBaseUnits) { Units = left.Units };
+            return new Numeric(left.ValueInBaseUnits * right.ValueInBaseUnits) {
+                Units = left.Units
+            };
         }
 
         public static Numeric operator *(Numeric numeric, double scaler) {
             Guard.NotNull(numeric, "numeric");
-            return new Numeric(numeric.ValueInBaseUnits * scaler) { Units = numeric.Units };
+            return new Numeric(numeric.ValueInBaseUnits * scaler) {
+                Units = numeric.Units
+            };
         }
 
         public static Numeric operator -(Numeric left, Numeric right) {
             Guard.NotNull(left, "left");
             Guard.NotNull(right, "right");
-            return new Numeric(left.ValueInBaseUnits - right.ValueInBaseUnits) { Units = left.Units };
-        }
-
-        public static implicit operator double(Numeric value) {
-            return value.In(NumericUnit.Empty);
-        }
-
-        public static implicit operator int(Numeric value) {
-            return (int)value.In(NumericUnit.Empty);
-        }
-
-        public static implicit operator Numeric(double value) {
-            return new Numeric(value, NumericUnit.Empty);
-        }
-
-        public static implicit operator Numeric(int value) {
-            return new Numeric(value, NumericUnit.Empty);
+            return new Numeric(left.ValueInBaseUnits - right.ValueInBaseUnits) {
+                Units = left.Units
+            };
         }
     }
 }

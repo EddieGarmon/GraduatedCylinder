@@ -1,5 +1,5 @@
+using DigitalHammer.Testing;
 using Xunit;
-using XunitShould;
 
 namespace GraduatedCylinder
 {
@@ -10,8 +10,8 @@ namespace GraduatedCylinder
             var length1 = new Length(5000, LengthUnit.Meter);
             var length2 = new Length(2, LengthUnit.Kilometer);
             var expected = new Length(7000, LengthUnit.Meter);
-            (length1 + length2).ShouldEqual(expected);
-            (length2 + length1).ShouldEqual(expected);
+            (length1 + length2).ShouldBe(expected);
+            (length2 + length1).ShouldBe(expected);
         }
 
         [Fact]
@@ -21,8 +21,8 @@ namespace GraduatedCylinder
             (length1 / length2).ShouldBeWithinEpsilonOf(1);
             (length2 / length1).ShouldBeWithinEpsilonOf(1);
 
-            (length1 / 2).ShouldEqual(new Length(2000, LengthUnit.Meter));
-            (length2 / 2).ShouldEqual(new Length(2, LengthUnit.Kilometer));
+            (length1 / 2).ShouldBe(new Length(2000, LengthUnit.Meter));
+            (length2 / 2).ShouldBe(new Length(2, LengthUnit.Kilometer));
         }
 
         [Fact]
@@ -103,16 +103,16 @@ namespace GraduatedCylinder
         public void OpMultiplicationScaler() {
             var length = new Length(1, LengthUnit.Kilometer);
             var expected = new Length(2, LengthUnit.Kilometer);
-            (length * 2).ShouldEqual(expected);
-            (2 * length).ShouldEqual(expected);
+            (length * 2).ShouldBe(expected);
+            (2 * length).ShouldBe(expected);
         }
 
         [Fact]
         public void OpSubtraction() {
             var length1 = new Length(7000, LengthUnit.Meter);
             var length2 = new Length(1, LengthUnit.Kilometer);
-            (length1 - length2).ShouldEqual(new Length(6000, LengthUnit.Meter));
-            (length2 - length1).ShouldEqual(new Length(-6, LengthUnit.Kilometer));
+            (length1 - length2).ShouldBe(new Length(6000, LengthUnit.Meter));
+            (length2 - length1).ShouldBe(new Length(-6, LengthUnit.Kilometer));
         }
     }
 }

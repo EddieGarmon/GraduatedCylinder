@@ -10,8 +10,6 @@ namespace GraduatedCylinder
                          IEquatable<Speed>,
                          IComparable<Speed>
     {
-        public static readonly Speed Zero = new Speed(0, SpeedUnit.MeterPerSecond);
-
         public Speed(double value, SpeedUnit units)
             : base(value, units) { }
 
@@ -60,6 +58,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static readonly Speed Zero = new Speed(0, SpeedUnit.MeterPerSecond);
+
         public static Speed operator +(Speed speed1, Speed speed2) {
             Guard.NotNull(speed1, "speed1");
             Guard.NotNull(speed2, "speed2");
@@ -85,7 +85,8 @@ namespace GraduatedCylinder
         public static Time operator /(Speed speed, Acceleration acceleration) {
             Guard.NotNull(speed, "speed");
             Guard.NotNull(acceleration, "acceleration");
-            double timeValue = speed.In(SpeedUnit.MeterPerSecond) / acceleration.In(AccelerationUnit.MeterPerSecondSquared);
+            double timeValue = speed.In(SpeedUnit.MeterPerSecond)
+                               / acceleration.In(AccelerationUnit.MeterPerSecondSquared);
             return new Time(timeValue, TimeUnit.Second);
         }
 

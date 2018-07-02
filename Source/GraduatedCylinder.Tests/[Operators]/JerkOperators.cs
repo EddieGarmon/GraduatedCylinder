@@ -1,5 +1,5 @@
+using DigitalHammer.Testing;
 using Xunit;
-using XunitShould;
 
 namespace GraduatedCylinder
 {
@@ -10,8 +10,8 @@ namespace GraduatedCylinder
             var jerk1 = new Jerk(1000, JerkUnit.MetersPerSecondCubed);
             var jerk2 = new Jerk(1, JerkUnit.KiloMetersPerSecondCubed);
             var expected = new Jerk(2000, JerkUnit.MetersPerSecondCubed);
-            (jerk1 + jerk2).ShouldEqual(expected);
-            (jerk2 + jerk1).ShouldEqual(expected);
+            (jerk1 + jerk2).ShouldBe(expected);
+            (jerk2 + jerk1).ShouldBe(expected);
         }
 
         [Fact]
@@ -21,8 +21,8 @@ namespace GraduatedCylinder
             (jerk1 / jerk2).ShouldBeWithinEpsilonOf(1);
             (jerk2 / jerk1).ShouldBeWithinEpsilonOf(1);
 
-            (jerk1 / 2).ShouldEqual(new Jerk(500, JerkUnit.MetersPerSecondCubed));
-            (jerk2 / 2).ShouldEqual(new Jerk(.5, JerkUnit.KiloMetersPerSecondCubed));
+            (jerk1 / 2).ShouldBe(new Jerk(500, JerkUnit.MetersPerSecondCubed));
+            (jerk2 / 2).ShouldBe(new Jerk(.5, JerkUnit.KiloMetersPerSecondCubed));
         }
 
         [Fact]
@@ -103,16 +103,16 @@ namespace GraduatedCylinder
         public void OpMultiplicationScaler() {
             var jerk = new Jerk(1, JerkUnit.KiloMetersPerSecondCubed);
             var expected = new Jerk(2, JerkUnit.KiloMetersPerSecondCubed);
-            (jerk * 2).ShouldEqual(expected);
-            (2 * jerk).ShouldEqual(expected);
+            (jerk * 2).ShouldBe(expected);
+            (2 * jerk).ShouldBe(expected);
         }
 
         [Fact]
         public void OpSubtraction() {
             var jerk1 = new Jerk(2000, JerkUnit.MetersPerSecondCubed);
             var jerk2 = new Jerk(1, JerkUnit.KiloMetersPerSecondCubed);
-            (jerk1 - jerk2).ShouldEqual(new Jerk(1000, JerkUnit.MetersPerSecondCubed));
-            (jerk2 - jerk1).ShouldEqual(new Jerk(-1, JerkUnit.KiloMetersPerSecondCubed));
+            (jerk1 - jerk2).ShouldBe(new Jerk(1000, JerkUnit.MetersPerSecondCubed));
+            (jerk2 - jerk1).ShouldBe(new Jerk(-1, JerkUnit.KiloMetersPerSecondCubed));
         }
     }
 }

@@ -12,8 +12,6 @@ namespace GraduatedCylinder
                                 IEquatable<Acceleration>,
                                 IComparable<Acceleration>
     {
-        public static readonly Acceleration Gravity = new Acceleration(9.80665, AccelerationUnit.MeterPerSecondSquared);
-
         public Acceleration(double value, AccelerationUnit units)
             : base(value, units) { }
 
@@ -62,6 +60,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static readonly Acceleration Gravity = new Acceleration(9.80665, AccelerationUnit.MeterPerSecondSquared);
+
         public static Acceleration operator +(Acceleration left, Acceleration right) {
             Guard.NotNull(left, "left");
             Guard.NotNull(right, "right");
@@ -86,7 +86,8 @@ namespace GraduatedCylinder
         public static Time operator /(Acceleration acceleration, Jerk jerk) {
             Guard.NotNull(acceleration, "acceleration");
             Guard.NotNull(jerk, "jerk");
-            double timeValue = acceleration.In(AccelerationUnit.MeterPerSecondSquared) / jerk.In(JerkUnit.MetersPerSecondCubed);
+            double timeValue = acceleration.In(AccelerationUnit.MeterPerSecondSquared)
+                               / jerk.In(JerkUnit.MetersPerSecondCubed);
             return new Time(timeValue, TimeUnit.Second);
         }
 
@@ -150,7 +151,8 @@ namespace GraduatedCylinder
         public static Power operator *(Acceleration acceleration, Momentum momentum) {
             Guard.NotNull(momentum, "momentum");
             Guard.NotNull(acceleration, "acceleration");
-            double powerValue = momentum.In(MomentumUnit.KilogramMetersPerSecond) * acceleration.In(AccelerationUnit.MeterPerSecondSquared);
+            double powerValue = momentum.In(MomentumUnit.KilogramMetersPerSecond)
+                                * acceleration.In(AccelerationUnit.MeterPerSecondSquared);
             return new Power(powerValue, PowerUnit.Watts);
         }
 

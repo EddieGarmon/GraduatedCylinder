@@ -50,6 +50,6 @@ namespace GraduatedCylinder
         /// </summary>
         [UnitAbbreviation("gal/h")]
         [Scale(3.785411784 / 3600.0)]
-        GallonsUsPerHour = 5,
+        GallonsUsPerHour = 5
     }
 }

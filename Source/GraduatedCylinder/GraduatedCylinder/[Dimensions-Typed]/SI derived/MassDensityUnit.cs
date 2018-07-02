@@ -50,6 +50,6 @@ namespace GraduatedCylinder
         /// </summary>
         [UnitAbbreviation("lb/ft^3")]
         [Scale(16.018463)]
-        PoundsPerCubicFeet = 5,
+        PoundsPerCubicFeet = 5
     }
 }

@@ -68,7 +68,8 @@ namespace GraduatedCylinder
         public static Acceleration operator /(SpeedSquared speedSquared, Length length) {
             Guard.NotNull(speedSquared, "speedSquared");
             Guard.NotNull(length, "length");
-            double accelerationValue = speedSquared.In(SpeedSquaredUnit.MetersSquaredPerSecondSquared) / length.In(LengthUnit.Meter);
+            double accelerationValue = speedSquared.In(SpeedSquaredUnit.MetersSquaredPerSecondSquared)
+                                       / length.In(LengthUnit.Meter);
             return new Acceleration(accelerationValue, AccelerationUnit.MeterPerSecondSquared);
         }
 

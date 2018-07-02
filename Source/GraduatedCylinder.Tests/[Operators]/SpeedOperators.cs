@@ -1,5 +1,5 @@
+using DigitalHammer.Testing;
 using Xunit;
-using XunitShould;
 
 namespace GraduatedCylinder
 {
@@ -10,8 +10,8 @@ namespace GraduatedCylinder
             var speed1 = new Speed(3600, SpeedUnit.MetersPerHour);
             var speed2 = new Speed(1, SpeedUnit.MetersPerMinute);
             var expected = new Speed(3660, SpeedUnit.MetersPerHour);
-            (speed1 + speed2).ShouldEqual(expected);
-            (speed2 + speed1).ShouldEqual(expected);
+            (speed1 + speed2).ShouldBe(expected);
+            (speed2 + speed1).ShouldBe(expected);
         }
 
         [Fact]
@@ -21,8 +21,8 @@ namespace GraduatedCylinder
             (speed1 / speed2).ShouldBeWithinEpsilonOf(1);
             (speed2 / speed1).ShouldBeWithinEpsilonOf(1);
 
-            (speed1 / 2).ShouldEqual(new Speed(1800, SpeedUnit.MetersPerHour));
-            (speed2 / 2).ShouldEqual(new Speed(30, SpeedUnit.MetersPerMinute));
+            (speed1 / 2).ShouldBe(new Speed(1800, SpeedUnit.MetersPerHour));
+            (speed2 / 2).ShouldBe(new Speed(30, SpeedUnit.MetersPerMinute));
         }
 
         [Fact]
@@ -103,16 +103,16 @@ namespace GraduatedCylinder
         public void OpMultiplicationScaler() {
             var speed = new Speed(1, SpeedUnit.MilesPerHour);
             var expected = new Speed(2, SpeedUnit.MilesPerHour);
-            (speed * 2).ShouldEqual(expected);
-            (2 * speed).ShouldEqual(expected);
+            (speed * 2).ShouldBe(expected);
+            (2 * speed).ShouldBe(expected);
         }
 
         [Fact]
         public void OpSubtraction() {
             var speed1 = new Speed(7200, SpeedUnit.MetersPerHour);
             var speed2 = new Speed(60, SpeedUnit.MetersPerMinute);
-            (speed1 - speed2).ShouldEqual(new Speed(3600, SpeedUnit.MetersPerHour));
-            (speed2 - speed1).ShouldEqual(new Speed(-60, SpeedUnit.MetersPerMinute));
+            (speed1 - speed2).ShouldBe(new Speed(3600, SpeedUnit.MetersPerHour));
+            (speed2 - speed1).ShouldBe(new Speed(-60, SpeedUnit.MetersPerMinute));
         }
     }
 }

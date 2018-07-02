@@ -6,8 +6,6 @@ namespace GraduatedCylinder
                                      IEquatable<ElectricPotential>,
                                      IComparable<ElectricPotential>
     {
-        public static readonly ElectricPotential Zero = new ElectricPotential(0, ElectricPotentialUnit.Volt);
-
         public ElectricPotential(double value, ElectricPotentialUnit units)
             : base(value, units) { }
 
@@ -56,6 +54,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static readonly ElectricPotential Zero = new ElectricPotential(0, ElectricPotentialUnit.Volt);
+
         public static ElectricPotential operator +(ElectricPotential voltage1, ElectricPotential voltage2) {
             Guard.NotNull(voltage1, "voltage1");
             Guard.NotNull(voltage2, "voltage2");
@@ -74,14 +74,16 @@ namespace GraduatedCylinder
         public static ElectricCurrent operator /(ElectricPotential electricPotential, ElectricResistance resistance) {
             Guard.NotNull(electricPotential, "electricPotential");
             Guard.NotNull(resistance, "resistance");
-            double electricCurrentValue = electricPotential.In(ElectricPotentialUnit.Volt) / resistance.In(ElectricResistanceUnit.Ohm);
+            double electricCurrentValue = electricPotential.In(ElectricPotentialUnit.Volt)
+                                          / resistance.In(ElectricResistanceUnit.Ohm);
             return new ElectricCurrent(electricCurrentValue, ElectricCurrentUnit.Ampere);
         }
 
         public static ElectricResistance operator /(ElectricPotential electricPotential, ElectricCurrent current) {
             Guard.NotNull(electricPotential, "electricPotential");
             Guard.NotNull(current, "current");
-            double electricResistance = electricPotential.In(ElectricPotentialUnit.Volt) / current.In(ElectricCurrentUnit.Ampere);
+            double electricResistance = electricPotential.In(ElectricPotentialUnit.Volt)
+                                        / current.In(ElectricCurrentUnit.Ampere);
             return new ElectricResistance(electricResistance, ElectricResistanceUnit.Ohm);
         }
 
@@ -132,7 +134,8 @@ namespace GraduatedCylinder
         public static Power operator *(ElectricPotential electricPotential, ElectricCurrent current) {
             Guard.NotNull(current, "current");
             Guard.NotNull(electricPotential, "electricPotential");
-            double powerValue = electricPotential.In(ElectricPotentialUnit.Volt) * current.In(ElectricCurrentUnit.Ampere);
+            double powerValue = electricPotential.In(ElectricPotentialUnit.Volt)
+                                * current.In(ElectricCurrentUnit.Ampere);
             return new Power(powerValue, PowerUnit.Watts);
         }
 

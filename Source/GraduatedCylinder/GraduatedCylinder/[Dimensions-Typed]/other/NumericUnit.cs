@@ -10,6 +10,6 @@ namespace GraduatedCylinder
 
         [UnitAbbreviation("%")]
         [Scale(0.01)]
-        Percent,
+        Percent
     }
 }

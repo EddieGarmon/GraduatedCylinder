@@ -1,5 +1,5 @@
+using DigitalHammer.Testing;
 using Xunit;
-using XunitShould;
 
 namespace GraduatedCylinder
 {
@@ -10,8 +10,8 @@ namespace GraduatedCylinder
             var pressure1 = new Pressure(1000, PressureUnit.Pascals);
             var pressure2 = new Pressure(1, PressureUnit.KiloPascals);
             var expected = new Pressure(2000, PressureUnit.Pascals);
-            (pressure1 + pressure2).ShouldEqual(expected);
-            (pressure2 + pressure1).ShouldEqual(expected);
+            (pressure1 + pressure2).ShouldBe(expected);
+            (pressure2 + pressure1).ShouldBe(expected);
         }
 
         [Fact]
@@ -21,8 +21,8 @@ namespace GraduatedCylinder
             (pressure1 / pressure2).ShouldBeWithinEpsilonOf(1);
             (pressure2 / pressure1).ShouldBeWithinEpsilonOf(1);
 
-            (pressure1 / 2).ShouldEqual(new Pressure(2000, PressureUnit.Pascals));
-            (pressure2 / 2).ShouldEqual(new Pressure(2, PressureUnit.KiloPascals));
+            (pressure1 / 2).ShouldBe(new Pressure(2000, PressureUnit.Pascals));
+            (pressure2 / 2).ShouldBe(new Pressure(2, PressureUnit.KiloPascals));
         }
 
         [Fact]
@@ -103,16 +103,16 @@ namespace GraduatedCylinder
         public void OpMultiplicationScaler() {
             var pressure = new Pressure(1, PressureUnit.Pascals);
             var expected = new Pressure(2, PressureUnit.Pascals);
-            (pressure * 2).ShouldEqual(expected);
-            (2 * pressure).ShouldEqual(expected);
+            (pressure * 2).ShouldBe(expected);
+            (2 * pressure).ShouldBe(expected);
         }
 
         [Fact]
         public void OpSubtraction() {
             var pressure1 = new Pressure(7000, PressureUnit.Pascals);
             var pressure2 = new Pressure(1, PressureUnit.KiloPascals);
-            (pressure1 - pressure2).ShouldEqual(new Pressure(6000, PressureUnit.Pascals));
-            (pressure2 - pressure1).ShouldEqual(new Pressure(-6, PressureUnit.KiloPascals));
+            (pressure1 - pressure2).ShouldBe(new Pressure(6000, PressureUnit.Pascals));
+            (pressure2 - pressure1).ShouldBe(new Pressure(-6, PressureUnit.KiloPascals));
         }
     }
 }

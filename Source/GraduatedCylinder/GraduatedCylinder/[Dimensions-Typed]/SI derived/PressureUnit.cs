@@ -71,6 +71,6 @@ namespace GraduatedCylinder
         /// </summary>
         [UnitAbbreviation("psi")]
         [Scale(6894.76)]
-        PoundsPerSquareInch = 8,
+        PoundsPerSquareInch = 8
     }
 }

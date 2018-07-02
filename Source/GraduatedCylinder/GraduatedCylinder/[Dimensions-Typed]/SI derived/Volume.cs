@@ -86,7 +86,8 @@ namespace GraduatedCylinder
         public static Time operator /(Volume volume, VolumetricFlowRate volumetricFlowRate) {
             Guard.NotNull(volume, "volume");
             Guard.NotNull(volumetricFlowRate, "volumetricFlowRate");
-            double timeValue = volume.In(VolumeUnit.Liters) / volumetricFlowRate.In(VolumetricFlowRateUnit.LitersPerSecond);
+            double timeValue = volume.In(VolumeUnit.Liters)
+                               / volumetricFlowRate.In(VolumetricFlowRateUnit.LitersPerSecond);
             return new Time(timeValue, TimeUnit.Second);
         }
 

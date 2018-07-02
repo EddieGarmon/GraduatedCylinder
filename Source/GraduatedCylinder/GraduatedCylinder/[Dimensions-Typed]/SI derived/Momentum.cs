@@ -151,7 +151,8 @@ namespace GraduatedCylinder
         public static Power operator *(Momentum momentum, Acceleration acceleration) {
             Guard.NotNull(momentum, "momentum");
             Guard.NotNull(acceleration, "acceleration");
-            double powerValue = momentum.In(MomentumUnit.KilogramMetersPerSecond) * acceleration.In(AccelerationUnit.MeterPerSecondSquared);
+            double powerValue = momentum.In(MomentumUnit.KilogramMetersPerSecond)
+                                * acceleration.In(AccelerationUnit.MeterPerSecondSquared);
             return new Power(powerValue, PowerUnit.Watts);
         }
 

@@ -5,26 +5,18 @@ namespace GraduatedCylinder
 {
     public class UnitPreferences
     {
-        private static readonly Dictionary<string, Func<UnitPreferences>> CultureUnitGenerators;
-        private readonly SafeDictionary<DimensionType, UnitOfMeasure> _unitPreferences = new SafeDictionary<DimensionType, UnitOfMeasure>();
+        private readonly SafeDictionary<DimensionType, UnitOfMeasure> _unitPreferences =
+            new SafeDictionary<DimensionType, UnitOfMeasure>();
 
         static UnitPreferences() {
             CultureUnitGenerators = new Dictionary<string, Func<UnitPreferences>> {
-                {
-                    "es", () => GetMetricUnits()
-                }, {
-                    "es-mx", () => GetMetricUnits()
-                }, {
-                    "en", () => GetAmericanEnglishUnits()
-                }, {
-                    "en-gb", () => GetBritishEnglishUnits()
-                }, {
-                    "en-us", () => GetAmericanEnglishUnits()
-                }, {
-                    "fr", () => GetMetricUnits()
-                }, {
-                    "fr-ca", () => GetMetricUnits()
-                }
+                { "es", () => GetMetricUnits() },
+                { "es-mx", () => GetMetricUnits() },
+                { "en", () => GetAmericanEnglishUnits() },
+                { "en-gb", () => GetBritishEnglishUnits() },
+                { "en-us", () => GetAmericanEnglishUnits() },
+                { "fr", () => GetMetricUnits() },
+                { "fr-ca", () => GetMetricUnits() }
             };
         }
 
@@ -54,10 +46,6 @@ namespace GraduatedCylinder
             _unitPreferences.Add(DimensionType.Torque, TorqueUnit.BaseUnit);
             _unitPreferences.Add(DimensionType.Volume, VolumeUnit.BaseUnit);
             _unitPreferences.Add(DimensionType.VolumetricFlowRate, VolumetricFlowRateUnit.BaseUnit);
-        }
-
-        public UnitOfMeasure this[DimensionType dimensionType] {
-            get { return _unitPreferences[dimensionType]; }
         }
 
         public UnitOfMeasure AccelerationUnits {
@@ -185,9 +173,15 @@ namespace GraduatedCylinder
             set { _unitPreferences[DimensionType.Volume] = value; }
         }
 
+        public UnitOfMeasure this[DimensionType dimensionType] {
+            get { return _unitPreferences[dimensionType]; }
+        }
+
         public void Fix(ISupportUnitOfMeasure dimension) {
             dimension.Units = _unitPreferences[dimension.Units.DimensionType];
         }
+
+        private static readonly Dictionary<string, Func<UnitPreferences>> CultureUnitGenerators;
 
         public static UnitPreferences GetAmericanEnglishUnits() {
             return new UnitPreferences {
@@ -238,7 +232,9 @@ namespace GraduatedCylinder
 
         public static UnitPreferences GetCultureUnits(string cultureCode) {
             cultureCode = cultureCode.ToLowerInvariant();
-            return CultureUnitGenerators.ContainsKey(cultureCode) ? CultureUnitGenerators[cultureCode]() : GetMetricUnits();
+            return CultureUnitGenerators.ContainsKey(cultureCode)
+                       ? CultureUnitGenerators[cultureCode]()
+                       : GetMetricUnits();
         }
 
         public static UnitPreferences GetMetricUnits() {

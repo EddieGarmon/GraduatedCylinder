@@ -54,7 +54,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
-        public static VolumetricFlowRate operator +(VolumetricFlowRate volumetricFlowRate1, VolumetricFlowRate volumetricFlowRate2) {
+        public static VolumetricFlowRate operator +(VolumetricFlowRate volumetricFlowRate1,
+                                                    VolumetricFlowRate volumetricFlowRate2) {
             Guard.NotNull(volumetricFlowRate1, "volumetricFlowRate1");
             Guard.NotNull(volumetricFlowRate2, "volumetricFlowRate2");
             return new VolumetricFlowRate(volumetricFlowRate1.ValueInBaseUnits + volumetricFlowRate2.ValueInBaseUnits) {
@@ -116,11 +117,13 @@ namespace GraduatedCylinder
         public static Volume operator *(VolumetricFlowRate volumetricFlowRate, Time time) {
             Guard.NotNull(volumetricFlowRate, "volumetricFlowRate");
             Guard.NotNull(time, "time");
-            double volumeValue = volumetricFlowRate.In(VolumetricFlowRateUnit.CubicMetersPerSecond) * time.In(TimeUnit.Second);
+            double volumeValue = volumetricFlowRate.In(VolumetricFlowRateUnit.CubicMetersPerSecond)
+                                 * time.In(TimeUnit.Second);
             return new Volume(volumeValue, VolumeUnit.CubicMeters);
         }
 
-        public static VolumetricFlowRate operator -(VolumetricFlowRate volumetricFlowRate1, VolumetricFlowRate volumetricFlowRate2) {
+        public static VolumetricFlowRate operator -(VolumetricFlowRate volumetricFlowRate1,
+                                                    VolumetricFlowRate volumetricFlowRate2) {
             Guard.NotNull(volumetricFlowRate1, "volumetricFlowRate1");
             Guard.NotNull(volumetricFlowRate2, "volumetricFlowRate2");
             return new VolumetricFlowRate(volumetricFlowRate1.ValueInBaseUnits - volumetricFlowRate2.ValueInBaseUnits) {

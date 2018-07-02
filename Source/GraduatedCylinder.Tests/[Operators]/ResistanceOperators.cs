@@ -1,5 +1,5 @@
+using DigitalHammer.Testing;
 using Xunit;
-using XunitShould;
 
 namespace GraduatedCylinder
 {
@@ -10,8 +10,8 @@ namespace GraduatedCylinder
             var resistance1 = new ElectricResistance(3000, ElectricResistanceUnit.Ohm);
             var resistance2 = new ElectricResistance(1, ElectricResistanceUnit.Kiloohm);
             var expected = new ElectricResistance(4000, ElectricResistanceUnit.Ohm);
-            (resistance1 + resistance2).ShouldEqual(expected);
-            (resistance2 + resistance1).ShouldEqual(expected);
+            (resistance1 + resistance2).ShouldBe(expected);
+            (resistance2 + resistance1).ShouldBe(expected);
         }
 
         [Fact]
@@ -21,8 +21,8 @@ namespace GraduatedCylinder
             (resistance1 / resistance2).ShouldBeWithinEpsilonOf(1);
             (resistance2 / resistance1).ShouldBeWithinEpsilonOf(1);
 
-            (resistance1 / 2).ShouldEqual(new ElectricResistance(1000, ElectricResistanceUnit.Ohm));
-            (resistance2 / 2).ShouldEqual(new ElectricResistance(1, ElectricResistanceUnit.Kiloohm));
+            (resistance1 / 2).ShouldBe(new ElectricResistance(1000, ElectricResistanceUnit.Ohm));
+            (resistance2 / 2).ShouldBe(new ElectricResistance(1, ElectricResistanceUnit.Kiloohm));
         }
 
         [Fact]
@@ -103,16 +103,16 @@ namespace GraduatedCylinder
         public void OpMultiplicationScaler() {
             var resistance = new ElectricResistance(1, ElectricResistanceUnit.Ohm);
             var expected = new ElectricResistance(2, ElectricResistanceUnit.Ohm);
-            (resistance * 2).ShouldEqual(expected);
-            (2 * resistance).ShouldEqual(expected);
+            (resistance * 2).ShouldBe(expected);
+            (2 * resistance).ShouldBe(expected);
         }
 
         [Fact]
         public void OpSubtraction() {
             var resistance1 = new ElectricResistance(7000, ElectricResistanceUnit.Ohm);
             var resistance2 = new ElectricResistance(1, ElectricResistanceUnit.Kiloohm);
-            (resistance1 - resistance2).ShouldEqual(new ElectricResistance(6000, ElectricResistanceUnit.Ohm));
-            (resistance2 - resistance1).ShouldEqual(new ElectricResistance(-6, ElectricResistanceUnit.Kiloohm));
+            (resistance1 - resistance2).ShouldBe(new ElectricResistance(6000, ElectricResistanceUnit.Ohm));
+            (resistance2 - resistance1).ShouldBe(new ElectricResistance(-6, ElectricResistanceUnit.Kiloohm));
         }
     }
 }

@@ -5,7 +5,9 @@ namespace GraduatedCylinder
 {
     internal class UnitOfMeasureLookup
     {
-        private readonly SafeDictionary<string, UnitOfMeasure> _byAbbreviation = new SafeDictionary<string, UnitOfMeasure>();
+        private readonly SafeDictionary<string, UnitOfMeasure> _byAbbreviation =
+            new SafeDictionary<string, UnitOfMeasure>();
+
         private readonly SafeDictionary<string, UnitOfMeasure> _byName = new SafeDictionary<string, UnitOfMeasure>();
         private readonly SafeDictionary<int, UnitOfMeasure> _byValue = new SafeDictionary<int, UnitOfMeasure>();
         private readonly DimensionType _dimensionType;
@@ -23,9 +25,11 @@ namespace GraduatedCylinder
                 _byAbbreviation.Add(unitOfMeasure.Abbreviation, unitOfMeasure);
                 _byName.Add(unitOfMeasure.Name, unitOfMeasure);
                 _byValue.Add(unitOfMeasure.EnumValue, unitOfMeasure);
-            }
-            catch (Exception) {
-                string message = string.Format("UoM: {0} {1} ({2})", unitOfMeasure.Name, unitOfMeasure.Abbreviation, unitOfMeasure.EnumValue);
+            } catch (Exception) {
+                string message = string.Format("UoM: {0} {1} ({2})",
+                                               unitOfMeasure.Name,
+                                               unitOfMeasure.Abbreviation,
+                                               unitOfMeasure.EnumValue);
                 Debug.WriteLine(message);
                 throw;
             }

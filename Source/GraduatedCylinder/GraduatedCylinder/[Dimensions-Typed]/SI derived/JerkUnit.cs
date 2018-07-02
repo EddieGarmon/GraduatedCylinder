@@ -29,6 +29,6 @@ namespace GraduatedCylinder
         /// </summary>
         [UnitAbbreviation("miles/s^3")]
         [Scale(1609.344)]
-        MilesPerSecondCubed = 2,
+        MilesPerSecondCubed = 2
     }
 }

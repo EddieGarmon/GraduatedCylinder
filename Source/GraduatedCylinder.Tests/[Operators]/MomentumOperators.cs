@@ -1,5 +1,5 @@
+using DigitalHammer.Testing;
 using Xunit;
-using XunitShould;
 
 namespace GraduatedCylinder
 {
@@ -10,8 +10,8 @@ namespace GraduatedCylinder
             var momentum1 = new Momentum(300000, MomentumUnit.GramCentimetersPerSecond);
             var momentum2 = new Momentum(1, MomentumUnit.KilogramMetersPerSecond);
             var expected = new Momentum(400000, MomentumUnit.GramCentimetersPerSecond);
-            (momentum1 + momentum2).ShouldEqual(expected);
-            (momentum2 + momentum1).ShouldEqual(expected);
+            (momentum1 + momentum2).ShouldBe(expected);
+            (momentum2 + momentum1).ShouldBe(expected);
         }
 
         [Fact]
@@ -21,8 +21,8 @@ namespace GraduatedCylinder
             (momentum1 / momentum2).ShouldBeWithinEpsilonOf(1);
             (momentum2 / momentum1).ShouldBeWithinEpsilonOf(1);
 
-            (momentum1 / 2).ShouldEqual(new Momentum(150000, MomentumUnit.GramCentimetersPerSecond));
-            (momentum2 / 2).ShouldEqual(new Momentum(1.5, MomentumUnit.KilogramMetersPerSecond));
+            (momentum1 / 2).ShouldBe(new Momentum(150000, MomentumUnit.GramCentimetersPerSecond));
+            (momentum2 / 2).ShouldBe(new Momentum(1.5, MomentumUnit.KilogramMetersPerSecond));
         }
 
         [Fact]
@@ -103,16 +103,16 @@ namespace GraduatedCylinder
         public void OpMultiplicationScaler() {
             var momentum = new Momentum(1, MomentumUnit.KilogramMetersPerSecond);
             var expected = new Momentum(2, MomentumUnit.KilogramMetersPerSecond);
-            (momentum * 2).ShouldEqual(expected);
-            (2 * momentum).ShouldEqual(expected);
+            (momentum * 2).ShouldBe(expected);
+            (2 * momentum).ShouldBe(expected);
         }
 
         [Fact]
         public void OpSubtraction() {
             var momentum1 = new Momentum(700000, MomentumUnit.GramCentimetersPerSecond);
             var momentum2 = new Momentum(3, MomentumUnit.KilogramMetersPerSecond);
-            (momentum1 - momentum2).ShouldEqual(new Momentum(400000, MomentumUnit.GramCentimetersPerSecond));
-            (momentum2 - momentum1).ShouldEqual(new Momentum(-4, MomentumUnit.KilogramMetersPerSecond));
+            (momentum1 - momentum2).ShouldBe(new Momentum(400000, MomentumUnit.GramCentimetersPerSecond));
+            (momentum2 - momentum1).ShouldBe(new Momentum(-4, MomentumUnit.KilogramMetersPerSecond));
         }
     }
 }

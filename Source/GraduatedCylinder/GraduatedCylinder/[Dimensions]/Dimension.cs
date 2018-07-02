@@ -8,14 +8,13 @@ namespace GraduatedCylinder
     /// </summary>
     public abstract partial class Dimension : ISupportUnitOfMeasure
     {
-        private const double CloseMargin = 2.2204460492503131E-12;
         private readonly double _baseUnitsValue;
         private readonly DimensionType _dimensionType;
         private UnitOfMeasure _currentUnits;
         private double _currentValue;
 
         protected Dimension(double value, UnitOfMeasure unitOfMeasure) {
-            Guard.NotNull(unitOfMeasure, "unitOfMeasure");
+            Guard.NotNull(unitOfMeasure, nameof(unitOfMeasure));
             _dimensionType = unitOfMeasure.DimensionType;
             _currentValue = value;
             _currentUnits = unitOfMeasure;
@@ -103,7 +102,9 @@ namespace GraduatedCylinder
         /// <returns></returns>
         protected double In(UnitOfMeasure desiredUnits) {
             desiredUnits.DimensionType.ShouldBe(_dimensionType);
-            return (_currentUnits == desiredUnits) ? _currentValue : desiredUnits.UnitConverter.FromBaseUnit(_baseUnitsValue);
+            return (_currentUnits == desiredUnits)
+                       ? _currentValue
+                       : desiredUnits.UnitConverter.FromBaseUnit(_baseUnitsValue);
         }
 
         protected string ToString(UnitOfMeasure desiredUnits) {
@@ -116,19 +117,21 @@ namespace GraduatedCylinder
             return string.Format(format, In(desiredUnits), desiredUnits.Abbreviation);
         }
 
-        public static bool operator ==(Dimension left, Dimension right) {
-            return Equals(left, right);
-        }
-
-        public static bool operator !=(Dimension left, Dimension right) {
-            return !Equals(left, right);
-        }
+        private const double CloseMargin = 2.2204460492503131E-12;
 
         private static bool AreClose(double value1, double value2) {
             double num = (Math.Abs(value1) + Math.Abs(value2)) * CloseMargin;
             double difference = value1 - value2;
             bool areClose = (-num < difference) && (difference < num);
             return areClose;
+        }
+
+        public static bool operator ==(Dimension left, Dimension right) {
+            return Equals(left, right);
+        }
+
+        public static bool operator !=(Dimension left, Dimension right) {
+            return !Equals(left, right);
         }
     }
 }

@@ -1,5 +1,5 @@
+using DigitalHammer.Testing;
 using Xunit;
-using XunitShould;
 
 namespace GraduatedCylinder
 {
@@ -10,8 +10,8 @@ namespace GraduatedCylinder
             var volume1 = new Volume(3600, VolumeUnit.Liters);
             var volume2 = new Volume(1, VolumeUnit.CubicMeters);
             var expected = new Volume(4600, VolumeUnit.Liters);
-            (volume1 + volume2).ShouldEqual(expected);
-            (volume2 + volume1).ShouldEqual(expected);
+            (volume1 + volume2).ShouldBe(expected);
+            (volume2 + volume1).ShouldBe(expected);
         }
 
         [Fact]
@@ -21,8 +21,8 @@ namespace GraduatedCylinder
             (volume1 / volume2).ShouldBeWithinEpsilonOf(1);
             (volume2 / volume1).ShouldBeWithinEpsilonOf(1);
 
-            (volume1 / 2).ShouldEqual(new Volume(1800, VolumeUnit.Liters));
-            (volume2 / 2).ShouldEqual(new Volume(1.8, VolumeUnit.CubicMeters));
+            (volume1 / 2).ShouldBe(new Volume(1800, VolumeUnit.Liters));
+            (volume2 / 2).ShouldBe(new Volume(1.8, VolumeUnit.CubicMeters));
         }
 
         [Fact]
@@ -103,16 +103,16 @@ namespace GraduatedCylinder
         public void OpMultiplicationScaler() {
             var volume = new Volume(1, VolumeUnit.Liters);
             var expected = new Volume(2, VolumeUnit.Liters);
-            (volume * 2).ShouldEqual(expected);
-            (2 * volume).ShouldEqual(expected);
+            (volume * 2).ShouldBe(expected);
+            (2 * volume).ShouldBe(expected);
         }
 
         [Fact]
         public void OpSubtraction() {
             var volume1 = new Volume(7200, VolumeUnit.Liters);
             var volume2 = new Volume(1, VolumeUnit.CubicMeters);
-            (volume1 - volume2).ShouldEqual(new Volume(6200, VolumeUnit.Liters));
-            (volume2 - volume1).ShouldEqual(new Volume(-6.2, VolumeUnit.CubicMeters));
+            (volume1 - volume2).ShouldBe(new Volume(6200, VolumeUnit.Liters));
+            (volume2 - volume1).ShouldBe(new Volume(-6.2, VolumeUnit.CubicMeters));
         }
     }
 }

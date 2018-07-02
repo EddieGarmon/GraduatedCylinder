@@ -1,5 +1,5 @@
+using DigitalHammer.Testing;
 using Xunit;
-using XunitShould;
 
 namespace GraduatedCylinder
 {
@@ -10,8 +10,8 @@ namespace GraduatedCylinder
             var current1 = new ElectricCurrent(3000, ElectricCurrentUnit.Ampere);
             var current2 = new ElectricCurrent(1, ElectricCurrentUnit.KiloAmpere);
             var expected = new ElectricCurrent(4000, ElectricCurrentUnit.Ampere);
-            (current1 + current2).ShouldEqual(expected);
-            (current2 + current1).ShouldEqual(expected);
+            (current1 + current2).ShouldBe(expected);
+            (current2 + current1).ShouldBe(expected);
         }
 
         [Fact]
@@ -21,8 +21,8 @@ namespace GraduatedCylinder
             (current1 / current2).ShouldBeWithinEpsilonOf(1);
             (current2 / current1).ShouldBeWithinEpsilonOf(1);
 
-            (current1 / 2).ShouldEqual(new ElectricCurrent(1000, ElectricCurrentUnit.Ampere));
-            (current2 / 2).ShouldEqual(new ElectricCurrent(1, ElectricCurrentUnit.KiloAmpere));
+            (current1 / 2).ShouldBe(new ElectricCurrent(1000, ElectricCurrentUnit.Ampere));
+            (current2 / 2).ShouldBe(new ElectricCurrent(1, ElectricCurrentUnit.KiloAmpere));
         }
 
         [Fact]
@@ -103,16 +103,16 @@ namespace GraduatedCylinder
         public void OpMultiplicationScaler() {
             var current = new ElectricCurrent(1, ElectricCurrentUnit.Ampere);
             var expected = new ElectricCurrent(2, ElectricCurrentUnit.Ampere);
-            (current * 2).ShouldEqual(expected);
-            (2 * current).ShouldEqual(expected);
+            (current * 2).ShouldBe(expected);
+            (2 * current).ShouldBe(expected);
         }
 
         [Fact]
         public void OpSubtraction() {
             var current1 = new ElectricCurrent(7000, ElectricCurrentUnit.Ampere);
             var current2 = new ElectricCurrent(1, ElectricCurrentUnit.KiloAmpere);
-            (current1 - current2).ShouldEqual(new ElectricCurrent(6000, ElectricCurrentUnit.Ampere));
-            (current2 - current1).ShouldEqual(new ElectricCurrent(-6, ElectricCurrentUnit.KiloAmpere));
+            (current1 - current2).ShouldBe(new ElectricCurrent(6000, ElectricCurrentUnit.Ampere));
+            (current2 - current1).ShouldBe(new ElectricCurrent(-6, ElectricCurrentUnit.KiloAmpere));
         }
     }
 }

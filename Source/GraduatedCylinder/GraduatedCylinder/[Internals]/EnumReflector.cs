@@ -140,7 +140,8 @@ namespace GraduatedCylinder
         /// <param name="enumValue">The enumeration value.</param>
         /// <returns></returns>
         /// <remarks></remarks>
-        public static TAttribute[] GetEnumAttributes<TAttribute>(object enumValue) where TAttribute : Attribute {
+        public static TAttribute[] GetEnumAttributes<TAttribute>(object enumValue)
+            where TAttribute : Attribute {
             Type enumType = enumValue.GetType();
             EnsureIsEnum(enumType);
             return (TAttribute[])enumType.GetCustomAttributes(typeof(TAttribute), false);
@@ -153,7 +154,8 @@ namespace GraduatedCylinder
         /// <param name="enumValue">The enumeration value.</param>
         /// <returns></returns>
         /// <remarks></remarks>
-        public static TAttribute[] GetValueAttributes<TAttribute>(object enumValue) where TAttribute : Attribute {
+        public static TAttribute[] GetValueAttributes<TAttribute>(object enumValue)
+            where TAttribute : Attribute {
             Type enumType = enumValue.GetType();
             EnsureIsEnum(enumType);
             //use a long as all integral types have an implicit conversion to long, and we don't care about the value here.

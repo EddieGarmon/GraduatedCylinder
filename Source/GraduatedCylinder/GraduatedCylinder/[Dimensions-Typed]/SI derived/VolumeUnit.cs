@@ -155,6 +155,6 @@ namespace GraduatedCylinder
         /// </summary>
         [UnitAbbreviation("yd^3")]
         [Scale(.764554857984)]
-        CubicYards = 20,
+        CubicYards = 20
     }
 }

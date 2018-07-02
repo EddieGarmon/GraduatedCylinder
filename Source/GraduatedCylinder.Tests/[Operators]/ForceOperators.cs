@@ -1,5 +1,5 @@
+using DigitalHammer.Testing;
 using Xunit;
-using XunitShould;
 
 namespace GraduatedCylinder
 {
@@ -10,8 +10,8 @@ namespace GraduatedCylinder
             var force1 = new Force(9.81, ForceUnit.Newtons);
             var force2 = new Force(1, ForceUnit.KilogramForce);
             var expected = new Force(19.62, ForceUnit.Newtons);
-            (force1 + force2).ShouldEqual(expected);
-            (force2 + force1).ShouldEqual(expected);
+            (force1 + force2).ShouldBe(expected);
+            (force2 + force1).ShouldBe(expected);
         }
 
         [Fact]
@@ -21,8 +21,8 @@ namespace GraduatedCylinder
             (force1 / force2).ShouldBeWithinEpsilonOf(1);
             (force2 / force1).ShouldBeWithinEpsilonOf(1);
 
-            (force1 / 2).ShouldEqual(new Force(9.81, ForceUnit.Newtons));
-            (force2 / 2).ShouldEqual(new Force(1, ForceUnit.KilogramForce));
+            (force1 / 2).ShouldBe(new Force(9.81, ForceUnit.Newtons));
+            (force2 / 2).ShouldBe(new Force(1, ForceUnit.KilogramForce));
         }
 
         [Fact]
@@ -103,16 +103,16 @@ namespace GraduatedCylinder
         public void OpMultiplicationScaler() {
             var force = new Force(1, ForceUnit.KilogramForce);
             var expected = new Force(2, ForceUnit.KilogramForce);
-            (force * 2).ShouldEqual(expected);
-            (2 * force).ShouldEqual(expected);
+            (force * 2).ShouldBe(expected);
+            (2 * force).ShouldBe(expected);
         }
 
         [Fact]
         public void OpSubtraction() {
             var force1 = new Force(19.62, ForceUnit.Newtons);
             var force2 = new Force(1, ForceUnit.KilogramForce);
-            (force1 - force2).ShouldEqual(new Force(9.81, ForceUnit.Newtons));
-            (force2 - force1).ShouldEqual(new Force(-1, ForceUnit.KilogramForce));
+            (force1 - force2).ShouldBe(new Force(9.81, ForceUnit.Newtons));
+            (force2 - force1).ShouldBe(new Force(-1, ForceUnit.KilogramForce));
         }
     }
 }

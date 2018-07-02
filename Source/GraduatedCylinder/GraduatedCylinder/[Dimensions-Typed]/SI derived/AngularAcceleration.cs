@@ -59,10 +59,12 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
-        public static AngularAcceleration operator +(AngularAcceleration angularAcceleration1, AngularAcceleration angularAcceleration2) {
+        public static AngularAcceleration operator +(AngularAcceleration angularAcceleration1,
+                                                     AngularAcceleration angularAcceleration2) {
             Guard.NotNull(angularAcceleration1, "angularAcceleration1");
             Guard.NotNull(angularAcceleration2, "angularAcceleration2");
-            return new AngularAcceleration(angularAcceleration1.ValueInBaseUnits + angularAcceleration2.ValueInBaseUnits) {
+            return new AngularAcceleration(
+                angularAcceleration1.ValueInBaseUnits + angularAcceleration2.ValueInBaseUnits) {
                 Units = angularAcceleration1.Units
             };
         }

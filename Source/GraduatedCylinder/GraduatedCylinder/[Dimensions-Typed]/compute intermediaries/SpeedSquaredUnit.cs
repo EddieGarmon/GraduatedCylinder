@@ -9,6 +9,6 @@
         /// </summary>
         [UnitAbbreviation("m^2/s^2")]
         [Scale(1.0)]
-        MetersSquaredPerSecondSquared = 0,
+        MetersSquaredPerSecondSquared = 0
     }
 }

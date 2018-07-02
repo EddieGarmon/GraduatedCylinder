@@ -1,5 +1,5 @@
+using DigitalHammer.Testing;
 using Xunit;
-using XunitShould;
 
 namespace GraduatedCylinder
 {
@@ -10,8 +10,8 @@ namespace GraduatedCylinder
             var volumetricFlowRate1 = new VolumetricFlowRate(3600, VolumetricFlowRateUnit.LitersPerHour);
             var volumetricFlowRate2 = new VolumetricFlowRate(1, VolumetricFlowRateUnit.LitersPerMinute);
             var expected = new VolumetricFlowRate(3660, VolumetricFlowRateUnit.LitersPerHour);
-            (volumetricFlowRate1 + volumetricFlowRate2).ShouldEqual(expected);
-            (volumetricFlowRate2 + volumetricFlowRate1).ShouldEqual(expected);
+            (volumetricFlowRate1 + volumetricFlowRate2).ShouldBe(expected);
+            (volumetricFlowRate2 + volumetricFlowRate1).ShouldBe(expected);
         }
 
         [Fact]
@@ -21,8 +21,8 @@ namespace GraduatedCylinder
             (volumetricFlowRate1 / volumetricFlowRate2).ShouldBeWithinEpsilonOf(1);
             (volumetricFlowRate2 / volumetricFlowRate1).ShouldBeWithinEpsilonOf(1);
 
-            (volumetricFlowRate1 / 2).ShouldEqual(new VolumetricFlowRate(1800, VolumetricFlowRateUnit.LitersPerHour));
-            (volumetricFlowRate2 / 2).ShouldEqual(new VolumetricFlowRate(30, VolumetricFlowRateUnit.LitersPerMinute));
+            (volumetricFlowRate1 / 2).ShouldBe(new VolumetricFlowRate(1800, VolumetricFlowRateUnit.LitersPerHour));
+            (volumetricFlowRate2 / 2).ShouldBe(new VolumetricFlowRate(30, VolumetricFlowRateUnit.LitersPerMinute));
         }
 
         [Fact]
@@ -103,16 +103,16 @@ namespace GraduatedCylinder
         public void OpMultiplicationScaler() {
             var volumetricFlowRate = new VolumetricFlowRate(1, VolumetricFlowRateUnit.LitersPerHour);
             var expected = new VolumetricFlowRate(2, VolumetricFlowRateUnit.LitersPerHour);
-            (volumetricFlowRate * 2).ShouldEqual(expected);
-            (2 * volumetricFlowRate).ShouldEqual(expected);
+            (volumetricFlowRate * 2).ShouldBe(expected);
+            (2 * volumetricFlowRate).ShouldBe(expected);
         }
 
         [Fact]
         public void OpSubtraction() {
             var volumetricFlowRate1 = new VolumetricFlowRate(720, VolumetricFlowRateUnit.LitersPerHour);
             var volumetricFlowRate2 = new VolumetricFlowRate(1, VolumetricFlowRateUnit.LitersPerMinute);
-            (volumetricFlowRate1 - volumetricFlowRate2).ShouldEqual(new VolumetricFlowRate(660, VolumetricFlowRateUnit.LitersPerHour));
-            (volumetricFlowRate2 - volumetricFlowRate1).ShouldEqual(new VolumetricFlowRate(-11, VolumetricFlowRateUnit.LitersPerMinute));
+            (volumetricFlowRate1 - volumetricFlowRate2).ShouldBe(new VolumetricFlowRate(660, VolumetricFlowRateUnit.LitersPerHour));
+            (volumetricFlowRate2 - volumetricFlowRate1).ShouldBe(new VolumetricFlowRate(-11, VolumetricFlowRateUnit.LitersPerMinute));
         }
     }
 }

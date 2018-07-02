@@ -1,5 +1,5 @@
+using DigitalHammer.Testing;
 using Xunit;
-using XunitShould;
 
 namespace GraduatedCylinder
 {
@@ -10,8 +10,8 @@ namespace GraduatedCylinder
             var power1 = new Power(6000, PowerUnit.Watts);
             var power2 = new Power(1, PowerUnit.Kilowatts);
             var expected = new Power(7000, PowerUnit.Watts);
-            (power1 + power2).ShouldEqual(expected);
-            (power2 + power1).ShouldEqual(expected);
+            (power1 + power2).ShouldBe(expected);
+            (power2 + power1).ShouldBe(expected);
         }
 
         [Fact]
@@ -21,8 +21,8 @@ namespace GraduatedCylinder
             (power1 / power2).ShouldBeWithinEpsilonOf(1);
             (power2 / power1).ShouldBeWithinEpsilonOf(1);
 
-            (power1 / 2).ShouldEqual(new Power(1000, PowerUnit.Watts));
-            (power2 / 2).ShouldEqual(new Power(1, PowerUnit.Kilowatts));
+            (power1 / 2).ShouldBe(new Power(1000, PowerUnit.Watts));
+            (power2 / 2).ShouldBe(new Power(1, PowerUnit.Kilowatts));
         }
 
         [Fact]
@@ -103,16 +103,16 @@ namespace GraduatedCylinder
         public void OpMultiplicationScaler() {
             var power = new Power(1, PowerUnit.Kilowatts);
             var expected = new Power(2, PowerUnit.Kilowatts);
-            (power * 2).ShouldEqual(expected);
-            (2 * power).ShouldEqual(expected);
+            (power * 2).ShouldBe(expected);
+            (2 * power).ShouldBe(expected);
         }
 
         [Fact]
         public void OpSubtraction() {
             var power1 = new Power(5000, PowerUnit.Watts);
             var power2 = new Power(1, PowerUnit.Kilowatts);
-            (power1 - power2).ShouldEqual(new Power(4000, PowerUnit.Watts));
-            (power2 - power1).ShouldEqual(new Power(-4, PowerUnit.Kilowatts));
+            (power1 - power2).ShouldBe(new Power(4000, PowerUnit.Watts));
+            (power2 - power1).ShouldBe(new Power(-4, PowerUnit.Kilowatts));
         }
     }
 }

@@ -29,6 +29,6 @@ namespace GraduatedCylinder
         /// </summary>
         [UnitAbbreviation("kgf")]
         [Scale(9.81)]
-        KilogramForce = 2,
+        KilogramForce = 2
     }
 }

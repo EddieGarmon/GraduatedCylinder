@@ -1,5 +1,5 @@
+using DigitalHammer.Testing;
 using Xunit;
-using XunitShould;
 
 namespace GraduatedCylinder
 {
@@ -10,8 +10,8 @@ namespace GraduatedCylinder
             var time1 = new Time(3600, TimeUnit.Second);
             var time2 = new Time(1, TimeUnit.Hours);
             var expected = new Time(7200, TimeUnit.Second);
-            (time1 + time2).ShouldEqual(expected);
-            (time2 + time1).ShouldEqual(expected);
+            (time1 + time2).ShouldBe(expected);
+            (time2 + time1).ShouldBe(expected);
         }
 
         [Fact]
@@ -21,8 +21,8 @@ namespace GraduatedCylinder
             (time1 / time2).ShouldBeWithinEpsilonOf(1);
             (time2 / time1).ShouldBeWithinEpsilonOf(1);
 
-            (time1 / 2).ShouldEqual(new Time(1800, TimeUnit.Second));
-            (time2 / 2).ShouldEqual(new Time(.5, TimeUnit.Hours));
+            (time1 / 2).ShouldBe(new Time(1800, TimeUnit.Second));
+            (time2 / 2).ShouldBe(new Time(.5, TimeUnit.Hours));
         }
 
         [Fact]
@@ -102,21 +102,21 @@ namespace GraduatedCylinder
         [Fact]
         public void OpMultiplicationAcceleration() {
             Speed speedBase = new Time(20, TimeUnit.Second) * new Acceleration(3, AccelerationUnit.MeterPerSecondSquared);
-            speedBase.ShouldEqual(new Speed(60, SpeedUnit.MeterPerSecond));
+            speedBase.ShouldBe(new Speed(60, SpeedUnit.MeterPerSecond));
 
             var time = new Time(1, TimeUnit.Minutes);
             var acceleration = new Acceleration(1, AccelerationUnit.MilePerHourPerSecond);
             Speed speed = time * acceleration;
             speed.Units = SpeedUnit.MilesPerHour;
-            speed.ShouldEqual(new Speed(60, SpeedUnit.MilesPerHour));
+            speed.ShouldBe(new Speed(60, SpeedUnit.MilesPerHour));
         }
 
         [Fact]
         public void OpMultiplicationScaler() {
             var time = new Time(1, TimeUnit.Hours);
             var expected = new Time(2, TimeUnit.Hours);
-            (time * 2).ShouldEqual(expected);
-            (2 * time).ShouldEqual(expected);
+            (time * 2).ShouldBe(expected);
+            (2 * time).ShouldBe(expected);
         }
 
         [Fact]
@@ -125,15 +125,15 @@ namespace GraduatedCylinder
             var speed = new Speed(60, SpeedUnit.MilesPerHour);
             Length length = time * speed;
             length.Units = LengthUnit.Mile;
-            length.ShouldEqual(new Length(120, LengthUnit.Mile));
+            length.ShouldBe(new Length(120, LengthUnit.Mile));
         }
 
         [Fact]
         public void OpSubtraction() {
             var time1 = new Time(7200, TimeUnit.Second);
             var time2 = new Time(1, TimeUnit.Hours);
-            (time1 - time2).ShouldEqual(new Time(3600, TimeUnit.Second));
-            (time2 - time1).ShouldEqual(new Time(-1, TimeUnit.Hours));
+            (time1 - time2).ShouldBe(new Time(3600, TimeUnit.Second));
+            (time2 - time1).ShouldBe(new Time(-1, TimeUnit.Hours));
         }
     }
 }

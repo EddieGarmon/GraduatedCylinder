@@ -43,6 +43,6 @@ namespace GraduatedCylinder
         /// </summary>
         [UnitAbbreviation("lbs/s")]
         [Scale(0.45359237)]
-        PoundsPerSecond = 4,
+        PoundsPerSecond = 4
     }
 }

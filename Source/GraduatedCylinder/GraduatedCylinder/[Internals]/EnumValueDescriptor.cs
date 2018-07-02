@@ -38,7 +38,8 @@ namespace GraduatedCylinder
             get { return _value; }
         }
 
-        public TAttribute EnsureOnlyOneAttribute<TAttribute>() where TAttribute : Attribute {
+        public TAttribute EnsureOnlyOneAttribute<TAttribute>()
+            where TAttribute : Attribute {
             TAttribute[] attributes = GetAttributes<TAttribute>();
             if (attributes.Length == 0) {
                 const string format = "No '{0}' is defined on the enumeration value {1}.{2}";
@@ -51,11 +52,13 @@ namespace GraduatedCylinder
             return attributes[0];
         }
 
-        public TAttribute[] GetAttributes<TAttribute>() where TAttribute : Attribute {
+        public TAttribute[] GetAttributes<TAttribute>()
+            where TAttribute : Attribute {
             return (TAttribute[])_fieldInfo.GetCustomAttributes(typeof(TAttribute), false);
         }
 
-        public bool HasAttribute<TAttribute>() where TAttribute : Attribute {
+        public bool HasAttribute<TAttribute>()
+            where TAttribute : Attribute {
             return GetAttributes<TAttribute>()
                        .Length > 0;
         }
