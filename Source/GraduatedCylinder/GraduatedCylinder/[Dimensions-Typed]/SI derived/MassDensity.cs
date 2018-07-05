@@ -3,6 +3,7 @@ using System;
 namespace GraduatedCylinder
 {
     public class MassDensity : Dimension,
+                               IDimension<MassDensityUnit>,
                                IEquatable<MassDensity>,
                                IComparable<MassDensity>
     {
@@ -32,10 +33,7 @@ namespace GraduatedCylinder
             if (ReferenceEquals(this, obj)) {
                 return true;
             }
-            if (obj.GetType() != typeof(MassDensity)) {
-                return false;
-            }
-            return Equals((MassDensity)obj);
+            return (obj is MassDensity density) && Equals(density);
         }
 
         public override int GetHashCode() {
@@ -54,24 +52,28 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static MassDensity Parse(string input) {
+            return (MassDensity)Factory.Parse(input, DimensionType.MassDensity);
+        }
+
         public static MassDensity operator +(MassDensity density1, MassDensity density2) {
-            Guard.NotNull(density1, "density1");
-            Guard.NotNull(density2, "density2");
+            Guard.NotNull(density1, nameof(density1));
+            Guard.NotNull(density2, nameof(density2));
             return new MassDensity(density1.ValueInBaseUnits + density2.ValueInBaseUnits) {
                 Units = density1.Units
             };
         }
 
         public static MassDensity operator /(MassDensity massDensity, double scaler) {
-            Guard.NotNull(massDensity, "massDensity");
+            Guard.NotNull(massDensity, nameof(massDensity));
             return new MassDensity(massDensity.ValueInBaseUnits / scaler) {
                 Units = massDensity.Units
             };
         }
 
         public static double operator /(MassDensity numerator, MassDensity denominator) {
-            Guard.NotNull(numerator, "numerator");
-            Guard.NotNull(denominator, "denominator");
+            Guard.NotNull(numerator, nameof(numerator));
+            Guard.NotNull(denominator, nameof(denominator));
             return numerator.ValueInBaseUnits / denominator.ValueInBaseUnits;
         }
 
@@ -100,29 +102,29 @@ namespace GraduatedCylinder
         }
 
         public static MassDensity operator *(MassDensity massDensity, double scaler) {
-            Guard.NotNull(massDensity, "massDensity");
+            Guard.NotNull(massDensity, nameof(massDensity));
             return new MassDensity(massDensity.ValueInBaseUnits * scaler) {
                 Units = massDensity.Units
             };
         }
 
         public static MassDensity operator *(double scaler, MassDensity massDensity) {
-            Guard.NotNull(massDensity, "massDensity");
+            Guard.NotNull(massDensity, nameof(massDensity));
             return new MassDensity(massDensity.ValueInBaseUnits * scaler) {
                 Units = massDensity.Units
             };
         }
 
         public static Mass operator *(MassDensity massDensity, Volume volume) {
-            Guard.NotNull(massDensity, "massDensity");
-            Guard.NotNull(volume, "volume");
+            Guard.NotNull(massDensity, nameof(massDensity));
+            Guard.NotNull(volume, nameof(volume));
             double massValue = massDensity.In(MassDensityUnit.KilogramsPerLiter) * volume.In(VolumeUnit.Liters);
             return new Mass(massValue, MassUnit.Kilogram);
         }
 
         public static MassDensity operator -(MassDensity density1, MassDensity density2) {
-            Guard.NotNull(density1, "density1");
-            Guard.NotNull(density2, "density2");
+            Guard.NotNull(density1, nameof(density1));
+            Guard.NotNull(density2, nameof(density2));
             return new MassDensity(density1.ValueInBaseUnits - density2.ValueInBaseUnits) {
                 Units = density1.Units
             };

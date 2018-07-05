@@ -3,6 +3,7 @@ using System;
 namespace GraduatedCylinder
 {
     public class AmountOfSubstance : Dimension,
+                                     IDimension<AmountOfSubstanceUnit>,
                                      IEquatable<AmountOfSubstance>,
                                      IComparable<AmountOfSubstance>
     {
@@ -32,10 +33,7 @@ namespace GraduatedCylinder
             if (ReferenceEquals(this, obj)) {
                 return true;
             }
-            if (obj.GetType() != typeof(AmountOfSubstance)) {
-                return false;
-            }
-            return Equals((AmountOfSubstance)obj);
+            return (obj is AmountOfSubstance amountOfSubstance) && Equals(amountOfSubstance);
         }
 
         public override int GetHashCode() {
@@ -54,6 +52,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
-        //todo: what operators?
+        public static AmountOfSubstance Parse(string input) {
+            return (AmountOfSubstance)Factory.Parse(input, DimensionType.AmountOfSubstance);
+        }
     }
 }

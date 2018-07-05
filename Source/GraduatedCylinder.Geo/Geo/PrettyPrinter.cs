@@ -53,7 +53,7 @@ namespace GraduatedCylinder.Geo
         }
 
         private static string AsDegrees(double value, char hemisphere) {
-            return string.Format("{0:N5}{1} {2}", value, DegreesSymbol, hemisphere);
+            return string.Format("{0:N7}{1} {2}", value, DegreesSymbol, hemisphere);
         }
 
         private static string AsDegreesMinutes(double value, char hemisphere) {

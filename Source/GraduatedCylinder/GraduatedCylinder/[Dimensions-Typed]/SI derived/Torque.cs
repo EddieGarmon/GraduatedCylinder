@@ -3,6 +3,7 @@ using System;
 namespace GraduatedCylinder
 {
     public class Torque : Dimension,
+                          IDimension<TorqueUnit>,
                           IEquatable<Torque>,
                           IComparable<Torque>
     {
@@ -32,10 +33,7 @@ namespace GraduatedCylinder
             if (ReferenceEquals(this, obj)) {
                 return true;
             }
-            if (obj.GetType() != typeof(Torque)) {
-                return false;
-            }
-            return Equals((Torque)obj);
+            return (obj is Torque torque) && Equals(torque);
         }
 
         public override int GetHashCode() {
@@ -54,38 +52,42 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static Torque Parse(string input) {
+            return (Torque)Factory.Parse(input, DimensionType.Torque);
+        }
+
         public static Torque operator +(Torque torque1, Torque torque2) {
-            Guard.NotNull(torque1, "torque1");
-            Guard.NotNull(torque2, "torque2");
+            Guard.NotNull(torque1, nameof(torque1));
+            Guard.NotNull(torque2, nameof(torque2));
             return new Torque(torque1.ValueInBaseUnits + torque2.ValueInBaseUnits) {
                 Units = torque1.Units
             };
         }
 
         public static Torque operator /(Torque torque, double scaler) {
-            Guard.NotNull(torque, "torque");
+            Guard.NotNull(torque, nameof(torque));
             return new Torque(torque.ValueInBaseUnits / scaler) {
                 Units = torque.Units
             };
         }
 
         public static Force operator /(Torque torque, Length length) {
-            Guard.NotNull(torque, "torque");
-            Guard.NotNull(length, "length");
+            Guard.NotNull(torque, nameof(torque));
+            Guard.NotNull(length, nameof(length));
             double forceValue = torque.In(TorqueUnit.NewtonMeters) / length.In(LengthUnit.Meter);
             return new Force(forceValue, ForceUnit.Newtons);
         }
 
         public static Length operator /(Torque torque, Force force) {
-            Guard.NotNull(torque, "torque");
-            Guard.NotNull(force, "force");
+            Guard.NotNull(torque, nameof(torque));
+            Guard.NotNull(force, nameof(force));
             double lengthValue = torque.In(TorqueUnit.NewtonMeters) / force.In(ForceUnit.Newtons);
             return new Length(lengthValue, LengthUnit.Meter);
         }
 
         public static double operator /(Torque numerator, Torque denominator) {
-            Guard.NotNull(numerator, "numerator");
-            Guard.NotNull(denominator, "denominator");
+            Guard.NotNull(numerator, nameof(numerator));
+            Guard.NotNull(denominator, nameof(denominator));
             return numerator.ValueInBaseUnits / denominator.ValueInBaseUnits;
         }
 
@@ -114,30 +116,30 @@ namespace GraduatedCylinder
         }
 
         public static Torque operator *(Torque torque, double scaler) {
-            Guard.NotNull(torque, "torque");
+            Guard.NotNull(torque, nameof(torque));
             return new Torque(torque.ValueInBaseUnits * scaler) {
                 Units = torque.Units
             };
         }
 
         public static Torque operator *(double scaler, Torque torque) {
-            Guard.NotNull(torque, "torque");
+            Guard.NotNull(torque, nameof(torque));
             return new Torque(torque.ValueInBaseUnits * scaler) {
                 Units = torque.Units
             };
         }
 
         public static Power operator *(Torque torque, Frequency angularVelocity) {
-            Guard.NotNull(torque, "torque");
-            Guard.NotNull(angularVelocity, "angularVelocity");
+            Guard.NotNull(torque, nameof(torque));
+            Guard.NotNull(angularVelocity, nameof(angularVelocity));
             double powerValue = torque.In(TorqueUnit.NewtonMeters)
                                 * angularVelocity.In(FrequencyUnit.RevolutionPerSecond);
             return new Power(powerValue, PowerUnit.Watts);
         }
 
         public static Torque operator -(Torque torque1, Torque torque2) {
-            Guard.NotNull(torque1, "torque1");
-            Guard.NotNull(torque2, "torque2");
+            Guard.NotNull(torque1, nameof(torque1));
+            Guard.NotNull(torque2, nameof(torque2));
             return new Torque(torque1.ValueInBaseUnits - torque2.ValueInBaseUnits) {
                 Units = torque1.Units
             };

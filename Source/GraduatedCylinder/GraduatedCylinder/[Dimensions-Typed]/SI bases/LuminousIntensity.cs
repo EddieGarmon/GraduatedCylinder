@@ -3,6 +3,7 @@ using System;
 namespace GraduatedCylinder
 {
     public class LuminousIntensity : Dimension,
+                                     IDimension<LuminousIntensityUnit>,
                                      IEquatable<LuminousIntensity>,
                                      IComparable<LuminousIntensity>
     {
@@ -32,10 +33,7 @@ namespace GraduatedCylinder
             if (ReferenceEquals(this, obj)) {
                 return true;
             }
-            if (obj.GetType() != typeof(LuminousIntensity)) {
-                return false;
-            }
-            return Equals((LuminousIntensity)obj);
+            return (obj is LuminousIntensity intensity) && Equals(intensity);
         }
 
         public override int GetHashCode() {
@@ -54,6 +52,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
-        //todo: what operators?
+        public static LuminousIntensity Parse(string input) {
+            return (LuminousIntensity)Factory.Parse(input, DimensionType.LuminousIntensity);
+        }
     }
 }

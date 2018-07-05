@@ -3,6 +3,7 @@ using System;
 namespace GraduatedCylinder
 {
     public class Time : Dimension,
+                        IDimension<TimeUnit>,
                         IEquatable<Time>,
                         IComparable<Time>
     {
@@ -32,10 +33,7 @@ namespace GraduatedCylinder
             if (ReferenceEquals(this, obj)) {
                 return true;
             }
-            if (obj.GetType() != typeof(Time)) {
-                return false;
-            }
-            return Equals((Time)obj);
+            return (obj is Time time) && Equals(time);
         }
 
         public override int GetHashCode() {
@@ -49,29 +47,33 @@ namespace GraduatedCylinder
         public string ToString(TimeUnit units) {
             return base.ToString(units);
         }
-
+        
         public string ToString(TimeUnit units, int precision) {
             return base.ToString(units, precision);
         }
 
+        public static Time Parse(string input) {
+            return (Time)Factory.Parse(input, DimensionType.Time);
+        }
+
         public static Time operator +(Time left, Time right) {
-            Guard.NotNull(left, "left");
-            Guard.NotNull(right, "right");
+            Guard.NotNull(left, nameof(left));
+            Guard.NotNull(right, nameof(right));
             return new Time(left.ValueInBaseUnits + right.ValueInBaseUnits) {
                 Units = left.Units
             };
         }
 
         public static Time operator /(Time time, double scaler) {
-            Guard.NotNull(time, "time");
+            Guard.NotNull(time, nameof(time));
             return new Time(time.ValueInBaseUnits / scaler) {
                 Units = time.Units
             };
         }
 
         public static double operator /(Time numerator, Time denominator) {
-            Guard.NotNull(numerator, "numerator");
-            Guard.NotNull(denominator, "denominator");
+            Guard.NotNull(numerator, nameof(numerator));
+            Guard.NotNull(denominator, nameof(denominator));
             return numerator.ValueInBaseUnits / denominator.ValueInBaseUnits;
         }
 
@@ -100,72 +102,72 @@ namespace GraduatedCylinder
         }
 
         public static Time operator *(Time time, double scaler) {
-            Guard.NotNull(time, "time");
+            Guard.NotNull(time, nameof(time));
             return new Time(time.ValueInBaseUnits * scaler) {
                 Units = time.Units
             };
         }
 
         public static Time operator *(double scaler, Time time) {
-            Guard.NotNull(time, "time");
+            Guard.NotNull(time, nameof(time));
             return new Time(time.ValueInBaseUnits * scaler) {
                 Units = time.Units
             };
         }
 
         public static Length operator *(Time time, Speed speed) {
-            Guard.NotNull(time, "time");
-            Guard.NotNull(speed, "speed");
+            Guard.NotNull(time, nameof(time));
+            Guard.NotNull(speed, nameof(speed));
             double lengthValue = time.In(TimeUnit.Second) * speed.In(SpeedUnit.MeterPerSecond);
             return new Length(lengthValue, LengthUnit.Meter);
         }
 
         public static Speed operator *(Time time, Acceleration acceleration) {
-            Guard.NotNull(time, "time");
-            Guard.NotNull(acceleration, "acceleration");
+            Guard.NotNull(time, nameof(time));
+            Guard.NotNull(acceleration, nameof(acceleration));
             double value = time.In(TimeUnit.Second) * acceleration.In(AccelerationUnit.MeterPerSecondSquared);
             return new Speed(value, SpeedUnit.MeterPerSecond);
         }
 
         public static Energy operator *(Time time, Power power) {
-            Guard.NotNull(time, "time");
-            Guard.NotNull(power, "power");
+            Guard.NotNull(time, nameof(time));
+            Guard.NotNull(power, nameof(power));
             double value = time.In(TimeUnit.Second) * power.In(PowerUnit.NewtonMetersPerSecond);
             return new Energy(value, EnergyUnit.NewtonMeters);
         }
 
         public static Mass operator *(Time time, MassFlowRate massFlowRate) {
-            Guard.NotNull(time, "time");
-            Guard.NotNull(massFlowRate, "massFlowRate");
+            Guard.NotNull(time, nameof(time));
+            Guard.NotNull(massFlowRate, nameof(massFlowRate));
             double value = time.In(TimeUnit.Second) * massFlowRate.In(MassFlowRateUnit.KilogramsPerSecond);
             return new Mass(value, MassUnit.Kilogram);
         }
 
         public static Momentum operator *(Time time, Force force) {
-            Guard.NotNull(time, "time");
-            Guard.NotNull(force, "force");
+            Guard.NotNull(time, nameof(time));
+            Guard.NotNull(force, nameof(force));
             double value = time.In(TimeUnit.Second) * force.In(ForceUnit.Newtons);
             return new Momentum(value, MomentumUnit.KilogramMetersPerSecond);
         }
 
         public static Volume operator *(Time time, VolumetricFlowRate volumetricFlowRate) {
-            Guard.NotNull(time, "time");
-            Guard.NotNull(volumetricFlowRate, "volumetricFlowRate");
+            Guard.NotNull(time, nameof(time));
+            Guard.NotNull(volumetricFlowRate, nameof(volumetricFlowRate));
             double value = time.In(TimeUnit.Second)
                            * volumetricFlowRate.In(VolumetricFlowRateUnit.CubicMetersPerSecond);
             return new Volume(value, VolumeUnit.CubicMeters);
         }
 
         public static Acceleration operator *(Time time, Jerk jerk) {
-            Guard.NotNull(jerk, "jerk");
-            Guard.NotNull(time, "time");
+            Guard.NotNull(jerk, nameof(jerk));
+            Guard.NotNull(time, nameof(time));
             double accelerationValue = time.In(TimeUnit.Second) * jerk.In(JerkUnit.MetersPerSecondCubed);
             return new Acceleration(accelerationValue, AccelerationUnit.MeterPerSecondSquared);
         }
 
         public static Time operator -(Time time1, Time time2) {
-            Guard.NotNull(time1, "time1");
-            Guard.NotNull(time2, "time2");
+            Guard.NotNull(time1, nameof(time1));
+            Guard.NotNull(time2, nameof(time2));
             return new Time(time1.ValueInBaseUnits - time2.ValueInBaseUnits) {
                 Units = time1.Units
             };

@@ -3,6 +3,7 @@ using System;
 namespace GraduatedCylinder
 {
     public class ElectricResistance : Dimension,
+                                      IDimension<ElectricResistanceUnit>,
                                       IEquatable<ElectricResistance>,
                                       IComparable<ElectricResistance>
     {
@@ -32,10 +33,7 @@ namespace GraduatedCylinder
             if (ReferenceEquals(this, obj)) {
                 return true;
             }
-            if (obj.GetType() != typeof(ElectricResistance)) {
-                return false;
-            }
-            return Equals((ElectricResistance)obj);
+            return (obj is ElectricResistance electricResistance) && Equals(electricResistance);
         }
 
         public override int GetHashCode() {
@@ -54,24 +52,28 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static ElectricResistance Parse(string input) {
+            return (ElectricResistance)Factory.Parse(input, DimensionType.ElectricResistance);
+        }
+
         public static ElectricResistance operator +(ElectricResistance resistance1, ElectricResistance resistance2) {
-            Guard.NotNull(resistance1, "resistance1");
-            Guard.NotNull(resistance2, "resistance2");
+            Guard.NotNull(resistance1, nameof(resistance1));
+            Guard.NotNull(resistance2, nameof(resistance2));
             return new ElectricResistance(resistance1.ValueInBaseUnits + resistance2.ValueInBaseUnits) {
                 Units = resistance1.Units
             };
         }
 
         public static ElectricResistance operator /(ElectricResistance electricResistance, double scaler) {
-            Guard.NotNull(electricResistance, "electricResistance");
+            Guard.NotNull(electricResistance, nameof(electricResistance));
             return new ElectricResistance(electricResistance.ValueInBaseUnits / scaler) {
                 Units = electricResistance.Units
             };
         }
 
         public static double operator /(ElectricResistance numerator, ElectricResistance denominator) {
-            Guard.NotNull(numerator, "numerator");
-            Guard.NotNull(denominator, "denominator");
+            Guard.NotNull(numerator, nameof(numerator));
+            Guard.NotNull(denominator, nameof(denominator));
             return numerator.ValueInBaseUnits / denominator.ValueInBaseUnits;
         }
 
@@ -100,30 +102,30 @@ namespace GraduatedCylinder
         }
 
         public static ElectricResistance operator *(ElectricResistance electricResistance, double scaler) {
-            Guard.NotNull(electricResistance, "electricResistance");
+            Guard.NotNull(electricResistance, nameof(electricResistance));
             return new ElectricResistance(electricResistance.ValueInBaseUnits * scaler) {
                 Units = electricResistance.Units
             };
         }
 
         public static ElectricResistance operator *(double scaler, ElectricResistance electricResistance) {
-            Guard.NotNull(electricResistance, "electricResistance");
+            Guard.NotNull(electricResistance, nameof(electricResistance));
             return new ElectricResistance(electricResistance.ValueInBaseUnits * scaler) {
                 Units = electricResistance.Units
             };
         }
 
         public static ElectricPotential operator *(ElectricResistance electricResistance, ElectricCurrent current) {
-            Guard.NotNull(electricResistance, "electricResistance");
-            Guard.NotNull(current, "current");
+            Guard.NotNull(electricResistance, nameof(electricResistance));
+            Guard.NotNull(current, nameof(current));
             double voltageValue = electricResistance.In(ElectricResistanceUnit.Ohm)
                                   * current.In(ElectricCurrentUnit.Ampere);
             return new ElectricPotential(voltageValue, ElectricPotentialUnit.Volt);
         }
 
         public static ElectricResistance operator -(ElectricResistance resistance1, ElectricResistance resistance2) {
-            Guard.NotNull(resistance1, "resistance1");
-            Guard.NotNull(resistance2, "resistance2");
+            Guard.NotNull(resistance1, nameof(resistance1));
+            Guard.NotNull(resistance2, nameof(resistance2));
             return new ElectricResistance(resistance1.ValueInBaseUnits - resistance2.ValueInBaseUnits) {
                 Units = resistance1.Units
             };

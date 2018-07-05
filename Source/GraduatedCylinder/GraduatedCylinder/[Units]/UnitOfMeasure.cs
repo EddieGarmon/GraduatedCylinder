@@ -12,14 +12,12 @@ namespace GraduatedCylinder
         private UnitOfMeasure _baseUnits;
 
         static UnitOfMeasure() {
-            foreach (EnumValueDescriptor<DimensionType> dimensionDescriptor in EnumReflector
-                .DescribeAllValues<DimensionType>()) {
+            foreach (var dimensionDescriptor in EnumReflector.DescribeAllValues<DimensionType>()) {
                 if (dimensionDescriptor.Value == DimensionType.Unknown) {
                     continue;
                 }
                 var lookup = new UnitOfMeasureLookup(dimensionDescriptor.Value);
-                Type unitsEnumType = dimensionDescriptor.EnsureOnlyOneAttribute<UnitsTypeAttribute>()
-                                                        .UnitsType;
+                Type unitsEnumType = dimensionDescriptor.EnsureOnlyOneAttribute<UnitsTypeAttribute>().UnitsType;
                 if (!IsEnum(unitsEnumType)) {
                     const string format =
                         "UnitsTypeAttribute on DimensionType.{0} does not specify an enumerated type.";
@@ -31,19 +29,17 @@ namespace GraduatedCylinder
                 }
                 bool baseUnitsFound = false;
                 int baseUnitEnumValue = int.MinValue;
-                foreach (EnumValueDescriptor<int> unitDescriptor in EnumReflector.DescribeAllValuesAsInt32(
-                    unitsEnumType)) {
+                foreach (var unitDescriptor in EnumReflector.DescribeAllValuesAsInt32(unitsEnumType)) {
                     if (unitDescriptor.Name == BaseUnit) {
                         baseUnitEnumValue = unitDescriptor.Value;
                         baseUnitsFound = true;
                         continue;
                     }
                     // the following check is preformed by the compiler as AbbreviationAttribute is sealed
-                    string abbreviation = unitDescriptor.EnsureOnlyOneAttribute<UnitAbbreviationAttribute>()
-                                                        .Value;
+                    string abbreviation = unitDescriptor.EnsureOnlyOneAttribute<UnitAbbreviationAttribute>().Value;
                     // the following check is NOT preformed by the compiler as ScaleDefinitionAttribute is abstract
-                    IUnitConverter unitConverter = unitDescriptor.EnsureOnlyOneAttribute<ScaleDefinitionAttribute>()
-                                                                 .UnitConverter;
+                    IUnitConverter unitConverter =
+                        unitDescriptor.EnsureOnlyOneAttribute<ScaleDefinitionAttribute>().UnitConverter;
                     var uom = new UnitOfMeasure(dimensionDescriptor.Value,
                                                 unitDescriptor.Value,
                                                 unitDescriptor.Name,
@@ -117,8 +113,7 @@ namespace GraduatedCylinder
             new SafeDictionary<DimensionType, UnitOfMeasureLookup>();
 
         public static UnitOfMeasure Find(DimensionType dimension, string abbreviationOrName) {
-            return UomLookups[dimension]
-                .ByAbbreviationOrName(abbreviationOrName);
+            return UomLookups[dimension].ByAbbreviationOrName(abbreviationOrName);
         }
 
         public static implicit operator AccelerationUnit(UnitOfMeasure unitOfMeasure) {
@@ -262,143 +257,115 @@ namespace GraduatedCylinder
         }
 
         public static implicit operator UnitOfMeasure(AccelerationUnit accelerationUnit) {
-            return UomLookups[DimensionType.Acceleration]
-                .ByValue((int)accelerationUnit);
+            return UomLookups[DimensionType.Acceleration].ByValue((int)accelerationUnit);
         }
 
         public static implicit operator UnitOfMeasure(AmountOfSubstanceUnit amountOfSubstanceUnit) {
-            return UomLookups[DimensionType.AmountOfSubstance]
-                .ByValue((int)amountOfSubstanceUnit);
+            return UomLookups[DimensionType.AmountOfSubstance].ByValue((int)amountOfSubstanceUnit);
         }
 
         public static implicit operator UnitOfMeasure(AngleUnit angleUnit) {
-            return UomLookups[DimensionType.Angle]
-                .ByValue((int)angleUnit);
+            return UomLookups[DimensionType.Angle].ByValue((int)angleUnit);
         }
 
         public static implicit operator UnitOfMeasure(AngularAccelerationUnit angularAccelerationUnit) {
-            return UomLookups[DimensionType.AngularAcceleration]
-                .ByValue((int)angularAccelerationUnit);
+            return UomLookups[DimensionType.AngularAcceleration].ByValue((int)angularAccelerationUnit);
         }
 
         public static implicit operator UnitOfMeasure(AreaUnit areaUnit) {
-            return UomLookups[DimensionType.Area]
-                .ByValue((int)areaUnit);
+            return UomLookups[DimensionType.Area].ByValue((int)areaUnit);
         }
 
         public static implicit operator UnitOfMeasure(ElectricCurrentUnit currentUnit) {
-            return UomLookups[DimensionType.ElectricCurrent]
-                .ByValue((int)currentUnit);
+            return UomLookups[DimensionType.ElectricCurrent].ByValue((int)currentUnit);
         }
 
         public static implicit operator UnitOfMeasure(EnergyUnit energyUnit) {
-            return UomLookups[DimensionType.Energy]
-                .ByValue((int)energyUnit);
+            return UomLookups[DimensionType.Energy].ByValue((int)energyUnit);
         }
 
         public static implicit operator UnitOfMeasure(ForceUnit forceUnit) {
-            return UomLookups[DimensionType.Force]
-                .ByValue((int)forceUnit);
+            return UomLookups[DimensionType.Force].ByValue((int)forceUnit);
         }
 
         public static implicit operator UnitOfMeasure(FrequencyUnit frequencyUnit) {
-            return UomLookups[DimensionType.Frequency]
-                .ByValue((int)frequencyUnit);
+            return UomLookups[DimensionType.Frequency].ByValue((int)frequencyUnit);
         }
 
         public static implicit operator UnitOfMeasure(JerkUnit jerkUnit) {
-            return UomLookups[DimensionType.Jerk]
-                .ByValue((int)jerkUnit);
+            return UomLookups[DimensionType.Jerk].ByValue((int)jerkUnit);
         }
 
         public static implicit operator UnitOfMeasure(LengthUnit lengthUnit) {
-            return UomLookups[DimensionType.Length]
-                .ByValue((int)lengthUnit);
+            return UomLookups[DimensionType.Length].ByValue((int)lengthUnit);
         }
 
         public static implicit operator UnitOfMeasure(LuminousIntensityUnit luminousIntensityUnit) {
-            return UomLookups[DimensionType.LuminousIntensity]
-                .ByValue((int)luminousIntensityUnit);
+            return UomLookups[DimensionType.LuminousIntensity].ByValue((int)luminousIntensityUnit);
         }
 
         public static implicit operator UnitOfMeasure(MassUnit massUnit) {
-            return UomLookups[DimensionType.Mass]
-                .ByValue((int)massUnit);
+            return UomLookups[DimensionType.Mass].ByValue((int)massUnit);
         }
 
         public static implicit operator UnitOfMeasure(MassDensityUnit massDensityUnit) {
-            return UomLookups[DimensionType.MassDensity]
-                .ByValue((int)massDensityUnit);
+            return UomLookups[DimensionType.MassDensity].ByValue((int)massDensityUnit);
         }
 
         public static implicit operator UnitOfMeasure(MassFlowRateUnit massFlowRateUnit) {
-            return UomLookups[DimensionType.MassFlowRate]
-                .ByValue((int)massFlowRateUnit);
+            return UomLookups[DimensionType.MassFlowRate].ByValue((int)massFlowRateUnit);
         }
 
         public static implicit operator UnitOfMeasure(MomentumUnit momentumUnit) {
-            return UomLookups[DimensionType.Momentum]
-                .ByValue((int)momentumUnit);
+            return UomLookups[DimensionType.Momentum].ByValue((int)momentumUnit);
         }
 
         public static implicit operator UnitOfMeasure(NumericUnit numericUnit) {
-            return UomLookups[DimensionType.Numeric]
-                .ByValue((int)numericUnit);
+            return UomLookups[DimensionType.Numeric].ByValue((int)numericUnit);
         }
 
         public static implicit operator UnitOfMeasure(PowerUnit powerUnit) {
-            return UomLookups[DimensionType.Power]
-                .ByValue((int)powerUnit);
+            return UomLookups[DimensionType.Power].ByValue((int)powerUnit);
         }
 
         public static implicit operator UnitOfMeasure(PressureUnit pressureUnit) {
-            return UomLookups[DimensionType.Pressure]
-                .ByValue((int)pressureUnit);
+            return UomLookups[DimensionType.Pressure].ByValue((int)pressureUnit);
         }
 
         public static implicit operator UnitOfMeasure(ElectricResistanceUnit electricResistanceUnit) {
-            return UomLookups[DimensionType.ElectricResistance]
-                .ByValue((int)electricResistanceUnit);
+            return UomLookups[DimensionType.ElectricResistance].ByValue((int)electricResistanceUnit);
         }
 
         public static implicit operator UnitOfMeasure(SpeedUnit speedUnit) {
-            return UomLookups[DimensionType.Speed]
-                .ByValue((int)speedUnit);
+            return UomLookups[DimensionType.Speed].ByValue((int)speedUnit);
         }
 
         public static implicit operator UnitOfMeasure(SpeedSquaredUnit speedSquaredUnit) {
-            return UomLookups[DimensionType.SpeedSquared]
-                .ByValue((int)speedSquaredUnit);
+            return UomLookups[DimensionType.SpeedSquared].ByValue((int)speedSquaredUnit);
         }
 
         public static implicit operator UnitOfMeasure(TemperatureUnit temperatureUnit) {
-            return UomLookups[DimensionType.Temperature]
-                .ByValue((int)temperatureUnit);
+            return UomLookups[DimensionType.Temperature].ByValue((int)temperatureUnit);
         }
 
         public static implicit operator UnitOfMeasure(TimeUnit timeUnit) {
-            return UomLookups[DimensionType.Time]
-                .ByValue((int)timeUnit);
+            return UomLookups[DimensionType.Time].ByValue((int)timeUnit);
         }
 
         public static implicit operator UnitOfMeasure(TorqueUnit torqueUnit) {
-            return UomLookups[DimensionType.Torque]
-                .ByValue((int)torqueUnit);
+            return UomLookups[DimensionType.Torque].ByValue((int)torqueUnit);
         }
 
         public static implicit operator UnitOfMeasure(ElectricPotentialUnit voltageUnit) {
-            return UomLookups[DimensionType.ElectricPotential]
-                .ByValue((int)voltageUnit);
+            return UomLookups[DimensionType.ElectricPotential].ByValue((int)voltageUnit);
         }
 
         public static implicit operator UnitOfMeasure(VolumetricFlowRateUnit volumetricFlowRateUnit) {
-            return UomLookups[DimensionType.VolumetricFlowRate]
-                .ByValue((int)volumetricFlowRateUnit);
+            return UomLookups[DimensionType.VolumetricFlowRate].ByValue((int)volumetricFlowRateUnit);
         }
 
         public static implicit operator UnitOfMeasure(VolumeUnit volumeUnit) {
-            return UomLookups[DimensionType.Volume]
-                .ByValue((int)volumeUnit);
+            return UomLookups[DimensionType.Volume].ByValue((int)volumeUnit);
         }
     }
 }

@@ -2,30 +2,24 @@
 {
     public class GeoPosition
     {
-        private readonly Length _altitude;
-        private readonly Latitude _latitude;
-        private readonly Longitude _longitude;
-
         public GeoPosition(Latitude latitude, Longitude longitude, Length altitude = null) {
-            _latitude = latitude;
-            _longitude = longitude;
-            _altitude = altitude;
+            Latitude = latitude;
+            Longitude = longitude;
+            Altitude = altitude;
         }
 
-        public Length Altitude {
-            get { return _altitude; }
-        }
+        public Length Altitude { get; }
 
-        public Latitude Latitude {
-            get { return _latitude; }
-        }
+        public Latitude Latitude { get; }
 
-        public Longitude Longitude {
-            get { return _longitude; }
-        }
+        public Longitude Longitude { get; }
 
         public override string ToString() {
-            return "{" + Latitude + ", " + Longitude + "}";
+            return string.Format("{0}, {1}{2}{3}",
+                                 PrettyPrinter.AsDegrees(Latitude),
+                                 PrettyPrinter.AsDegrees(Longitude),
+                                 Altitude == null ? null : ", ",
+                                 Altitude);
         }
 
         public static GeoPosition New(Latitude latitude, Longitude longitude) {
@@ -34,6 +28,18 @@
 
         public static GeoPosition New(Latitude latitude, Longitude longitude, Length altitude) {
             return new GeoPosition(latitude, longitude, altitude);
+        }
+
+        public static GeoPosition Parse(string value) {
+            //"30.00000° N, 40.00000° E"
+            var split = value.Split(' ');
+            double latitude = double.Parse(split[0].TrimEnd(PrettyPrinter.DegreesSymbol));
+            double longitude = double.Parse(split[2].TrimEnd(PrettyPrinter.DegreesSymbol));
+            double altitude = 0;
+            if (split.Length == 6) {
+                altitude = 0;
+            }
+            return new GeoPosition(latitude, longitude, new Length(altitude, LengthUnit.Meter));
         }
     }
 }

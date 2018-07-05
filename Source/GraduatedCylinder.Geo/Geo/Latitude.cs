@@ -4,27 +4,20 @@ namespace GraduatedCylinder.Geo
 {
     public class Latitude
     {
-        public const double MaxValue = 90.0;
-        public const double MinValue = -90.0;
-        private readonly double _value;
-
+        //https://gis.stackexchange.com/questions/8650/measuring-accuracy-of-latitude-and-longitude
         public Latitude(double value) {
             if (value < MinValue) {
-                throw new ArgumentOutOfRangeException("value", "Value below South Pole.");
+                throw new ArgumentOutOfRangeException(nameof(value), "Value below South Pole.");
             }
             if (value > MaxValue) {
-                throw new ArgumentOutOfRangeException("value", "Value above North Pole.");
+                throw new ArgumentOutOfRangeException(nameof(value), "Value above North Pole.");
             }
-            _value = value;
+            Value = value;
         }
 
-        public char Hemisphere {
-            get { return (_value < 0) ? 'S' : 'N'; }
-        }
+        public char Hemisphere => (Value < 0) ? 'S' : 'N';
 
-        public double Value {
-            get { return _value; }
-        }
+        public double Value { get; }
 
         public override bool Equals(object other) {
             return Equals(other as Latitude);
@@ -38,19 +31,22 @@ namespace GraduatedCylinder.Geo
         }
 
         public override int GetHashCode() {
-            return _value.GetHashCode();
+            return Value.GetHashCode();
         }
 
         public override string ToString() {
             return PrettyPrinter.AsDegreesMinutesSeconds(this);
         }
 
+        public const double MaxValue = 90.0;
+        public const double MinValue = -90.0;
+
         public static bool operator ==(Latitude left, Latitude right) {
             return GeoComparer.AreEqual(left, right);
         }
 
         public static explicit operator decimal(Latitude latitude) {
-            return Convert.ToDecimal(latitude._value);
+            return Convert.ToDecimal(latitude.Value);
         }
 
         public static explicit operator Latitude(decimal value) {
@@ -58,7 +54,7 @@ namespace GraduatedCylinder.Geo
         }
 
         public static implicit operator double(Latitude latitude) {
-            return latitude._value;
+            return latitude.Value;
         }
 
         public static implicit operator Latitude(double value) {

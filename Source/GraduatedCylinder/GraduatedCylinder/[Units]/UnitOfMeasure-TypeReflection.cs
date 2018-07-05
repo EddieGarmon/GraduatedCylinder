@@ -8,6 +8,7 @@ namespace GraduatedCylinder
     public partial class UnitOfMeasure
     {
         public static UnitOfMeasure FindFirst(string abbreviationOrName) {
+            //todo case insensitive lookup?
             IEnumerable<DimensionType> dimensions = typeof(DimensionType)
                                                     .GetFields(BindingFlags.Public | BindingFlags.Static)
                                                     .Where(field => field.IsLiteral)

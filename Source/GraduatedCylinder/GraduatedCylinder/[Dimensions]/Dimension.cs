@@ -8,22 +8,17 @@ namespace GraduatedCylinder
     /// </summary>
     public abstract partial class Dimension : ISupportUnitOfMeasure
     {
-        private readonly double _baseUnitsValue;
-        private readonly DimensionType _dimensionType;
         private UnitOfMeasure _currentUnits;
-        private double _currentValue;
 
         protected Dimension(double value, UnitOfMeasure unitOfMeasure) {
             Guard.NotNull(unitOfMeasure, nameof(unitOfMeasure));
-            _dimensionType = unitOfMeasure.DimensionType;
-            _currentValue = value;
+            DimensionType = unitOfMeasure.DimensionType;
+            Value = value;
             _currentUnits = unitOfMeasure;
-            _baseUnitsValue = _currentUnits.UnitConverter.ToBaseUnit(value);
+            ValueInBaseUnits = _currentUnits.UnitConverter.ToBaseUnit(value);
         }
 
-        public DimensionType DimensionType {
-            get { return _dimensionType; }
-        }
+        public DimensionType DimensionType { get; }
 
         /// <summary>
         ///     Gets or sets the units that the current value is represented in.
@@ -35,9 +30,9 @@ namespace GraduatedCylinder
                 if (_currentUnits == value) {
                     return;
                 }
-                value.DimensionType.ShouldBe(_dimensionType);
+                value.DimensionType.ShouldBe(DimensionType);
                 _currentUnits = value;
-                _currentValue = _currentUnits.UnitConverter.FromBaseUnit(_baseUnitsValue);
+                Value = _currentUnits.UnitConverter.FromBaseUnit(ValueInBaseUnits);
             }
         }
 
@@ -45,13 +40,9 @@ namespace GraduatedCylinder
         ///     Gets the value in the current units.
         /// </summary>
         /// <value>The value.</value>
-        public double Value {
-            get { return _currentValue; }
-        }
+        public double Value { get; private set; }
 
-        public double ValueInBaseUnits {
-            get { return _baseUnitsValue; }
-        }
+        public double ValueInBaseUnits { get; }
 
         public int CompareTo(ISupportUnitOfMeasure other) {
             if (other == null) {
@@ -60,12 +51,12 @@ namespace GraduatedCylinder
             if (ReferenceEquals(this, other)) {
                 return 0;
             }
-            int dimensionTypeComparison = _dimensionType.CompareTo(other.DimensionType);
+            int dimensionTypeComparison = DimensionType.CompareTo(other.DimensionType);
             if (dimensionTypeComparison != 0) {
                 return dimensionTypeComparison;
             }
             double otherValueInBase = other.ValueInBaseUnits;
-            return AreClose(_baseUnitsValue, otherValueInBase) ? 0 : _baseUnitsValue.CompareTo(otherValueInBase);
+            return AreClose(ValueInBaseUnits, otherValueInBase) ? 0 : ValueInBaseUnits.CompareTo(otherValueInBase);
         }
 
         public override bool Equals(object obj) {
@@ -83,16 +74,16 @@ namespace GraduatedCylinder
         }
 
         public override int GetHashCode() {
-            return ((int)_dimensionType << 25) ^ _baseUnitsValue.GetHashCode();
+            return ((int)DimensionType << 25) ^ ValueInBaseUnits.GetHashCode();
         }
 
         public override string ToString() {
-            return string.Format("{0} {1}", _currentValue, _currentUnits.Abbreviation);
+            return string.Format("{0} {1}", Value, _currentUnits.Abbreviation);
         }
 
         public string ToString(int precision) {
             string format = "{0:N[pre]} {1}".Replace("[pre]", precision.ToString(CultureInfo.InvariantCulture));
-            return string.Format(format, _currentValue, _currentUnits.Abbreviation);
+            return string.Format(format, Value, _currentUnits.Abbreviation);
         }
 
         /// <summary>
@@ -101,14 +92,14 @@ namespace GraduatedCylinder
         /// <param name="desiredUnits">The desired units.</param>
         /// <returns></returns>
         protected double In(UnitOfMeasure desiredUnits) {
-            desiredUnits.DimensionType.ShouldBe(_dimensionType);
+            desiredUnits.DimensionType.ShouldBe(DimensionType);
             return (_currentUnits == desiredUnits)
-                       ? _currentValue
-                       : desiredUnits.UnitConverter.FromBaseUnit(_baseUnitsValue);
+                       ? Value
+                       : desiredUnits.UnitConverter.FromBaseUnit(ValueInBaseUnits);
         }
 
         protected string ToString(UnitOfMeasure desiredUnits) {
-            desiredUnits.DimensionType.ShouldBe(_dimensionType);
+            desiredUnits.DimensionType.ShouldBe(DimensionType);
             return string.Format("{0} {1}", In(desiredUnits), desiredUnits.Abbreviation);
         }
 

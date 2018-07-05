@@ -65,7 +65,6 @@ namespace GraduatedCylinder
             /// <param name="units">The units.</param>
             /// <returns></returns>
             public static Dimension Build(double value, string units) {
-                //todo case insensitive lookup?
                 UnitOfMeasure unitOfMeasure = UnitOfMeasure.FindFirst(units);
                 if (unitOfMeasure != null) {
                     return Build(value, unitOfMeasure);
@@ -77,15 +76,18 @@ namespace GraduatedCylinder
                 return Build(measure.Value, measure.Units);
             }
 
-            public static Dimension Parse(string value) {
-                throw new NotImplementedException();
-                // parse floating point number, then units
+            public static Dimension Parse(string input, DimensionType dimensionType) {
+                var strings = input.SplitOnWhitespace();
+                double value = double.Parse(strings[0]);
+                UnitOfMeasure unitOfMeasure = UnitOfMeasure.Find(dimensionType, strings[1]);
+                return Build(value, unitOfMeasure);
             }
 
-            public static T Parse<T>(string value)
-                where T : Dimension {
-                Dimension dimension = Parse(value);
-                return (T)dimension;
+            public static Dimension Parse(string input) {
+                var strings = input.SplitOnWhitespace();
+                double value = double.Parse(strings[0]);
+                UnitOfMeasure unitOfMeasure = UnitOfMeasure.FindFirst(strings[1]);
+                return Build(value, unitOfMeasure);
             }
         }
     }

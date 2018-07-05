@@ -9,6 +9,7 @@ namespace GraduatedCylinder
     /// </summary>
     /// <remarks></remarks>
     public class Acceleration : Dimension,
+                                IDimension<AccelerationUnit>,
                                 IEquatable<Acceleration>,
                                 IComparable<Acceleration>
     {
@@ -38,10 +39,7 @@ namespace GraduatedCylinder
             if (ReferenceEquals(this, obj)) {
                 return true;
             }
-            if (obj.GetType() != typeof(Acceleration)) {
-                return false;
-            }
-            return Equals((Acceleration)obj);
+            return (obj is Acceleration acceleration) && Equals(acceleration);
         }
 
         public override int GetHashCode() {
@@ -61,6 +59,10 @@ namespace GraduatedCylinder
         }
 
         public static readonly Acceleration Gravity = new Acceleration(9.80665, AccelerationUnit.MeterPerSecondSquared);
+
+        public static Acceleration Parse(string input) {
+            return (Acceleration)Factory.Parse(input, DimensionType.Acceleration);
+        }
 
         public static Acceleration operator +(Acceleration left, Acceleration right) {
             Guard.NotNull(left, "left");
@@ -108,11 +110,6 @@ namespace GraduatedCylinder
             Guard.NotNull(left, "left");
             Guard.NotNull(right, "right");
             return left.CompareTo(right) >= 0;
-        }
-
-        public static implicit operator Acceleration(string value) {
-            //todo: decide where to go here
-            return Factory.Parse<Acceleration>(value);
         }
 
         public static bool operator <(Acceleration left, Acceleration right) {

@@ -3,6 +3,7 @@ using System;
 namespace GraduatedCylinder
 {
     public class Frequency : Dimension,
+                             IDimension<FrequencyUnit>,
                              IEquatable<Frequency>,
                              IComparable<Frequency>
     {
@@ -32,10 +33,7 @@ namespace GraduatedCylinder
             if (ReferenceEquals(this, obj)) {
                 return true;
             }
-            if (obj.GetType() != typeof(Frequency)) {
-                return false;
-            }
-            return Equals((Frequency)obj);
+            return (obj is Frequency frequency) && Equals(frequency);
         }
 
         public override int GetHashCode() {
@@ -54,24 +52,28 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static Frequency Parse(string input) {
+            return (Frequency)Factory.Parse(input, DimensionType.Frequency);
+        }
+
         public static Frequency operator +(Frequency frequency1, Frequency frequency2) {
-            Guard.NotNull(frequency1, "frequency1");
-            Guard.NotNull(frequency2, "frequency2");
+            Guard.NotNull(frequency1, nameof(frequency1));
+            Guard.NotNull(frequency2, nameof(frequency2));
             return new Frequency(frequency1.ValueInBaseUnits + frequency2.ValueInBaseUnits) {
                 Units = frequency1.Units
             };
         }
 
         public static Frequency operator /(Frequency frequency, double scaler) {
-            Guard.NotNull(frequency, "frequency");
+            Guard.NotNull(frequency, nameof(frequency));
             return new Frequency(frequency.ValueInBaseUnits / scaler) {
                 Units = frequency.Units
             };
         }
 
         public static double operator /(Frequency numerator, Frequency denominator) {
-            Guard.NotNull(numerator, "numerator");
-            Guard.NotNull(denominator, "denominator");
+            Guard.NotNull(numerator, nameof(numerator));
+            Guard.NotNull(denominator, nameof(denominator));
             return numerator.ValueInBaseUnits / denominator.ValueInBaseUnits;
         }
 
@@ -100,22 +102,22 @@ namespace GraduatedCylinder
         }
 
         public static Frequency operator *(Frequency frequency, double scaler) {
-            Guard.NotNull(frequency, "frequency");
+            Guard.NotNull(frequency, nameof(frequency));
             return new Frequency(frequency.ValueInBaseUnits * scaler) {
                 Units = frequency.Units
             };
         }
 
         public static Frequency operator *(double scaler, Frequency frequency) {
-            Guard.NotNull(frequency, "frequency");
+            Guard.NotNull(frequency, nameof(frequency));
             return new Frequency(frequency.ValueInBaseUnits * scaler) {
                 Units = frequency.Units
             };
         }
 
         public static Frequency operator -(Frequency frequency1, Frequency frequency2) {
-            Guard.NotNull(frequency1, "frequency1");
-            Guard.NotNull(frequency2, "frequency2");
+            Guard.NotNull(frequency1, nameof(frequency1));
+            Guard.NotNull(frequency2, nameof(frequency2));
             return new Frequency(frequency1.ValueInBaseUnits - frequency2.ValueInBaseUnits) {
                 Units = frequency1.Units
             };

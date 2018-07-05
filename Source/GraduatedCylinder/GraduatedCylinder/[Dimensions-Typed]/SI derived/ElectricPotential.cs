@@ -3,6 +3,7 @@ using System;
 namespace GraduatedCylinder
 {
     public class ElectricPotential : Dimension,
+                                     IDimension<ElectricPotentialUnit>,
                                      IEquatable<ElectricPotential>,
                                      IComparable<ElectricPotential>
     {
@@ -32,10 +33,7 @@ namespace GraduatedCylinder
             if (ReferenceEquals(this, obj)) {
                 return true;
             }
-            if (obj.GetType() != typeof(ElectricPotential)) {
-                return false;
-            }
-            return Equals((ElectricPotential)obj);
+            return (obj is ElectricPotential electricPotential) && Equals(electricPotential);
         }
 
         public override int GetHashCode() {
@@ -56,40 +54,44 @@ namespace GraduatedCylinder
 
         public static readonly ElectricPotential Zero = new ElectricPotential(0, ElectricPotentialUnit.Volt);
 
+        public static ElectricPotential Parse(string input) {
+            return (ElectricPotential)Factory.Parse(input, DimensionType.ElectricPotential);
+        }
+
         public static ElectricPotential operator +(ElectricPotential voltage1, ElectricPotential voltage2) {
-            Guard.NotNull(voltage1, "voltage1");
-            Guard.NotNull(voltage2, "voltage2");
+            Guard.NotNull(voltage1, nameof(voltage1));
+            Guard.NotNull(voltage2, nameof(voltage2));
             return new ElectricPotential(voltage1.ValueInBaseUnits + voltage2.ValueInBaseUnits) {
                 Units = voltage1.Units
             };
         }
 
         public static ElectricPotential operator /(ElectricPotential electricPotential, double scaler) {
-            Guard.NotNull(electricPotential, "electricPotential");
+            Guard.NotNull(electricPotential, nameof(electricPotential));
             return new ElectricPotential(electricPotential.ValueInBaseUnits / scaler) {
                 Units = electricPotential.Units
             };
         }
 
         public static ElectricCurrent operator /(ElectricPotential electricPotential, ElectricResistance resistance) {
-            Guard.NotNull(electricPotential, "electricPotential");
-            Guard.NotNull(resistance, "resistance");
+            Guard.NotNull(electricPotential, nameof(electricPotential));
+            Guard.NotNull(resistance, nameof(resistance));
             double electricCurrentValue = electricPotential.In(ElectricPotentialUnit.Volt)
                                           / resistance.In(ElectricResistanceUnit.Ohm);
             return new ElectricCurrent(electricCurrentValue, ElectricCurrentUnit.Ampere);
         }
 
         public static ElectricResistance operator /(ElectricPotential electricPotential, ElectricCurrent current) {
-            Guard.NotNull(electricPotential, "electricPotential");
-            Guard.NotNull(current, "current");
+            Guard.NotNull(electricPotential, nameof(electricPotential));
+            Guard.NotNull(current, nameof(current));
             double electricResistance = electricPotential.In(ElectricPotentialUnit.Volt)
                                         / current.In(ElectricCurrentUnit.Ampere);
             return new ElectricResistance(electricResistance, ElectricResistanceUnit.Ohm);
         }
 
         public static double operator /(ElectricPotential numerator, ElectricPotential denominator) {
-            Guard.NotNull(numerator, "numerator");
-            Guard.NotNull(denominator, "denominator");
+            Guard.NotNull(numerator, nameof(numerator));
+            Guard.NotNull(denominator, nameof(denominator));
             return numerator.ValueInBaseUnits / denominator.ValueInBaseUnits;
         }
 
@@ -118,30 +120,30 @@ namespace GraduatedCylinder
         }
 
         public static ElectricPotential operator *(ElectricPotential electricPotential, double scaler) {
-            Guard.NotNull(electricPotential, "electricPotential");
+            Guard.NotNull(electricPotential, nameof(electricPotential));
             return new ElectricPotential(electricPotential.ValueInBaseUnits * scaler) {
                 Units = electricPotential.Units
             };
         }
 
         public static ElectricPotential operator *(double scaler, ElectricPotential electricPotential) {
-            Guard.NotNull(electricPotential, "electricPotential");
+            Guard.NotNull(electricPotential, nameof(electricPotential));
             return new ElectricPotential(electricPotential.ValueInBaseUnits * scaler) {
                 Units = electricPotential.Units
             };
         }
 
         public static Power operator *(ElectricPotential electricPotential, ElectricCurrent current) {
-            Guard.NotNull(current, "current");
-            Guard.NotNull(electricPotential, "electricPotential");
+            Guard.NotNull(current, nameof(current));
+            Guard.NotNull(electricPotential, nameof(electricPotential));
             double powerValue = electricPotential.In(ElectricPotentialUnit.Volt)
                                 * current.In(ElectricCurrentUnit.Ampere);
             return new Power(powerValue, PowerUnit.Watts);
         }
 
         public static ElectricPotential operator -(ElectricPotential voltage1, ElectricPotential voltage2) {
-            Guard.NotNull(voltage1, "voltage1");
-            Guard.NotNull(voltage2, "voltage2");
+            Guard.NotNull(voltage1, nameof(voltage1));
+            Guard.NotNull(voltage2, nameof(voltage2));
             return new ElectricPotential(voltage1.ValueInBaseUnits - voltage2.ValueInBaseUnits) {
                 Units = voltage1.Units
             };

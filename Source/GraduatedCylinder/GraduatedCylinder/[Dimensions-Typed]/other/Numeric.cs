@@ -6,6 +6,7 @@ namespace GraduatedCylinder
     ///     A 'unitless' dimension.
     /// </summary>
     public class Numeric : Dimension,
+                           IDimension<NumericUnit>,
                            IEquatable<Numeric>,
                            IComparable<Numeric>
     {
@@ -29,7 +30,7 @@ namespace GraduatedCylinder
             if (ReferenceEquals(this, obj)) {
                 return true;
             }
-            return (obj is Numeric) && Equals((Numeric)obj);
+            return (obj is Numeric numeric) && Equals(numeric);
         }
 
         public bool Equals(Numeric other) {
@@ -53,23 +54,23 @@ namespace GraduatedCylinder
         }
 
         public static Numeric operator +(Numeric left, Numeric right) {
-            Guard.NotNull(left, "left");
-            Guard.NotNull(right, "right");
+            Guard.NotNull(left, nameof(left));
+            Guard.NotNull(right, nameof(right));
             return new Numeric(left.ValueInBaseUnits + right.ValueInBaseUnits) {
                 Units = left.Units
             };
         }
 
         public static Numeric operator /(Numeric top, Numeric bottom) {
-            Guard.NotNull(top, "top");
-            Guard.NotNull(bottom, "bottom");
+            Guard.NotNull(top, nameof(top));
+            Guard.NotNull(bottom, nameof(bottom));
             return new Numeric(top.ValueInBaseUnits / bottom.ValueInBaseUnits) {
                 Units = top.Units
             };
         }
 
         public static Numeric operator /(Numeric top, double scaler) {
-            Guard.NotNull(top, "top");
+            Guard.NotNull(top, nameof(top));
             return new Numeric(top.ValueInBaseUnits / scaler) {
                 Units = top.Units
             };
@@ -116,23 +117,23 @@ namespace GraduatedCylinder
         }
 
         public static Numeric operator *(Numeric left, Numeric right) {
-            Guard.NotNull(left, "left");
-            Guard.NotNull(right, "right");
+            Guard.NotNull(left, nameof(left));
+            Guard.NotNull(right, nameof(right));
             return new Numeric(left.ValueInBaseUnits * right.ValueInBaseUnits) {
                 Units = left.Units
             };
         }
 
         public static Numeric operator *(Numeric numeric, double scaler) {
-            Guard.NotNull(numeric, "numeric");
+            Guard.NotNull(numeric, nameof(numeric));
             return new Numeric(numeric.ValueInBaseUnits * scaler) {
                 Units = numeric.Units
             };
         }
 
         public static Numeric operator -(Numeric left, Numeric right) {
-            Guard.NotNull(left, "left");
-            Guard.NotNull(right, "right");
+            Guard.NotNull(left, nameof(left));
+            Guard.NotNull(right, nameof(right));
             return new Numeric(left.ValueInBaseUnits - right.ValueInBaseUnits) {
                 Units = left.Units
             };

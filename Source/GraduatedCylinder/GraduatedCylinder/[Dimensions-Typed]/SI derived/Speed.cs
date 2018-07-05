@@ -7,6 +7,7 @@ namespace GraduatedCylinder
     ///     respect to time.
     /// </summary>
     public class Speed : Dimension,
+                         IDimension<SpeedUnit>,
                          IEquatable<Speed>,
                          IComparable<Speed>
     {
@@ -36,10 +37,7 @@ namespace GraduatedCylinder
             if (ReferenceEquals(this, obj)) {
                 return true;
             }
-            if (obj.GetType() != typeof(Speed)) {
-                return false;
-            }
-            return Equals((Speed)obj);
+            return (obj is Speed speed) && Equals(speed);
         }
 
         public override int GetHashCode() {
@@ -60,39 +58,43 @@ namespace GraduatedCylinder
 
         public static readonly Speed Zero = new Speed(0, SpeedUnit.MeterPerSecond);
 
+        public static Speed Parse(string input) {
+            return (Speed)Factory.Parse(input, DimensionType.Speed);
+        }
+
         public static Speed operator +(Speed speed1, Speed speed2) {
-            Guard.NotNull(speed1, "speed1");
-            Guard.NotNull(speed2, "speed2");
+            Guard.NotNull(speed1, nameof(speed1));
+            Guard.NotNull(speed2, nameof(speed2));
             return new Speed(speed1.ValueInBaseUnits + speed2.ValueInBaseUnits) {
                 Units = speed1.Units
             };
         }
 
         public static Speed operator /(Speed speed, double scaler) {
-            Guard.NotNull(speed, "speed");
+            Guard.NotNull(speed, nameof(speed));
             return new Speed(speed.ValueInBaseUnits / scaler) {
                 Units = speed.Units
             };
         }
 
         public static Acceleration operator /(Speed speed, Time time) {
-            Guard.NotNull(speed, "speed");
-            Guard.NotNull(time, "time");
+            Guard.NotNull(speed, nameof(speed));
+            Guard.NotNull(time, nameof(time));
             double accelerationValue = speed.In(SpeedUnit.MeterPerSecond) / time.In(TimeUnit.Second);
             return new Acceleration(accelerationValue, AccelerationUnit.MeterPerSecondSquared);
         }
 
         public static Time operator /(Speed speed, Acceleration acceleration) {
-            Guard.NotNull(speed, "speed");
-            Guard.NotNull(acceleration, "acceleration");
+            Guard.NotNull(speed, nameof(speed));
+            Guard.NotNull(acceleration, nameof(acceleration));
             double timeValue = speed.In(SpeedUnit.MeterPerSecond)
                                / acceleration.In(AccelerationUnit.MeterPerSecondSquared);
             return new Time(timeValue, TimeUnit.Second);
         }
 
         public static double operator /(Speed numerator, Speed denominator) {
-            Guard.NotNull(numerator, "numerator");
-            Guard.NotNull(denominator, "denominator");
+            Guard.NotNull(numerator, nameof(numerator));
+            Guard.NotNull(denominator, nameof(denominator));
             return numerator.ValueInBaseUnits / denominator.ValueInBaseUnits;
         }
 
@@ -121,57 +123,57 @@ namespace GraduatedCylinder
         }
 
         public static Speed operator *(Speed speed, double scaler) {
-            Guard.NotNull(speed, "speed");
+            Guard.NotNull(speed, nameof(speed));
             return new Speed(speed.ValueInBaseUnits * scaler) {
                 Units = speed.Units
             };
         }
 
         public static Speed operator *(double scaler, Speed speed) {
-            Guard.NotNull(speed, "speed");
+            Guard.NotNull(speed, nameof(speed));
             return new Speed(speed.ValueInBaseUnits * scaler) {
                 Units = speed.Units
             };
         }
 
         public static SpeedSquared operator *(Speed left, Speed right) {
-            Guard.NotNull(left, "left");
-            Guard.NotNull(right, "right");
+            Guard.NotNull(left, nameof(left));
+            Guard.NotNull(right, nameof(right));
             double value = left.In(SpeedUnit.MeterPerSecond) * right.In(SpeedUnit.MeterPerSecond);
             return new SpeedSquared(value, SpeedSquaredUnit.MetersSquaredPerSecondSquared);
         }
 
         public static Energy operator *(Speed speed, Momentum momentum) {
-            Guard.NotNull(speed, "speed");
-            Guard.NotNull(momentum, "momentum");
+            Guard.NotNull(speed, nameof(speed));
+            Guard.NotNull(momentum, nameof(momentum));
             double energyValue = speed.In(SpeedUnit.MeterPerSecond) * momentum.In(MomentumUnit.KilogramMetersPerSecond);
             return new Energy(energyValue, EnergyUnit.NewtonMeters);
         }
 
         public static Length operator *(Speed speed, Time time) {
-            Guard.NotNull(speed, "speed");
-            Guard.NotNull(time, "time");
+            Guard.NotNull(speed, nameof(speed));
+            Guard.NotNull(time, nameof(time));
             double lengthValue = speed.In(SpeedUnit.MeterPerSecond) * time.In(TimeUnit.Second);
             return new Length(lengthValue, LengthUnit.Meter);
         }
 
         public static Momentum operator *(Speed speed, Mass mass) {
-            Guard.NotNull(speed, "speed");
-            Guard.NotNull(mass, "mass");
+            Guard.NotNull(speed, nameof(speed));
+            Guard.NotNull(mass, nameof(mass));
             double momentumValue = speed.In(SpeedUnit.MeterPerSecond) * mass.In(MassUnit.Kilogram);
             return new Momentum(momentumValue, MomentumUnit.KilogramMetersPerSecond);
         }
 
         public static Power operator *(Speed speed, Force force) {
-            Guard.NotNull(force, "force");
-            Guard.NotNull(speed, "speed");
+            Guard.NotNull(force, nameof(force));
+            Guard.NotNull(speed, nameof(speed));
             double powerValue = speed.In(SpeedUnit.MeterPerSecond) * force.In(ForceUnit.Newtons);
             return new Power(powerValue, PowerUnit.Watts);
         }
 
         public static Speed operator -(Speed speed1, Speed speed2) {
-            Guard.NotNull(speed1, "speed1");
-            Guard.NotNull(speed2, "speed2");
+            Guard.NotNull(speed1, nameof(speed1));
+            Guard.NotNull(speed2, nameof(speed2));
             return new Speed(speed1.ValueInBaseUnits - speed2.ValueInBaseUnits) {
                 Units = speed1.Units
             };

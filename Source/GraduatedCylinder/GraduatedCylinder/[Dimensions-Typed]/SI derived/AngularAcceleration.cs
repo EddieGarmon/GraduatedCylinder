@@ -8,6 +8,7 @@ namespace GraduatedCylinder
     ///     to time.
     /// </summary>
     public class AngularAcceleration : Dimension,
+                                       IDimension<AngularAccelerationUnit>,
                                        IEquatable<AngularAcceleration>,
                                        IComparable<AngularAcceleration>
     {
@@ -37,10 +38,7 @@ namespace GraduatedCylinder
             if (ReferenceEquals(this, obj)) {
                 return true;
             }
-            if (obj.GetType() != typeof(AngularAcceleration)) {
-                return false;
-            }
-            return Equals((AngularAcceleration)obj);
+            return (obj is AngularAcceleration acceleration) && Equals(acceleration);
         }
 
         public override int GetHashCode() {
@@ -59,10 +57,14 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static AngularAcceleration Parse(string input) {
+            return (AngularAcceleration)Factory.Parse(input, DimensionType.AngularAcceleration);
+        }
+
         public static AngularAcceleration operator +(AngularAcceleration angularAcceleration1,
                                                      AngularAcceleration angularAcceleration2) {
-            Guard.NotNull(angularAcceleration1, "angularAcceleration1");
-            Guard.NotNull(angularAcceleration2, "angularAcceleration2");
+            Guard.NotNull(angularAcceleration1, nameof(angularAcceleration1));
+            Guard.NotNull(angularAcceleration2, nameof(angularAcceleration2));
             return new AngularAcceleration(
                 angularAcceleration1.ValueInBaseUnits + angularAcceleration2.ValueInBaseUnits) {
                 Units = angularAcceleration1.Units
@@ -70,15 +72,15 @@ namespace GraduatedCylinder
         }
 
         public static AngularAcceleration operator /(AngularAcceleration angularAcceleration, double scaler) {
-            Guard.NotNull(angularAcceleration, "angularAcceleration");
+            Guard.NotNull(angularAcceleration, nameof(angularAcceleration));
             return new AngularAcceleration(angularAcceleration.ValueInBaseUnits / scaler) {
                 Units = angularAcceleration.Units
             };
         }
 
         public static double operator /(AngularAcceleration numerator, AngularAcceleration denominator) {
-            Guard.NotNull(numerator, "numerator");
-            Guard.NotNull(denominator, "denominator");
+            Guard.NotNull(numerator, nameof(numerator));
+            Guard.NotNull(denominator, nameof(denominator));
             return numerator.ValueInBaseUnits / denominator.ValueInBaseUnits;
         }
 
@@ -107,22 +109,22 @@ namespace GraduatedCylinder
         }
 
         public static AngularAcceleration operator *(AngularAcceleration angularAcceleration, double scaler) {
-            Guard.NotNull(angularAcceleration, "angularAcceleration");
+            Guard.NotNull(angularAcceleration, nameof(angularAcceleration));
             return new AngularAcceleration(angularAcceleration.ValueInBaseUnits * scaler) {
                 Units = angularAcceleration.Units
             };
         }
 
         public static AngularAcceleration operator *(double scaler, AngularAcceleration angularAcceleration) {
-            Guard.NotNull(angularAcceleration, "angularAcceleration");
+            Guard.NotNull(angularAcceleration, nameof(angularAcceleration));
             return new AngularAcceleration(angularAcceleration.ValueInBaseUnits * scaler) {
                 Units = angularAcceleration.Units
             };
         }
 
         public static AngularAcceleration operator -(AngularAcceleration left, AngularAcceleration right) {
-            Guard.NotNull(left, "left");
-            Guard.NotNull(right, "right");
+            Guard.NotNull(left, nameof(left));
+            Guard.NotNull(right, nameof(right));
             return new AngularAcceleration(left.ValueInBaseUnits - right.ValueInBaseUnits) {
                 Units = left.Units
             };

@@ -3,6 +3,7 @@ using System;
 namespace GraduatedCylinder
 {
     public class Pressure : Dimension,
+                            IDimension<PressureUnit>,
                             IEquatable<Pressure>,
                             IComparable<Pressure>
     {
@@ -32,10 +33,7 @@ namespace GraduatedCylinder
             if (ReferenceEquals(this, obj)) {
                 return true;
             }
-            if (obj.GetType() != typeof(Pressure)) {
-                return false;
-            }
-            return Equals((Pressure)obj);
+            return (obj is Pressure pressure) && Equals(pressure);
         }
 
         public override int GetHashCode() {
@@ -54,24 +52,28 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static Pressure Parse(string input) {
+            return (Pressure)Factory.Parse(input, DimensionType.Pressure);
+        }
+
         public static Pressure operator +(Pressure pressure1, Pressure pressure2) {
-            Guard.NotNull(pressure1, "pressure1");
-            Guard.NotNull(pressure2, "pressure2");
+            Guard.NotNull(pressure1, nameof(pressure1));
+            Guard.NotNull(pressure2, nameof(pressure2));
             return new Pressure(pressure1.ValueInBaseUnits + pressure2.ValueInBaseUnits) {
                 Units = pressure1.Units
             };
         }
 
         public static Pressure operator /(Pressure pressure, double scaler) {
-            Guard.NotNull(pressure, "pressure");
+            Guard.NotNull(pressure, nameof(pressure));
             return new Pressure(pressure.ValueInBaseUnits / scaler) {
                 Units = pressure.Units
             };
         }
 
         public static double operator /(Pressure numerator, Pressure denominator) {
-            Guard.NotNull(numerator, "numerator");
-            Guard.NotNull(denominator, "denominator");
+            Guard.NotNull(numerator, nameof(numerator));
+            Guard.NotNull(denominator, nameof(denominator));
             return numerator.ValueInBaseUnits / denominator.ValueInBaseUnits;
         }
 
@@ -100,29 +102,29 @@ namespace GraduatedCylinder
         }
 
         public static Pressure operator *(Pressure pressure, double scaler) {
-            Guard.NotNull(pressure, "pressure");
+            Guard.NotNull(pressure, nameof(pressure));
             return new Pressure(pressure.ValueInBaseUnits * scaler) {
                 Units = pressure.Units
             };
         }
 
         public static Pressure operator *(double scaler, Pressure pressure) {
-            Guard.NotNull(pressure, "pressure");
+            Guard.NotNull(pressure, nameof(pressure));
             return new Pressure(pressure.ValueInBaseUnits * scaler) {
                 Units = pressure.Units
             };
         }
 
         public static Force operator *(Pressure pressure, Area area) {
-            Guard.NotNull(area, "area");
-            Guard.NotNull(pressure, "pressure");
+            Guard.NotNull(area, nameof(area));
+            Guard.NotNull(pressure, nameof(pressure));
             double forceValue = pressure.In(PressureUnit.NewtonsPerSquareMeter) * area.In(AreaUnit.MeterSquared);
             return new Force(forceValue, ForceUnit.Newtons);
         }
 
         public static Pressure operator -(Pressure pressure1, Pressure pressure2) {
-            Guard.NotNull(pressure1, "pressure1");
-            Guard.NotNull(pressure2, "pressure2");
+            Guard.NotNull(pressure1, nameof(pressure1));
+            Guard.NotNull(pressure2, nameof(pressure2));
             return new Pressure(pressure1.ValueInBaseUnits - pressure2.ValueInBaseUnits) {
                 Units = pressure1.Units
             };

@@ -3,6 +3,7 @@ using System;
 namespace GraduatedCylinder
 {
     public class VolumetricFlowRate : Dimension,
+                                      IDimension<VolumetricFlowRateUnit>,
                                       IEquatable<VolumetricFlowRate>,
                                       IComparable<VolumetricFlowRate>
     {
@@ -32,10 +33,7 @@ namespace GraduatedCylinder
             if (ReferenceEquals(this, obj)) {
                 return true;
             }
-            if (obj.GetType() != typeof(VolumetricFlowRate)) {
-                return false;
-            }
-            return Equals((VolumetricFlowRate)obj);
+            return (obj is VolumetricFlowRate flowRate) && Equals(flowRate);
         }
 
         public override int GetHashCode() {
@@ -54,25 +52,29 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static VolumetricFlowRate Parse(string input) {
+            return (VolumetricFlowRate)Factory.Parse(input, DimensionType.VolumetricFlowRate);
+        }
+
         public static VolumetricFlowRate operator +(VolumetricFlowRate volumetricFlowRate1,
                                                     VolumetricFlowRate volumetricFlowRate2) {
-            Guard.NotNull(volumetricFlowRate1, "volumetricFlowRate1");
-            Guard.NotNull(volumetricFlowRate2, "volumetricFlowRate2");
+            Guard.NotNull(volumetricFlowRate1, nameof(volumetricFlowRate1));
+            Guard.NotNull(volumetricFlowRate2, nameof(volumetricFlowRate2));
             return new VolumetricFlowRate(volumetricFlowRate1.ValueInBaseUnits + volumetricFlowRate2.ValueInBaseUnits) {
                 Units = volumetricFlowRate1.Units
             };
         }
 
         public static VolumetricFlowRate operator /(VolumetricFlowRate volumetricFlowRate, double scaler) {
-            Guard.NotNull(volumetricFlowRate, "volumetricFlowRate");
+            Guard.NotNull(volumetricFlowRate, nameof(volumetricFlowRate));
             return new VolumetricFlowRate(volumetricFlowRate.ValueInBaseUnits / scaler) {
                 Units = volumetricFlowRate.Units
             };
         }
 
         public static double operator /(VolumetricFlowRate numerator, VolumetricFlowRate denominator) {
-            Guard.NotNull(numerator, "numerator");
-            Guard.NotNull(denominator, "denominator");
+            Guard.NotNull(numerator, nameof(numerator));
+            Guard.NotNull(denominator, nameof(denominator));
             return numerator.ValueInBaseUnits / denominator.ValueInBaseUnits;
         }
 
@@ -101,22 +103,22 @@ namespace GraduatedCylinder
         }
 
         public static VolumetricFlowRate operator *(VolumetricFlowRate volumetricFlowRate, double scaler) {
-            Guard.NotNull(volumetricFlowRate, "volumetricFlowRate");
+            Guard.NotNull(volumetricFlowRate, nameof(volumetricFlowRate));
             return new VolumetricFlowRate(volumetricFlowRate.ValueInBaseUnits * scaler) {
                 Units = volumetricFlowRate.Units
             };
         }
 
         public static VolumetricFlowRate operator *(double scaler, VolumetricFlowRate volumetricFlowRate) {
-            Guard.NotNull(volumetricFlowRate, "volumetricFlowRate");
+            Guard.NotNull(volumetricFlowRate, nameof(volumetricFlowRate));
             return new VolumetricFlowRate(volumetricFlowRate.ValueInBaseUnits * scaler) {
                 Units = volumetricFlowRate.Units
             };
         }
 
         public static Volume operator *(VolumetricFlowRate volumetricFlowRate, Time time) {
-            Guard.NotNull(volumetricFlowRate, "volumetricFlowRate");
-            Guard.NotNull(time, "time");
+            Guard.NotNull(volumetricFlowRate, nameof(volumetricFlowRate));
+            Guard.NotNull(time, nameof(time));
             double volumeValue = volumetricFlowRate.In(VolumetricFlowRateUnit.CubicMetersPerSecond)
                                  * time.In(TimeUnit.Second);
             return new Volume(volumeValue, VolumeUnit.CubicMeters);
@@ -124,8 +126,8 @@ namespace GraduatedCylinder
 
         public static VolumetricFlowRate operator -(VolumetricFlowRate volumetricFlowRate1,
                                                     VolumetricFlowRate volumetricFlowRate2) {
-            Guard.NotNull(volumetricFlowRate1, "volumetricFlowRate1");
-            Guard.NotNull(volumetricFlowRate2, "volumetricFlowRate2");
+            Guard.NotNull(volumetricFlowRate1, nameof(volumetricFlowRate1));
+            Guard.NotNull(volumetricFlowRate2, nameof(volumetricFlowRate2));
             return new VolumetricFlowRate(volumetricFlowRate1.ValueInBaseUnits - volumetricFlowRate2.ValueInBaseUnits) {
                 Units = volumetricFlowRate1.Units
             };
