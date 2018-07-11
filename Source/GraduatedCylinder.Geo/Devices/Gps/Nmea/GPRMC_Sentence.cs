@@ -34,14 +34,14 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
                 return null;
             }
 
-            DateTime fixTime = SentenceHelper.ParseUtcDate(sentence.Parts[9]) + SentenceHelper.ParseUtcTime(sentence.Parts[1]);
+            DateTime fixDate = SentenceHelper.ParseUtcDate(sentence.Parts[9]);
+            NmeaClock.GetDate = () => fixDate;
+            DateTimeOffset fixTime = NmeaClock.GetDateTime(SentenceHelper.ParseUtcTime(sentence.Parts[1]));
             Latitude latitude = SentenceHelper.ParseLatitude(sentence.Parts[3], sentence.Parts[4]);
             Longitude longitude = SentenceHelper.ParseLongitude(sentence.Parts[5], sentence.Parts[6]);
 
-            double speed,
-                   heading;
-            double.TryParse(sentence.Parts[7], out speed);
-            if (!double.TryParse(sentence.Parts[8], out heading)) {
+            double.TryParse(sentence.Parts[7], out double speed);
+            if (!double.TryParse(sentence.Parts[8], out double heading)) {
                 heading = double.NaN;
             }
 
@@ -53,14 +53,20 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
                 }
             }
 
-            return new Decoded(new GeoPosition(latitude, longitude), fixTime, heading, new Speed(speed, SpeedUnit.NauticalMilesPerHour));
+            return new Decoded(fixTime,
+                               new GeoPosition(latitude, longitude),
+                               heading,
+                               new Speed(speed, SpeedUnit.NauticalMilesPerHour));
         }
 
         public class Decoded : IProvideGeoPosition,
                                IProvideTime,
                                IProvideTrajectory
         {
-            public Decoded(GeoPosition currentLocation, DateTime currentTime, Heading currentHeading, Speed currentSpeed) {
+            public Decoded(DateTimeOffset currentTime,
+                           GeoPosition currentLocation,
+                           Heading currentHeading,
+                           Speed currentSpeed) {
                 CurrentLocation = currentLocation;
                 CurrentTime = currentTime;
                 CurrentHeading = currentHeading;
@@ -73,7 +79,7 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
 
             public Speed CurrentSpeed { get; private set; }
 
-            public DateTime CurrentTime { get; private set; }
+            public DateTimeOffset CurrentTime { get; private set; }
         }
     }
 }

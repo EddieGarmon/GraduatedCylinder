@@ -48,40 +48,34 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
                 return null;
             }
 
-            DateTime fixTime = NmeaClock.GetTime()
-                                        .Date;
-            fixTime += SentenceHelper.ParseUtcTime(sentence.Parts[1]);
-
+            DateTimeOffset fixTime = NmeaClock.GetDateTime(SentenceHelper.ParseUtcTime(sentence.Parts[1]));
             Latitude latitude = SentenceHelper.ParseLatitude(sentence.Parts[2], sentence.Parts[3]);
             Longitude longitude = SentenceHelper.ParseLongitude(sentence.Parts[4], sentence.Parts[5]);
 
-            int numberOfSatellites;
-            int.TryParse(sentence.Parts[7], out numberOfSatellites);
-            double horizontalDop;
-            double.TryParse(sentence.Parts[8], out horizontalDop);
+            int.TryParse(sentence.Parts[7], out int numberOfSatellites);
+            double.TryParse(sentence.Parts[8], out double horizontalDop);
 
             Length altitude = SentenceHelper.ParseLength(sentence.Parts[9], sentence.Parts[10]);
             Length heightOfGeoid = SentenceHelper.ParseLength(sentence.Parts[11], sentence.Parts[12]);
 
-            int dgpsAge;
-            int.TryParse(sentence.Parts[13], out dgpsAge);
+            int.TryParse(sentence.Parts[13], out int dgpsAge);
 
             string dgpsStationId = sentence.Parts[14];
 
-            return new Decoded(new GeoPosition(latitude, longitude, altitude), fixTime);
+            return new Decoded(fixTime, new GeoPosition(latitude, longitude, altitude));
         }
 
         public class Decoded : IProvideGeoPosition,
                                IProvideTime
         {
-            public Decoded(GeoPosition currentLocation, DateTime currentTime) {
+            public Decoded(DateTimeOffset currentTime, GeoPosition currentLocation) {
                 CurrentLocation = currentLocation;
                 CurrentTime = currentTime;
             }
 
-            public GeoPosition CurrentLocation { get; private set; }
+            public GeoPosition CurrentLocation { get; }
 
-            public DateTime CurrentTime { get; private set; }
+            public DateTimeOffset CurrentTime { get; }
         }
     }
 }

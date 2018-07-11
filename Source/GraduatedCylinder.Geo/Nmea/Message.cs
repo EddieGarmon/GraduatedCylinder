@@ -7,18 +7,18 @@ namespace GraduatedCylinder.Nmea
         public Message(Sentence sentence, object value) {
             Sentence = sentence;
             Value = value;
-            Created = NmeaClock.GetTime();
+            Created = DateTimeOffset.Now;
         }
 
-        public DateTime Created { get; private set; }
+        public DateTimeOffset Created { get; }
 
-        public Sentence Sentence { get; private set; }
+        public Sentence Sentence { get; }
 
-        public object Value { get; private set; }
+        public object Value { get; }
 
         public T ValueAs<T>() where T : class {
-            if (Value is T) {
-                return (T)Value;
+            if (Value is T variable) {
+                return variable;
             }
             return null;
         }

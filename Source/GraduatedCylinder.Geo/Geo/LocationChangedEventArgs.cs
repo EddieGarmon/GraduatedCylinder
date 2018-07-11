@@ -1,21 +1,30 @@
-﻿namespace GraduatedCylinder.Geo
+﻿using System;
+using GraduatedCylinder.Devices.Gps;
+
+namespace GraduatedCylinder.Geo
 {
     public class LocationChangedEventArgs
     {
-        private readonly Heading _heading;
-        private readonly GeoPosition _position;
-
-        public LocationChangedEventArgs(GeoPosition position, Heading heading) {
-            _position = position;
-            _heading = heading;
+        public LocationChangedEventArgs(DateTimeOffset time,
+                                        GeoPosition position,
+                                        Heading heading,
+                                        Speed speed,
+                                        GpsFixType fixType) {
+            Time = time;
+            Position = position;
+            Heading = heading;
+            Speed = speed;
+            FixType = fixType;
         }
 
-        public Heading Heading {
-            get { return _heading; }
-        }
+        public GpsFixType FixType { get; }
 
-        public GeoPosition Position {
-            get { return _position; }
-        }
+        public Heading Heading { get; }
+
+        public GeoPosition Position { get; }
+
+        public Speed Speed { get; }
+
+        public DateTimeOffset Time { get; }
     }
 }

@@ -30,24 +30,22 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
 
             var latitude = SentenceHelper.ParseLatitude(sentence.Parts[1], sentence.Parts[2]);
             var longitude = SentenceHelper.ParseLongitude(sentence.Parts[3], sentence.Parts[4]);
-            var fixTime = NmeaClock.GetTime()
-                                   .Date;
-            fixTime += SentenceHelper.ParseUtcTime(sentence.Parts[5]);
+            var fixTime = NmeaClock.GetDateTime(SentenceHelper.ParseUtcTime(sentence.Parts[5]));
 
-            return new Decoded(new GeoPosition(latitude, longitude), fixTime);
+            return new Decoded(fixTime, new GeoPosition(latitude, longitude));
         }
 
         public class Decoded : IProvideGeoPosition,
                                IProvideTime
         {
-            public Decoded(GeoPosition currentLocation, DateTime currentTime) {
+            public Decoded(DateTimeOffset currentTime, GeoPosition currentLocation) {
                 CurrentLocation = currentLocation;
                 CurrentTime = currentTime;
             }
 
             public GeoPosition CurrentLocation { get; private set; }
 
-            public DateTime CurrentTime { get; private set; }
+            public DateTimeOffset CurrentTime { get; private set; }
         }
     }
 }
