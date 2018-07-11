@@ -18,6 +18,8 @@ namespace GraduatedCylinder.Devices.Gps
         private readonly GpsParser _parser = new GpsParser();
         private readonly Dictionary<int, SatelliteInfo> _satellites = new Dictionary<int, SatelliteInfo>();
 
+        private bool _isEnabled;
+
         public GpsUnit(IProvideSentences nmeaProvider) {
             MinimumFixForNotification = GpsFixType.ThreeD;
             MinimumSpeedForHeadingUpate = new Speed(1, SpeedUnit.MilesPerHour);
@@ -101,6 +103,21 @@ namespace GraduatedCylinder.Devices.Gps
 
         public bool IsConnected {
             get { return _nmeaProvider != null && _nmeaProvider.IsOpen; }
+        }
+
+        public bool IsEnabled {
+            get => _isEnabled;
+            set {
+                if (value == _isEnabled) {
+                    return;
+                }
+                if (value) {
+                    _nmeaProvider.Open();
+                } else {
+                    _nmeaProvider.Close();
+                }
+                _isEnabled = value;
+            }
         }
 
         public GpsFixType MinimumFixForNotification { get; set; }

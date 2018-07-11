@@ -77,12 +77,11 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
                 return DateTime.MinValue.Date;
             }
 
-            int day,
-                month,
-                year;
-            int.TryParse(value.Substring(0, 2), out day);
-            int.TryParse(value.Substring(2, 2), out month);
-            int.TryParse(value.Substring(4), out year);
+            int.TryParse(value.Substring(0, 2), out int day);
+            int.TryParse(value.Substring(2, 2), out int month);
+            int.TryParse(value.Substring(4), out int year);
+            // NB: Fix this after year 2100
+            year += 2000;
             return new DateTime(year, month, day);
         }
 

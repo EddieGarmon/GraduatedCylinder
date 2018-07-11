@@ -5,14 +5,15 @@ namespace GraduatedCylinder.Nmea
     public static class NmeaClock
     {
         static NmeaClock() {
-            GetDate = () => DateTime.Now.Date;
+            GetDate = () => DateTime.UtcNow.Date;
         }
 
         public static Func<DateTime> GetDate { get; set; }
 
         public static DateTimeOffset GetDateTime(TimeSpan timeOfDay) {
             DateTime dateTime = GetDate() + timeOfDay;
-            return new DateTimeOffset(dateTime, TimeSpan.Zero);
+            DateTimeOffset dateTimeOffset = new DateTimeOffset(dateTime, TimeSpan.Zero);
+            return dateTimeOffset;
         }
     }
 }
