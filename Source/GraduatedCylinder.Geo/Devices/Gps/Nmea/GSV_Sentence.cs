@@ -8,6 +8,7 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
         private static readonly List<string> ValidIds = new List<string> {
             "$GPGSV",
             "$GLGSV",
+            "$GAGSV",
             "$BDGSV"
         };
 
