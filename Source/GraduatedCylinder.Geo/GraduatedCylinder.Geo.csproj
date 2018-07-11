@@ -26,7 +26,7 @@
     <IncludeSource>false</IncludeSource>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 
-    <Version>2.3.0</Version>
+    <Version>2.3.1</Version>
   </PropertyGroup>
   
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
@@ -44,13 +44,13 @@
     <Compile Include="Devices\Gps\IProvideSatelliteInfo.cs" />
     <Compile Include="Devices\Gps\IProvideTime.cs" />
     <Compile Include="Devices\Gps\IProvideTrajectory.cs" />
-    <Compile Include="Devices\Gps\Nmea\GPGGA_Sentence.cs" />
-    <Compile Include="Devices\Gps\Nmea\GPGLL_Sentence.cs" />
-    <Compile Include="Devices\Gps\Nmea\GPGSA_Sentence.cs" />
-    <Compile Include="Devices\Gps\Nmea\GPGSV_Sentence.cs" />
-    <Compile Include="Devices\Gps\Nmea\GPRMC_Sentence.cs" />
+    <Compile Include="Devices\Gps\Nmea\GGA_Sentence.cs" />
+    <Compile Include="Devices\Gps\Nmea\GLL_Sentence.cs" />
+    <Compile Include="Devices\Gps\Nmea\GSA_Sentence.cs" />
+    <Compile Include="Devices\Gps\Nmea\GSV_Sentence.cs" />
+    <Compile Include="Devices\Gps\Nmea\RMC_Sentence.cs" />
     <Compile Include="Devices\Gps\Nmea\GpsParser.cs" />
-    <Compile Include="Devices\Gps\Nmea\GPVTG_Sentence.cs" />
+    <Compile Include="Devices\Gps\Nmea\VTG_Sentence.cs" />
     <Compile Include="Devices\Gps\Nmea\SentenceHelper.cs" />
     <Compile Include="Devices\Gps\SatelliteInfo.cs" />
     <Compile Include="Devices\Laser\DeviceInfo.cs" />

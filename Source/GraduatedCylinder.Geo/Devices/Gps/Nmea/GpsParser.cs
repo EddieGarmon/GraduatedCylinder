@@ -4,13 +4,14 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
 {
     public class GpsParser : NmeaParser
     {
+        //todo: add a --ZDA sentence parser
         public GpsParser()
             : base(
-                GPGSA_Sentence.Parse,
-                GPGSV_Sentence.Parse,
-                GPVTG_Sentence.Parse,
-                GPGGA_Sentence.Parse,
-                GPRMC_Sentence.Parse,
-                GPGLL_Sentence.Parse) { }
+                GSA_Sentence.Parse,
+                GSV_Sentence.Parse,
+                VTG_Sentence.Parse,
+                GGA_Sentence.Parse,
+                RMC_Sentence.Parse,
+                GLL_Sentence.Parse) { }
     }
 }

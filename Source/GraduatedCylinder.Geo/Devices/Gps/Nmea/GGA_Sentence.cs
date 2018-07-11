@@ -1,13 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 using GraduatedCylinder.Geo;
 using GraduatedCylinder.Nmea;
 
 namespace GraduatedCylinder.Devices.Gps.Nmea
 {
-    public class GPGGA_Sentence
+    public class GGA_Sentence
     {
+        private static readonly List<string> ValidIds = new List<string> {
+            "$GPGGA",
+            "$GNGGA"
+        };
+
         public static Decoded Parse(Sentence sentence) {
-            // $GPGGA,<1>,<2>,<3>,<4>,<5>,<6>,<7>,<8>,<9>,M,<11>,M,<13>,<14>*<CS><CR><LF>
+            // $__GGA,<1>,<2>,<3>,<4>,<5>,<6>,<7>,<8>,<9>,M,<11>,M,<13>,<14>*<CS><CR><LF>
             // 0)  Sentence Id
             // 1)  UTC time of position fix, hhmmss.sss format
             // 2)  Latitude, ddmm.mmmm format.
@@ -35,7 +41,7 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
             // *<CS>) Checksum.
             // <CR><LF>) Sentence terminator
 
-            if (sentence.Id != "$GPGGA") {
+            if (!ValidIds.Contains(sentence.Id)) {
                 return null;
             }
             if (sentence.Parts.Length != 15) {

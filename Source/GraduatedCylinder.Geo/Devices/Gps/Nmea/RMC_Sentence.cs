@@ -1,13 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 using GraduatedCylinder.Geo;
 using GraduatedCylinder.Nmea;
 
 namespace GraduatedCylinder.Devices.Gps.Nmea
 {
-    public class GPRMC_Sentence
+    public class RMC_Sentence
+
     {
+        private static readonly List<string> ValidIds = new List<string> {
+            "$GPRMC",
+            "$GNRMC"
+        };
+
         public static Decoded Parse(Sentence sentence) {
-            // $GPRMC,<1>,<2>,<3>,<4>,<5>,<6>,<7>,<8>,<9>,<10>,<11>*<CS><CR><LF>
+            // $__RMC,<1>,<2>,<3>,<4>,<5>,<6>,<7>,<8>,<9>,<10>,<11>*<CS><CR><LF>
             // 0)  Sentence Id
             // 1)  UTC time of position fix, hhmmss.sss format.
             // 2)  Status, A = data valid, V = data not valid.
@@ -24,7 +31,7 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
             // *<CS>) Checksum.
             // <CR><LF>) Sentence terminator
 
-            if (sentence.Id != "$GPRMC") {
+            if (!ValidIds.Contains(sentence.Id)) {
                 return null;
             }
             if (sentence.Parts.Length != 12 && sentence.Parts.Length != 13) {

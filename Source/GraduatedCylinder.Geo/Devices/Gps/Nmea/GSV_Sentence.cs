@@ -3,10 +3,16 @@ using GraduatedCylinder.Nmea;
 
 namespace GraduatedCylinder.Devices.Gps.Nmea
 {
-    public class GPGSV_Sentence
+    public class GSV_Sentence
     {
+        private static readonly List<string> ValidIds = new List<string> {
+            "$GPGSV",
+            "$GLGSV",
+            "$BDGSV"
+        };
+
         public static Decoded Parse(Sentence sentence) {
-            // $GPGSV,<1>,<2>,<3>,<4>,<5>,<6>,<7>, ... ,<4>,<5>,<6>,<7>*<CS><CR><LF>
+            // $__GSV,<1>,<2>,<3>,<4>,<5>,<6>,<7>, ... ,<4>,<5>,<6>,<7>*<CS><CR><LF>
             // 0) Sentence Id
             // 1) Total number of GSV sentences to be transmitted, 1-3.
             // 2) Sequence number of message, 1-3.
@@ -22,25 +28,21 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
             // of four (4) satellites per sentence.  Additional satellites in view information 
             // must be sent in subsequent sentences. These fields will be null if unused.
 
-            if (sentence.Id != "$GPGSV") {
+            if (!ValidIds.Contains(sentence.Id)) {
                 return null;
             }
             if (sentence.Parts.Length != 20) {
                 return null;
             }
 
-            int sequenceCount,
-                sequenceId,
-                numberOfSatellites;
+            int sequenceCount, sequenceId, numberOfSatellites;
             int.TryParse(sentence.Parts[1], out sequenceCount);
             int.TryParse(sentence.Parts[2], out sequenceId);
             int.TryParse(sentence.Parts[3], out numberOfSatellites);
 
             SatelliteInfo[] satelliteInfos = new SatelliteInfo[4];
             for (int i = 0; i < 4; i++) {
-                int prn,
-                    elevation,
-                    azimuth;
+                int prn, elevation, azimuth;
                 double signalToNoise;
                 int.TryParse(sentence.Parts[4 * i + 4], out prn);
                 int.TryParse(sentence.Parts[4 * i + 5], out elevation);

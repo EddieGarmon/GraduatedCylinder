@@ -1,13 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 using GraduatedCylinder.Geo;
 using GraduatedCylinder.Nmea;
 
 namespace GraduatedCylinder.Devices.Gps.Nmea
 {
-    public class GPGLL_Sentence
+    public class GLL_Sentence
     {
+        private static readonly List<string> ValidIds = new List<string> {
+            "$GPGLL",
+            "$GNGLL"
+        };
+
         public static Decoded Parse(Sentence sentence) {
-            // $GPGLL,<1>,<2>,<3>,<4>,<5>,<6>,<7>*<CS><CR><LF>
+            // $__GLL,<1>,<2>,<3>,<4>,<5>,<6>,<7>*<CS><CR><LF>
             // 0) Sentence Id
             // 1) Latitude, ddmm.mmmm format.
             // 2) Latitude hemisphere, N or S.
@@ -18,7 +24,7 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
             // *<CS>) Checksum.
             // <CR><LF>) Sentence terminator
 
-            if (sentence.Id != "$GPGLL") {
+            if (!ValidIds.Contains(sentence.Id)) {
                 return null;
             }
             if (sentence.Parts.Length != 6) {

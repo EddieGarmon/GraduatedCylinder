@@ -1,11 +1,19 @@
-﻿using GraduatedCylinder.Nmea;
+﻿using System.Collections.Generic;
+using GraduatedCylinder.Nmea;
 
 namespace GraduatedCylinder.Devices.Gps.Nmea
 {
-    public class GPGSA_Sentence
+    public class GSA_Sentence
     {
+        private static readonly List<string> ValidIds = new List<string> {
+            "$GPGSA",
+            "$GNGSA",
+            "$GLGSA",
+            "$BDGSA"
+        };
+
         public static Decoded Parse(Sentence sentence) {
-            // $GPGSA,<1>,<2>,<3>,<4>, ... ,<13>,<14>,<15>,<16>,<17>*<CS><CR><LF>
+            // $__GSA,<1>,<2>,<3>,<4>, ... ,<13>,<14>,<15>,<16>,<17>*<CS><CR><LF>
             // 0)  Sentence Id
             // 1)  Mode 1, M = manual, A = automatic.
             // 2)  Mode 2, Fix type, 1 = no fix, 2 = 2D, 3 = 3D.
@@ -27,7 +35,7 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
             // *<CS>) Checksum.
             // <CR><LF>) Sentence terminator
 
-            if (sentence.Id != "$GPGSA") {
+            if (!ValidIds.Contains(sentence.Id)) {
                 return null;
             }
             if (sentence.Parts.Length != 18) {
@@ -55,9 +63,7 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
                 }
             }
 
-            double positionDop,
-                   horizontalDop,
-                   verticalDop;
+            double positionDop, horizontalDop, verticalDop;
             double.TryParse(sentence.Parts[15], out positionDop);
             double.TryParse(sentence.Parts[16], out horizontalDop);
             double.TryParse(sentence.Parts[17], out verticalDop);
@@ -69,7 +75,11 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
                                IProvideActiveSatellites,
                                IProvideDilutionOfPrecision
         {
-            public Decoded(GpsFixType currentFix, int[] activeSatellitePrns, double positionDop, double horizontalDop, double verticalDop) {
+            public Decoded(GpsFixType currentFix,
+                           int[] activeSatellitePrns,
+                           double positionDop,
+                           double horizontalDop,
+                           double verticalDop) {
                 CurrentFix = currentFix;
                 ActiveSatellitePrns = activeSatellitePrns;
                 PositionDop = positionDop;

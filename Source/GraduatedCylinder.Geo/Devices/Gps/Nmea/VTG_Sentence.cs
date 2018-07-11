@@ -1,12 +1,18 @@
-﻿using GraduatedCylinder.Geo;
+﻿using System.Collections.Generic;
+using GraduatedCylinder.Geo;
 using GraduatedCylinder.Nmea;
 
 namespace GraduatedCylinder.Devices.Gps.Nmea
 {
-    public class GPVTG_Sentence
+    public class VTG_Sentence
     {
+        private static readonly List<string> ValidIds = new List<string> {
+            "$GPVTG",
+            "$GNVTG"
+        };
+
         public static Decoded Parse(Sentence sentence) {
-            // $GPVTG,<1>,T,<3>,M,<5>,N,<7>,K*<CS><CR><LF>
+            // $__VTG,<1>,T,<3>,M,<5>,N,<7>,K*<CS><CR><LF>
             // 0) Sentence Id
             // 1) True course over ground, 000 to 359 degrees.
             // 2) T for true course
@@ -19,7 +25,7 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
             // *<CS>) Checksum.
             // <CR><LF>) Sentence terminator
 
-            if (sentence.Id != "$GPVTG") {
+            if (!ValidIds.Contains(sentence.Id)) {
                 return null;
             }
             if (sentence.Parts.Length != 9) {
