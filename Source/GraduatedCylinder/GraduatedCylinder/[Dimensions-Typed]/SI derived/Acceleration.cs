@@ -58,7 +58,9 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
-        public static readonly Acceleration Gravity = new Acceleration(9.80665, AccelerationUnit.MeterPerSecondSquared);
+        public static Acceleration Gravity => new Acceleration(9.80665, AccelerationUnit.MeterPerSecondSquared);
+
+        public static Acceleration Zero => new Acceleration(0);
 
         public static Acceleration Parse(string input) {
             return (Acceleration)Factory.Parse(input, DimensionType.Acceleration);

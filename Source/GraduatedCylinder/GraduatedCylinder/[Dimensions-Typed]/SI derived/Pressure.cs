@@ -52,6 +52,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static Pressure Zero => new Pressure(0);
+
         public static Pressure Parse(string input) {
             return (Pressure)Factory.Parse(input, DimensionType.Pressure);
         }

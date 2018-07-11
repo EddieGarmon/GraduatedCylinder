@@ -47,10 +47,12 @@ namespace GraduatedCylinder
         public string ToString(TimeUnit units) {
             return base.ToString(units);
         }
-        
+
         public string ToString(TimeUnit units, int precision) {
             return base.ToString(units, precision);
         }
+
+        public static Time Zero => new Time(0);
 
         public static Time Parse(string input) {
             return (Time)Factory.Parse(input, DimensionType.Time);

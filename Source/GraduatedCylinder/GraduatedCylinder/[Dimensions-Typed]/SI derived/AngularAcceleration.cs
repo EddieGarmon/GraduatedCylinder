@@ -57,6 +57,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static AngularAcceleration Zero => new AngularAcceleration(0);
+
         public static AngularAcceleration Parse(string input) {
             return (AngularAcceleration)Factory.Parse(input, DimensionType.AngularAcceleration);
         }

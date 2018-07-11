@@ -58,6 +58,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static Area Zero => new Area(0);
+
         public static Area Parse(string input) {
             return (Area)Factory.Parse(input, DimensionType.Area);
         }

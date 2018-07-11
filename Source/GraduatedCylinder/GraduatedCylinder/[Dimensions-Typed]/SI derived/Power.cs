@@ -52,6 +52,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static Power Zero => new Power(0);
+
         public static Power Parse(string input) {
             return (Power)Factory.Parse(input, DimensionType.Power);
         }

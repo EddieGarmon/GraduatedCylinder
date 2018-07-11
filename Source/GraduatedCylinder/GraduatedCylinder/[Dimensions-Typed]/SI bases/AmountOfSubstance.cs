@@ -52,6 +52,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static AmountOfSubstance Zero => new AmountOfSubstance(0);
+
         public static AmountOfSubstance Parse(string input) {
             return (AmountOfSubstance)Factory.Parse(input, DimensionType.AmountOfSubstance);
         }

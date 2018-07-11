@@ -52,6 +52,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static LuminousIntensity Zero = new LuminousIntensity(0);
+
         public static LuminousIntensity Parse(string input) {
             return (LuminousIntensity)Factory.Parse(input, DimensionType.LuminousIntensity);
         }

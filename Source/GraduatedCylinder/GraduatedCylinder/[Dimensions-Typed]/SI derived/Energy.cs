@@ -56,6 +56,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static Energy Zero => new Energy(0);
+
         public static Energy Parse(string input) {
             return (Energy)Factory.Parse(input, DimensionType.Energy);
         }

@@ -52,6 +52,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static MassFlowRate Zero => new MassFlowRate(0);
+
         public static MassFlowRate Parse(string input) {
             return (MassFlowRate)Factory.Parse(input, DimensionType.MassFlowRate);
         }

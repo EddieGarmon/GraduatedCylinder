@@ -56,7 +56,7 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
-        public static readonly Speed Zero = new Speed(0, SpeedUnit.MeterPerSecond);
+        public static Speed Zero => new Speed(0);
 
         public static Speed Parse(string input) {
             return (Speed)Factory.Parse(input, DimensionType.Speed);

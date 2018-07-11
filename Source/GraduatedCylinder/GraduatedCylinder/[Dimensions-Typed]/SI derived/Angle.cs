@@ -52,6 +52,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static Angle Zero => new Angle(0);
+
         public static Angle Parse(string input) {
             return (Angle)Factory.Parse(input, DimensionType.Angle);
         }

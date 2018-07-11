@@ -52,6 +52,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static Force Zero => new Force(0);
+
         public static Force Parse(string input) {
             return (Force)Factory.Parse(input, DimensionType.Force);
         }

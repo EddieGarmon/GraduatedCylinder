@@ -52,6 +52,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static ElectricCurrent Zero => new ElectricCurrent(0);
+
         public static ElectricCurrent Parse(string input) {
             return (ElectricCurrent)Factory.Parse(input, DimensionType.ElectricCurrent);
         }

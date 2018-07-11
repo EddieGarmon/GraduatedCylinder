@@ -52,6 +52,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static Torque Zero => new Torque(0);
+
         public static Torque Parse(string input) {
             return (Torque)Factory.Parse(input, DimensionType.Torque);
         }

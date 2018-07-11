@@ -52,7 +52,7 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
-        public static readonly ElectricPotential Zero = new ElectricPotential(0, ElectricPotentialUnit.Volt);
+        public static ElectricPotential Zero => new ElectricPotential(0, ElectricPotentialUnit.Volt);
 
         public static ElectricPotential Parse(string input) {
             return (ElectricPotential)Factory.Parse(input, DimensionType.ElectricPotential);

@@ -52,6 +52,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static Mass Zero => new Mass(0);
+
         public static Mass Parse(string input) {
             return (Mass)Factory.Parse(input, DimensionType.Mass);
         }

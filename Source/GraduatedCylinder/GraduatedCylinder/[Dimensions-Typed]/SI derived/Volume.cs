@@ -52,6 +52,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static Volume Zero => new Volume(0);
+
         public static Volume Parse(string input) {
             return (Volume)Factory.Parse(input, DimensionType.Volume);
         }

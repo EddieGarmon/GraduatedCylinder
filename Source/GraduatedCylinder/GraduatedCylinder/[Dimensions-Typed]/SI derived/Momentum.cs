@@ -52,6 +52,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static Momentum Zero => new Momentum(0);
+
         public static Momentum Parse(string input) {
             return (Momentum)Factory.Parse(input, DimensionType.Momentum);
         }

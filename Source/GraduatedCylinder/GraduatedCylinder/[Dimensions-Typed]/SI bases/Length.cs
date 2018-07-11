@@ -56,6 +56,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static Length Zero => new Length(0);
+
         public static Length Parse(string input) {
             return (Length)Factory.Parse(input, DimensionType.Length);
         }

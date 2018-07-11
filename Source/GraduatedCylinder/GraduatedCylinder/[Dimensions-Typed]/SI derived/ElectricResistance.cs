@@ -52,6 +52,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static ElectricResistance Zero => new ElectricResistance(0);
+
         public static ElectricResistance Parse(string input) {
             return (ElectricResistance)Factory.Parse(input, DimensionType.ElectricResistance);
         }

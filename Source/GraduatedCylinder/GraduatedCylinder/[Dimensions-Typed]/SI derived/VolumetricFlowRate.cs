@@ -52,6 +52,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static VolumetricFlowRate Zero => new VolumetricFlowRate(0);
+
         public static VolumetricFlowRate Parse(string input) {
             return (VolumetricFlowRate)Factory.Parse(input, DimensionType.VolumetricFlowRate);
         }

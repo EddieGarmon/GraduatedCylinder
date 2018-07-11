@@ -55,6 +55,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static Jerk Zero => new Jerk(0);
+
         public static Jerk Parse(string input) {
             return (Jerk)Factory.Parse(input, DimensionType.Jerk);
         }

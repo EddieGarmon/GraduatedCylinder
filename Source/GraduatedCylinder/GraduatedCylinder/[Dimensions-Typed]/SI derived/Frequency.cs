@@ -52,6 +52,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static Frequency Zero => new Frequency(0);
+
         public static Frequency Parse(string input) {
             return (Frequency)Factory.Parse(input, DimensionType.Frequency);
         }

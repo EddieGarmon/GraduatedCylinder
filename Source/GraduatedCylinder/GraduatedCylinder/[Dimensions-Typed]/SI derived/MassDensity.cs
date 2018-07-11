@@ -52,6 +52,8 @@ namespace GraduatedCylinder
             return base.ToString(units, precision);
         }
 
+        public static MassDensity Zero => new MassDensity(0);
+
         public static MassDensity Parse(string input) {
             return (MassDensity)Factory.Parse(input, DimensionType.MassDensity);
         }
