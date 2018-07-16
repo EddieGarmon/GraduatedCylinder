@@ -9,6 +9,7 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
             "$GPGSA",
             "$GLGSA",
             "$GAGSA",
+            "$GNGSA",
             "$BDGSA"
         };
 
