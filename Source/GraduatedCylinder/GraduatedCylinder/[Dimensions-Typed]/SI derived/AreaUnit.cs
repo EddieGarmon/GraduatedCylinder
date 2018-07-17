@@ -4,11 +4,11 @@ namespace GraduatedCylinder
     {
         BaseUnit = MeterSquared,
 
-        [UnitAbbreviation("ym^s")]
+        [UnitAbbreviation("ym^2")]
         [Scale(1e-48)]
         YoctometerSquared = -24,
 
-        [UnitAbbreviation("zm^s")]
+        [UnitAbbreviation("zm^2")]
         [Scale(1e-42)]
         ZeptometerSquared = -21,
 

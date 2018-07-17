@@ -26,7 +26,7 @@
     <IncludeSource>false</IncludeSource>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 
-    <Version>2.4.0</Version>
+    <Version>2.5.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -36,37 +36,52 @@
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\other\NumericUnit.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\other\UnknownUnit.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI bases\AmountOfSubstance.cs" />
+    <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI bases\AmountOfSubstanceExtensions.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI bases\AmountOfSubstanceUnit.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI bases\ElectricCurrent.cs" />
+    <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI bases\ElectricCurrentExtensions.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI bases\ElectricCurrentUnit.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI bases\Length.cs" />
+    <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI bases\LengthExtensions.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI bases\LengthUnit.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI bases\LuminousIntensity.cs" />
+    <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI bases\LuminousIntensityExtensions.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI bases\LuminousIntensityUnit.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI bases\Mass.cs" />
+    <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI bases\MassExtensions.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI bases\MassUnit.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI bases\Temperature.cs" />
+    <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI bases\TemperatureExtensions.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI bases\TemperatureUnit.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI bases\Time.cs" />
+    <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI bases\TimeExtensions.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI bases\TimeUnit.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\Acceleration.cs" />
+    <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\AccelerationExtensions.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\AccelerationUnit.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\Angle.cs" />
+    <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\AngleExtensions.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\AngleUnit.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\AngularAcceleration.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\AngularAccelerationUnit.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\Area.cs" />
+    <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\AreaExtensions.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\AreaUnit.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\ElectricChargeUnit.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\ElectricPotential.cs" />
+    <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\ElectricPotentialExtensions.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\ElectricPotentialUnit.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\ElectricResistance.cs" />
+    <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\ElectricResistanceExtensions.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\ElectricResistanceUnit.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\Energy.cs" />
+    <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\EnergyExtensions.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\EnergyUnit.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\Force.cs" />
+    <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\ForceExtensions.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\ForceUnit.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\Frequency.cs" />
+    <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\FrequencyExtensions.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\FrequencyUnit.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\Jerk.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\JerkUnit.cs" />
@@ -77,15 +92,21 @@
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\Momentum.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\MomentumUnit.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\Power.cs" />
+    <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\PowerExtensions.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\PowerUnit.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\Pressure.cs" />
+    <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\PressureExtensions.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\PressureUnit.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\Speed.cs" />
+    <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\SpeedExtensions.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\SpeedUnit.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\Torque.cs" />
+    <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\TorqueExtensions.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\TorqueUnit.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\Volume.cs" />
+    <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\VolumeExtensions.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\VolumetricFlowRate.cs" />
+    <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\VolumetricFlowRateExtensioins.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\VolumetricFlowRateUnit.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions-Typed]\SI derived\VolumeUnit.cs" />
     <Compile Include="GraduatedCylinder\[Dimensions]\Dimension.cs" />
