@@ -121,6 +121,8 @@
     <Compile Include="GraduatedCylinder\[Internals]\Guard.cs" />
     <Compile Include="GraduatedCylinder\[Internals]\SafeDictionary.cs" />
     <Compile Include="GraduatedCylinder\[Internals]\StringExtensions.cs" />
+    <Compile Include="GraduatedCylinder\[Scales]\PercentGradeAttribute.cs" />
+    <Compile Include="GraduatedCylinder\[Scales]\PercentGradeUnitConverter.cs" />
     <Compile Include="GraduatedCylinder\[Scales]\ScaleAndOffsetAttribute.cs" />
     <Compile Include="GraduatedCylinder\[Scales]\ScaleAndOffsetUnitConverter.cs" />
     <Compile Include="GraduatedCylinder\[Scales]\ScaleAttribute.cs" />

@@ -27,8 +27,6 @@ namespace GraduatedCylinder
         ///     Gets the unit converter for this unit.
         /// </summary>
         /// <value>The unit converter.</value>
-        public override IUnitConverter UnitConverter {
-            get { return new ScaleUnitConverter(ScaleFactor); }
-        }
+        public override IUnitConverter UnitConverter => new ScaleUnitConverter(ScaleFactor);
     }
 }
