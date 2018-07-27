@@ -107,16 +107,12 @@ namespace GraduatedCylinder.Nmea
 
         private void ProcessError(object sender, SerialErrorReceivedEventArgs e) {
             var handler = PortError;
-            if (handler != null) {
-                handler(e.EventType);
-            }
+            handler?.Invoke(e.EventType);
         }
 
         private void PublishSentence(Sentence sentence) {
             var handler = SentenceReceived;
-            if (handler != null) {
-                handler(sentence);
-            }
+            handler?.Invoke(sentence);
         }
     }
 }
