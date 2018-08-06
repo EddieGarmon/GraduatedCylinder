@@ -86,7 +86,6 @@ namespace GraduatedCylinder.Devices.Gps
                                                   }
                                               };
 
-            _nmeaProvider.Open();
         }
 
         public GpsFixType CurentFixType { get; private set; }

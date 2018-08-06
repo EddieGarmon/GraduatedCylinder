@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace GraduatedCylinder.Nmea
 {
@@ -9,49 +11,31 @@ namespace GraduatedCylinder.Nmea
         public enum PlaybackRate
         {
             AsRecorded,
-            _60Hertz,
-            _100Hertz,
             AsFastAsPossible
         }
 
-        public enum PlaybackTime
-        {
-            Historic,
-            Current
-        }
-
         private readonly string _filename;
-        private SentenceRecord _currentRecord;
-        private bool _loopEnd;
-        private SentenceRecord _nextRecord;
-        private PlaybackRate _rate;
-        private StreamReader _reader;
+        private readonly bool _loopEnd;
+        private readonly PlaybackRate _rate;
         private Thread _thread;
-        private PlaybackTime _time;
 
-        public SentenceLog(string filename,
-                           PlaybackTime time,
-                           PlaybackRate rate = PlaybackRate.AsRecorded,
-                           bool loopEnd = false) {
+        public SentenceLog(string filename, PlaybackRate rate = PlaybackRate.AsRecorded, bool loopEnd = false) {
             if (!File.Exists(filename)) {
-                string message = string.Format("The file NMEA log '{0}' cannot be found.", filename);
+                string message = string.Format("The NMEA log file '{0}' cannot be found.", filename);
                 throw new ArgumentException(message);
             }
             _filename = filename;
-            _time = time;
             _rate = rate;
             _loopEnd = loopEnd;
         }
 
         public bool IsOpen => _thread != null;
 
+        public bool PlaybackComplete { get; private set; }
+
         public event Action<Sentence> SentenceReceived;
 
         public void Close() {
-            if (_reader != null) {
-                _reader.Close();
-                _reader = null;
-            }
             if (_thread != null) {
                 _thread.Abort();
                 _thread = null;
@@ -59,18 +43,57 @@ namespace GraduatedCylinder.Nmea
         }
 
         public void Open() {
-            if (_reader != null) {
+            if (_thread != null) {
                 throw new InvalidOperationException("Log file is already open for reading.");
             }
-            _reader = File.OpenText(_filename);
             _thread = new Thread(ReadAndBroadcast);
             _thread.Start();
         }
 
-        private void ReadAndBroadcast() {
-            //capture start playback time
+        private void RaiseSentenceRecieved(Sentence sentence) {
+            var handler = SentenceReceived;
+            handler?.Invoke(sentence);
+        }
 
-            throw new NotImplementedException();
+        private void ReadAndBroadcast() {
+            //open file and parse/cache the log
+            List<SentenceRecord> records = new List<SentenceRecord>();
+            using (StreamReader reader = File.OpenText(_filename)) {
+                while (!reader.EndOfStream) {
+                    string line = reader.ReadLine();
+                    records.Add(SentenceRecord.Parse(line));
+                }
+            }
+
+            //capture start playback time
+            DateTime startTime = DateTime.Now;
+
+            int index = 0;
+            while (index < records.Count) {
+                var record = records[index];
+
+                switch (_rate) {
+                    case PlaybackRate.AsRecorded:
+                        Time currentTime = DateTime.Now - startTime;
+                        Task.Delay(record.Occurance - currentTime)
+                            .ContinueWith(_ => RaiseSentenceRecieved(record.Sentence));
+                        break;
+
+                    case PlaybackRate.AsFastAsPossible:
+                        RaiseSentenceRecieved(record.Sentence);
+                        break;
+
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+
+                index++;
+                if (index == records.Count && _loopEnd) {
+                    index = 0;
+                }
+            }
+
+            PlaybackComplete = true;
         }
     }
 }

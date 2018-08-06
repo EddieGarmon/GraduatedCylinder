@@ -7,15 +7,18 @@ namespace GraduatedCylinder.Nmea
     {
         private readonly string _filename;
         private readonly IProvideSentences _source;
-        private TextWriter _writer;
+        private DateTime _logStart;
 
         public SentenceLogger(IProvideSentences source, string logFileName) {
             _source = source ?? throw new ArgumentNullException(nameof(source));
-            _filename = logFileName;
+            _filename = logFileName ?? throw new ArgumentNullException(nameof(logFileName));
             _source.SentenceReceived += sentence => {
                                             var handler = SentenceReceived;
                                             handler?.Invoke(sentence);
-                                            _writer.WriteLine("{0}\t{1}", 0, sentence);
+                                            TimeSpan timeSpan = DateTime.Now - _logStart;
+                                            using (StreamWriter writer = File.AppendText(_filename)) {
+                                                writer.Write(new SentenceRecord(timeSpan, sentence));
+                                            }
                                         };
         }
 
@@ -24,13 +27,12 @@ namespace GraduatedCylinder.Nmea
         public event Action<Sentence> SentenceReceived;
 
         public void Close() {
-            _writer.Close();
             _source.Close();
         }
 
         public void Open() {
-            //todo: capture log start time for relative timestamps
-            _writer = new StreamWriter(File.OpenWrite(_filename));
+            _logStart = DateTime.Now;
+            Directory.CreateDirectory(Path.GetDirectoryName(_filename));
             _source.Open();
         }
     }
