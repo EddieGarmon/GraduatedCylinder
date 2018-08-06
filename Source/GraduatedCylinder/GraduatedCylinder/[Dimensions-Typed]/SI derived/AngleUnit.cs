@@ -94,6 +94,10 @@ namespace GraduatedCylinder
 
         [UnitAbbreviation("grads")]
         [Scale(0.0157079632679)]
-        Grad = 102
+        Grad = 102,
+
+        [UnitAbbreviation("%grade")]
+        [PercentGrade]
+        PercentGrade = 103
     }
 }

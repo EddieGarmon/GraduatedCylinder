@@ -10,6 +10,10 @@
             return new Angle(value, AngleUnit.Grad);
         }
 
+        public static Angle PercentGrade(this double value) {
+            return new Angle(value, AngleUnit.PercentGrade);
+        }
+
         public static Angle Radians(this double value) {
             return new Angle(value, AngleUnit.Radian);
         }

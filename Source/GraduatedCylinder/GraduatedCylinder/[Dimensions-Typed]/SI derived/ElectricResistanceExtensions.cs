@@ -6,7 +6,7 @@
             return new ElectricResistance(value, ElectricResistanceUnit.Kiloohm);
         }
 
-        public static ElectricResistance Megaogms(this double value) {
+        public static ElectricResistance Megaohms(this double value) {
             return new ElectricResistance(value, ElectricResistanceUnit.Megaogm);
         }
 
