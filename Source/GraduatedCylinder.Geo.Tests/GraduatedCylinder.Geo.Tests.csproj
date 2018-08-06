@@ -23,7 +23,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Nmea\" />
+    <None Update="Nmea\Sample1.glog">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Nmea\Sample2.glog">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

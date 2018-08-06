@@ -86,6 +86,9 @@
     <Compile Include="Nmea\IProvideSentences.cs" />
     <Compile Include="Nmea\Message.cs" />
     <Compile Include="Nmea\NmeaClock.cs" />
+    <Compile Include="Nmea\SentenceLog.cs" />
+    <Compile Include="Nmea\SentenceLogger.cs" />
+    <Compile Include="Nmea\SentenceRecord.cs" />
     <Compile Include="Nmea\NmeaParser.cs" />
     <Compile Include="Nmea\NmeaSerialPort.cs" />
     <Compile Include="Nmea\Sentence.cs" />

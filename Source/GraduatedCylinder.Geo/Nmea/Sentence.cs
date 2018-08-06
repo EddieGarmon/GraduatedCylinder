@@ -16,7 +16,6 @@ namespace GraduatedCylinder.Nmea
     /// </remarks>
     public class Sentence
     {
-        public const string Terminator = "\r\n";
         private readonly string[] _parts;
 
         public Sentence(string[] parts) {
@@ -42,12 +41,11 @@ namespace GraduatedCylinder.Nmea
             return string.Format("{0}{1}{2}{3}",
                                  string.Join(",", _parts),
                                  includeChecksum ? "*" : null,
-                                 includeChecksum
-                                     ? CalculateChecksum(_parts)
-                                           .ToString("X2")
-                                     : null,
+                                 includeChecksum ? CalculateChecksum(_parts).ToString("X2") : null,
                                  Terminator);
         }
+
+        public const string Terminator = "\r\n";
 
         /// <summary>
         ///     Parses the specified raw line into a sentence and verifies the checksum.
@@ -56,7 +54,7 @@ namespace GraduatedCylinder.Nmea
         /// <returns>Sentence.</returns>
         public static Sentence Parse(string raw) {
             if (raw == null) {
-                throw new ArgumentNullException("raw");
+                throw new ArgumentNullException(nameof(raw));
             }
             if (raw[0] != '$') {
                 return null;
@@ -83,8 +81,8 @@ namespace GraduatedCylinder.Nmea
         /// <returns>IEnumerable{Sentence}.</returns>
         public static IEnumerable<Sentence> ParseAll(string raw) {
             string[] lines = raw.Split(new[] {
-                Terminator
-            },
+                                           Terminator
+                                       },
                                        StringSplitOptions.RemoveEmptyEntries);
             var result = new List<Sentence>();
             foreach (string line in lines) {
@@ -105,17 +103,8 @@ namespace GraduatedCylinder.Nmea
         }
 
         internal static byte CalculateChecksum(string[] parts) {
-            byte result = 0;
-            for (int i = 0; i < parts.Length; i++) {
-                string part = parts[i];
-                for (int j = 0; j < part.Length; j++) {
-                    result ^= (byte)part[j];
-                }
-                if (i < parts.Length - 1) {
-                    result ^= (byte)',';
-                }
-            }
-            return result;
+            string sentence = string.Join(",", parts);
+            return CalculateChecksum(sentence);
         }
     }
 }

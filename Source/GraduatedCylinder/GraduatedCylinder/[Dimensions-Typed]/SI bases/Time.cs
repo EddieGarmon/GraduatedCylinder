@@ -91,6 +91,14 @@ namespace GraduatedCylinder
             return (((object)left) == null) ? (((object)right) == null) : left.CompareTo(right) >= 0;
         }
 
+        public static implicit operator Time(TimeSpan source) {
+            return new Time(source.TotalSeconds, TimeUnit.Second);
+        }
+
+        public static implicit operator TimeSpan(Time source) {
+            return new TimeSpan((long)source.In(TimeUnit.Ticks));
+        }
+
         public static bool operator !=(Time left, Time right) {
             return !Equals(left, right);
         }
