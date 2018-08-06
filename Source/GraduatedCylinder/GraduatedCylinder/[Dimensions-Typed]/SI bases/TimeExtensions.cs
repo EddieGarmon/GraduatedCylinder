@@ -21,5 +21,13 @@
         public static Time Seconds(this double value) {
             return new Time(value, TimeUnit.Second);
         }
+
+        public static Time Ticks(this double value) {
+            return new Time(value, TimeUnit.Ticks);
+        }
+
+        public static Time Ticks(this long value) {
+            return new Time(value, TimeUnit.Ticks);
+        }
     }
 }

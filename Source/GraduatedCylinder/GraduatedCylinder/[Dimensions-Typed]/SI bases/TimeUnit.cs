@@ -104,10 +104,14 @@ namespace GraduatedCylinder
 
         [UnitAbbreviation("d")]
         [Scale(86400.0)]
-        Days = 105
+        Days = 105,
 
-        //Weeks
-        //Months
-        //Years
+        //Weeks = 106,
+        //Months = 107,
+        //Years = 108,
+
+        [UnitAbbreviation("ticks")]
+        [Scale(10000000)]
+        Ticks = 110
     }
 }
