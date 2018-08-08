@@ -96,7 +96,7 @@ namespace GraduatedCylinder
         }
 
         public static implicit operator TimeSpan(Time source) {
-            return new TimeSpan((long)source.In(TimeUnit.Ticks));
+            return new TimeSpan(Convert.ToInt64(source.In(TimeUnit.Ticks)));
         }
 
         public static bool operator !=(Time left, Time right) {
