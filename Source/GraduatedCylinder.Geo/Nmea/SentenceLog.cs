@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace GraduatedCylinder.Nmea
 {
@@ -74,9 +73,12 @@ namespace GraduatedCylinder.Nmea
 
                 switch (_rate) {
                     case PlaybackRate.AsRecorded:
-                        Time currentTime = DateTime.Now - startTime;
-                        Task.Delay(record.Occurance - currentTime)
-                            .ContinueWith(_ => RaiseSentenceRecieved(record.Sentence));
+                        Time elapsedTime = DateTime.Now - startTime;
+                        Time waitTime = record.Occurance - elapsedTime;
+                        if (waitTime > 0.0.Seconds()) {
+                            Thread.Sleep(waitTime);
+                        }
+                        RaiseSentenceRecieved(record.Sentence);
                         break;
 
                     case PlaybackRate.AsFastAsPossible:

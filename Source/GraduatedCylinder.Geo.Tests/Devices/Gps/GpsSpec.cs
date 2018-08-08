@@ -10,7 +10,7 @@ namespace GraduatedCylinder.Devices.Gps
 {
     public class GpsSpec
     {
-        [Fact]
+        [Fact(Skip = "Requires Hardware")]
         public void LiveGpsOnCOM4() {
             string fileName = @"C:\Gps\Test.glog";
             if (File.Exists(fileName)) {
@@ -43,31 +43,40 @@ namespace GraduatedCylinder.Devices.Gps
         }
 
         [Fact]
-        public void RecordedGpsFromLog() {
+        public void PlaybackLogAsFastAsPossible() {
             int eventCount = 0;
             string fileName = @".\NMEA\Sample1.glog";
             SentenceLog sentences = new SentenceLog(fileName, SentenceLog.PlaybackRate.AsFastAsPossible);
             GpsUnit gps = new GpsUnit(sentences);
             gps.LocationChanged += _ => eventCount++;
-            sentences.Open();
+            DateTime startTime = DateTime.Now;
+            gps.IsEnabled = true;
             while (!sentences.PlaybackComplete) {
-                Thread.Sleep(100);
+                Thread.Sleep(50);
             }
-            sentences.Close();
+            gps.IsEnabled = false;
+            var duration = DateTime.Now - startTime;
             eventCount.ShouldBe(18);
+            duration.ShouldBeLessThan(new TimeSpan(0, 0, 1));
         }
 
         [Fact]
-        public void TranslateLog() {
-            string input = @".\NMEA\Sample1.glog";
-            string output = @"C:\Gps\Sample1.clean.glog";
-            SentenceLog source = new SentenceLog(input, SentenceLog.PlaybackRate.AsRecorded);
-            SentenceLogger logger = new SentenceLogger(source, output);
-            source.Open();
-            while (!source.PlaybackComplete) {
+        public void PlaybackLogAsRecorded() {
+            int eventCount = 0;
+            string fileName = @".\NMEA\Sample1.glog";
+            SentenceLog sentences = new SentenceLog(fileName);
+            SentenceLogger loggedSentences = new SentenceLogger(sentences, @".\NMEA\Sample1.replay.glog");
+            GpsUnit gps = new GpsUnit(loggedSentences);
+            gps.LocationChanged += _ => eventCount++;
+            DateTime startTime = DateTime.Now;
+            gps.IsEnabled = true;
+            while (!sentences.PlaybackComplete) {
                 Thread.Sleep(100);
             }
-            source.Close();
+            gps.IsEnabled = false;
+            var duration = DateTime.Now - startTime;
+            eventCount.ShouldBe(18);
+            duration.ShouldBeGreaterThan(new TimeSpan(0, 0, 9));
         }
     }
 }

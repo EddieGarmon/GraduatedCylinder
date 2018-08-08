@@ -111,7 +111,7 @@ namespace GraduatedCylinder
         //Years = 108,
 
         [UnitAbbreviation("ticks")]
-        [Scale(10000000)]
+        [Scale(1e-7)]
         Ticks = 110
     }
 }
