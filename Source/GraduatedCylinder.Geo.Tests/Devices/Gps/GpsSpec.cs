@@ -61,6 +61,7 @@ namespace GraduatedCylinder.Devices.Gps
         }
 
         [Fact]
+        [Trait("time", "long")]
         public void PlaybackLogAsRecorded() {
             int eventCount = 0;
             string fileName = @".\NMEA\Sample1.glog";
@@ -77,6 +78,23 @@ namespace GraduatedCylinder.Devices.Gps
             var duration = DateTime.Now - startTime;
             eventCount.ShouldBe(18);
             duration.ShouldBeGreaterThan(new TimeSpan(0, 0, 9));
+        }
+
+        [Fact]
+        [Trait("time", "long")]
+        public void PlaybackLogAsRecordedLooped() {
+            int eventCount = 0;
+            string fileName = @".\NMEA\Sample1.glog";
+            SentenceLog sentences = new SentenceLog(fileName, SentenceLog.PlaybackRate.AsRecorded, true);
+            SentenceLogger loggedSentences = new SentenceLogger(sentences, @".\NMEA\Sample1.looped.glog");
+            GpsUnit gps = new GpsUnit(loggedSentences);
+            gps.LocationChanged += _ => eventCount++;
+            DateTime startTime = DateTime.Now;
+            gps.IsEnabled = true;
+            for (int i = 0; i < 100; i++) {
+                Thread.Sleep(200);
+            }
+            gps.IsEnabled = false;
         }
     }
 }
