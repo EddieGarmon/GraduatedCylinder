@@ -92,6 +92,7 @@ namespace GraduatedCylinder.Nmea
                 index++;
                 if (index == records.Count && _loopEnd) {
                     index = 0;
+                    startTime = DateTime.Now;
                 }
             }
 
