@@ -6,7 +6,7 @@
             return new Torque(value, TorqueUnit.FootPounds);
         }
 
-        public static Torque NewtonMeters(this double value) {
+        public static Torque NewtonMetersOfTorque(this double value) {
             return new Torque(value, TorqueUnit.NewtonMeters);
         }
     }

@@ -18,7 +18,7 @@
             return new Energy(value, EnergyUnit.KilowattHours);
         }
 
-        public static Energy NewtonMeters(this double value) {
+        public static Energy NewtonMetersOfEnergy(this double value) {
             return new Energy(value, EnergyUnit.NewtonMeters);
         }
 
