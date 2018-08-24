@@ -153,5 +153,12 @@ namespace GraduatedCylinder
                 Units = area1.Units
             };
         }
+
+        public static Area operator -(Area source) {
+            Guard.NotNull(source, nameof(source));
+            return new Area(-source.ValueInBaseUnits) {
+                Units = source.Units
+            };
+        }
     }
 }

@@ -146,5 +146,12 @@ namespace GraduatedCylinder
                 Units = torque1.Units
             };
         }
+
+        public static Torque operator -(Torque source) {
+            Guard.NotNull(source, nameof(source));
+            return new Torque(-source.ValueInBaseUnits) {
+                Units = source.Units
+            };
+        }
     }
 }

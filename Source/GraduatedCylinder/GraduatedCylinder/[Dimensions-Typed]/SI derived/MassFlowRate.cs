@@ -131,5 +131,12 @@ namespace GraduatedCylinder
                 Units = massFlowRate1.Units
             };
         }
+
+        public static MassFlowRate operator -(MassFlowRate source) {
+            Guard.NotNull(source, nameof(source));
+            return new MassFlowRate(-source.ValueInBaseUnits) {
+                Units = source.Units
+            };
+        }
     }
 }

@@ -169,5 +169,12 @@ namespace GraduatedCylinder
                 Units = left.Units
             };
         }
+
+        public static Acceleration operator -(Acceleration source) {
+            Guard.NotNull(source, nameof(source));
+            return new Acceleration(-source.ValueInBaseUnits) {
+                Units = source.Units
+            };
+        }
     }
 }

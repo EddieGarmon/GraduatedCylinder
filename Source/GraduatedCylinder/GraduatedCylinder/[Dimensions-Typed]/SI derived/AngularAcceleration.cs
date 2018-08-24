@@ -131,5 +131,12 @@ namespace GraduatedCylinder
                 Units = left.Units
             };
         }
+
+        public static AngularAcceleration operator -(AngularAcceleration source) {
+            Guard.NotNull(source, nameof(source));
+            return new AngularAcceleration(-source.ValueInBaseUnits) {
+                Units = source.Units
+            };
+        }
     }
 }

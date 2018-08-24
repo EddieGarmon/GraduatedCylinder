@@ -124,5 +124,12 @@ namespace GraduatedCylinder
                 Units = frequency1.Units
             };
         }
+
+        public static Frequency operator -(Frequency source) {
+            Guard.NotNull(source, nameof(source));
+            return new Frequency(-source.ValueInBaseUnits) {
+                Units = source.Units
+            };
+        }
     }
 }

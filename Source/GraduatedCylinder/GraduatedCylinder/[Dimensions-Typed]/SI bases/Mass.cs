@@ -166,5 +166,12 @@ namespace GraduatedCylinder
                 Units = mass1.Units
             };
         }
+
+        public static Mass operator -(Mass source) {
+            Guard.NotNull(source, nameof(source));
+            return new Mass(-source.ValueInBaseUnits) {
+                Units = source.Units
+            };
+        }
     }
 }

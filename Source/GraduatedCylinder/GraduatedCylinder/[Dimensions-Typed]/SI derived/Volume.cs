@@ -160,5 +160,12 @@ namespace GraduatedCylinder
                 Units = volume1.Units
             };
         }
+
+        public static Volume operator -(Volume source) {
+            Guard.NotNull(source, nameof(source));
+            return new Volume(-source.ValueInBaseUnits) {
+                Units = source.Units
+            };
+        }
     }
 }

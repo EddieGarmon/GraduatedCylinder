@@ -182,5 +182,12 @@ namespace GraduatedCylinder
                 Units = time1.Units
             };
         }
+
+        public static Time operator -(Time source) {
+            Guard.NotNull(source, nameof(source));
+            return new Time(-source.ValueInBaseUnits) {
+                Units = source.Units
+            };
+        }
     }
 }

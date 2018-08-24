@@ -148,5 +148,12 @@ namespace GraduatedCylinder
                 Units = voltage1.Units
             };
         }
+
+        public static ElectricPotential operator -(ElectricPotential source) {
+            Guard.NotNull(source, nameof(source));
+            return new ElectricPotential(-source.ValueInBaseUnits) {
+                Units = source.Units
+            };
+        }
     }
 }

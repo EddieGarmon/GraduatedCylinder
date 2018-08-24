@@ -167,5 +167,12 @@ namespace GraduatedCylinder
                 Units = momentum1.Units
             };
         }
+
+        public static Momentum operator -(Momentum source) {
+            Guard.NotNull(source, nameof(source));
+            return new Momentum(-source.ValueInBaseUnits) {
+                Units = source.Units
+            };
+        }
     }
 }

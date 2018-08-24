@@ -132,5 +132,12 @@ namespace GraduatedCylinder
                 Units = resistance1.Units
             };
         }
+
+        public static ElectricResistance operator -(ElectricResistance source) {
+            Guard.NotNull(source, nameof(source));
+            return new ElectricResistance(-source.ValueInBaseUnits) {
+                Units = source.Units
+            };
+        }
     }
 }

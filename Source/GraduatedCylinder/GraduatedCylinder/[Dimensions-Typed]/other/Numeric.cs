@@ -138,5 +138,12 @@ namespace GraduatedCylinder
                 Units = left.Units
             };
         }
+
+        public static Numeric operator -(Numeric source) {
+            Guard.NotNull(source, nameof(source));
+            return new Numeric(-source.ValueInBaseUnits) {
+                Units = source.Units
+            };
+        }
     }
 }

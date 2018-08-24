@@ -134,5 +134,12 @@ namespace GraduatedCylinder
                 Units = jerk1.Units
             };
         }
+
+        public static Jerk operator -(Jerk source) {
+            Guard.NotNull(source, nameof(source));
+            return new Jerk(-source.ValueInBaseUnits) {
+                Units = source.Units
+            };
+        }
     }
 }
