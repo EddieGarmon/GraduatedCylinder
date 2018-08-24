@@ -126,5 +126,12 @@ namespace GraduatedCylinder
                 Units = temperature1.Units
             };
         }
+
+        public static Temperature operator -(Temperature source) {
+            Guard.NotNull(source, nameof(source));
+            return new Temperature(-source.ValueInBaseUnits) {
+                Units = source.Units
+            };
+        }
     }
 }

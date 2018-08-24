@@ -131,5 +131,12 @@ namespace GraduatedCylinder
                 Units = pressure1.Units
             };
         }
+
+        public static Pressure operator -(Pressure source) {
+            Guard.NotNull(source, nameof(source));
+            return new Pressure(-source.ValueInBaseUnits) {
+                Units = source.Units
+            };
+        }
     }
 }

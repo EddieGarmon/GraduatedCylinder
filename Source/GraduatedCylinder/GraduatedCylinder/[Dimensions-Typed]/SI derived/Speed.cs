@@ -178,5 +178,12 @@ namespace GraduatedCylinder
                 Units = speed1.Units
             };
         }
+
+        public static Speed operator -(Speed source) {
+            Guard.NotNull(source, nameof(source));
+            return new Speed(-source.ValueInBaseUnits) {
+                Units = source.Units
+            };
+        }
     }
 }

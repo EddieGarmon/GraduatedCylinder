@@ -187,5 +187,12 @@ namespace GraduatedCylinder
                 Units = power1.Units
             };
         }
+
+        public static Power operator -(Power source) {
+            Guard.NotNull(source, nameof(source));
+            return new Power(-source.ValueInBaseUnits) {
+                Units = source.Units
+            };
+        }
     }
 }

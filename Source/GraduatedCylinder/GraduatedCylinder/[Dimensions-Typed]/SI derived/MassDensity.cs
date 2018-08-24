@@ -131,5 +131,12 @@ namespace GraduatedCylinder
                 Units = density1.Units
             };
         }
+
+        public static MassDensity operator -(MassDensity source) {
+            Guard.NotNull(source, nameof(source));
+            return new MassDensity(-source.ValueInBaseUnits) {
+                Units = source.Units
+            };
+        }
     }
 }

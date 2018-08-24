@@ -134,5 +134,12 @@ namespace GraduatedCylinder
                 Units = volumetricFlowRate1.Units
             };
         }
+
+        public static VolumetricFlowRate operator -(VolumetricFlowRate source) {
+            Guard.NotNull(source, nameof(source));
+            return new VolumetricFlowRate(-source.ValueInBaseUnits) {
+                Units = source.Units
+            };
+        }
     }
 }

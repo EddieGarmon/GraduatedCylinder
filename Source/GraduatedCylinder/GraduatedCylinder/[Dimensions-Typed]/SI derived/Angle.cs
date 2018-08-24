@@ -124,5 +124,12 @@ namespace GraduatedCylinder
                 Units = angle1.Units
             };
         }
+
+        public static Angle operator -(Angle source) {
+            Guard.NotNull(source, nameof(source));
+            return new Angle(-source.ValueInBaseUnits) {
+                Units = source.Units
+            };
+        }
     }
 }

@@ -173,5 +173,12 @@ namespace GraduatedCylinder
                 Units = force1.Units
             };
         }
+
+        public static Force operator -(Force source) {
+            Guard.NotNull(source, nameof(source));
+            return new Force(-source.ValueInBaseUnits) {
+                Units = source.Units
+            };
+        }
     }
 }

@@ -139,5 +139,12 @@ namespace GraduatedCylinder
                 Units = current1.Units
             };
         }
+
+        public static ElectricCurrent operator -(ElectricCurrent source) {
+            Guard.NotNull(source, nameof(source));
+            return new ElectricCurrent(-source.ValueInBaseUnits) {
+                Units = source.Units
+            };
+        }
     }
 }

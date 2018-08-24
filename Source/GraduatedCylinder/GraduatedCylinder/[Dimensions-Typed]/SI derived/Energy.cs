@@ -170,5 +170,12 @@ namespace GraduatedCylinder
                 Units = energy1.Units
             };
         }
+
+        public static Energy operator -(Energy source) {
+            Guard.NotNull(source, nameof(source));
+            return new Energy(-source.ValueInBaseUnits) {
+                Units = source.Units
+            };
+        }
     }
 }
