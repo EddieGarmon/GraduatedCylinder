@@ -59,7 +59,12 @@ namespace GraduatedCylinder.Geo
         private static string AsDegreesMinutes(double value, char hemisphere) {
             int roundedDegrees = (int)value;
             double minutes = (value - roundedDegrees) * 60;
-            return string.Format("{0}{1} {2:N4}{3} {4}", roundedDegrees, DegreesSymbol, minutes, MinutesSymbol, hemisphere);
+            return string.Format("{0}{1} {2:N4}{3} {4}",
+                                 roundedDegrees,
+                                 DegreesSymbol,
+                                 minutes,
+                                 MinutesSymbol,
+                                 hemisphere);
         }
 
         private static string AsDegreesMinutesSeconds(double value, char hemisphere) {
@@ -67,7 +72,14 @@ namespace GraduatedCylinder.Geo
             double minutes = (value - roundedDegrees) * 60;
             int roundedMinutes = (int)minutes;
             double seconds = (minutes - roundedMinutes) * 60;
-            return string.Format("{0}{1} {2}{3} {4:N4}{5} {6}", roundedDegrees, DegreesSymbol, roundedMinutes, MinutesSymbol, seconds, SecondsSymbol, hemisphere);
+            return string.Format("{0}{1} {2}{3} {4:N4}{5} {6}",
+                                 roundedDegrees,
+                                 DegreesSymbol,
+                                 roundedMinutes,
+                                 MinutesSymbol,
+                                 seconds,
+                                 SecondsSymbol,
+                                 hemisphere);
         }
     }
 }

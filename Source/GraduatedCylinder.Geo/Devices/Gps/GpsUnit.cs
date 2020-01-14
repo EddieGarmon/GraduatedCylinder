@@ -85,7 +85,6 @@ namespace GraduatedCylinder.Devices.Gps
                                                       RaiseLocationChanged();
                                                   }
                                               };
-
         }
 
         public GpsFixType CurentFixType { get; private set; }

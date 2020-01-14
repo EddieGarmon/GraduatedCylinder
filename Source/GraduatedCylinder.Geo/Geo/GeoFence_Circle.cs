@@ -4,8 +4,8 @@
     {
         public class Circle : IGeoFence
         {
-            private readonly string _id;
             private readonly GeoPosition _center;
+            private readonly string _id;
             private readonly Length _radius;
 
             public Circle(string id, GeoPosition center, Length radius) {

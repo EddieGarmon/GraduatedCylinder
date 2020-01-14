@@ -2,7 +2,11 @@
 {
     public class GeoVector
     {
-        public GeoVector(Length horizontalDistance, Angle azimuth, Angle inclination, Length slopeDistance, bool highQuality) {
+        public GeoVector(Length horizontalDistance,
+                         Angle azimuth,
+                         Angle inclination,
+                         Length slopeDistance,
+                         bool highQuality) {
             HorizontalDistance = horizontalDistance;
             Azimuth = azimuth;
             Inclination = inclination;
@@ -10,7 +14,8 @@
             HighQuality = highQuality;
             if (horizontalDistance != null && slopeDistance != null) {
                 // a^2 + b^2 = c^2
-                VerticalDistance = (SlopeDistance * SlopeDistance - HorizontalDistance * HorizontalDistance).SquareRoot();
+                VerticalDistance =
+                    (SlopeDistance * SlopeDistance - HorizontalDistance * HorizontalDistance).SquareRoot();
             }
         }
 

@@ -28,15 +28,16 @@ namespace GraduatedCylinder.Geo
                 //todo first check if in bounding box
 
                 bool result = false;
-                for (int i = 0,
-                         j = _corners.Count - 1;
-                    i < _corners.Count;
-                    j = i, i++) {
+                for (int i = 0, j = _corners.Count - 1; i < _corners.Count; j = i, i++) {
                     var p1 = _corners[i];
                     var p2 = _corners[j];
                     if (p1.Latitude < position.Latitude && position.Latitude <= p2.Latitude
                         || p2.Latitude < position.Latitude && position.Latitude <= p1.Latitude) {
-                        if (p1.Longitude + (position.Latitude - p1.Latitude) / (p2.Latitude - p1.Latitude) * (p2.Longitude - p1.Longitude) < position.Longitude) {
+                        if (p1.Longitude
+                            + (position.Latitude - p1.Latitude)
+                            / (p2.Latitude - p1.Latitude)
+                            * (p2.Longitude - p1.Longitude)
+                            < position.Longitude) {
                             result = !result;
                         }
                     }

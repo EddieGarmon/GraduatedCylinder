@@ -35,7 +35,7 @@ namespace GraduatedCylinder.Nmea
             }
             if (decoded == null) {
                 //decode failed?
-               // Debugger.Break();
+                // Debugger.Break();
                 return null;
             }
             return new Message(sentence, decoded);

@@ -18,8 +18,7 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
         /// <param name="direction">The direction.</param>
         /// <returns></returns>
         public static Latitude ParseLatitude(string value, string direction) {
-            double degrees = 0,
-                   minutes = 0;
+            double degrees = 0, minutes = 0;
             int length = value.Length;
             if (length >= 2) {
                 double.TryParse(value.Substring(0, 2), out degrees);
@@ -52,8 +51,7 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
         /// <param name="direction">The direction.</param>
         /// <returns></returns>
         public static Longitude ParseLongitude(string value, string direction) {
-            double degrees = 0,
-                   minutes = 0;
+            double degrees = 0, minutes = 0;
             int length = value.Length;
             if (length >= 3) {
                 double.TryParse(value.Substring(0, 3), out degrees);
@@ -97,10 +95,7 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
         /// <param name="value">The value.</param>
         /// <returns></returns>
         public static TimeSpan ParseUtcTime(string value) {
-            int hours = 0,
-                minutes = 0,
-                seconds = 0,
-                milliseconds = 0;
+            int hours = 0, minutes = 0, seconds = 0, milliseconds = 0;
             int length = value.Length;
             if (length >= 2) {
                 int.TryParse(value.Substring(0, 2), out hours);

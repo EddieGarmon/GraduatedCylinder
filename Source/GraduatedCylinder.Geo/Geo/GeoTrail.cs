@@ -14,7 +14,12 @@ namespace GraduatedCylinder.Geo
             private readonly Speed _speed;
             private readonly DateTime _time;
 
-            public Datum(DateTime time, Latitude latitude, Longitude longitude, Length altitude = null, Speed speed = null, Heading heading = null) {
+            public Datum(DateTime time,
+                         Latitude latitude,
+                         Longitude longitude,
+                         Length altitude = null,
+                         Speed speed = null,
+                         Heading heading = null) {
                 _time = time;
                 _location = new GeoPosition(latitude, longitude, altitude);
                 _speed = speed;
