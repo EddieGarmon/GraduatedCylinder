@@ -54,7 +54,7 @@ namespace GraduatedCylinder.Nmea
             _playback = Task.Run(() => ReadAndBroadcast(), _cancel.Token);
         }
 
-        private void RaiseSentenceRecieved(Sentence sentence) {
+        private void RaiseSentenceReceived(Sentence sentence) {
             var handler = SentenceReceived;
             handler?.Invoke(sentence);
         }
@@ -87,11 +87,11 @@ namespace GraduatedCylinder.Nmea
                         if (waitTime > 0.0.Seconds()) {
                             Thread.Sleep(waitTime);
                         }
-                        RaiseSentenceRecieved(record.Sentence);
+                        RaiseSentenceReceived(record.Sentence);
                         break;
 
                     case PlaybackRate.AsFastAsPossible:
-                        RaiseSentenceRecieved(record.Sentence);
+                        RaiseSentenceReceived(record.Sentence);
                         break;
 
                     default:
