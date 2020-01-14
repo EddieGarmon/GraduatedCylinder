@@ -34,14 +34,10 @@ namespace GraduatedCylinder
             (time2 == time1).ShouldBeTrue();
             (time1 == time3).ShouldBeFalse();
             (time3 == time1).ShouldBeFalse();
-            time1.Equals(time2)
-                 .ShouldBeTrue();
-            time1.Equals((object)time2)
-                 .ShouldBeTrue();
-            time2.Equals(time1)
-                 .ShouldBeTrue();
-            time2.Equals((object)time1)
-                 .ShouldBeTrue();
+            time1.Equals(time2).ShouldBeTrue();
+            time1.Equals((object)time2).ShouldBeTrue();
+            time2.Equals(time1).ShouldBeTrue();
+            time2.Equals((object)time1).ShouldBeTrue();
         }
 
         [Fact]
@@ -101,7 +97,8 @@ namespace GraduatedCylinder
 
         [Fact]
         public void OpMultiplicationAcceleration() {
-            Speed speedBase = new Time(20, TimeUnit.Second) * new Acceleration(3, AccelerationUnit.MeterPerSecondSquared);
+            Speed speedBase = new Time(20, TimeUnit.Second)
+                              * new Acceleration(3, AccelerationUnit.MeterPerSecondSquared);
             speedBase.ShouldBe(new Speed(60, SpeedUnit.MeterPerSecond));
 
             var time = new Time(1, TimeUnit.Minutes);

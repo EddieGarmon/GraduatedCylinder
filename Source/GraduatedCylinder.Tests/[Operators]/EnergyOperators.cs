@@ -34,14 +34,10 @@ namespace GraduatedCylinder
             (energy2 == energy1).ShouldBeTrue();
             (energy1 == energy3).ShouldBeFalse();
             (energy3 == energy1).ShouldBeFalse();
-            energy1.Equals(energy2)
-                   .ShouldBeTrue();
-            energy1.Equals((object)energy2)
-                   .ShouldBeTrue();
-            energy2.Equals(energy1)
-                   .ShouldBeTrue();
-            energy2.Equals((object)energy1)
-                   .ShouldBeTrue();
+            energy1.Equals(energy2).ShouldBeTrue();
+            energy1.Equals((object)energy2).ShouldBeTrue();
+            energy2.Equals(energy1).ShouldBeTrue();
+            energy2.Equals((object)energy1).ShouldBeTrue();
         }
 
         [Fact]

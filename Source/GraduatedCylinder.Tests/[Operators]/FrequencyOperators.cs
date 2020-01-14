@@ -34,14 +34,10 @@ namespace GraduatedCylinder
             (frequency2 == frequency1).ShouldBeTrue();
             (frequency1 == frequency3).ShouldBeFalse();
             (frequency3 == frequency1).ShouldBeFalse();
-            frequency1.Equals(frequency2)
-                      .ShouldBeTrue();
-            frequency1.Equals((object)frequency2)
-                      .ShouldBeTrue();
-            frequency2.Equals(frequency1)
-                      .ShouldBeTrue();
-            frequency2.Equals((object)frequency1)
-                      .ShouldBeTrue();
+            frequency1.Equals(frequency2).ShouldBeTrue();
+            frequency1.Equals((object)frequency2).ShouldBeTrue();
+            frequency2.Equals(frequency1).ShouldBeTrue();
+            frequency2.Equals((object)frequency1).ShouldBeTrue();
         }
 
         [Fact]

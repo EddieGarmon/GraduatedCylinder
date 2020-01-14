@@ -34,14 +34,10 @@ namespace GraduatedCylinder
             (speed2 == speed1).ShouldBeTrue();
             (speed1 == speed3).ShouldBeFalse();
             (speed3 == speed1).ShouldBeFalse();
-            speed1.Equals(speed2)
-                  .ShouldBeTrue();
-            speed1.Equals((object)speed2)
-                  .ShouldBeTrue();
-            speed2.Equals(speed1)
-                  .ShouldBeTrue();
-            speed2.Equals((object)speed1)
-                  .ShouldBeTrue();
+            speed1.Equals(speed2).ShouldBeTrue();
+            speed1.Equals((object)speed2).ShouldBeTrue();
+            speed2.Equals(speed1).ShouldBeTrue();
+            speed2.Equals((object)speed1).ShouldBeTrue();
         }
 
         [Fact]

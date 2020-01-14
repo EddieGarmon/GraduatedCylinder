@@ -34,14 +34,10 @@ namespace GraduatedCylinder
             (voltage2 == voltage1).ShouldBeTrue();
             (voltage1 == voltage3).ShouldBeFalse();
             (voltage3 == voltage1).ShouldBeFalse();
-            voltage1.Equals(voltage2)
-                    .ShouldBeTrue();
-            voltage1.Equals((object)voltage2)
-                    .ShouldBeTrue();
-            voltage2.Equals(voltage1)
-                    .ShouldBeTrue();
-            voltage2.Equals((object)voltage1)
-                    .ShouldBeTrue();
+            voltage1.Equals(voltage2).ShouldBeTrue();
+            voltage1.Equals((object)voltage2).ShouldBeTrue();
+            voltage2.Equals(voltage1).ShouldBeTrue();
+            voltage2.Equals((object)voltage1).ShouldBeTrue();
         }
 
         [Fact]

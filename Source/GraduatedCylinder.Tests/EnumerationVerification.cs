@@ -25,7 +25,7 @@ namespace GraduatedCylinder
             var mass = new Mass(1, MassUnit.BaseUnit);
             var massFlowRate = new MassFlowRate(1, MassFlowRateUnit.BaseUnit);
             var momentum = new Momentum(1, MomentumUnit.BaseUnit);
-            var numeric = new Numeric(1, NumericUnit.BaseUnit);
+            var numeric = new Numeric(1);
             var power = new Power(1, PowerUnit.BaseUnit);
             var pressure = new Pressure(1, PressureUnit.BaseUnit);
             var speed = new Speed(1, SpeedUnit.BaseUnit);

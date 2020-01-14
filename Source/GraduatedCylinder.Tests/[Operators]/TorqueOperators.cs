@@ -34,14 +34,10 @@ namespace GraduatedCylinder
             (torque2 == torque1).ShouldBeTrue();
             (torque1 == torque3).ShouldBeFalse();
             (torque3 == torque1).ShouldBeFalse();
-            torque1.Equals(torque2)
-                   .ShouldBeTrue();
-            torque1.Equals((object)torque2)
-                   .ShouldBeTrue();
-            torque2.Equals(torque1)
-                   .ShouldBeTrue();
-            torque2.Equals((object)torque1)
-                   .ShouldBeTrue();
+            torque1.Equals(torque2).ShouldBeTrue();
+            torque1.Equals((object)torque2).ShouldBeTrue();
+            torque2.Equals(torque1).ShouldBeTrue();
+            torque2.Equals((object)torque1).ShouldBeTrue();
         }
 
         [Fact]

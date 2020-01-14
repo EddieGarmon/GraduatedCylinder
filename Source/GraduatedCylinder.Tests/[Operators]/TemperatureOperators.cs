@@ -34,14 +34,10 @@ namespace GraduatedCylinder
             (temperature2 == temperature1).ShouldBeTrue();
             (temperature1 == temperature3).ShouldBeFalse();
             (temperature3 == temperature1).ShouldBeFalse();
-            temperature1.Equals(temperature2)
-                        .ShouldBeTrue();
-            temperature1.Equals((object)temperature2)
-                        .ShouldBeTrue();
-            temperature2.Equals(temperature1)
-                        .ShouldBeTrue();
-            temperature2.Equals((object)temperature1)
-                        .ShouldBeTrue();
+            temperature1.Equals(temperature2).ShouldBeTrue();
+            temperature1.Equals((object)temperature2).ShouldBeTrue();
+            temperature2.Equals(temperature1).ShouldBeTrue();
+            temperature2.Equals((object)temperature1).ShouldBeTrue();
         }
 
         [Fact]

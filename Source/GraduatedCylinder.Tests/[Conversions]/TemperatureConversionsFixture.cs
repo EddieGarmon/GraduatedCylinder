@@ -15,7 +15,10 @@ namespace GraduatedCylinder
         [InlineData(100, TemperatureUnit.Celsius, 373.15, TemperatureUnit.Kelvin)]
         [InlineData(68, TemperatureUnit.Fahrenheit, 293.15, TemperatureUnit.Kelvin)]
         [InlineData(167, TemperatureUnit.Fahrenheit, 348.15, TemperatureUnit.Kelvin)]
-        public void TemperatureConversions(double value1, TemperatureUnit units1, double value2, TemperatureUnit units2) {
+        public void TemperatureConversions(double value1,
+                                           TemperatureUnit units1,
+                                           double value2,
+                                           TemperatureUnit units2) {
             new Temperature(value1, units1) {
                 Units = units2
             }.Value.ShouldBeWithinEpsilonOf(value2);
