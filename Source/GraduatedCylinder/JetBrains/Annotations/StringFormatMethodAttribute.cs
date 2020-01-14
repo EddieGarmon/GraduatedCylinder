@@ -20,7 +20,7 @@ namespace JetBrains.Annotations
     /// }
     /// </code>
     /// </example>
-    [AttributeUsage(AttributeTargets.Constructor | AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
+    [AttributeUsage(AttributeTargets.Constructor | AttributeTargets.Method)]
     internal sealed class StringFormatMethodAttribute : Attribute
     {
         /// <summary>

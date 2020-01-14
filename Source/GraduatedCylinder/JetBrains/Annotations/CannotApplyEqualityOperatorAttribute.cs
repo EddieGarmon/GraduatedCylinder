@@ -29,6 +29,6 @@ namespace JetBrains.Annotations
     /// }
     /// </code>
     /// </example>
-    [AttributeUsage(AttributeTargets.Interface | AttributeTargets.Class | AttributeTargets.Struct, AllowMultiple = false, Inherited = true)]
+    [AttributeUsage(AttributeTargets.Interface | AttributeTargets.Class | AttributeTargets.Struct)]
     internal sealed class CannotApplyEqualityOperatorAttribute : Attribute { }
 }

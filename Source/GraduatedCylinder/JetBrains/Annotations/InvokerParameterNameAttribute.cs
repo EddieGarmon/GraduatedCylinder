@@ -16,6 +16,6 @@ namespace JetBrains.Annotations
     /// }
     /// </code>
     /// </example>
-    [AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false, Inherited = true)]
+    [AttributeUsage(AttributeTargets.Parameter)]
     internal sealed class InvokerParameterNameAttribute : Attribute { }
 }

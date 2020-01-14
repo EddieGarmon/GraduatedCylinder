@@ -56,7 +56,7 @@ namespace JetBrains.Annotations
     ///         </item>
     ///     </list>
     /// </examples>
-    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
     internal sealed class ContractAnnotationAttribute : Attribute
     {
         /// <summary>

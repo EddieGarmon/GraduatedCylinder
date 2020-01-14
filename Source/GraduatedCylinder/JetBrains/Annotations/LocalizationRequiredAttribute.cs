@@ -14,7 +14,7 @@ namespace JetBrains.Annotations
     /// }
     /// </code>
     /// </example>
-    [AttributeUsage(AttributeTargets.All, AllowMultiple = false, Inherited = true)]
+    [AttributeUsage(AttributeTargets.All)]
     internal sealed class LocalizationRequiredAttribute : Attribute
     {
         /// <summary>

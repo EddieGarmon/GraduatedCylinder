@@ -32,6 +32,6 @@ namespace JetBrains.Annotations
         /// <summary>
         ///     Indicates implicit instantiation of a type
         /// </summary>
-        InstantiatedNoFixedConstructorSignature = 8,
+        InstantiatedNoFixedConstructorSignature = 8
     }
 }

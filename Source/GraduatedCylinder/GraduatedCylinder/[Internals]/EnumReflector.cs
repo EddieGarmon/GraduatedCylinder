@@ -172,8 +172,7 @@ namespace GraduatedCylinder
         /// <remarks>If the enumeration is a flags based enumeration, then parsing supports both '|' and ',' flag separators.</remarks>
         public static TEnum Parse<TEnum>(string value) {
             Type enumType = typeof(TEnum);
-            if (enumType.GetCustomAttributes(typeof(FlagsAttribute), true)
-                        .Length > 0) {
+            if (enumType.GetCustomAttributes(typeof(FlagsAttribute), true).Length > 0) {
                 value = value.Replace('|', ',');
             }
             var result = (TEnum)Enum.Parse(enumType, value, true);

@@ -93,9 +93,7 @@ namespace GraduatedCylinder
         /// <returns></returns>
         protected double In(UnitOfMeasure desiredUnits) {
             desiredUnits.DimensionType.ShouldBe(DimensionType);
-            return (_currentUnits == desiredUnits)
-                       ? Value
-                       : desiredUnits.UnitConverter.FromBaseUnit(ValueInBaseUnits);
+            return (_currentUnits == desiredUnits) ? Value : desiredUnits.UnitConverter.FromBaseUnit(ValueInBaseUnits);
         }
 
         protected string ToString(UnitOfMeasure desiredUnits) {
