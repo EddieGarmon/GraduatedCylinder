@@ -34,14 +34,10 @@ namespace GraduatedCylinder
             (volumetricFlowRate2 == volumetricFlowRate1).ShouldBeTrue();
             (volumetricFlowRate1 == volumetricFlowRate3).ShouldBeFalse();
             (volumetricFlowRate3 == volumetricFlowRate1).ShouldBeFalse();
-            volumetricFlowRate1.Equals(volumetricFlowRate2)
-                               .ShouldBeTrue();
-            volumetricFlowRate1.Equals((object)volumetricFlowRate2)
-                               .ShouldBeTrue();
-            volumetricFlowRate2.Equals(volumetricFlowRate1)
-                               .ShouldBeTrue();
-            volumetricFlowRate2.Equals((object)volumetricFlowRate1)
-                               .ShouldBeTrue();
+            volumetricFlowRate1.Equals(volumetricFlowRate2).ShouldBeTrue();
+            volumetricFlowRate1.Equals((object)volumetricFlowRate2).ShouldBeTrue();
+            volumetricFlowRate2.Equals(volumetricFlowRate1).ShouldBeTrue();
+            volumetricFlowRate2.Equals((object)volumetricFlowRate1).ShouldBeTrue();
         }
 
         [Fact]
@@ -111,8 +107,10 @@ namespace GraduatedCylinder
         public void OpSubtraction() {
             var volumetricFlowRate1 = new VolumetricFlowRate(720, VolumetricFlowRateUnit.LitersPerHour);
             var volumetricFlowRate2 = new VolumetricFlowRate(1, VolumetricFlowRateUnit.LitersPerMinute);
-            (volumetricFlowRate1 - volumetricFlowRate2).ShouldBe(new VolumetricFlowRate(660, VolumetricFlowRateUnit.LitersPerHour));
-            (volumetricFlowRate2 - volumetricFlowRate1).ShouldBe(new VolumetricFlowRate(-11, VolumetricFlowRateUnit.LitersPerMinute));
+            (volumetricFlowRate1 - volumetricFlowRate2).ShouldBe(
+                new VolumetricFlowRate(660, VolumetricFlowRateUnit.LitersPerHour));
+            (volumetricFlowRate2 - volumetricFlowRate1).ShouldBe(
+                new VolumetricFlowRate(-11, VolumetricFlowRateUnit.LitersPerMinute));
         }
     }
 }

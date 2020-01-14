@@ -34,14 +34,10 @@ namespace GraduatedCylinder
             (pressure2 == pressure1).ShouldBeTrue();
             (pressure1 == pressure3).ShouldBeFalse();
             (pressure3 == pressure1).ShouldBeFalse();
-            pressure1.Equals(pressure2)
-                     .ShouldBeTrue();
-            pressure1.Equals((object)pressure2)
-                     .ShouldBeTrue();
-            pressure2.Equals(pressure1)
-                     .ShouldBeTrue();
-            pressure2.Equals((object)pressure1)
-                     .ShouldBeTrue();
+            pressure1.Equals(pressure2).ShouldBeTrue();
+            pressure1.Equals((object)pressure2).ShouldBeTrue();
+            pressure2.Equals(pressure1).ShouldBeTrue();
+            pressure2.Equals((object)pressure1).ShouldBeTrue();
         }
 
         [Fact]

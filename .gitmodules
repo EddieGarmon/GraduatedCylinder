@@ -1,0 +1,4 @@
+[submodule "ReSharperSettings"]
+	path = ReSharperSettings
+	url = https://github.com/EddieGarmon/ReSharperSettings.git
+	branch = master

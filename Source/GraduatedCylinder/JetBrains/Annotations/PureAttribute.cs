@@ -20,6 +20,6 @@ namespace JetBrains.Annotations
     ///  }
     ///  </code>
     /// </example>
-    [AttributeUsage(AttributeTargets.Method, Inherited = true)]
+    [AttributeUsage(AttributeTargets.Method)]
     internal sealed class PureAttribute : Attribute { }
 }

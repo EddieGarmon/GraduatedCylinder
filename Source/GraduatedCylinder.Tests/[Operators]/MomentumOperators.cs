@@ -34,14 +34,10 @@ namespace GraduatedCylinder
             (momentum2 == momentum1).ShouldBeTrue();
             (momentum1 == momentum3).ShouldBeFalse();
             (momentum3 == momentum1).ShouldBeFalse();
-            momentum1.Equals(momentum2)
-                     .ShouldBeTrue();
-            momentum1.Equals((object)momentum2)
-                     .ShouldBeTrue();
-            momentum2.Equals(momentum1)
-                     .ShouldBeTrue();
-            momentum2.Equals((object)momentum1)
-                     .ShouldBeTrue();
+            momentum1.Equals(momentum2).ShouldBeTrue();
+            momentum1.Equals((object)momentum2).ShouldBeTrue();
+            momentum2.Equals(momentum1).ShouldBeTrue();
+            momentum2.Equals((object)momentum1).ShouldBeTrue();
         }
 
         [Fact]

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 
 namespace GraduatedCylinder
 {
-    public class FuncComparer<T> : IComparer<T>, IEqualityComparer<T>
+    public class FuncComparer<T> : IComparer<T>,
+                                   IEqualityComparer<T>
     {
         private readonly Func<T, T, int> _compare;
 

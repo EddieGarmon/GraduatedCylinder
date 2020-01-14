@@ -17,7 +17,7 @@ namespace JetBrains.Annotations
     /// {}
     /// </code>
     /// </example>
-    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
     [BaseTypeRequired(typeof(Attribute))]
     internal sealed class BaseTypeRequiredAttribute : Attribute
     {
@@ -26,7 +26,9 @@ namespace JetBrains.Annotations
         /// </summary>
         /// <param name="baseType">Specifies which types are required</param>
         public BaseTypeRequiredAttribute(Type baseType) {
-            BaseTypes = new[] { baseType };
+            BaseTypes = new[] {
+                baseType
+            };
         }
 
         /// <summary>

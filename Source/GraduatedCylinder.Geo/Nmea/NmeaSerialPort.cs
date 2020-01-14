@@ -5,14 +5,19 @@ using System.Text;
 
 namespace GraduatedCylinder.Nmea
 {
-    public sealed class NmeaSerialPort : IProvideSentences, IDisposable
+    public sealed class NmeaSerialPort : IProvideSentences,
+                                         IDisposable
     {
         private readonly char[] _buffer = new char[262144];
         private readonly SerialPort _serialPort;
         private int _bufferHead;
         private int _bufferTail;
 
-        public NmeaSerialPort(string portName = "COM1", int baudRate = 4800, Parity parity = Parity.None, int dataBits = 8, StopBits stopBits = StopBits.One) {
+        public NmeaSerialPort(string portName = "COM1",
+                              int baudRate = 4800,
+                              Parity parity = Parity.None,
+                              int dataBits = 8,
+                              StopBits stopBits = StopBits.One) {
             string[] portNames = SerialPort.GetPortNames();
             if (!portNames.Contains(portName)) {
                 //throw new Exception("Bad Port: " + portName);
@@ -26,9 +31,7 @@ namespace GraduatedCylinder.Nmea
             _serialPort.DataReceived += ProcessData;
         }
 
-        public bool IsOpen {
-            get { return _serialPort.IsOpen; }
-        }
+        public bool IsOpen => _serialPort.IsOpen;
 
         public event Action<SerialError> PortError;
 
@@ -88,7 +91,7 @@ namespace GraduatedCylinder.Nmea
         }
 
         private void ProcessData(object sender, SerialDataReceivedEventArgs e) {
-            //buffer incomming data
+            //buffer incoming data
             int bytesToRead = _serialPort.BytesToRead;
             byte[] bytes = new byte[bytesToRead];
             _serialPort.Read(bytes, 0, bytesToRead);

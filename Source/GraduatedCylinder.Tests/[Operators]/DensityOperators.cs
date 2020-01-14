@@ -34,14 +34,10 @@ namespace GraduatedCylinder
             (density2 == density1).ShouldBeTrue();
             (density1 == density3).ShouldBeFalse();
             (density3 == density1).ShouldBeFalse();
-            density1.Equals(density2)
-                    .ShouldBeTrue();
-            density1.Equals((object)density2)
-                    .ShouldBeTrue();
-            density2.Equals(density1)
-                    .ShouldBeTrue();
-            density2.Equals((object)density1)
-                    .ShouldBeTrue();
+            density1.Equals(density2).ShouldBeTrue();
+            density1.Equals((object)density2).ShouldBeTrue();
+            density2.Equals(density1).ShouldBeTrue();
+            density2.Equals((object)density1).ShouldBeTrue();
         }
 
         [Fact]

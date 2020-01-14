@@ -34,14 +34,10 @@ namespace GraduatedCylinder
             (area2 == area1).ShouldBeTrue();
             (area1 == area3).ShouldBeFalse();
             (area3 == area1).ShouldBeFalse();
-            area1.Equals(area2)
-                 .ShouldBeTrue();
-            area1.Equals((object)area2)
-                 .ShouldBeTrue();
-            area2.Equals(area1)
-                 .ShouldBeTrue();
-            area2.Equals((object)area1)
-                 .ShouldBeTrue();
+            area1.Equals(area2).ShouldBeTrue();
+            area1.Equals((object)area2).ShouldBeTrue();
+            area2.Equals(area1).ShouldBeTrue();
+            area2.Equals((object)area1).ShouldBeTrue();
         }
 
         [Fact]

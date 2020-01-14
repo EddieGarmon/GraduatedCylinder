@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace GraduatedCylinder.Nmea
 {
@@ -16,7 +17,8 @@ namespace GraduatedCylinder.Nmea
         private readonly string _filename;
         private readonly bool _loopEnd;
         private readonly PlaybackRate _rate;
-        private Thread _thread;
+        private CancellationTokenSource _cancel;
+        private Task _playback;
 
         public SentenceLog(string filename, PlaybackRate rate = PlaybackRate.AsRecorded, bool loopEnd = false) {
             if (!File.Exists(filename)) {
@@ -28,28 +30,31 @@ namespace GraduatedCylinder.Nmea
             _loopEnd = loopEnd;
         }
 
-        public bool IsOpen => _thread != null;
+        public bool IsOpen => _playback != null;
 
         public bool PlaybackComplete { get; private set; }
 
         public event Action<Sentence> SentenceReceived;
 
         public void Close() {
-            if (_thread != null) {
-                _thread.Abort();
-                _thread = null;
+            if (_playback != null) {
+                _cancel.Cancel();
+                _playback.Wait();
+                _playback.Dispose();
+                _playback = null;
             }
         }
 
         public void Open() {
-            if (_thread != null) {
+            if (_playback != null) {
                 throw new InvalidOperationException("Log file is already open for reading.");
             }
-            _thread = new Thread(ReadAndBroadcast);
-            _thread.Start();
+            PlaybackComplete = false;
+            _cancel = new CancellationTokenSource();
+            _playback = Task.Run(() => ReadAndBroadcast(), _cancel.Token);
         }
 
-        private void RaiseSentenceRecieved(Sentence sentence) {
+        private void RaiseSentenceReceived(Sentence sentence) {
             var handler = SentenceReceived;
             handler?.Invoke(sentence);
         }
@@ -69,6 +74,10 @@ namespace GraduatedCylinder.Nmea
 
             int index = 0;
             while (index < records.Count) {
+                if (_cancel.IsCancellationRequested) {
+                    break;
+                }
+
                 var record = records[index];
 
                 switch (_rate) {
@@ -78,11 +87,11 @@ namespace GraduatedCylinder.Nmea
                         if (waitTime > 0.0.Seconds()) {
                             Thread.Sleep(waitTime);
                         }
-                        RaiseSentenceRecieved(record.Sentence);
+                        RaiseSentenceReceived(record.Sentence);
                         break;
 
                     case PlaybackRate.AsFastAsPossible:
-                        RaiseSentenceRecieved(record.Sentence);
+                        RaiseSentenceReceived(record.Sentence);
                         break;
 
                     default:

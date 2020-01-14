@@ -24,8 +24,7 @@ namespace GraduatedCylinder
 
         public string Description {
             get {
-                DescriptionAttribute attribute = GetAttributes<DescriptionAttribute>()
-                    .FirstOrDefault();
+                DescriptionAttribute attribute = GetAttributes<DescriptionAttribute>().FirstOrDefault();
                 return attribute == null ? null : attribute.Description;
             }
         }
@@ -59,8 +58,7 @@ namespace GraduatedCylinder
 
         public bool HasAttribute<TAttribute>()
             where TAttribute : Attribute {
-            return GetAttributes<TAttribute>()
-                       .Length > 0;
+            return GetAttributes<TAttribute>().Length > 0;
         }
     }
 }

@@ -24,7 +24,8 @@ namespace GraduatedCylinder.Geo
             var sinOfHalfPhi = Math.Sin(deltaPhi.Value / 2);
             var sinOfHalfLong = Math.Sin(deltaLong.Value / 2);
 
-            var a = sinOfHalfPhi * sinOfHalfPhi + Math.Cos(phi1.Value) * Math.Cos(phi2.Value) * sinOfHalfLong * sinOfHalfLong;
+            var a = sinOfHalfPhi * sinOfHalfPhi
+                    + Math.Cos(phi1.Value) * Math.Cos(phi2.Value) * sinOfHalfLong * sinOfHalfLong;
             var c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
 
             return EarthsRadius * c;

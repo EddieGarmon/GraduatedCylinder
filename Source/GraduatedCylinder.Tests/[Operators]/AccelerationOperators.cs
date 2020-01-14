@@ -33,14 +33,10 @@ namespace GraduatedCylinder
             (acceleration2 == acceleration1).ShouldBeTrue();
             (acceleration1 == acceleration3).ShouldBeFalse();
             (acceleration3 == acceleration1).ShouldBeFalse();
-            acceleration1.Equals(acceleration2)
-                         .ShouldBeTrue();
-            acceleration1.Equals((object)acceleration2)
-                         .ShouldBeTrue();
-            acceleration2.Equals(acceleration1)
-                         .ShouldBeTrue();
-            acceleration2.Equals((object)acceleration1)
-                         .ShouldBeTrue();
+            acceleration1.Equals(acceleration2).ShouldBeTrue();
+            acceleration1.Equals((object)acceleration2).ShouldBeTrue();
+            acceleration2.Equals(acceleration1).ShouldBeTrue();
+            acceleration2.Equals((object)acceleration1).ShouldBeTrue();
         }
 
         [Fact]
@@ -111,7 +107,8 @@ namespace GraduatedCylinder
             var acceleration1 = new Acceleration(7200, AccelerationUnit.MeterPerSecondSquared);
             var acceleration2 = new Acceleration(3.6, AccelerationUnit.KilometerPerSecondSquared);
             (acceleration1 - acceleration2).ShouldBe(new Acceleration(3600, AccelerationUnit.MeterPerSecondSquared));
-            (acceleration2 - acceleration1).ShouldBe(new Acceleration(-3.6, AccelerationUnit.KilometerPerSecondSquared));
+            (acceleration2 - acceleration1).ShouldBe(
+                new Acceleration(-3.6, AccelerationUnit.KilometerPerSecondSquared));
         }
     }
 }

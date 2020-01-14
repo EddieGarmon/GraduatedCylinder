@@ -21,8 +21,10 @@ namespace JetBrains.Annotations
     /// }
     /// </code>
     /// </example>
-    [AttributeUsage(
-        AttributeTargets.Method | AttributeTargets.Parameter | AttributeTargets.Property | AttributeTargets.Delegate |
-        AttributeTargets.Field, AllowMultiple = false, Inherited = true)]
+    [AttributeUsage(AttributeTargets.Method
+                    | AttributeTargets.Parameter
+                    | AttributeTargets.Property
+                    | AttributeTargets.Delegate
+                    | AttributeTargets.Field)]
     internal sealed class CanBeNullAttribute : Attribute { }
 }

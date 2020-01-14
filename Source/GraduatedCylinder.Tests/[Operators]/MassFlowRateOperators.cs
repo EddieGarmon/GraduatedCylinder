@@ -34,14 +34,10 @@ namespace GraduatedCylinder
             (massFlowRate2 == massFlowRate1).ShouldBeTrue();
             (massFlowRate1 == massFlowRate3).ShouldBeFalse();
             (massFlowRate3 == massFlowRate1).ShouldBeFalse();
-            massFlowRate1.Equals(massFlowRate2)
-                         .ShouldBeTrue();
-            massFlowRate1.Equals((object)massFlowRate2)
-                         .ShouldBeTrue();
-            massFlowRate2.Equals(massFlowRate1)
-                         .ShouldBeTrue();
-            massFlowRate2.Equals((object)massFlowRate1)
-                         .ShouldBeTrue();
+            massFlowRate1.Equals(massFlowRate2).ShouldBeTrue();
+            massFlowRate1.Equals((object)massFlowRate2).ShouldBeTrue();
+            massFlowRate2.Equals(massFlowRate1).ShouldBeTrue();
+            massFlowRate2.Equals((object)massFlowRate1).ShouldBeTrue();
         }
 
         [Fact]

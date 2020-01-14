@@ -34,14 +34,10 @@ namespace GraduatedCylinder
             (jerk2 == jerk1).ShouldBeTrue();
             (jerk1 == jerk3).ShouldBeFalse();
             (jerk3 == jerk1).ShouldBeFalse();
-            jerk1.Equals(jerk2)
-                 .ShouldBeTrue();
-            jerk1.Equals((object)jerk2)
-                 .ShouldBeTrue();
-            jerk2.Equals(jerk1)
-                 .ShouldBeTrue();
-            jerk2.Equals((object)jerk1)
-                 .ShouldBeTrue();
+            jerk1.Equals(jerk2).ShouldBeTrue();
+            jerk1.Equals((object)jerk2).ShouldBeTrue();
+            jerk2.Equals(jerk1).ShouldBeTrue();
+            jerk2.Equals((object)jerk1).ShouldBeTrue();
         }
 
         [Fact]

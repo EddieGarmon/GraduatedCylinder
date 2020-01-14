@@ -34,14 +34,10 @@ namespace GraduatedCylinder
             (angle2 == angle1).ShouldBeTrue();
             (angle1 == angle3).ShouldBeFalse();
             (angle3 == angle1).ShouldBeFalse();
-            angle1.Equals(angle2)
-                  .ShouldBeTrue();
-            angle1.Equals((object)angle2)
-                  .ShouldBeTrue();
-            angle2.Equals(angle1)
-                  .ShouldBeTrue();
-            angle2.Equals((object)angle1)
-                  .ShouldBeTrue();
+            angle1.Equals(angle2).ShouldBeTrue();
+            angle1.Equals((object)angle2).ShouldBeTrue();
+            angle2.Equals(angle1).ShouldBeTrue();
+            angle2.Equals((object)angle1).ShouldBeTrue();
         }
 
         [Fact]

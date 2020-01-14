@@ -16,7 +16,8 @@ namespace GraduatedCylinder.Nmea
 
         public object Value { get; }
 
-        public T ValueAs<T>() where T : class {
+        public T ValueAs<T>()
+            where T : class {
             if (Value is T variable) {
                 return variable;
             }
