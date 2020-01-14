@@ -88,7 +88,7 @@ namespace GraduatedCylinder.Nmea
         }
 
         private void ProcessData(object sender, SerialDataReceivedEventArgs e) {
-            //buffer incomming data
+            //buffer incoming data
             int bytesToRead = _serialPort.BytesToRead;
             byte[] bytes = new byte[bytesToRead];
             _serialPort.Read(bytes, 0, bytesToRead);
