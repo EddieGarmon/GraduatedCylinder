@@ -68,6 +68,9 @@
     <Compile Include="Devices\Laser\Nmea\LaserParser.cs" />
     <Compile Include="Devices\Laser\Nmea\VectorSentence.cs" />
     <Compile Include="Devices\Laser\TruPulse360.cs" />
+    <Compile Include="Devices\Serial\EmulatedSerialPort.cs" />
+    <Compile Include="Devices\Serial\ISerialPort.cs" />
+    <Compile Include="Devices\Serial\LiveSerialPort.cs" />
     <Compile Include="Geo\GeoComparer.cs" />
     <Compile Include="Geo\GeoComparerPrecision.cs" />
     <Compile Include="Geo\GeoFence.cs" />

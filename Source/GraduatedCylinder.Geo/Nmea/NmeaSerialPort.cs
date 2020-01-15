@@ -2,6 +2,7 @@
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
+using GraduatedCylinder.Devices.Serial;
 
 namespace GraduatedCylinder.Nmea
 {
@@ -9,7 +10,7 @@ namespace GraduatedCylinder.Nmea
                                          IDisposable
     {
         private readonly char[] _buffer = new char[262144];
-        private readonly SerialPort _serialPort;
+        private readonly ISerialPort _port;
         private int _bufferHead;
         private int _bufferTail;
 
@@ -23,34 +24,39 @@ namespace GraduatedCylinder.Nmea
                 //throw new Exception("Bad Port: " + portName);
                 //todo: handle extra null terminators in name
             }
-            _serialPort = new SerialPort(portName, baudRate, parity, dataBits, stopBits) {
-                Handshake = Handshake.None,
-                Encoding = Encoding.ASCII
-            };
-            _serialPort.ErrorReceived += ProcessError;
-            _serialPort.DataReceived += ProcessData;
+            _port = new LiveSerialPort(portName, baudRate, parity, dataBits, stopBits);
+            _port.ErrorReceived += ProcessError;
+            _port.DataReceived += ProcessData;
         }
 
-        public bool IsOpen => _serialPort.IsOpen;
+        public NmeaSerialPort(ISerialPort port) {
+            _port = port;
+            _port.ErrorReceived += ProcessError;
+            _port.DataReceived += ProcessData;
+        }
+
+        public int BufferCount => _bufferTail - _bufferHead;
+
+        public bool IsOpen => _port.IsOpen;
 
         public event Action<SerialError> PortError;
 
         public event Action<Sentence> SentenceReceived;
 
         public void Close() {
-            if (_serialPort.IsOpen) {
-                _serialPort.Close();
+            if (_port.IsOpen) {
+                _port.Close();
             }
         }
 
         public void Open() {
-            if (!_serialPort.IsOpen) {
-                _serialPort.Open();
+            if (!_port.IsOpen) {
+                _port.Open();
             }
         }
 
         public void SendData(string message) {
-            _serialPort.Write(message);
+            _port.Write(message);
         }
 
         private void AppendToBuffer(char[] data) {
@@ -72,8 +78,8 @@ namespace GraduatedCylinder.Nmea
         }
 
         void IDisposable.Dispose() {
-            if (_serialPort.IsOpen) {
-                _serialPort.Close();
+            if (_port.IsOpen) {
+                _port.Close();
             }
             PortError = null;
             SentenceReceived = null;
@@ -92,9 +98,9 @@ namespace GraduatedCylinder.Nmea
 
         private void ProcessData(object sender, SerialDataReceivedEventArgs e) {
             //buffer incoming data
-            int bytesToRead = _serialPort.BytesToRead;
+            int bytesToRead = _port.BytesToRead;
             byte[] bytes = new byte[bytesToRead];
-            _serialPort.Read(bytes, 0, bytesToRead);
+            _port.Read(bytes, 0, bytesToRead);
             AppendToBuffer(Encoding.ASCII.GetChars(bytes));
 
             //process all complete sentences available

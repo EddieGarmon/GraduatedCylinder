@@ -13,8 +13,7 @@ namespace GraduatedCylinder.Nmea
             _source = source ?? throw new ArgumentNullException(nameof(source));
             _filename = logFileName ?? throw new ArgumentNullException(nameof(logFileName));
             _source.SentenceReceived += sentence => {
-                                            var handler = SentenceReceived;
-                                            handler?.Invoke(sentence);
+                                            SentenceReceived?.Invoke(sentence);
                                             TimeSpan timeSpan = DateTime.Now - _logStart;
                                             using (StreamWriter writer = File.AppendText(_filename)) {
                                                 writer.Write(new SentenceRecord(timeSpan, sentence));
