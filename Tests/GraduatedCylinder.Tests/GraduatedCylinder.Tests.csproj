@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GraduatedCylinder\GraduatedCylinder.csproj" />
+    <ProjectReference Include="..\..\Source\GraduatedCylinder\GraduatedCylinder.csproj" />
   </ItemGroup>
 
   <ItemGroup>

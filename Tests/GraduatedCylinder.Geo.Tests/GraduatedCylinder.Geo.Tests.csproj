@@ -10,8 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GraduatedCylinder\GraduatedCylinder.csproj" />
-    <ProjectReference Include="..\GraduatedCylinder.Geo\GraduatedCylinder.Geo.csproj" />
+    <ProjectReference Include="..\..\Source\GraduatedCylinder\GraduatedCylinder.csproj" />
+    <ProjectReference Include="..\..\Source\GraduatedCylinder.Geo\GraduatedCylinder.Geo.csproj" />
   </ItemGroup>
 
   <ItemGroup>
