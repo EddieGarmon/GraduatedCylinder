@@ -1,2 +1,0 @@
-nuget update -self
-pause
