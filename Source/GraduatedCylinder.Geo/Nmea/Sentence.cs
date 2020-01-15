@@ -56,7 +56,7 @@ namespace GraduatedCylinder.Nmea
             if (raw == null) {
                 throw new ArgumentNullException(nameof(raw));
             }
-            if (raw[0] != '$') {
+            if (raw.Length == 0 || raw[0] != '$') {
                 return null;
             }
             raw = raw.TrimEnd('\r', '\n');
