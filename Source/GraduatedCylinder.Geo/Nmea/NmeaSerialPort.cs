@@ -6,9 +6,9 @@ using GraduatedCylinder.Devices.Serial;
 
 namespace GraduatedCylinder.Nmea
 {
-    public sealed class NmeaSerialPort : IProvideSentences,
-                                         IDisposable
+    public sealed class NmeaSerialPort : IProvideSentences, IDisposable
     {
+
         private readonly char[] _buffer = new char[262144];
         private readonly ISerialPort _port;
         private int _bufferHead;
@@ -25,6 +25,7 @@ namespace GraduatedCylinder.Nmea
                 //todo: handle extra null terminators in name
             }
             _port = new LiveSerialPort(portName, baudRate, parity, dataBits, stopBits);
+
             _port.ErrorReceived += ProcessError;
             _port.DataReceived += ProcessData;
         }
@@ -38,6 +39,8 @@ namespace GraduatedCylinder.Nmea
         public int BufferCount => _bufferTail - _bufferHead;
 
         public bool IsOpen => _port.IsOpen;
+
+        public event Action<Exception, string> ParseException;
 
         public event Action<SerialError> PortError;
 
@@ -96,21 +99,29 @@ namespace GraduatedCylinder.Nmea
             return null;
         }
 
-        private void ProcessData(object sender, SerialDataReceivedEventArgs e) {
-            //buffer incoming data
-            int bytesToRead = _port.BytesToRead;
-            byte[] bytes = new byte[bytesToRead];
-            _port.Read(bytes, 0, bytesToRead);
-            AppendToBuffer(Encoding.ASCII.GetChars(bytes));
+        private void ProcessData(object sender, SerialDataReceivedEventArgs args) {
+            try {
+                //buffer incoming data
+                int bytesToRead = _port.BytesToRead;
+                byte[] bytes = new byte[bytesToRead];
+                _port.Read(bytes, 0, bytesToRead);
+                AppendToBuffer(Encoding.ASCII.GetChars(bytes));
 
-            //process all complete sentences available
-            string possibleSentence = GetNextBufferedSentence();
-            while (possibleSentence != null) {
-                var sentence = Sentence.Parse(possibleSentence);
-                if (sentence != null) {
-                    PublishSentence(sentence);
+                //process all complete sentences available
+                string possibleSentence = GetNextBufferedSentence();
+                while (possibleSentence != null) {
+                    Sentence sentence = Sentence.Parse(possibleSentence);
+                    if (sentence != null) {
+                        PublishSentence(sentence);
+                    }
+                    possibleSentence = GetNextBufferedSentence();
                 }
-                possibleSentence = GetNextBufferedSentence();
+            } catch (Exception ex) {
+                string bufferContent = new string(_buffer, _bufferHead, _bufferTail - _bufferHead);
+                ParseException?.Invoke(ex, bufferContent);
+                //clear buffer and restart parsing
+                _bufferHead = 0;
+                _bufferTail = 0;
             }
         }
 
@@ -123,5 +134,6 @@ namespace GraduatedCylinder.Nmea
             var handler = SentenceReceived;
             handler?.Invoke(sentence);
         }
+
     }
 }
