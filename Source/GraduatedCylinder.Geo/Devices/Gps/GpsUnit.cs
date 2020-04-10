@@ -7,12 +7,9 @@ using GraduatedCylinder.Nmea;
 
 namespace GraduatedCylinder.Devices.Gps
 {
-    public class GpsUnit : IProvideGeoPosition,
-                           IProvideTrajectory,
-                           IProvideTime,
-                           IProvideSatelliteInfo,
-                           IDisposable
+    public class GpsUnit : IProvideGeoPosition, IProvideTrajectory, IProvideTime, IProvideSatelliteInfo, IDisposable
     {
+
         private readonly List<int> _activeSatellitePrns = new List<int>();
         private readonly IProvideSentences _nmeaProvider;
         private readonly GpsParser _parser = new GpsParser();
@@ -21,12 +18,13 @@ namespace GraduatedCylinder.Devices.Gps
         private bool _isEnabled;
 
         public GpsUnit(IProvideSentences nmeaProvider) {
+            _nmeaProvider = nmeaProvider ?? throw new ArgumentNullException(nameof(nmeaProvider));
+
             MinimumFixForNotification = GpsFixType.ThreeD;
-            MinimumSpeedForHeadingUpate = new Speed(1, SpeedUnit.MilesPerHour);
+            MinimumSpeedForHeadingUpdate = new Speed(1, SpeedUnit.MilesPerHour);
             CurrentLocation = new GeoPosition(0, 0, new Length(0, LengthUnit.Meter));
             CurrentHeading = Heading.Unknown;
 
-            _nmeaProvider = nmeaProvider;
             _nmeaProvider.SentenceReceived += sentence => {
                                                   Message message = _parser.Parse(sentence);
                                                   if (message == null) {
@@ -50,10 +48,11 @@ namespace GraduatedCylinder.Devices.Gps
                                                       }
                                                   }
                                                   if (message.Value is IProvideFixType) {
-                                                      CurentFixType = message.ValueAs<IProvideFixType>().CurrentFix;
+                                                      CurrentFixType = message.ValueAs<IProvideFixType>().CurrentFix;
                                                   }
                                                   if (message.Value is IProvideDilutionOfPrecision) {
-                                                      var dop = message.ValueAs<IProvideDilutionOfPrecision>();
+                                                      IProvideDilutionOfPrecision dop =
+                                                          message.ValueAs<IProvideDilutionOfPrecision>();
                                                       PositionDop = dop.PositionDop;
                                                       HorizontalDop = dop.HorizontalDop;
                                                       VerticalDop = dop.VerticalDop;
@@ -67,27 +66,28 @@ namespace GraduatedCylinder.Devices.Gps
                                                           message.ValueAs<IProvideTrajectory>();
                                                       CurrentSpeed = trajectory.CurrentSpeed;
                                                       // NB don't update heading when speed is near zero
-                                                      if (CurrentSpeed > MinimumSpeedForHeadingUpate) {
+                                                      if (CurrentSpeed > MinimumSpeedForHeadingUpdate) {
                                                           CurrentHeading = trajectory.CurrentHeading;
                                                       }
                                                   }
                                                   if (message.Value is IProvideGeoPosition) {
-                                                      var newLocation = message
-                                                                        .ValueAs<IProvideGeoPosition>()
-                                                                        .CurrentLocation;
+                                                      GeoPosition newLocation = message
+                                                                                .ValueAs<IProvideGeoPosition>()
+                                                                                .CurrentLocation;
                                                       CurrentLocation =
-                                                          newLocation.Altitude == null
-                                                              ? new GeoPosition(
+                                                          newLocation.Altitude == null ?
+                                                              new GeoPosition(
                                                                   newLocation.Latitude,
                                                                   newLocation.Longitude,
-                                                                  CurrentLocation.Altitude)
-                                                              : newLocation;
+                                                                  CurrentLocation.Altitude) :
+                                                              newLocation;
+                                                      HasLocation = true;
                                                       RaiseLocationChanged();
                                                   }
                                               };
         }
 
-        public GpsFixType CurentFixType { get; private set; }
+        public GpsFixType CurrentFixType { get; private set; }
 
         public Heading CurrentHeading { get; private set; }
 
@@ -97,11 +97,9 @@ namespace GraduatedCylinder.Devices.Gps
 
         public DateTimeOffset CurrentTime { get; private set; }
 
-        public double HorizontalDop { get; private set; }
+        public bool HasLocation { get; private set; }
 
-        public bool IsConnected {
-            get { return _nmeaProvider != null && _nmeaProvider.IsOpen; }
-        }
+        public double HorizontalDop { get; private set; }
 
         public bool IsEnabled {
             get => _isEnabled;
@@ -120,16 +118,12 @@ namespace GraduatedCylinder.Devices.Gps
 
         public GpsFixType MinimumFixForNotification { get; set; }
 
-        public Speed MinimumSpeedForHeadingUpate { get; set; }
+        public Speed MinimumSpeedForHeadingUpdate { get; set; }
 
         public double PositionDop { get; private set; }
 
         public IEnumerable<SatelliteInfo> Satellites {
-            get {
-                foreach (int prn in _activeSatellitePrns) {
-                    yield return _satellites[prn];
-                }
-            }
+            get { return _activeSatellitePrns.Select(prn => _satellites[prn]); }
         }
 
         public double VerticalDop { get; private set; }
@@ -142,18 +136,20 @@ namespace GraduatedCylinder.Devices.Gps
         }
 
         private void RaiseLocationChanged() {
-            if (CurentFixType < MinimumFixForNotification) {
+            if (CurrentFixType < MinimumFixForNotification) {
                 return;
             }
-            var handler = LocationChanged;
-            if (handler != null) {
-                var args = new LocationChangedEventArgs(CurrentTime,
-                                                        CurrentLocation,
-                                                        CurrentHeading,
-                                                        CurrentSpeed,
-                                                        CurentFixType);
-                handler(args);
+            Action<LocationChangedEventArgs> handler = LocationChanged;
+            if (handler == null) {
+                return;
             }
+            LocationChangedEventArgs args = new LocationChangedEventArgs(CurrentTime,
+                                                                         CurrentLocation,
+                                                                         CurrentHeading,
+                                                                         CurrentSpeed,
+                                                                         CurrentFixType);
+            handler(args);
         }
+
     }
 }
