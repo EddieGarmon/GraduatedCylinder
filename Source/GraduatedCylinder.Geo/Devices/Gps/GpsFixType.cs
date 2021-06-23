@@ -2,8 +2,10 @@
 {
     public enum GpsFixType
     {
+
         None,
         TwoD,
         ThreeD
+
     }
 }

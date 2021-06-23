@@ -1,9 +1,10 @@
 ﻿using System;
 
-namespace GraduatedCylinder.Nmea
+namespace Nmea.Core0183
 {
     public interface IProvideSentences
     {
+
         bool IsOpen { get; }
 
         event Action<Sentence> SentenceReceived;
@@ -11,5 +12,6 @@ namespace GraduatedCylinder.Nmea
         void Close();
 
         void Open();
+
     }
 }

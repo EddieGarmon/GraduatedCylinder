@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace GraduatedCylinder.Nmea
+namespace Nmea.Core0183
 {
     public abstract class NmeaParser
     {
+
         private readonly List<Func<Sentence, object>> _decoders = new List<Func<Sentence, object>>();
 
         protected NmeaParser(IEnumerable<Func<Sentence, object>> decoders) {
@@ -40,5 +41,6 @@ namespace GraduatedCylinder.Nmea
             }
             return new Message(sentence, decoded);
         }
+
     }
 }

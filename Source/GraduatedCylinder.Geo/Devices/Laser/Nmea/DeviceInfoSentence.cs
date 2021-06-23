@@ -1,9 +1,10 @@
-﻿using GraduatedCylinder.Nmea;
+﻿using Nmea.Core0183;
 
 namespace GraduatedCylinder.Devices.Laser.Nmea
 {
     public static class DeviceInfoSentence
     {
+
         // DeviceInfoRequest - "$PLTIT,RQ,ID\r\n"
         // DeviceInfoResponse - "$PLTIT,ID,{model},{version}*{check}\r\n"
         // $ID,{model},{version},{date}*{check}\r\n
@@ -17,5 +18,6 @@ namespace GraduatedCylinder.Devices.Laser.Nmea
             }
             return null;
         }
+
     }
 }

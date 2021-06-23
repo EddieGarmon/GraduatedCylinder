@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Diagnostics;
 using GraduatedCylinder.Devices.Laser.Nmea;
-using GraduatedCylinder.Nmea;
+using Nmea.Core0183;
 
 namespace GraduatedCylinder.Devices.Laser
 {
     public class TruPulse360 : IDisposable
     {
+
         private readonly IProvideSentences _nmeaProvider;
         private readonly LaserParser _parser = new LaserParser();
 
@@ -26,5 +27,6 @@ namespace GraduatedCylinder.Devices.Laser
         void IDisposable.Dispose() {
             _nmeaProvider.Close();
         }
+
     }
 }

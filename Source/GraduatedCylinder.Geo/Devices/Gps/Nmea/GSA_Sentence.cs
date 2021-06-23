@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
-using GraduatedCylinder.Nmea;
+using Nmea.Core0183;
 
 namespace GraduatedCylinder.Devices.Gps.Nmea
 {
     public class GSA_Sentence
     {
+
         private static readonly List<string> ValidIds = new List<string> {
             "$GPGSA",
             "$GLGSA",
@@ -58,24 +59,21 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
 
             int[] satellites = new int[12];
             for (int i = 0; i < 12; i++) {
-                int satId;
-                if (int.TryParse(sentence.Parts[i + 3], out satId)) {
+                if (int.TryParse(sentence.Parts[i + 3], out int satId)) {
                     satellites[i] = satId;
                 }
             }
 
-            double positionDop, horizontalDop, verticalDop;
-            double.TryParse(sentence.Parts[15], out positionDop);
-            double.TryParse(sentence.Parts[16], out horizontalDop);
-            double.TryParse(sentence.Parts[17], out verticalDop);
+            double.TryParse(sentence.Parts[15], out double positionDop);
+            double.TryParse(sentence.Parts[16], out double horizontalDop);
+            double.TryParse(sentence.Parts[17], out double verticalDop);
 
             return new Decoded(fixType, satellites, positionDop, horizontalDop, verticalDop);
         }
 
-        public class Decoded : IProvideFixType,
-                               IProvideActiveSatellites,
-                               IProvideDilutionOfPrecision
+        public class Decoded : IProvideFixType, IProvideActiveSatellites, IProvideDilutionOfPrecision
         {
+
             public Decoded(GpsFixType currentFix,
                            int[] activeSatellitePrns,
                            double positionDop,
@@ -97,6 +95,8 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
             public double PositionDop { get; private set; }
 
             public double VerticalDop { get; private set; }
+
         }
+
     }
 }

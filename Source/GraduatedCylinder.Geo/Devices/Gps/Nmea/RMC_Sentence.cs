@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using GraduatedCylinder.Geo;
-using GraduatedCylinder.Nmea;
+using Nmea.Core0183;
 
 namespace GraduatedCylinder.Devices.Gps.Nmea
 {
     public class RMC_Sentence
 
     {
-        private static readonly List<string> ValidIds = new List<string> {
-            "$GPRMC",
-            "$GNRMC"
-        };
+
+        private static readonly List<string> ValidIds = new List<string> { "$GPRMC", "$GNRMC" };
 
         public static Decoded Parse(Sentence sentence) {
             // $__RMC,<1>,<2>,<3>,<4>,<5>,<6>,<7>,<8>,<9>,<10>,<11>*<CS><CR><LF>
@@ -66,10 +64,9 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
                                new Speed(speed, SpeedUnit.NauticalMilesPerHour));
         }
 
-        public class Decoded : IProvideGeoPosition,
-                               IProvideTime,
-                               IProvideTrajectory
+        public class Decoded : IProvideGeoPosition, IProvideTime, IProvideTrajectory
         {
+
             public Decoded(DateTimeOffset currentTime,
                            GeoPosition currentLocation,
                            Heading currentHeading,
@@ -87,6 +84,8 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
             public Speed CurrentSpeed { get; private set; }
 
             public DateTimeOffset CurrentTime { get; private set; }
+
         }
+
     }
 }

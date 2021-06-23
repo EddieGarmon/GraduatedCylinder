@@ -2,8 +2,10 @@
 {
     public partial class GeoFence
     {
+
         public class Circle : IGeoFence
         {
+
             private readonly GeoPosition _center;
             private readonly string _id;
             private readonly Length _radius;
@@ -21,6 +23,8 @@
             public bool IsInside(GeoPosition position) {
                 return GreatArc.Distance(_center, position) <= _radius;
             }
+
         }
+
     }
 }

@@ -1,10 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net461;net47;netstandard2.0</TargetFrameworks>
-    <TargetFrameworks Condition=" '$(OS)' != 'Windows_NT' ">netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net48;net5.0;net6.0</TargetFrameworks>
     <EnableDefaultItems>false</EnableDefaultItems>
-    <LangVersion>7.2</LangVersion>
 
     <AssemblyName>GraduatedCylinder.Geo</AssemblyName>
     <RootNamespace>GraduatedCylinder</RootNamespace>
@@ -15,10 +13,10 @@
     <Product>Graduated Cylinder</Product>
     <Authors>Eddie Garmon</Authors>
     <Company />
-    <Copyright>Copyright (c) Eddie Garmon 2010-2020</Copyright>
+    <Copyright>Copyright (c) Eddie Garmon 2010-2021</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageIconUrl>http://eddiegarmon.github.io/MyLogo.png</PackageIconUrl>
-    <PackageLicenseUrl>https://github.com/EddieGarmon/GraduatedCylinder/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/EddieGarmon/GraduatedCylinder</PackageProjectUrl>
     <RepositoryUrl>https://github.com/EddieGarmon/GraduatedCylinder</RepositoryUrl>
     <PackageTags>latitude longitude altitude geoposition gps trupulse nmea</PackageTags>
@@ -26,7 +24,7 @@
     <IncludeSource>false</IncludeSource>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 
-    <Version>5.0.0</Version>
+    <Version>6.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
@@ -68,9 +66,6 @@
     <Compile Include="Devices\Laser\Nmea\LaserParser.cs" />
     <Compile Include="Devices\Laser\Nmea\VectorSentence.cs" />
     <Compile Include="Devices\Laser\TruPulse360.cs" />
-    <Compile Include="Devices\Serial\EmulatedSerialPort.cs" />
-    <Compile Include="Devices\Serial\ISerialPort.cs" />
-    <Compile Include="Devices\Serial\LiveSerialPort.cs" />
     <Compile Include="Geo\GeoComparer.cs" />
     <Compile Include="Geo\GeoComparerPrecision.cs" />
     <Compile Include="Geo\GeoFence.cs" />
@@ -86,23 +81,19 @@
     <Compile Include="Geo\LocationChangedEventArgs.cs" />
     <Compile Include="Geo\Longitude.cs" />
     <Compile Include="Geo\PrettyPrinter.cs" />
-    <Compile Include="Nmea\IProvideSentences.cs" />
-    <Compile Include="Nmea\Message.cs" />
-    <Compile Include="Nmea\NmeaClock.cs" />
-    <Compile Include="Nmea\SentenceLog.cs" />
-    <Compile Include="Nmea\SentenceLogger.cs" />
-    <Compile Include="Nmea\SentenceRecord.cs" />
-    <Compile Include="Nmea\NmeaParser.cs" />
-    <Compile Include="Nmea\NmeaSerialPort.cs" />
-    <Compile Include="Nmea\Sentence.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.IO.Ports" Version="4.7.0" />
+    <Content Include="todo.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.IO.Ports" Version="5.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\GraduatedCylinder\GraduatedCylinder.csproj" />
+    <ProjectReference Include="..\Nmea.Core0183\Nmea.Core0183.csproj" />
   </ItemGroup>
 
 </Project>

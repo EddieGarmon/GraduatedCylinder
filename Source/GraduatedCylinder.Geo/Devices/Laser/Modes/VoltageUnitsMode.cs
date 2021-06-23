@@ -2,6 +2,8 @@
 {
     internal enum VoltageUnitsMode
     {
+
         MilliVolts = 0
+
     }
 }

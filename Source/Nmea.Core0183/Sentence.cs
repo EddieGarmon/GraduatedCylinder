@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace GraduatedCylinder.Nmea
+namespace Nmea.Core0183
 {
     /// <summary>
     ///     Class Sentence
@@ -16,6 +16,7 @@ namespace GraduatedCylinder.Nmea
     /// </remarks>
     public class Sentence
     {
+
         private readonly string[] _parts;
 
         public Sentence(string[] parts) {
@@ -80,10 +81,7 @@ namespace GraduatedCylinder.Nmea
         /// <param name="raw">The raw.</param>
         /// <returns>IEnumerable{Sentence}.</returns>
         public static IEnumerable<Sentence> ParseAll(string raw) {
-            string[] lines = raw.Split(new[] {
-                                           Terminator
-                                       },
-                                       StringSplitOptions.RemoveEmptyEntries);
+            string[] lines = raw.Split(new[] { Terminator }, StringSplitOptions.RemoveEmptyEntries);
             var result = new List<Sentence>();
             foreach (string line in lines) {
                 Sentence sentence = Parse(line);
@@ -106,5 +104,6 @@ namespace GraduatedCylinder.Nmea
             string sentence = string.Join(",", parts);
             return CalculateChecksum(sentence);
         }
+
     }
 }

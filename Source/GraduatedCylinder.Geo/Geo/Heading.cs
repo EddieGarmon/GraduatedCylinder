@@ -4,6 +4,7 @@ namespace GraduatedCylinder.Geo
 {
     public class Heading
     {
+
         public Heading(double value) {
             if (value < MinValue) {
                 throw new ArgumentOutOfRangeException(nameof(value), "Value is less than the minimum.");
@@ -44,5 +45,6 @@ namespace GraduatedCylinder.Geo
         public static implicit operator Heading(double value) {
             return new Heading(value);
         }
+
     }
 }

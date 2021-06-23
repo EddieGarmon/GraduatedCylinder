@@ -2,6 +2,7 @@
 {
     public class GeoPosition
     {
+
         public GeoPosition(Latitude latitude, Longitude longitude, Length altitude = null) {
             Latitude = latitude;
             Longitude = longitude;
@@ -32,7 +33,7 @@
 
         public static GeoPosition Parse(string value) {
             //"30.00000° N, 40.00000° E"
-            var split = value.Split(' ');
+            string[] split = value.Split(' ');
             double latitude = double.Parse(split[0].TrimEnd(PrettyPrinter.DegreesSymbol));
             double longitude = double.Parse(split[2].TrimEnd(PrettyPrinter.DegreesSymbol));
             double altitude = 0;
@@ -41,5 +42,6 @@
             }
             return new GeoPosition(latitude, longitude, new Length(altitude, LengthUnit.Meter));
         }
+
     }
 }

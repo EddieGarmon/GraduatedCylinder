@@ -1,10 +1,11 @@
 ﻿using System.IO.Ports;
 using System.Text;
 
-namespace GraduatedCylinder.Devices.Serial
+namespace Nmea.Core0183
 {
     public class LiveSerialPort : ISerialPort
     {
+
         private readonly SerialPort _port;
 
         public LiveSerialPort(string portName = "COM1",
@@ -13,8 +14,7 @@ namespace GraduatedCylinder.Devices.Serial
                               int dataBits = 8,
                               StopBits stopBits = StopBits.One) {
             _port = new SerialPort(portName, baudRate, parity, dataBits, stopBits) {
-                Handshake = Handshake.None,
-                Encoding = Encoding.ASCII
+                Handshake = Handshake.None, Encoding = Encoding.ASCII
             };
         }
 
@@ -47,5 +47,6 @@ namespace GraduatedCylinder.Devices.Serial
         public void Write(string text) {
             _port.Write(text);
         }
+
     }
 }

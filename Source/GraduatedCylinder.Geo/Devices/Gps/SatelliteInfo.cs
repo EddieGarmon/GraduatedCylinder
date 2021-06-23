@@ -2,6 +2,7 @@
 {
     public class SatelliteInfo
     {
+
         public SatelliteInfo(int prn, int elevation, int azimuth, double signalToNoise) {
             Prn = prn;
             Elevation = elevation;
@@ -16,5 +17,6 @@
         public int Prn { get; private set; }
 
         public double SignalToNoise { get; private set; }
+
     }
 }

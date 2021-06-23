@@ -5,6 +5,7 @@ namespace GraduatedCylinder.Geo
 {
     public class LocationChangedEventArgs
     {
+
         public LocationChangedEventArgs(DateTimeOffset time,
                                         GeoPosition position,
                                         Heading heading,
@@ -26,5 +27,6 @@ namespace GraduatedCylinder.Geo
         public Speed Speed { get; }
 
         public DateTimeOffset Time { get; }
+
     }
 }

@@ -6,6 +6,7 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
 {
     internal class SentenceHelper
     {
+
         /// <summary>
         /// Parses the latitude.
         /// formats supported:
@@ -18,13 +19,13 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
         /// <param name="direction">The direction.</param>
         /// <returns></returns>
         public static Latitude ParseLatitude(string value, string direction) {
-            double degrees = 0, minutes = 0;
+            double degrees = 0;
             int length = value.Length;
             if (length >= 2) {
                 double.TryParse(value.Substring(0, 2), out degrees);
             }
             if (length >= 4) {
-                double.TryParse(value.Substring(2), out minutes);
+                double.TryParse(value.Substring(2), out double minutes);
                 degrees += (minutes / 60);
             }
             return (direction == "S") ? -degrees : degrees;
@@ -35,8 +36,7 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
                 Debug.Assert(false, "Units other than meters.");
                 return null;
             }
-            double length;
-            return double.TryParse(value, out length) ? new Length(length, LengthUnit.Meter) : null;
+            return double.TryParse(value, out double length) ? new Length(length, LengthUnit.Meter) : null;
         }
 
         /// <summary>
@@ -51,13 +51,13 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
         /// <param name="direction">The direction.</param>
         /// <returns></returns>
         public static Longitude ParseLongitude(string value, string direction) {
-            double degrees = 0, minutes = 0;
+            double degrees = 0;
             int length = value.Length;
             if (length >= 3) {
                 double.TryParse(value.Substring(0, 3), out degrees);
             }
             if (length >= 5) {
-                double.TryParse(value.Substring(3), out minutes);
+                double.TryParse(value.Substring(3), out double minutes);
                 degrees += (minutes / 60);
             }
             return (direction == "W") ? -degrees : degrees;
@@ -111,5 +111,6 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
             }
             return new TimeSpan(0, hours, minutes, seconds, milliseconds);
         }
+
     }
 }

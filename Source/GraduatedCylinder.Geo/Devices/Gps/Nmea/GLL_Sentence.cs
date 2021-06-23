@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using GraduatedCylinder.Geo;
-using GraduatedCylinder.Nmea;
+using Nmea.Core0183;
 
 namespace GraduatedCylinder.Devices.Gps.Nmea
 {
     public class GLL_Sentence
     {
-        private static readonly List<string> ValidIds = new List<string> {
-            "$GPGLL",
-            "$GNGLL"
-        };
+
+        private static readonly List<string> ValidIds = new List<string> { "$GPGLL", "$GNGLL" };
 
         public static Decoded Parse(Sentence sentence) {
             // $__GLL,<1>,<2>,<3>,<4>,<5>,<6>,<7>*<CS><CR><LF>
@@ -34,16 +32,16 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
                 return null;
             }
 
-            var latitude = SentenceHelper.ParseLatitude(sentence.Parts[1], sentence.Parts[2]);
-            var longitude = SentenceHelper.ParseLongitude(sentence.Parts[3], sentence.Parts[4]);
-            var fixTime = NmeaClock.GetDateTime(SentenceHelper.ParseUtcTime(sentence.Parts[5]));
+            Latitude latitude = SentenceHelper.ParseLatitude(sentence.Parts[1], sentence.Parts[2]);
+            Longitude longitude = SentenceHelper.ParseLongitude(sentence.Parts[3], sentence.Parts[4]);
+            DateTimeOffset fixTime = NmeaClock.GetDateTime(SentenceHelper.ParseUtcTime(sentence.Parts[5]));
 
             return new Decoded(fixTime, new GeoPosition(latitude, longitude));
         }
 
-        public class Decoded : IProvideGeoPosition,
-                               IProvideTime
+        public class Decoded : IProvideGeoPosition, IProvideTime
         {
+
             public Decoded(DateTimeOffset currentTime, GeoPosition currentLocation) {
                 CurrentLocation = currentLocation;
                 CurrentTime = currentTime;
@@ -52,6 +50,8 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
             public GeoPosition CurrentLocation { get; private set; }
 
             public DateTimeOffset CurrentTime { get; private set; }
+
         }
+
     }
 }

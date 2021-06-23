@@ -1,10 +1,11 @@
 ﻿using System;
 using System.IO;
 
-namespace GraduatedCylinder.Nmea
+namespace Nmea.Core0183
 {
     public class SentenceLogger : IProvideSentences
     {
+
         private readonly string _filename;
         private readonly IProvideSentences _source;
         private DateTime _logStart;
@@ -34,5 +35,6 @@ namespace GraduatedCylinder.Nmea
             Directory.CreateDirectory(Path.GetDirectoryName(_filename));
             _source.Open();
         }
+
     }
 }

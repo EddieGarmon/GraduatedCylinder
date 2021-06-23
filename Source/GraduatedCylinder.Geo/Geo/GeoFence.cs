@@ -5,6 +5,7 @@ namespace GraduatedCylinder.Geo
 {
     public partial class GeoFence
     {
+
         public static Circle AsCircle(string id, GeoPosition center, Length radius) {
             return new Circle(id, center, radius);
         }
@@ -21,5 +22,6 @@ namespace GraduatedCylinder.Geo
         //public static IGeoFence Parse(string value) {
         //    throw new NotImplementedException("GeoFence.Parse");
         //}
+
     }
 }

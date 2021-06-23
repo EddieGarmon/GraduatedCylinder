@@ -1,11 +1,12 @@
 ﻿using System;
 using GraduatedCylinder.Geo;
-using GraduatedCylinder.Nmea;
+using Nmea.Core0183;
 
 namespace GraduatedCylinder.Devices.Laser.Nmea
 {
     public static class VectorSentence
     {
+
         // "$PLTIT,HV,{hValue},{hUnits: F,Y,M},{azValue},{azUnits: D},{incValue},{incUnits: D},{sdValue},{sdUnits: F,Y,M}*{check}"
         //  0      1  2        3               4         5            6          7             8         9
         public static GeoVector ParseDirect(Sentence sentence) {
@@ -97,5 +98,6 @@ namespace GraduatedCylinder.Devices.Laser.Nmea
 
             return new GeoVector(horizontal, azimuth, inclination, slope, highQuality);
         }
+
     }
 }

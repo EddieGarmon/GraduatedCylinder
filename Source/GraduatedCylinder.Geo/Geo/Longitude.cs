@@ -4,6 +4,7 @@ namespace GraduatedCylinder.Geo
 {
     public class Longitude
     {
+
         //https://gis.stackexchange.com/questions/8650/measuring-accuracy-of-latitude-and-longitude
         public Longitude(double value) {
             //todo should we auto correct here?
@@ -65,5 +66,6 @@ namespace GraduatedCylinder.Geo
         public static bool operator !=(Longitude left, Longitude right) {
             return !GeoComparer.AreEqual(left, right);
         }
+
     }
 }

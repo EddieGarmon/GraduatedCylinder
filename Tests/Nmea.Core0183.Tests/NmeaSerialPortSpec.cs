@@ -1,6 +1,5 @@
 ﻿using DigitalHammer.Testing;
-using GraduatedCylinder.Devices.Serial;
-using GraduatedCylinder.Nmea;
+using Nmea.Core0183;
 using Xunit;
 
 namespace GraduatedCylinder.Geo

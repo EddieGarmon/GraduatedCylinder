@@ -2,6 +2,8 @@
 {
     public interface IProvideActiveSatellites
     {
+
         int[] ActiveSatellitePrns { get; }
+
     }
 }

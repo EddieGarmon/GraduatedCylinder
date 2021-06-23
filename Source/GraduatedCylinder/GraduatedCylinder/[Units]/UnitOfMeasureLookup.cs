@@ -5,6 +5,8 @@ namespace GraduatedCylinder
 {
     internal class UnitOfMeasureLookup
     {
+        //todo: use source generators to reflect and build this at compile time?
+
         private readonly SafeDictionary<string, UnitOfMeasure> _byAbbreviation =
             new SafeDictionary<string, UnitOfMeasure>();
 

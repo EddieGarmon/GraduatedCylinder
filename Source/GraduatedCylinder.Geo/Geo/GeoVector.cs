@@ -2,6 +2,7 @@
 {
     public class GeoVector
     {
+
         public GeoVector(Length horizontalDistance,
                          Angle azimuth,
                          Angle inclination,
@@ -30,5 +31,6 @@
         public Length SlopeDistance { get; private set; }
 
         public Length VerticalDistance { get; private set; }
+
     }
 }

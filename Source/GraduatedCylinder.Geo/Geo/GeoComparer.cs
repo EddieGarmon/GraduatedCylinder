@@ -4,6 +4,7 @@ namespace GraduatedCylinder.Geo
 {
     public static class GeoComparer
     {
+
         static GeoComparer() {
             DefaultPrecision = GeoComparerPrecision.Decimeter;
         }
@@ -39,8 +40,9 @@ namespace GraduatedCylinder.Geo
                 case GeoComparerPrecision.Millimeter:
                     return 0.00000001;
                 default:
-                    throw new ArgumentOutOfRangeException("precision");
+                    throw new ArgumentOutOfRangeException(nameof(precision));
             }
         }
+
     }
 }

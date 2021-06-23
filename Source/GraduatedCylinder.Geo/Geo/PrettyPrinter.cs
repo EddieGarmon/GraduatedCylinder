@@ -2,6 +2,7 @@ namespace GraduatedCylinder.Geo
 {
     public static class PrettyPrinter
     {
+
         public const char DegreesSymbol = '\xB0';
         public const char MinutesSymbol = '\x27';
         public const char SecondsSymbol = '\x22';
@@ -81,5 +82,6 @@ namespace GraduatedCylinder.Geo
                                  SecondsSymbol,
                                  hemisphere);
         }
+
     }
 }

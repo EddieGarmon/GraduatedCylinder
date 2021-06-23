@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using GraduatedCylinder.Geo;
-using GraduatedCylinder.Nmea;
+using Nmea.Core0183;
 
 namespace GraduatedCylinder.Devices.Gps.Nmea
 {
     public class GGA_Sentence
     {
-        private static readonly List<string> ValidIds = new List<string> {
-            "$GPGGA",
-            "$GNGGA"
-        };
+
+        private static readonly List<string> ValidIds = new List<string> { "$GPGGA", "$GNGGA" };
 
         public static Decoded Parse(Sentence sentence) {
             // $__GGA,<1>,<2>,<3>,<4>,<5>,<6>,<7>,<8>,<9>,M,<11>,M,<13>,<14>*<CS><CR><LF>
@@ -48,8 +46,7 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
                 return null;
             }
 
-            int fixIndicator;
-            int.TryParse(sentence.Parts[6], out fixIndicator);
+            int.TryParse(sentence.Parts[6], out int fixIndicator);
             if (fixIndicator == 0) {
                 return null;
             }
@@ -71,9 +68,9 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
             return new Decoded(fixTime, new GeoPosition(latitude, longitude, altitude));
         }
 
-        public class Decoded : IProvideGeoPosition,
-                               IProvideTime
+        public class Decoded : IProvideGeoPosition, IProvideTime
         {
+
             public Decoded(DateTimeOffset currentTime, GeoPosition currentLocation) {
                 CurrentLocation = currentLocation;
                 CurrentTime = currentTime;
@@ -82,6 +79,8 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
             public GeoPosition CurrentLocation { get; }
 
             public DateTimeOffset CurrentTime { get; }
+
         }
+
     }
 }

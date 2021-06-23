@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using GraduatedCylinder.Devices.Gps.Nmea;
 using GraduatedCylinder.Geo;
-using GraduatedCylinder.Nmea;
+using Nmea.Core0183;
 
 namespace GraduatedCylinder.Devices.Gps
 {
@@ -33,17 +33,15 @@ namespace GraduatedCylinder.Devices.Gps
                                                   //NB set all values then raise all notifications
                                                   if (message.Value is IProvideSatelliteInfo) {
                                                       foreach (SatelliteInfo satellite in message
-                                                                                          .ValueAs<IProvideSatelliteInfo
-                                                                                          >()
-                                                                                          .Satellites) {
+                                                          .ValueAs<IProvideSatelliteInfo>()
+                                                          .Satellites) {
                                                           _satellites[satellite.Prn] = satellite;
                                                       }
                                                   }
                                                   if (message.Value is IProvideActiveSatellites) {
                                                       _activeSatellitePrns.Clear();
-                                                      foreach (int prn in message
-                                                                          .ValueAs<IProvideActiveSatellites>()
-                                                                          .ActiveSatellitePrns.Where(prn => prn != 0)) {
+                                                      foreach (int prn in message.ValueAs<IProvideActiveSatellites>()
+                                                          .ActiveSatellitePrns.Where(prn => prn != 0)) {
                                                           _activeSatellitePrns.Add(prn);
                                                       }
                                                   }
@@ -71,9 +69,8 @@ namespace GraduatedCylinder.Devices.Gps
                                                       }
                                                   }
                                                   if (message.Value is IProvideGeoPosition) {
-                                                      GeoPosition newLocation = message
-                                                                                .ValueAs<IProvideGeoPosition>()
-                                                                                .CurrentLocation;
+                                                      GeoPosition newLocation = message.ValueAs<IProvideGeoPosition>()
+                                                          .CurrentLocation;
                                                       CurrentLocation =
                                                           newLocation.Altitude == null ?
                                                               new GeoPosition(

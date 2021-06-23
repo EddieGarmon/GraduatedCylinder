@@ -4,14 +4,17 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace GraduatedCylinder.Nmea
+namespace Nmea.Core0183
 {
     public class SentenceLog : IProvideSentences
     {
+
         public enum PlaybackRate
         {
+
             AsRecorded,
             AsFastAsPossible
+
         }
 
         private readonly string _filename;
@@ -55,7 +58,7 @@ namespace GraduatedCylinder.Nmea
         }
 
         private void RaiseSentenceReceived(Sentence sentence) {
-            var handler = SentenceReceived;
+            Action<Sentence> handler = SentenceReceived;
             handler?.Invoke(sentence);
         }
 
@@ -82,9 +85,9 @@ namespace GraduatedCylinder.Nmea
 
                 switch (_rate) {
                     case PlaybackRate.AsRecorded:
-                        Time elapsedTime = DateTime.Now - startTime;
-                        Time waitTime = record.Occurance - elapsedTime;
-                        if (waitTime > 0.0.Seconds()) {
+                        TimeSpan elapsedTime = DateTime.Now - startTime;
+                        TimeSpan waitTime = record.SecondsFromStart - elapsedTime;
+                        if (waitTime > TimeSpan.Zero) {
                             Thread.Sleep(waitTime);
                         }
                         RaiseSentenceReceived(record.Sentence);
@@ -107,5 +110,6 @@ namespace GraduatedCylinder.Nmea
 
             PlaybackComplete = true;
         }
+
     }
 }

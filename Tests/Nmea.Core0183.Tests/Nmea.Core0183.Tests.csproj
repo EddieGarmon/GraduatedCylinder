@@ -1,17 +1,13 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net48;net5.0</TargetFrameworks>
 
-    <AssemblyName>GraduatedCylinder.Tests</AssemblyName>
-    <RootNamespace>GraduatedCylinder</RootNamespace>
+    <AssemblyName>Nmea.Core0183.Tests</AssemblyName>
+    <RootNamespace>Nmea.Core0183</RootNamespace>
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\Source\GraduatedCylinder\GraduatedCylinder.csproj" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.10.0" />
@@ -22,6 +18,10 @@
     </PackageReference>
     <PackageReference Include="DigitalHammer.Should" Version="0.301.0" />
     <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Source\Nmea.Core0183\Nmea.Core0183.csproj" />
   </ItemGroup>
 
 </Project>

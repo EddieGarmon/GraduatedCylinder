@@ -2,9 +2,11 @@
 {
     public enum GeoComparerPrecision
     {
+
         Meter,
         Decimeter,
         Centimeter,
         Millimeter
+
     }
 }

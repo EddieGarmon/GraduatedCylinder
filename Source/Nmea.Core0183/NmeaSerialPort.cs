@@ -2,9 +2,8 @@
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
-using GraduatedCylinder.Devices.Serial;
 
-namespace GraduatedCylinder.Nmea
+namespace Nmea.Core0183
 {
     public sealed class NmeaSerialPort : IProvideSentences, IDisposable
     {
@@ -25,7 +24,6 @@ namespace GraduatedCylinder.Nmea
                 //todo: handle extra null terminators in name
             }
             _port = new LiveSerialPort(portName, baudRate, parity, dataBits, stopBits);
-
             _port.ErrorReceived += ProcessError;
             _port.DataReceived += ProcessData;
         }

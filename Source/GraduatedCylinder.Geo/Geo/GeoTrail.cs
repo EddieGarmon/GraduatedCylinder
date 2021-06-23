@@ -5,14 +5,11 @@ namespace GraduatedCylinder.Geo
 {
     public class GeoTrail
     {
+
         private Collection<Datum> _trail = new Collection<Datum>();
 
         public class Datum
         {
-            private readonly Heading _heading;
-            private readonly GeoPosition _location;
-            private readonly Speed _speed;
-            private readonly DateTime _time;
 
             public Datum(DateTime time,
                          Latitude latitude,
@@ -20,27 +17,21 @@ namespace GraduatedCylinder.Geo
                          Length altitude = null,
                          Speed speed = null,
                          Heading heading = null) {
-                _time = time;
-                _location = new GeoPosition(latitude, longitude, altitude);
-                _speed = speed;
-                _heading = heading;
+                Time = time;
+                Location = new GeoPosition(latitude, longitude, altitude);
+                Speed = speed;
+                Heading = heading;
             }
 
-            public Heading Heading {
-                get { return _heading; }
-            }
+            public Heading Heading { get; }
 
-            public GeoPosition Location {
-                get { return _location; }
-            }
+            public GeoPosition Location { get; }
 
-            public Speed Speed {
-                get { return _speed; }
-            }
+            public Speed Speed { get; }
 
-            public DateTime Time {
-                get { return _time; }
-            }
+            public DateTime Time { get; }
+
         }
+
     }
 }

@@ -4,6 +4,7 @@ namespace GraduatedCylinder.Geo
 {
     public class Latitude
     {
+
         //https://gis.stackexchange.com/questions/8650/measuring-accuracy-of-latitude-and-longitude
         public Latitude(double value) {
             if (value < MinValue) {
@@ -64,5 +65,6 @@ namespace GraduatedCylinder.Geo
         public static bool operator !=(Latitude left, Latitude right) {
             return !GeoComparer.AreEqual(left, right);
         }
+
     }
 }

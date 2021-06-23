@@ -2,6 +2,7 @@
 {
     public enum MeasurementMode
     {
+
         HorizontalDistance = 0,
         VerticalDistance = 1,
         SlopeDistance = 2,
@@ -9,5 +10,6 @@
         Height = 4,
         Azimuth = 5,
         MissingLine = 6
+
     }
 }

@@ -1,9 +1,10 @@
 ﻿using System;
 
-namespace GraduatedCylinder.Nmea
+namespace Nmea.Core0183
 {
     public class Message
     {
+
         public Message(Sentence sentence, object value) {
             Sentence = sentence;
             Value = value;
@@ -23,5 +24,6 @@ namespace GraduatedCylinder.Nmea
             }
             return null;
         }
+
     }
 }

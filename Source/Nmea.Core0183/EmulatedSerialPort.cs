@@ -3,33 +3,14 @@ using System.IO.Ports;
 using System.Reflection;
 using System.Text;
 
-namespace GraduatedCylinder.Devices.Serial
+namespace Nmea.Core0183
 {
     public class EmulatedSerialPort : ISerialPort
     {
-        private readonly SerialDataReceivedEventArgs _dataEoFArgs;
-        private readonly SerialDataReceivedEventArgs _dataReceivedArgs;
+
         private byte[] _buffer = new byte[4096];
         private int _bufferHead;
         private int _bufferTail;
-
-        public EmulatedSerialPort() {
-            ConstructorInfo constructor = typeof(SerialDataReceivedEventArgs).GetConstructor(
-                BindingFlags.NonPublic | BindingFlags.Instance,
-                null,
-                new[] {
-                    typeof(SerialData)
-                },
-                null);
-
-            _dataEoFArgs = (SerialDataReceivedEventArgs)constructor.Invoke(new object[] {
-                SerialData.Eof
-            });
-
-            _dataReceivedArgs = (SerialDataReceivedEventArgs)constructor.Invoke(new object[] {
-                SerialData.Chars
-            });
-        }
 
         public int BytesToRead => _bufferTail - _bufferHead;
 
@@ -62,12 +43,15 @@ namespace GraduatedCylinder.Devices.Serial
             for (int i = 0; i < count; i++) {
                 _buffer[_bufferTail++] = data[i + offset];
             }
-            DataReceived?.Invoke(this, _dataReceivedArgs);
+            DataReceived?.Invoke(this, EventHelper.DataReceivedArgs);
         }
 
         public void QueueEoF() {
-            throw new NotImplementedException("EmulatedSerialPort.QueueEoF");
-            DataReceived?.Invoke(this, _dataEoFArgs);
+            DataReceived?.Invoke(this, EventHelper.DataEofArgs);
+        }
+
+        public void QueueError(SerialError error) {
+            ErrorReceived?.Invoke(this, EventHelper.GetErrorArgs(error));
         }
 
         public int Read(byte[] buffer, int offset, int count) {
@@ -107,5 +91,45 @@ namespace GraduatedCylinder.Devices.Serial
             _bufferHead = 0;
             _bufferTail = used;
         }
+
+        private static class EventHelper
+        {
+
+            static EventHelper() {
+                ConstructorInfo data = typeof(SerialDataReceivedEventArgs).GetConstructor(
+                    BindingFlags.NonPublic | BindingFlags.Instance,
+                    null,
+                    new[] { typeof(SerialData) },
+                    null);
+                DataConstructor = serialData => {
+                                      return (SerialDataReceivedEventArgs)data.Invoke(new object[] { serialData });
+                                  };
+                DataReceivedArgs = DataConstructor(SerialData.Chars);
+                DataEofArgs = DataConstructor(SerialData.Eof);
+
+                ConstructorInfo error = typeof(SerialErrorReceivedEventArgs).GetConstructor(
+                    BindingFlags.NonPublic | BindingFlags.Instance,
+                    null,
+                    new[] { typeof(SerialError) },
+                    null);
+                ErrorConstructor = serialError => {
+                                       return (SerialErrorReceivedEventArgs)error.Invoke(new object[] { serialError });
+                                   };
+            }
+
+            public static SerialDataReceivedEventArgs DataEofArgs { get; }
+
+            public static SerialDataReceivedEventArgs DataReceivedArgs { get; }
+
+            private static Func<SerialData, SerialDataReceivedEventArgs> DataConstructor { get; }
+
+            private static Func<SerialError, SerialErrorReceivedEventArgs> ErrorConstructor { get; }
+
+            public static SerialErrorReceivedEventArgs GetErrorArgs(SerialError serialError) {
+                return ErrorConstructor(serialError);
+            }
+
+        }
+
     }
 }

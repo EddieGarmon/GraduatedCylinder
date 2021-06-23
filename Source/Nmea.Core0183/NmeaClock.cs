@@ -1,9 +1,10 @@
 ﻿using System;
 
-namespace GraduatedCylinder.Nmea
+namespace Nmea.Core0183
 {
     public static class NmeaClock
     {
+
         static NmeaClock() {
             GetDate = () => DateTime.UtcNow.Date;
         }
@@ -15,5 +16,6 @@ namespace GraduatedCylinder.Nmea
             DateTimeOffset dateTimeOffset = new DateTimeOffset(dateTime, TimeSpan.Zero);
             return dateTimeOffset;
         }
+
     }
 }

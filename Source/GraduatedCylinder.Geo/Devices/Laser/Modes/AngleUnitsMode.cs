@@ -2,7 +2,9 @@
 {
     internal enum AngleUnitsMode
     {
+
         Degrees = 0,
         Percent = 1
+
     }
 }

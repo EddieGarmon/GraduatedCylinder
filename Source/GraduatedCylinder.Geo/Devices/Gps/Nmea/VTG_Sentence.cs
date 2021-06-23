@@ -1,15 +1,13 @@
 ﻿using System.Collections.Generic;
 using GraduatedCylinder.Geo;
-using GraduatedCylinder.Nmea;
+using Nmea.Core0183;
 
 namespace GraduatedCylinder.Devices.Gps.Nmea
 {
     public class VTG_Sentence
     {
-        private static readonly List<string> ValidIds = new List<string> {
-            "$GPVTG",
-            "$GNVTG"
-        };
+
+        private static readonly List<string> ValidIds = new List<string> { "$GPVTG", "$GNVTG" };
 
         public static Decoded Parse(Sentence sentence) {
             // $__VTG,<1>,T,<3>,M,<5>,N,<7>,K*<CS><CR><LF>
@@ -32,22 +30,20 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
                 return null;
             }
 
-            double trueCourse;
-            if (!double.TryParse(sentence.Parts[1], out trueCourse)) {
+            if (!double.TryParse(sentence.Parts[1], out double trueCourse)) {
                 trueCourse = double.NaN;
             }
 
-            double magneticCourse;
-            double.TryParse(sentence.Parts[3], out magneticCourse);
+            double.TryParse(sentence.Parts[3], out double magneticCourse);
 
-            double speedInKnots;
-            double.TryParse(sentence.Parts[5], out speedInKnots);
+            double.TryParse(sentence.Parts[5], out double speedInKnots);
 
             return new Decoded(trueCourse, magneticCourse, new Speed(speedInKnots, SpeedUnit.NauticalMilesPerHour));
         }
 
         public class Decoded : IProvideTrajectory
         {
+
             public Decoded(Heading currentHeading, Heading magneticCourse, Speed currentSpeed) {
                 CurrentHeading = currentHeading;
                 MagneticCourse = magneticCourse;
@@ -59,6 +55,8 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
             public Speed CurrentSpeed { get; private set; }
 
             public Heading MagneticCourse { get; private set; }
+
         }
+
     }
 }

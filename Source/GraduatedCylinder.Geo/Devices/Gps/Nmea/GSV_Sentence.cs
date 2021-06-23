@@ -1,16 +1,12 @@
 ﻿using System.Collections.Generic;
-using GraduatedCylinder.Nmea;
+using Nmea.Core0183;
 
 namespace GraduatedCylinder.Devices.Gps.Nmea
 {
     public class GSV_Sentence
     {
-        private static readonly List<string> ValidIds = new List<string> {
-            "$GPGSV",
-            "$GLGSV",
-            "$GAGSV",
-            "$BDGSV"
-        };
+
+        private static readonly List<string> ValidIds = new List<string> { "$GPGSV", "$GLGSV", "$GAGSV", "$BDGSV" };
 
         public static Decoded Parse(Sentence sentence) {
             // $__GSV,<1>,<2>,<3>,<4>,<5>,<6>,<7>, ... ,<4>,<5>,<6>,<7>*<CS><CR><LF>
@@ -36,19 +32,16 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
                 return null;
             }
 
-            int sequenceCount, sequenceId, numberOfSatellites;
-            int.TryParse(sentence.Parts[1], out sequenceCount);
-            int.TryParse(sentence.Parts[2], out sequenceId);
-            int.TryParse(sentence.Parts[3], out numberOfSatellites);
+            int.TryParse(sentence.Parts[1], out int sequenceCount);
+            int.TryParse(sentence.Parts[2], out int sequenceId);
+            int.TryParse(sentence.Parts[3], out int numberOfSatellites);
 
             SatelliteInfo[] satelliteInfos = new SatelliteInfo[4];
             for (int i = 0; i < 4; i++) {
-                int prn, elevation, azimuth;
-                double signalToNoise;
-                int.TryParse(sentence.Parts[4 * i + 4], out prn);
-                int.TryParse(sentence.Parts[4 * i + 5], out elevation);
-                int.TryParse(sentence.Parts[4 * i + 6], out azimuth);
-                double.TryParse(sentence.Parts[4 * i + 7], out signalToNoise);
+                int.TryParse(sentence.Parts[4 * i + 4], out int prn);
+                int.TryParse(sentence.Parts[4 * i + 5], out int elevation);
+                int.TryParse(sentence.Parts[4 * i + 6], out int azimuth);
+                double.TryParse(sentence.Parts[4 * i + 7], out double signalToNoise);
 
                 //todo use sequence id for start offset
                 satelliteInfos[i] = new SatelliteInfo(prn, elevation, azimuth, signalToNoise);
@@ -58,11 +51,14 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
 
         public class Decoded : IProvideSatelliteInfo
         {
+
             public Decoded(IEnumerable<SatelliteInfo> satellites) {
                 Satellites = satellites;
             }
 
             public IEnumerable<SatelliteInfo> Satellites { get; private set; }
+
         }
+
     }
 }

@@ -1,9 +1,10 @@
-﻿using GraduatedCylinder.Nmea;
+﻿using Nmea.Core0183;
 
 namespace GraduatedCylinder.Devices.Gps.Nmea
 {
     public class GpsParser : NmeaParser
     {
+
         //todo: add a --ZDA sentence parser
         public GpsParser()
             : base(GSA_Sentence.Parse,
@@ -12,5 +13,6 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
                    GGA_Sentence.Parse,
                    RMC_Sentence.Parse,
                    GLL_Sentence.Parse) { }
+
     }
 }

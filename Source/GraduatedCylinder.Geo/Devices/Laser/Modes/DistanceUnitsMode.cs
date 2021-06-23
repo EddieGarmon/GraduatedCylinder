@@ -7,8 +7,10 @@
     /// </summary>
     internal enum DistanceUnitsMode
     {
+
         Meters = 0,
         Yards = 1,
         Feet = 2
+
     }
 }

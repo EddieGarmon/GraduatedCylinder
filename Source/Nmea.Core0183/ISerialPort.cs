@@ -1,9 +1,10 @@
 ﻿using System.IO.Ports;
 
-namespace GraduatedCylinder.Devices.Serial
+namespace Nmea.Core0183
 {
     public interface ISerialPort
     {
+
         int BytesToRead { get; }
 
         bool IsOpen { get; }
@@ -19,5 +20,6 @@ namespace GraduatedCylinder.Devices.Serial
         int Read(byte[] buffer, int offset, int count);
 
         void Write(string text);
+
     }
 }

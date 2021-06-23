@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using DigitalHammer.Testing;
-using GraduatedCylinder.Nmea;
+using Nmea.Core0183;
 using Xunit;
 
 namespace GraduatedCylinder.Devices.Gps

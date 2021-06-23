@@ -4,6 +4,7 @@ namespace GraduatedCylinder.Devices.Laser.Nmea
 {
     internal static class Commands
     {
+
         //to get a value> $Command
         //to set a value> $Command,NewValue
         internal static readonly CommandSentence<AngleUnitsMode> AngleUnits = new CommandSentence<AngleUnitsMode>("AU");
@@ -21,5 +22,6 @@ namespace GraduatedCylinder.Devices.Laser.Nmea
         internal static readonly CommandSentence Start = new CommandSentence("GO");
         internal static readonly CommandSentence Stop = new CommandSentence("ST");
         internal static readonly CommandSentence<TargetMode> TargetMode = new CommandSentence<TargetMode>("TM");
+
     }
 }
