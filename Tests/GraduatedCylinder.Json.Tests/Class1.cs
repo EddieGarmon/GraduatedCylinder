@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GraduatedCylinder.Generators.Json
+namespace GraduatedCylinder.Json.Tests
 {
     public class Class1
     {

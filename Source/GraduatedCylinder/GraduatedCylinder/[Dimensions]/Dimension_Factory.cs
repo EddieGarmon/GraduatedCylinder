@@ -4,10 +4,12 @@ namespace GraduatedCylinder
 {
     public abstract partial class Dimension
     {
+
         /// <summary>
         /// </summary>
         public static class Factory
         {
+
             static Factory() {
                 Constructors = new SafeDictionary<DimensionType, Func<double, UnitOfMeasure, Dimension>> {
                     { DimensionType.Acceleration, (value, unitOfMeasure) => new Acceleration(value, unitOfMeasure) },
@@ -89,6 +91,8 @@ namespace GraduatedCylinder
                 UnitOfMeasure unitOfMeasure = UnitOfMeasure.FindFirst(strings[1]);
                 return Build(value, unitOfMeasure);
             }
+
         }
+
     }
 }

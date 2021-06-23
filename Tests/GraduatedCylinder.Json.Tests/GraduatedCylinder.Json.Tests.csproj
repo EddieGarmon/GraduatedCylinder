@@ -1,17 +1,13 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net48;net5.0</TargetFrameworks>
-
-    <AssemblyName>GraduatedCylinder.Geo.Tests</AssemblyName>
-    <RootNamespace>GraduatedCylinder</RootNamespace>
+ 
+    <AssemblyName>GraduatedCylinder.Json.Tests</AssemblyName>
+    <RootNamespace>GraduatedCylinder.Json</RootNamespace>
     
     <IsPackable>false</IsPackable>
   </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\Source\GraduatedCylinder.Geo\GraduatedCylinder.Geo.csproj" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.10.0" />
@@ -25,12 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Devices\Gps\Sample1.gpslog">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Devices\Gps\Sample2.gpslog">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <ProjectReference Include="..\..\Source\GraduatedCylinder.Json\GraduatedCylinder.Json.csproj" />
   </ItemGroup>
 
 </Project>

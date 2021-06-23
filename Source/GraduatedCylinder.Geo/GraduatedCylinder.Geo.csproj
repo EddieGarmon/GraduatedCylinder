@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net48;net5.0;net6.0</TargetFrameworks>
-    <EnableDefaultItems>false</EnableDefaultItems>
 
     <AssemblyName>GraduatedCylinder.Geo</AssemblyName>
     <RootNamespace>GraduatedCylinder</RootNamespace>
@@ -16,76 +15,16 @@
     <Copyright>Copyright (c) Eddie Garmon 2010-2021</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageIconUrl>http://eddiegarmon.github.io/MyLogo.png</PackageIconUrl>
+    <PackageIcon>icon.png</PackageIcon>
     <PackageProjectUrl>https://github.com/EddieGarmon/GraduatedCylinder</PackageProjectUrl>
     <RepositoryUrl>https://github.com/EddieGarmon/GraduatedCylinder</RepositoryUrl>
-    <PackageTags>latitude longitude altitude geoposition gps trupulse nmea</PackageTags>
+    <PackageTags>latitude;longitude;altitude;geoposition;gps;trupulse;nmea</PackageTags>
     <IncludeSymbols>true</IncludeSymbols>
     <IncludeSource>false</IncludeSource>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 
     <Version>6.0.0</Version>
   </PropertyGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <PackageReference Include="System.IO.Ports" Version="4.5.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Devices\Gps\DilutionOfPrecisionRating.cs" />
-    <Compile Include="Devices\Gps\GpsFixType.cs" />
-    <Compile Include="Devices\Gps\GpsUnit.cs" />
-    <Compile Include="Devices\Gps\IProvideActiveSatellites.cs" />
-    <Compile Include="Devices\Gps\IProvideDilutionOfPrecision.cs" />
-    <Compile Include="Devices\Gps\IProvideFixType.cs" />
-    <Compile Include="Devices\Gps\IProvideGeoPosition.cs" />
-    <Compile Include="Devices\Gps\IProvideSatelliteInfo.cs" />
-    <Compile Include="Devices\Gps\IProvideTime.cs" />
-    <Compile Include="Devices\Gps\IProvideTrajectory.cs" />
-    <Compile Include="Devices\Gps\Nmea\GGA_Sentence.cs" />
-    <Compile Include="Devices\Gps\Nmea\GLL_Sentence.cs" />
-    <Compile Include="Devices\Gps\Nmea\GSA_Sentence.cs" />
-    <Compile Include="Devices\Gps\Nmea\GSV_Sentence.cs" />
-    <Compile Include="Devices\Gps\Nmea\RMC_Sentence.cs" />
-    <Compile Include="Devices\Gps\Nmea\GpsParser.cs" />
-    <Compile Include="Devices\Gps\Nmea\VTG_Sentence.cs" />
-    <Compile Include="Devices\Gps\Nmea\SentenceHelper.cs" />
-    <Compile Include="Devices\Gps\SatelliteInfo.cs" />
-    <Compile Include="Devices\Laser\DeviceInfo.cs" />
-    <Compile Include="Devices\Laser\Laser.cs" />
-    <Compile Include="Devices\Laser\MissingLine.cs" />
-    <Compile Include="Devices\Laser\Modes\AngleUnitsMode.cs" />
-    <Compile Include="Devices\Laser\Modes\DistanceUnitsMode.cs" />
-    <Compile Include="Devices\Laser\Modes\MeasurementMode.cs" />
-    <Compile Include="Devices\Laser\Modes\TargetMode.cs" />
-    <Compile Include="Devices\Laser\Modes\VoltageUnitsMode.cs" />
-    <Compile Include="Devices\Laser\Nmea\Commands.cs" />
-    <Compile Include="Devices\Laser\Nmea\CommandSentence.cs" />
-    <Compile Include="Devices\Laser\Nmea\DeviceInfoSentence.cs" />
-    <Compile Include="Devices\Laser\Nmea\HeightSentence.cs" />
-    <Compile Include="Devices\Laser\Nmea\LaserParser.cs" />
-    <Compile Include="Devices\Laser\Nmea\VectorSentence.cs" />
-    <Compile Include="Devices\Laser\TruPulse360.cs" />
-    <Compile Include="Geo\GeoComparer.cs" />
-    <Compile Include="Geo\GeoComparerPrecision.cs" />
-    <Compile Include="Geo\GeoFence.cs" />
-    <Compile Include="Geo\GeoFence_Circle.cs" />
-    <Compile Include="Geo\GeoFence_Polygon.cs" />
-    <Compile Include="Geo\GeoPosition.cs" />
-    <Compile Include="Geo\GeoTrail.cs" />
-    <Compile Include="Geo\GeoVector.cs" />
-    <Compile Include="Geo\GreatArc.cs" />
-    <Compile Include="Geo\Heading.cs" />
-    <Compile Include="Geo\IGeoFence.cs" />
-    <Compile Include="Geo\Latitude.cs" />
-    <Compile Include="Geo\LocationChangedEventArgs.cs" />
-    <Compile Include="Geo\Longitude.cs" />
-    <Compile Include="Geo\PrettyPrinter.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="todo.txt" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.IO.Ports" Version="5.0.1" />
@@ -94,6 +33,10 @@
   <ItemGroup>
     <ProjectReference Include="..\GraduatedCylinder\GraduatedCylinder.csproj" />
     <ProjectReference Include="..\Nmea.Core0183\Nmea.Core0183.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\icon.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>
