@@ -31,7 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GraduatedCylinder.Generators.Json\GraduatedCylinder.Generators.Json.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\GraduatedCylinder.Roslyn\GraduatedCylinder.Roslyn.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
     <ProjectReference Include="..\GraduatedCylinder\GraduatedCylinder.csproj" />
   </ItemGroup>
 

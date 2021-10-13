@@ -1,0 +1,14 @@
+{
+  "solution": {
+    "path": "GraduatedCylinder.sln",
+    "projects": [
+      "Source\\GraduatedCylinder.IoT.Parsing\\GraduatedCylinder.IoT.Parsing.csproj",
+      "Source\\GraduatedCylinder.IoT.Printing\\GraduatedCylinder.IoT.Printing.csproj",
+      "Source\\GraduatedCylinder.IoT\\GraduatedCylinder.IoT.csproj",
+      "Source\\GraduatedCylinder.Roslyn\\GraduatedCylinder.Roslyn.csproj",
+      "Source\\GraduatedCylinder.Scales\\GraduatedCylinder.Scales.csproj",
+      "Source\\GraduatedCylinder\\GraduatedCylinder.csproj",
+      "Tests\\GraduatedCylinder.Tests\\GraduatedCylinder.Tests.csproj"
+    ]
+  }
+}

@@ -1,15 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net48;net5.0;net6.0</TargetFrameworks>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <OutputType>Library</OutputType>
-    <AssemblyName>GraduatedCylinder</AssemblyName>
-    <RootNamespace />
+    <AssemblyName>GraduatedCylinder.Scales</AssemblyName>
+    <RootNamespace>GraduatedCylinder</RootNamespace>
     <LangVersion>latest</LangVersion>
-    <!--<Nullable>enable</Nullable>-->
+    <Nullable>enable</Nullable>
 
-    <PackageId>GraduatedCylinder</PackageId>
-    <Title>Graduated Cylinder</Title>
+    <PackageId>GraduatedCylinder.Scales</PackageId>
+    <Title>Graduated Cylinder - Core Scales and Units</Title>
     <Description>A modeling of units of measures that does automatic conversion between units for any modeled quantity.</Description>
     <Product>Graduated Cylinder</Product>
     <Authors>Eddie Garmon</Authors>
@@ -29,7 +29,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\icon.png" Pack="true" PackagePath="\" />
+    <None Include="..\..\icon.png" Link="icon.png">
+      <PackagePath>\</PackagePath>
+      <Pack>true</Pack>
+    </None>
   </ItemGroup>
 
 </Project>

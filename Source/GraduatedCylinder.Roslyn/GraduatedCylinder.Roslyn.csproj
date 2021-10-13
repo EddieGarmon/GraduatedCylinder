@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <DisableImplicitNamespaceImports>true</DisableImplicitNamespaceImports>
+ 
+    <!--  Dont Package as we are consuming as a project only -->
+    <!--<PackageId>GraduatedCylinder.Roslyn</PackageId>
+    <Title>GraduatedCylinder Code Generators</Title>
+    <Product>GraduatedCylinder</Product>
+    <Authors>Eddie Garmon</Authors>
+    <Copyright>Copyright (c) Eddie Garmon 2010-2021</Copyright>
+    <PackageTags>GraduatedGylinder;Generators</PackageTags>
+    <PackageIconUrl></PackageIconUrl>
+    <PackageProjectUrl>https://github.com/EddieGarmon/SignalBlaster</PackageProjectUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <IncludeSource>false</IncludeSource>
+    <IncludeSymbols>false</IncludeSymbols>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    --><!-- Do not package as a standard library --><!--
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <NoWarn>NU5128</NoWarn>-->
+
+    <Version>0.100.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.11.0" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GraduatedCylinder.Scales\GraduatedCylinder.Scales.csproj" />
+  </ItemGroup>
+
+</Project>

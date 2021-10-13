@@ -1,30 +1,29 @@
-﻿using System;
+﻿using System.Linq;
+using System.Reflection;
 using System.Text;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Text;
 
-namespace GraduatedCylinder.Generators.Json
+namespace GraduatedCylinder.Roslyn.Full
 {
     [Generator]
-    public class JsonConverterGenerator : ISourceGenerator
+    public class JsonConverterGenerator : BaseGenerator
     {
 
-        public void Execute(GeneratorExecutionContext context) {
-            try {
-                ExecuteInternal(context);
-            } catch (Exception e) {
-                DiagnosticDescriptor descriptor =
-                    new(nameof(JsonConverterGenerator), "Error", e.ToString(), "Error", DiagnosticSeverity.Error, true);
-                Diagnostic diagnostic = Diagnostic.Create(descriptor, Location.None);
-                context.ReportDiagnostic(diagnostic);
-            }
-        }
+        public JsonConverterGenerator()
+            : base("GraduatedCylinder.Json") { }
 
-        public void Initialize(GeneratorInitializationContext context) {
-            //context.RegisterForSyntaxNotifications(() => new SyntaxReceiver());
-        }
+        protected override void ExecuteInternal(GeneratorExecutionContext context) {
+            AttributeData attributeData = context.Compilation.Assembly.GetAttributes()
+                                                 .Single(x => !string.IsNullOrEmpty(x.AttributeClass?.Name) &&
+                                                              x.AttributeClass?.Name ==
+                                                              nameof(AssemblyConfigurationAttribute));
+            string? configuration = (string?)attributeData.ConstructorArguments[0].Value;
 
-        private void ExecuteInternal(GeneratorExecutionContext context) {
+            Assembly assembly =
+                Assembly.LoadFrom(
+                    $"C:\\GSP-Projects\\GraduatedCylinder\\Source\\GraduatedCylinder\\bin\\{configuration}\\netstandard2.0\\GraduatedCylinder.dll");
+
             SourceText converterText = SourceText.From(@"
 using System;
 using System.Text.Json;
@@ -61,6 +60,8 @@ namespace GraduatedCylinder.Json {
                                                   Encoding.UTF8);
             context.AddSource("UnitsJsonOptions.cs", listText);
         }
+
+        protected override void InitializeInternal(GeneratorInitializationContext context) { }
 
     }
 }

@@ -1,5 +1,4 @@
 using System;
-using JetBrains.Annotations;
 
 namespace GraduatedCylinder
 {
@@ -112,7 +111,7 @@ namespace GraduatedCylinder
             return new Speed(speedValue, SpeedUnit.MeterPerSecond);
         }
 
-        public static Time operator /(Energy energy, [CanBeNull] Power power) {
+        public static Time operator /(Energy energy, Power power) {
             Guard.NotNull(energy, nameof(energy));
             Guard.NotNull(power, nameof(power));
             double timeValue = energy.In(EnergyUnit.Joules) / power.In(PowerUnit.Watts);
