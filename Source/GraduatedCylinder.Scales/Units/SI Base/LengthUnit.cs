@@ -5,8 +5,9 @@ namespace GraduatedCylinder.Units
     /// <summary>
     /// One of the seven SI base quantities.
     /// </summary>
-    public enum LengthUnit:short
+    public enum LengthUnit : short
     {
+
         Unspecified = short.MinValue,
 
         BaseUnit = Meter,
@@ -121,5 +122,6 @@ namespace GraduatedCylinder.Units
         [UnitAbbreviation("nmi")]
         [Scale(1852.0f)]
         NauticalMile = 106
+
     }
 }

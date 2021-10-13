@@ -7,8 +7,8 @@ namespace GraduatedCylinder
 {
     [StructLayout(LayoutKind.Sequential)]
     public readonly struct ElectricCurrent : IDimension<ElectricCurrent, ElectricCurrentUnits>,
-                                             IEquatable<ElectricCurrent>,
-                                             IComparable<ElectricCurrent>
+                                             IComparable<ElectricCurrent>,
+                                             IEquatable<ElectricCurrent>
     {
 
         private readonly float _value;
@@ -34,7 +34,7 @@ namespace GraduatedCylinder
         }
 
         public bool Equals(ElectricCurrent other) {
-            return _value.Equals(other._value) && _units == other._units;
+            return CompareTo(other) == 0;
         }
 
         public override bool Equals(object obj) {
@@ -56,5 +56,6 @@ namespace GraduatedCylinder
         public static ElectricCurrent Zero => new ElectricCurrent(0, ElectricCurrentUnits.Ampere);
 
         //todo: operators
+
     }
 }

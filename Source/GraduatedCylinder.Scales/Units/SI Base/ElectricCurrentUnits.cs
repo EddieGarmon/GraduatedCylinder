@@ -1,14 +1,14 @@
-﻿using System;
-using GraduatedCylinder.Scales;
+﻿using GraduatedCylinder.Scales;
 
 namespace GraduatedCylinder.Units
 {
     public enum ElectricCurrentUnits : short
     {
+
         Unspecified = short.MinValue,
 
         BaseUnit = Ampere,
-        
+
         [UnitAbbreviation("yA")]
         [Scale(1e-24f)]
         Yoctoampere = -24,

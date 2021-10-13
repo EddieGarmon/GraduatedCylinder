@@ -11,10 +11,12 @@ namespace GraduatedCylinder.Units
     [DebuggerDisplay("{Value}")]
     public sealed class UnitAbbreviationAttribute : Attribute
     {
+
         public UnitAbbreviationAttribute(string value) {
             Value = value;
         }
 
         public string Value { get; private set; }
+
     }
 }

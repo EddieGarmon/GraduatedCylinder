@@ -40,14 +40,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Units\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="..\..\icon.png" Link="icon.png">
       <PackagePath>\</PackagePath>
       <Pack>true</Pack>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="SI Derived\" />
   </ItemGroup>
 
 </Project>

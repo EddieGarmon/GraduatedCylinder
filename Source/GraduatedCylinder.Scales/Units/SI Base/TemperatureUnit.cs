@@ -5,8 +5,9 @@ namespace GraduatedCylinder.Units
     /// <summary>
     /// One of the seven SI base quantities.
     /// </summary>
-    public enum TemperatureUnit:short
+    public enum TemperatureUnit : short
     {
+
         Unspecified = short.MinValue,
 
         BaseUnit = Celsius,
@@ -22,5 +23,6 @@ namespace GraduatedCylinder.Units
         [UnitAbbreviation("°F")]
         [ScaleAndOffset(9.0f / 5.0f, 32.0f)]
         Fahrenheit = 2
+
     }
 }

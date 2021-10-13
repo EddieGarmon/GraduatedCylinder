@@ -3,7 +3,7 @@ using GraduatedCylinder.Units;
 
 namespace GraduatedCylinder.Converters
 {
-    internal static partial class ElectricCurrentConverter
+    internal static class ElectricCurrentConverter
     {
 
         //todo: auto generate these methods from reflecting each units enumerations

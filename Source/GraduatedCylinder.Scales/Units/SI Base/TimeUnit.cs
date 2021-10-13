@@ -5,8 +5,9 @@ namespace GraduatedCylinder.Units
     /// <summary>
     /// One of the seven SI base quantities.
     /// </summary>
-    public enum TimeUnit:short
+    public enum TimeUnit : short
     {
+
         Unspecified = short.MinValue,
 
         BaseUnit = Second,
@@ -117,5 +118,6 @@ namespace GraduatedCylinder.Units
         [UnitAbbreviation("ticks")]
         [Scale(1e-7f)]
         Ticks = 110
+
     }
 }

@@ -5,8 +5,9 @@ namespace GraduatedCylinder.Units
     /// <summary>
     /// One of the seven SI base quantities.
     /// </summary>
-    public enum LuminousIntensityUnit:short
+    public enum LuminousIntensityUnit : short
     {
+
         Unspecified = short.MinValue,
 
         BaseUnit = Candela,
@@ -94,5 +95,6 @@ namespace GraduatedCylinder.Units
         [UnitAbbreviation("Ycd")]
         [Scale(1e24f)]
         Yottacandela = 24
+
     }
 }

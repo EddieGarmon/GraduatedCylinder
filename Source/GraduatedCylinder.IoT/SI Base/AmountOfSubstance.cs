@@ -6,8 +6,8 @@ namespace GraduatedCylinder
 {
     [StructLayout(LayoutKind.Sequential)]
     public readonly struct AmountOfSubstance : IDimension<AmountOfSubstance, AmountOfSubstanceUnit>,
-                                               IEquatable<AmountOfSubstance>,
-                                               IComparable<AmountOfSubstance>
+                                               IComparable<AmountOfSubstance>,
+                                               IEquatable<AmountOfSubstance>
     {
 
         private readonly float _value;
@@ -31,7 +31,7 @@ namespace GraduatedCylinder
         }
 
         public bool Equals(AmountOfSubstance other) {
-            return _units == other._units && _value.Equals(other._value);
+            return CompareTo(other) == 0;
         }
 
         public override bool Equals(object obj) {

@@ -7,6 +7,7 @@ namespace GraduatedCylinder.Converters
     /// </summary>
     public interface IUnitConverter
     {
+
         /// <summary>
         ///     Converts the specified value from the base units to its know units.
         /// </summary>
@@ -20,5 +21,6 @@ namespace GraduatedCylinder.Converters
         /// <param name="value">The value.</param>
         /// <returns>The value in base units</returns>
         float ToBaseUnit(float value);
+
     }
 }

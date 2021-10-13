@@ -5,8 +5,9 @@ namespace GraduatedCylinder.Units
     /// <summary>
     /// One of the seven SI base quantities.
     /// </summary>
-    public enum MassUnit:short
+    public enum MassUnit : short
     {
+
         Unspecified = short.MinValue,
 
         BaseUnit = Kilogram,
@@ -117,5 +118,6 @@ namespace GraduatedCylinder.Units
         [UnitAbbreviation("t")]
         [Scale(1016.0469088f)]
         TonsUK = 105
+
     }
 }
