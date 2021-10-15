@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.InteropServices;
+using GraduatedCylinder.Converters;
 using GraduatedCylinder.Units;
 
 namespace GraduatedCylinder
@@ -25,7 +26,9 @@ namespace GraduatedCylinder
         public int CompareTo(AmountOfSubstance other) {
             int unitsComparison = _units.CompareTo(other._units);
             if (unitsComparison != 0) {
-                return unitsComparison;
+                float thisInBase = AmountOfSubstanceConverter.ToBase(this);
+                float otherInBase = AmountOfSubstanceConverter.ToBase(other);
+                return thisInBase.CompareTo(otherInBase);
             }
             return _value.CompareTo(other._value);
         }

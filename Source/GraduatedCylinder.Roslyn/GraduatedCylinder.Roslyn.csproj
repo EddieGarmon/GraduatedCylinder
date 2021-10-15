@@ -5,7 +5,8 @@
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <DisableImplicitNamespaceImports>true</DisableImplicitNamespaceImports>
- 
+    <IsRoslynComponent>true</IsRoslynComponent>
+
     <!--  Dont Package as we are consuming as a project only -->
     <!--<PackageId>GraduatedCylinder.Roslyn</PackageId>
     <Title>GraduatedCylinder Code Generators</Title>

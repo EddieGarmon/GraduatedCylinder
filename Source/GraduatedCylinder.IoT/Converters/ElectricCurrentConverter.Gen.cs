@@ -1,26 +1,26 @@
-﻿using System;
-using GraduatedCylinder.Units;
+﻿//using System;
+//using GraduatedCylinder.Units;
 
-namespace GraduatedCylinder.Converters
-{
-    internal static class ElectricCurrentConverter
-    {
+//namespace GraduatedCylinder.Converters
+//{
+//    internal static class ElectricCurrentConverter
+//    {
 
-        //todo: auto generate these methods from reflecting each units enumerations
+//        //todo: auto generate these methods from reflecting each units enumerations
 
-        public static ElectricCurrent FromBase(float baseValue, ElectricCurrentUnits wantedUnits) {
-            switch (wantedUnits) {
-                //inline scale and offset calculations here.
-            }
-            throw new NotImplementedException("ElectricCurrentConverter.FromBase");
-        }
+//        public static ElectricCurrent FromBase(float baseValue, ElectricCurrentUnit wantedUnits) {
+//            switch (wantedUnits) {
+//                //inline scale and offset calculations here.
+//            }
+//            throw new NotImplementedException("ElectricCurrentConverter.FromBase");
+//        }
 
-        public static float ToBase(ElectricCurrent value) {
-            switch (value.Units) {
-                //inline scale and offset calculations here.
-            }
-            throw new NotImplementedException("ElectricCurrentConverter.ToBase");
-        }
+//        public static float ToBase(ElectricCurrent value) {
+//            switch (value.Units) {
+//                //inline scale and offset calculations here.
+//            }
+//            throw new NotImplementedException("ElectricCurrentConverter.ToBase");
+//        }
 
-    }
-}
+//    }
+//}

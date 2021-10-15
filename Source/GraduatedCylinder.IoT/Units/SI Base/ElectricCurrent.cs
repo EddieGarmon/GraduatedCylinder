@@ -6,20 +6,20 @@ using GraduatedCylinder.Units;
 namespace GraduatedCylinder
 {
     [StructLayout(LayoutKind.Sequential)]
-    public readonly struct ElectricCurrent : IDimension<ElectricCurrent, ElectricCurrentUnits>,
+    public readonly struct ElectricCurrent : IDimension<ElectricCurrent, ElectricCurrentUnit>,
                                              IComparable<ElectricCurrent>,
                                              IEquatable<ElectricCurrent>
     {
 
         private readonly float _value;
-        private readonly ElectricCurrentUnits _units;
+        private readonly ElectricCurrentUnit _units;
 
-        public ElectricCurrent(float value, ElectricCurrentUnits units) {
+        public ElectricCurrent(float value, ElectricCurrentUnit units) {
             _value = value;
             _units = units;
         }
 
-        public ElectricCurrentUnits Units => _units;
+        public ElectricCurrentUnit Units => _units;
 
         public float Value => _value;
 
@@ -45,7 +45,7 @@ namespace GraduatedCylinder
             return HashCode.Combine(_value, (int)_units);
         }
 
-        public ElectricCurrent In(ElectricCurrentUnits units) {
+        public ElectricCurrent In(ElectricCurrentUnit units) {
             if (Units == units) {
                 return this;
             }
@@ -53,7 +53,7 @@ namespace GraduatedCylinder
             return ElectricCurrentConverter.FromBase(baseValue, units);
         }
 
-        public static ElectricCurrent Zero => new ElectricCurrent(0, ElectricCurrentUnits.Ampere);
+        public static ElectricCurrent Zero => new ElectricCurrent(0, ElectricCurrentUnit.Ampere);
 
         //todo: operators
 

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using Microsoft.CodeAnalysis;
@@ -20,9 +21,9 @@ namespace GraduatedCylinder.Roslyn.Full
                                                               nameof(AssemblyConfigurationAttribute));
             string? configuration = (string?)attributeData.ConstructorArguments[0].Value;
 
-            Assembly assembly =
-                Assembly.LoadFrom(
-                    $"C:\\GSP-Projects\\GraduatedCylinder\\Source\\GraduatedCylinder\\bin\\{configuration}\\netstandard2.0\\GraduatedCylinder.dll");
+            string path = $"C:\\GSP-Projects\\GraduatedCylinder\\Source\\GraduatedCylinder\\bin\\{configuration}\\netstandard2.0\\GraduatedCylinder.dll";
+            byte[] contents = File.ReadAllBytes(path);
+            Assembly assembly = Assembly.Load(contents);
 
             SourceText converterText = SourceText.From(@"
 using System;

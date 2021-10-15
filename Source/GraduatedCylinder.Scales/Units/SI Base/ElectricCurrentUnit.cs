@@ -2,7 +2,7 @@
 
 namespace GraduatedCylinder.Units
 {
-    public enum ElectricCurrentUnits : short
+    public enum ElectricCurrentUnit : short
     {
 
         Unspecified = short.MinValue,
