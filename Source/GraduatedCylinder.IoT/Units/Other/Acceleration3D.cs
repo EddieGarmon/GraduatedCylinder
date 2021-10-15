@@ -1,9 +1,4 @@
 ﻿namespace GraduatedCylinder
 {
-    public class Acceleration3D
-    {
-
-        
-
-    }
+    public class Acceleration3D { }
 }

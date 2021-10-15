@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
-using GraduatedCylinder.Units;
 
 namespace GraduatedCylinder.IoT.Printing
 {

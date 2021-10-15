@@ -5,12 +5,14 @@
 
         public enum UnitType
         {
+
             RevolutionsPerSecond,
             RevolutionsPerMinute,
             RadiansPerSecond,
             RadiansPerMinute,
             DegreesPerSecond,
             DegreesPerMinute,
+
         }
 
     }

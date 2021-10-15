@@ -1,9 +1,4 @@
 ﻿namespace GraduatedCylinder
 {
-    public class Illuminance
-    {
-
-        
-
-    }
+    public class Illuminance { }
 }

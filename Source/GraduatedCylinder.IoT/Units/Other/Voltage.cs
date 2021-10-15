@@ -1,9 +1,4 @@
 ﻿namespace GraduatedCylinder
 {
-    public class Voltage
-    {
-
-        
-
-    }
+    public class Voltage { }
 }

@@ -1,9 +1,4 @@
 ﻿namespace GraduatedCylinder
 {
-    public class MagneticField3D
-    {
-
-        
-
-    }
+    public class MagneticField3D { }
 }

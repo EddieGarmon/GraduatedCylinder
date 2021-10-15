@@ -1,11 +1,9 @@
-﻿using System;
-using System.Runtime.InteropServices;
-using GraduatedCylinder.Units;
+﻿using System.Runtime.InteropServices;
 
 namespace GraduatedCylinder
 {
     [StructLayout(LayoutKind.Sequential)]
-    public readonly struct Momentum : IDimension<Momentum, MomentumUnit>, IComparable<Momentum>, IEquatable<Momentum>
+    public readonly partial struct Momentum : IDimension<Momentum, MomentumUnit>
     {
 
         private readonly float _value;
@@ -19,30 +17,6 @@ namespace GraduatedCylinder
         public MomentumUnit Units => _units;
 
         public float Value => _value;
-
-        public int CompareTo(Momentum other) {
-            int unitsComparison = _units.CompareTo(other._units);
-            if (unitsComparison != 0) {
-                return unitsComparison;
-            }
-            return _value.CompareTo(other._value);
-        }
-
-        public bool Equals(Momentum other) {
-            return CompareTo(other) == 0;
-        }
-
-        public override bool Equals(object? obj) {
-            return obj is Momentum other && Equals(other);
-        }
-
-        public override int GetHashCode() {
-            return HashCode.Combine((int)_units, _value);
-        }
-
-        public Momentum In(MomentumUnit units) {
-            throw new NotImplementedException();
-        }
 
     }
 }

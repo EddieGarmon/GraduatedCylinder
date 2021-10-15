@@ -1,6 +1,4 @@
-﻿using System;
-using System.Runtime.InteropServices;
-using GraduatedCylinder.Units;
+﻿using System.Runtime.InteropServices;
 
 namespace GraduatedCylinder
 {
@@ -19,7 +17,6 @@ namespace GraduatedCylinder
         public MassUnit Units => _units;
 
         public float Value => _value;
-
 
     }
 }

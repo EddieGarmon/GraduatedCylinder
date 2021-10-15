@@ -36,14 +36,11 @@
     <!-- Note that this is not a "normal" ProjectReference.
          It needs the additional 'OutputItemType' and 'ReferenceOutputAssmbly' attributes. -->
     <ProjectReference Include="..\GraduatedCylinder.Roslyn\GraduatedCylinder.Roslyn.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-    <ProjectReference Include="..\GraduatedCylinder.Scales\GraduatedCylinder.Scales.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\icon.png" Link="icon.png">
-      <PackagePath>\</PackagePath>
-      <Pack>true</Pack>
-    </None>
+    <None Include="..\..\icon.png" Pack="true" PackagePath="\" Visible="false" />
+    <None Update="GraduatedCylinder.IoT.csproj.DotSettings" Visible="false" />
   </ItemGroup>
 
 </Project>

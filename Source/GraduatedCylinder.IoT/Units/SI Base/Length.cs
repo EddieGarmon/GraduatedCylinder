@@ -1,11 +1,7 @@
-﻿using System;
-using System.Runtime.InteropServices;
-using GraduatedCylinder.Units;
+﻿using System.Runtime.InteropServices;
 
 namespace GraduatedCylinder
 {
-    public partial struct Length { }
-
     [StructLayout(LayoutKind.Sequential)]
     public readonly partial struct Length : IDimension<Length, LengthUnit>
     {

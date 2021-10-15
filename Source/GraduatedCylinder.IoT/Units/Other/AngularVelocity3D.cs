@@ -1,9 +1,4 @@
 ﻿namespace GraduatedCylinder
 {
-    public class AngularVelocity3D
-    {
-
-        
-
-    }
+    public class AngularVelocity3D { }
 }

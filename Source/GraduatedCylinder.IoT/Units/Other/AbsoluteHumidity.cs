@@ -1,9 +1,4 @@
 ﻿namespace GraduatedCylinder
 {
-    public class AbsoluteHumidity
-    {
-
-        
-
-    }
+    public class AbsoluteHumidity { }
 }

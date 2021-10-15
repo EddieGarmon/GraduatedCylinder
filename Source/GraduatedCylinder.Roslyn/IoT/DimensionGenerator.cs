@@ -1,4 +1,7 @@
-﻿using Microsoft.CodeAnalysis;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace GraduatedCylinder.Roslyn.IoT
 {
@@ -10,10 +13,34 @@ namespace GraduatedCylinder.Roslyn.IoT
             : base("GraduatedCylinder.IoT") { }
 
         protected override void ExecuteInternal(GeneratorExecutionContext context) {
-            string format = @"
+            if (context.SyntaxReceiver is not DimensionReceiver receiver) {
+                return;
+            }
+
+            List<string> log = receiver.Logs;
+            log.Insert(0, $"Execute Started: {DateTime.Now}");
+
+            try {
+                foreach (StructDeclarationSyntax @struct in receiver.Structs) {
+                    log.Add($"Generating for {@struct.Identifier}");
+                    string source = GenerateFor(@struct);
+                    context.AddSource($"{@struct.Identifier}.g.cs", source);
+                }
+            } finally {
+                log.Add($"Execute Finished: {DateTime.Now}");
+                string logContent = $"/*\r\n{string.Join(Environment.NewLine, receiver.Logs)}\r\n*/";
+                context.AddSource("Dimensions_Log.cs", logContent);
+            }
+        }
+
+        protected override void InitializeInternal(GeneratorInitializationContext context) {
+            context.RegisterForSyntaxNotifications(() => new DimensionReceiver());
+        }
+
+        private static string GenerateFor(StructDeclarationSyntax @struct) {
+            string format = @"//Generated {1}
 using System;
 using GraduatedCylinder.Converters;
-using GraduatedCylinder.Units;
 
 namespace GraduatedCylinder
 {{
@@ -34,7 +61,7 @@ namespace GraduatedCylinder
             return CompareTo(other) == 0;
         }}
 
-        public override bool Equals(object? obj) {{
+        public override bool Equals(object obj) {{
             return obj is {0} other && Equals(other);
         }}
 
@@ -53,15 +80,23 @@ namespace GraduatedCylinder
 
     }}
 }}";
-
-            string[] dimensions = { "Length", "Mass", "Time" };
-            foreach (string dimension in dimensions) {
-                string source = string.Format(format, dimension);
-                context.AddSource($"{dimension}.g.cs", source);
-            }
+            return string.Format(format, @struct.Identifier, DateTime.Now);
         }
 
-        protected override void InitializeInternal(GeneratorInitializationContext context) { }
+        internal sealed class DimensionReceiver : BaseReceiver
+        {
+
+            public List<StructDeclarationSyntax> Structs { get; } = new();
+
+            //this needs to catalog only and do it quickly
+            public override void OnVisitSyntaxNode(SyntaxNode syntaxNode) {
+                if (syntaxNode is StructDeclarationSyntax structSyntax) {
+                    Log($"Found struct {structSyntax.Identifier}");
+                    Structs.Add(structSyntax);
+                }
+            }
+
+        }
 
     }
 }
