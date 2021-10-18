@@ -18,5 +18,11 @@ namespace GraduatedCylinder
 
         public float Value => _value;
 
+        public static Area operator *(Length left, Length right) {
+            Length left2 = left.In(LengthUnit.Meter);
+            Length right2 = right.In(LengthUnit.Meter);
+            return new Area(left2.Value * right2.Value, AreaUnit.MeterSquared);
+        }
+
     }
 }
