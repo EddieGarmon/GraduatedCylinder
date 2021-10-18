@@ -18,12 +18,11 @@ namespace GraduatedCylinder.Roslyn.IoT
             }
             //Debugger.Launch();
 
-            string sourceRoot = @"C:\GSP-Projects\GraduatedCylinder\Source\GraduatedCylinder.IoT.Printing";
+            string sourceRoot = @"C:\GSP-Projects\GraduatedCylinder\Source\GraduatedCylinder.IoT.Text";
             string filename = $"{sourceRoot}\\PrintExtensions.g.cs";
 
-            Buffer.AppendLine("using GraduatedCylinder.IoT.Abbreviations;");
             Buffer.AppendLine();
-            Buffer.AppendLine("namespace GraduatedCylinder.IoT.Printing");
+            Buffer.AppendLine("namespace GraduatedCylinder.IoT.Text");
             Buffer.AppendLine("{");
             Buffer.AppendLine("\tpublic static partial class PrintExtensions");
             Buffer.AppendLine("\t{");
@@ -34,7 +33,7 @@ namespace GraduatedCylinder.Roslyn.IoT
 
                 Buffer.AppendLine();
                 Buffer.AppendLine(
-                    $"\t\tpublic static string ToString(this {names.DimensionTypeName} value, {names.UnitsTypeName} units = {names.UnitsTypeName}.Unspecified, int precision = 4) {{");
+                    $"\t\tpublic static string Print(this {names.DimensionTypeName} value, {names.UnitsTypeName} units = {names.UnitsTypeName}.Unspecified, int precision = 4) {{");
                 Buffer.AppendLine(
                     $"\t\t\t{names.DimensionTypeName} inUnits = value.In(units);");
                 Buffer.AppendLine(

@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace GraduatedCylinder.IoT.Parsing
+namespace GraduatedCylinder.IoT.Text
 {
     public static partial class Parser
     {

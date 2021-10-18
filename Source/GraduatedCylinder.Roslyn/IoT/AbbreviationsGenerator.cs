@@ -20,12 +20,12 @@ namespace GraduatedCylinder.Roslyn.IoT
             }
             //Debugger.Launch();
 
-            string sourceRoot = @"C:\GSP-Projects\GraduatedCylinder\Source\GraduatedCylinder.IoT.Abbreviations";
+            string sourceRoot = @"C:\GSP-Projects\GraduatedCylinder\Source\GraduatedCylinder.IoT.Text";
             string filename = $"{sourceRoot}\\ShortNames.g.cs";
 
             Buffer.AppendLine("using System;");
             Buffer.AppendLine();
-            Buffer.AppendLine("namespace GraduatedCylinder.IoT.Abbreviations");
+            Buffer.AppendLine("namespace GraduatedCylinder.IoT.Text");
             Buffer.AppendLine("{");
             Buffer.AppendLine("\tpublic static class ShortNames");
             Buffer.AppendLine("\t{");

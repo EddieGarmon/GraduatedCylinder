@@ -10,8 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GraduatedCylinder.IoT.Parsing\GraduatedCylinder.IoT.Parsing.csproj" />
-    <ProjectReference Include="..\GraduatedCylinder.IoT.Printing\GraduatedCylinder.IoT.Printing.csproj" />
+    <ProjectReference Include="..\GraduatedCylinder.IoT.Text\GraduatedCylinder.IoT.Text.csproj" />
     <ProjectReference Include="..\GraduatedCylinder.IoT\GraduatedCylinder.IoT.csproj" />
   </ItemGroup>
 

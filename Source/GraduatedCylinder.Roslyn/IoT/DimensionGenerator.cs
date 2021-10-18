@@ -63,7 +63,7 @@ namespace GraduatedCylinder
         }}
 
         public {0} In({0}Unit units) {{
-            if (Units == units) {{
+            if ((Units == units) || (units == {0}Unit.Unspecified)) {{
                 return this;
             }}
             float baseValue = {0}Converter.ToBase(this);

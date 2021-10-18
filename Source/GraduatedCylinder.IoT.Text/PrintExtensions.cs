@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 
-namespace GraduatedCylinder.IoT.Printing
+namespace GraduatedCylinder.IoT.Text
 {
     public static partial class PrintExtensions
     {

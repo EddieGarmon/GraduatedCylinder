@@ -2,17 +2,12 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <OutputType>Library</OutputType>
-    <AssemblyName>GraduatedCylinder.IoT.Parsing</AssemblyName>
-    <LangVersion>latest</LangVersion>
-    <Nullable>enable</Nullable>
+    <AssemblyName>MeadowLibrary</AssemblyName>
   </PropertyGroup>
-  
   <ItemGroup>
     <PackageReference Include="Meadow.Foundation" Version="0.*" />
   </ItemGroup>
-  
   <ItemGroup>
-    <ProjectReference Include="..\GraduatedCylinder.IoT.Abbreviations\GraduatedCylinder.IoT.Abbreviations.csproj" />
     <ProjectReference Include="..\GraduatedCylinder.IoT\GraduatedCylinder.IoT.csproj" />
   </ItemGroup>
 </Project>

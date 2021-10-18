@@ -18,14 +18,13 @@ namespace GraduatedCylinder.Roslyn.IoT
             }
             //Debugger.Launch();
 
-            string sourceRoot = @"C:\GSP-Projects\GraduatedCylinder\Source\GraduatedCylinder.IoT.Parsing";
+            string sourceRoot = @"C:\GSP-Projects\GraduatedCylinder\Source\GraduatedCylinder.IoT.Text";
             string filename = $"{sourceRoot}\\Parser.g.cs";
 
             Buffer.AppendLine("using System;");
             Buffer.AppendLine("using System.Text.RegularExpressions;");
-            Buffer.AppendLine("using GraduatedCylinder.IoT.Abbreviations;");
             Buffer.AppendLine("");
-            Buffer.AppendLine("namespace GraduatedCylinder.IoT.Parsing");
+            Buffer.AppendLine("namespace GraduatedCylinder.IoT.Text");
             Buffer.AppendLine("{");
             Buffer.AppendLine("\tpublic static partial class Parser");
             Buffer.AppendLine("\t{");
