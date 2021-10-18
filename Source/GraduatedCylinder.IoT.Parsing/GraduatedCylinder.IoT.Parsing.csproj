@@ -12,6 +12,7 @@
   </ItemGroup>
   
   <ItemGroup>
+    <ProjectReference Include="..\GraduatedCylinder.IoT.Abbreviations\GraduatedCylinder.IoT.Abbreviations.csproj" />
     <ProjectReference Include="..\GraduatedCylinder.IoT\GraduatedCylinder.IoT.csproj" />
   </ItemGroup>
 </Project>

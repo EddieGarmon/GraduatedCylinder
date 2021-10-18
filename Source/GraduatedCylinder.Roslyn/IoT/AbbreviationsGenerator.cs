@@ -18,7 +18,7 @@ namespace GraduatedCylinder.Roslyn.IoT
             if (context.SyntaxReceiver is not UnitReceiver receiver) {
                 return;
             }
-            Debugger.Launch();
+            //Debugger.Launch();
 
             string sourceRoot = @"C:\GSP-Projects\GraduatedCylinder\Source\GraduatedCylinder.IoT.Abbreviations";
             string filename = $"{sourceRoot}\\ShortNames.g.cs";
