@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
@@ -71,24 +70,33 @@ namespace GraduatedCylinder
             return {0}Converter.FromBase(baseValue, units);
         }}
 
+        public static bool operator ==({0} left, {0} right) {{
+            return Equals(left, right);
+        }}
+
+        public static bool operator >({0} left, {0} right) {{
+            return left.CompareTo(right) > 0;
+        }}
+
+        public static bool operator >=({0} left, {0} right) {{
+            return left.CompareTo(right) >= 0;
+        }}
+
+        public static bool operator !=({0} left, {0} right) {{
+            return !Equals(left, right);
+        }}
+
+        public static bool operator <({0} left, {0} right) {{
+            return left.CompareTo(right) < 0;
+        }}
+
+        public static bool operator <=({0} left, {0} right) {{
+            return left.CompareTo(right) <= 0;
+        }}
+
     }}
 }}";
             return string.Format(format, @struct.Identifier, DateTime.Now);
-        }
-
-        internal sealed class DimensionReceiver : BaseReceiver
-        {
-
-            public List<StructDeclarationSyntax> Structs { get; } = new();
-
-            //this needs to catalog only and do it quickly
-            public override void OnVisitSyntaxNode(SyntaxNode syntaxNode) {
-                if (syntaxNode is StructDeclarationSyntax structSyntax) {
-                    Log($"Found struct {structSyntax.Identifier}");
-                    Structs.Add(structSyntax);
-                }
-            }
-
         }
 
     }

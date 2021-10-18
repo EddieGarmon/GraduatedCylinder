@@ -1,5 +1,6 @@
 [Oo]bj
 [Bb]in
+*.g.cs
 
 Deploy/*
 Tools/*

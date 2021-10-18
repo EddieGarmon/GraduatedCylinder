@@ -3,30 +3,10 @@ using System.Globalization;
 
 namespace GraduatedCylinder.IoT.Printing
 {
-    public static class PrintExtensions
+    public static partial class PrintExtensions
     {
 
-        static readonly Dictionary<int, string> PrecisionFormats = new Dictionary<int, string>();
-
-        public static string ToString(this ElectricCurrent electricCurrent,
-                                      ElectricCurrentUnit units = ElectricCurrentUnit.Unspecified,
-                                      int precision = 4) {
-            ElectricCurrent inUnits = electricCurrent.Units == units || units == ElectricCurrentUnit.Unspecified ?
-                                          electricCurrent :
-                                          electricCurrent.In(units);
-            return string.Format(GetPrecisionFormat(precision), inUnits.Value, GetAbbreviation(inUnits.Units));
-        }
-
-        // todo: generate one of these per 'units' enum
-        private static string GetAbbreviation(ElectricCurrentUnit unit) {
-            //todo: generate this switch
-            switch (unit) {
-                case ElectricCurrentUnit.Ampere:
-                    return "A";
-                default:
-                    return unit.ToString();
-            }
-        }
+        private static Dictionary<int, string> PrecisionFormats { get; } = new Dictionary<int, string>();
 
         private static string GetPrecisionFormat(int precision) {
             if (!PrecisionFormats.TryGetValue(precision, out string format)) {

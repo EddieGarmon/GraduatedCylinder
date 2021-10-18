@@ -17,7 +17,7 @@ namespace GraduatedCylinder.Roslyn
         /// </summary>
         public string GeneratorFor { get; }
 
-        protected StringBuilder Buffer { get; set; } = new StringBuilder();//size=16384?
+        protected StringBuilder Buffer { get; set; } = new StringBuilder(); //size=16384?
 
 #if DEBUG
         private List<string> Logs { get; set; } = new();
@@ -40,16 +40,19 @@ namespace GraduatedCylinder.Roslyn
                 context.ReportDiagnostic(diagnostic);
             } finally {
                 Log($"Execute Finished: {DateTime.Now:O}");
-
                 string logContent = $"/*\r\n{string.Join(Environment.NewLine, Logs)}\r\n*/";
                 context.AddSource($"{GetType().Name}_Log.cs", logContent);
             }
         }
 
         public void Initialize(GeneratorInitializationContext context) {
-            Log($"Initialize Started: {DateTime.Now:O}");
             InitializeInternal(context);
-            Log($"Initialize Finished: {DateTime.Now:O}");
+        }
+
+        protected GeneratedFile BufferToGeneratedFile(string fileName) {
+            GeneratedFile file = new GeneratedFile(fileName, Buffer.ToString());
+            Buffer.Clear();
+            return file;
         }
 
         protected abstract void ExecuteInternal(GeneratorExecutionContext context);

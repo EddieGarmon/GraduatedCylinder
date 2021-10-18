@@ -2,6 +2,8 @@
   "solution": {
     "path": "GraduatedCylinder.sln",
     "projects": [
+      "Source\\GraduatedCylinder.IoT.Abbreviations\\GraduatedCylinder.IoT.Abbreviations.csproj",
+      "Source\\GraduatedCylinder.IoT.Json\\GraduatedCylinder.IoT.Json.csproj",
       "Source\\GraduatedCylinder.IoT.Parsing\\GraduatedCylinder.IoT.Parsing.csproj",
       "Source\\GraduatedCylinder.IoT.Printing\\GraduatedCylinder.IoT.Printing.csproj",
       "Source\\GraduatedCylinder.IoT\\GraduatedCylinder.IoT.csproj",

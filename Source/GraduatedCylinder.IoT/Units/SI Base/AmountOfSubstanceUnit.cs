@@ -1,4 +1,5 @@
 ﻿using System;
+using GraduatedCylinder.Abbreviations;
 using GraduatedCylinder.Scales;
 
 namespace GraduatedCylinder

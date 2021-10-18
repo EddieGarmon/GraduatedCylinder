@@ -1,7 +1,7 @@
 using System;
 using System.Diagnostics;
 
-namespace GraduatedCylinder
+namespace GraduatedCylinder.Abbreviations
 {
     /// <summary>
     ///     Apply this attribute to a dimensions unit to specify the string representation
