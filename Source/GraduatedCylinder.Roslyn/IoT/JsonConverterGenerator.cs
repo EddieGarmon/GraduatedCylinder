@@ -31,6 +31,7 @@ namespace GraduatedCylinder.Roslyn.IoT
         private void GenerateJsonConverter(string sourceRoot, StructDeclarationSyntax @struct) {
             string filename = $"{sourceRoot}\\{@struct.Identifier}JsonConverter.g.cs";
 
+            Buffer.AppendLine("#nullable enable");
             Buffer.AppendLine("using System;");
             Buffer.AppendLine("using System.Text.Json;");
             Buffer.AppendLine("using System.Text.Json.Serialization;");

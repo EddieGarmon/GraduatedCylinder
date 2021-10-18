@@ -1,4 +1,4 @@
-﻿<Project Sdk="Meadow.Sdk/1.1.0">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
@@ -9,7 +9,7 @@
     <Nullable>enable</Nullable>
 
     <PackageId>GraduatedCylinder.IoT</PackageId>
-    <Title>Graduated Cylinder for Meadow Devices</Title>
+    <Title>Graduated Cylinder for IoT</Title>
     <Description>A modeling of units of measures that does automatic conversion between units for any modeled quantity.</Description>
     <Product>Graduated Cylinder</Product>
     <Authors>Eddie Garmon</Authors>
@@ -25,10 +25,6 @@
     <IncludeSource>false</IncludeSource>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Meadow.Foundation" Version="0.*" />
-  </ItemGroup>
 
   <ItemGroup>
     <!-- Note that this is not a "normal" ProjectReference.

@@ -2,7 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <OutputType>Library</OutputType>
+    <AssemblyName>GraduatedCylinder.IoT.Json</AssemblyName>
+    <RootNamespace>GraduatedCylinder.IoT.Json</RootNamespace>
+    <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
+
+    <PackageId>GraduatedCylinder.IoT.Text</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
