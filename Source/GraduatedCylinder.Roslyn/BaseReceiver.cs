@@ -7,7 +7,7 @@ namespace GraduatedCylinder.Roslyn
     {
 
 #if DEBUG
-        public List<string> Logs { get; } = new();
+        internal List<string> Logs { get; } = new();
 #endif
 
         public abstract void OnVisitSyntaxNode(SyntaxNode syntaxNode);

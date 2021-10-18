@@ -16,20 +16,12 @@ namespace GraduatedCylinder.Roslyn.IoT
             if (context.SyntaxReceiver is not DimensionReceiver receiver) {
                 return;
             }
+            //Debugger.Launch();
 
-            List<string> log = receiver.Logs;
-            log.Insert(0, $"Execute Started: {DateTime.Now}");
-
-            try {
-                foreach (StructDeclarationSyntax @struct in receiver.Structs) {
-                    log.Add($"Generating for {@struct.Identifier}");
-                    string source = GenerateFor(@struct);
-                    context.AddSource($"{@struct.Identifier}.g.cs", source);
-                }
-            } finally {
-                log.Add($"Execute Finished: {DateTime.Now}");
-                string logContent = $"/*\r\n{string.Join(Environment.NewLine, receiver.Logs)}\r\n*/";
-                context.AddSource("Dimensions_Log.cs", logContent);
+            foreach (StructDeclarationSyntax @struct in receiver.Structs) {
+                Log($"Generating for {@struct.Identifier}");
+                string source = GenerateFor(@struct);
+                context.AddSource($"{@struct.Identifier}.g.cs", source);
             }
         }
 
@@ -38,6 +30,7 @@ namespace GraduatedCylinder.Roslyn.IoT
         }
 
         private static string GenerateFor(StructDeclarationSyntax @struct) {
+            //todo: add IsCloseTo() implementation
             string format = @"//Generated {1}
 using System;
 using GraduatedCylinder.Converters;

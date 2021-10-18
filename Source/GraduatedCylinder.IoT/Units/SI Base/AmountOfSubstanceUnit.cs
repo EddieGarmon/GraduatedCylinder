@@ -1,4 +1,5 @@
-﻿using GraduatedCylinder.Scales;
+﻿using System;
+using GraduatedCylinder.Scales;
 
 namespace GraduatedCylinder
 {

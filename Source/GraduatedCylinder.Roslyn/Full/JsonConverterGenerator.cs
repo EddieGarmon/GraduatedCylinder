@@ -21,7 +21,8 @@ namespace GraduatedCylinder.Roslyn.Full
                                                               nameof(AssemblyConfigurationAttribute));
             string? configuration = (string?)attributeData.ConstructorArguments[0].Value;
 
-            string path = $"C:\\GSP-Projects\\GraduatedCylinder\\Source\\GraduatedCylinder\\bin\\{configuration}\\netstandard2.0\\GraduatedCylinder.dll";
+            string path =
+                $"C:\\GSP-Projects\\GraduatedCylinder\\Source\\GraduatedCylinder\\bin\\{configuration}\\netstandard2.0\\GraduatedCylinder.dll";
             byte[] contents = File.ReadAllBytes(path);
             Assembly assembly = Assembly.Load(contents);
 

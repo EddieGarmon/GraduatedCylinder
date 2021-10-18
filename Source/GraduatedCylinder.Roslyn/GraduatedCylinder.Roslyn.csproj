@@ -8,24 +8,6 @@
     <IsRoslynComponent>true</IsRoslynComponent>
 
     <!--  Dont Package as we are consuming as a project only -->
-    <!--<PackageId>GraduatedCylinder.Roslyn</PackageId>
-    <Title>GraduatedCylinder Code Generators</Title>
-    <Product>GraduatedCylinder</Product>
-    <Authors>Eddie Garmon</Authors>
-    <Copyright>Copyright (c) Eddie Garmon 2010-2021</Copyright>
-    <PackageTags>GraduatedGylinder;Generators</PackageTags>
-    <PackageIconUrl></PackageIconUrl>
-    <PackageProjectUrl>https://github.com/EddieGarmon/SignalBlaster</PackageProjectUrl>
-    <PackageLicenseUrl></PackageLicenseUrl>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <IncludeSource>false</IncludeSource>
-    <IncludeSymbols>false</IncludeSymbols>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    --><!-- Do not package as a standard library --><!--
-    <IncludeBuildOutput>false</IncludeBuildOutput>
-    <NoWarn>NU5128</NoWarn>-->
-
-    <Version>0.100.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

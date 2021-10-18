@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using Microsoft.CodeAnalysis;
 
 namespace GraduatedCylinder.Roslyn
@@ -15,30 +17,50 @@ namespace GraduatedCylinder.Roslyn
         /// </summary>
         public string GeneratorFor { get; }
 
-        protected bool ShouldExecute { get; private set; }
+        protected StringBuilder Buffer { get; set; } = new StringBuilder();//size=16384?
+
+#if DEBUG
+        private List<string> Logs { get; set; } = new();
+#endif
 
         public void Execute(GeneratorExecutionContext context) {
-            ShouldExecute = context.Compilation.AssemblyName == GeneratorFor;
-            if (!ShouldExecute) {
+            if (context.Compilation.AssemblyName != GeneratorFor) {
                 return;
             }
             try {
+                if (context.SyntaxReceiver is BaseReceiver receiver) {
+                    Logs = receiver.Logs;
+                }
+                Log($"Execute Started: {DateTime.Now:O}");
                 ExecuteInternal(context);
             } catch (Exception e) {
                 DiagnosticDescriptor descriptor =
                     new(GetType().Name, "Error", e.ToString(), "Error", DiagnosticSeverity.Error, true);
                 Diagnostic diagnostic = Diagnostic.Create(descriptor, Location.None);
                 context.ReportDiagnostic(diagnostic);
+            } finally {
+                Log($"Execute Finished: {DateTime.Now:O}");
+
+                string logContent = $"/*\r\n{string.Join(Environment.NewLine, Logs)}\r\n*/";
+                context.AddSource($"{GetType().Name}_Log.cs", logContent);
             }
         }
 
         public void Initialize(GeneratorInitializationContext context) {
+            Log($"Initialize Started: {DateTime.Now:O}");
             InitializeInternal(context);
+            Log($"Initialize Finished: {DateTime.Now:O}");
         }
 
         protected abstract void ExecuteInternal(GeneratorExecutionContext context);
 
         protected abstract void InitializeInternal(GeneratorInitializationContext context);
+
+        protected void Log(string value) {
+#if DEBUG
+            Logs.Add(value);
+#endif
+        }
 
     }
 }
