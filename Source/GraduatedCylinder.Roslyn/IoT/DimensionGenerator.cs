@@ -95,6 +95,37 @@ namespace GraduatedCylinder
             return left.CompareTo(right) <= 0;
         }}
 
+        public static {0} operator +({0} left, {0} right) {{
+            {0} right2 = right.In(left.Units);
+            return new {0}(left.Value + right2.Value, left.Units);
+        }}
+
+        public static {0} operator -({0} left, {0} right) {{
+            {0} right2 = right.In(left.Units);
+            return new {0}(left.Value - right2.Value, left.Units);
+        }}
+
+        public static {0} operator -({0} source) {{
+            return new {0}(-source.Value, source.Units);
+        }}
+
+        public static {0} operator *({0} left, float right) {{
+            return new {0}(left.Value * right, left.Units);
+        }}
+
+        public static {0} operator *(float left, {0} right) {{
+            return new {0}(left * right.Value, right.Units);
+        }}
+
+        public static {0} operator /({0} left, float right) {{
+            return new {0}(left.Value / right, left.Units);
+        }}
+
+        public static float operator /({0} left, {0} right) {{
+            {0} right2 = right.In(left.Units);
+            return left.Value / right2.Value;
+        }}
+
     }}
 }}";
             return string.Format(format, @struct.Identifier, DateTime.Now);
