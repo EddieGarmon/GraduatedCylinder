@@ -74,8 +74,7 @@ namespace GraduatedCylinder
         }}
 
         public override int GetHashCode() {{
-            //todo: should this be dimension type and value in base?
-            return HashCode.Combine((int)_units, _value);
+            return (int)In({0}Unit.BaseUnit).Value;
         }}
 
         public {0} In({0}Unit units) {{
@@ -85,6 +84,16 @@ namespace GraduatedCylinder
             float baseValue = {0}Converter.ToBase(this);
             return {0}Converter.FromBase(baseValue, units);
         }}
+
+        public bool IsCloseTo({0} other) {{
+            {0} delta = this - other;
+            if (delta < Zero) {{
+                delta = -delta;
+            }}
+            return delta.Value < Close.Margin;
+        }}
+
+        public static {0} Zero {{ get; }} = new {0}(0, {0}Unit.BaseUnit);
 
         public static bool operator ==({0} left, {0} right) {{
             return Equals(left, right);

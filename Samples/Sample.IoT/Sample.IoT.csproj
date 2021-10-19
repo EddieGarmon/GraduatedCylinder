@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Source\GraduatedCylinder.IoT.Json\GraduatedCylinder.IoT.Json.csproj" />
     <ProjectReference Include="..\..\Source\GraduatedCylinder.IoT.Text\GraduatedCylinder.IoT.Text.csproj" />
     <ProjectReference Include="..\..\Source\GraduatedCylinder.IoT\GraduatedCylinder.IoT.csproj" />
   </ItemGroup>

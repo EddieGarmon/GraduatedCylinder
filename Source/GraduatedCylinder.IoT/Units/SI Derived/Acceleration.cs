@@ -5,8 +5,6 @@
 
         public static Acceleration Gravity => new Acceleration(9.80665f, AccelerationUnit.MeterPerSecondSquared);
 
-        public static Acceleration Zero => new Acceleration(0, AccelerationUnit.MeterPerSecondSquared);
-
         public static Time operator /(Acceleration acceleration, Jerk jerk) {
             acceleration = acceleration.In(AccelerationUnit.MeterPerSecondSquared);
             jerk = jerk.In(JerkUnit.MetersPerSecondCubed);

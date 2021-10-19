@@ -3,8 +3,6 @@
     public readonly partial struct ElectricCurrent : IDimension<ElectricCurrent, ElectricCurrentUnit>
     {
 
-        public static ElectricCurrent Zero => new ElectricCurrent(0, ElectricCurrentUnit.Ampere);
-
         public static Power operator *(ElectricCurrent left, ElectricPotential right) {
             left = left.In(ElectricCurrentUnit.Ampere);
             right = right.In(ElectricPotentialUnit.Volt);

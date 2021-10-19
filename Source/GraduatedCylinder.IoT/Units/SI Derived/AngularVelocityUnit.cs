@@ -8,7 +8,7 @@ namespace GraduatedCylinder
 
         Unspecified = short.MinValue,
 
-        BaseUnits = RadiansPerSecond,
+        BaseUnit = RadiansPerSecond,
 
         [UnitAbbreviation("rad/s")]
         [Scale(1.0f)]
