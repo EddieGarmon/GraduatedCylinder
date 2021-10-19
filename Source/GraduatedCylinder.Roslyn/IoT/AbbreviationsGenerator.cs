@@ -87,7 +87,6 @@ namespace GraduatedCylinder.Roslyn.IoT
 
             //don't add to the IoT.dll
             GeneratedFile generatedFile = BufferToGeneratedFile(filename);
-            //context.AddSource(generatedFile);
             File.WriteAllText(generatedFile.FileName, generatedFile.Content);
         }
 

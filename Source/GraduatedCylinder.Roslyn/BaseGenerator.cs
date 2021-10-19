@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
 using Microsoft.CodeAnalysis;
 
@@ -28,9 +27,11 @@ namespace GraduatedCylinder.Roslyn
                 return;
             }
             try {
+#if DEBUG
                 if (context.SyntaxReceiver is BaseReceiver receiver) {
                     Logs = receiver.Logs;
                 }
+#endif
                 Log($"Execute Started: {DateTime.Now:O}");
                 ExecuteInternal(context);
             } catch (Exception e) {
@@ -40,8 +41,10 @@ namespace GraduatedCylinder.Roslyn
                 context.ReportDiagnostic(diagnostic);
             } finally {
                 Log($"Execute Finished: {DateTime.Now:O}");
+#if DEBUG
                 string logContent = $"/*\r\n{string.Join(Environment.NewLine, Logs)}\r\n*/";
                 context.AddSource($"{GetType().Name}_Log.cs", logContent);
+#endif
             }
         }
 
