@@ -6,7 +6,6 @@
       "Source\\GraduatedCylinder.IoT.Json\\GraduatedCylinder.IoT.Json.csproj",
       "Source\\GraduatedCylinder.IoT.Text\\GraduatedCylinder.IoT.Text.csproj",
       "Source\\GraduatedCylinder.IoT\\GraduatedCylinder.IoT.csproj",
-      "Source\\GraduatedCylinder.Json\\GraduatedCylinder.Json.csproj",
       "Source\\GraduatedCylinder.Roslyn\\GraduatedCylinder.Roslyn.csproj",
       "Source\\GraduatedCylinder\\GraduatedCylinder.csproj",
       "Tests\\GraduatedCylinder.Tests\\GraduatedCylinder.Tests.csproj"

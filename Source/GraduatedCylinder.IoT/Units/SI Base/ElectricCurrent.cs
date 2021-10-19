@@ -20,7 +20,17 @@ namespace GraduatedCylinder
 
         public static ElectricCurrent Zero => new ElectricCurrent(0, ElectricCurrentUnit.Ampere);
 
-        //todo: operators
+        public static Power operator *(ElectricCurrent left, ElectricPotential right) {
+            var left2 = left.In(ElectricCurrentUnit.Ampere);
+            var right2 = right.In(ElectricPotentialUnit.Volt);
+            return new Power(left2.Value * right2.Value, PowerUnit.Watts);
+        }
+
+        public static ElectricPotential operator *(ElectricCurrent left, ElectricResistance right) {
+            ElectricCurrent left2 = left.In(ElectricCurrentUnit.Ampere);
+            ElectricResistance right2 = right.In(ElectricResistanceUnit.Ohm);
+            return new ElectricPotential(left2.Value * right2.Value, ElectricPotentialUnit.Volt);
+        }
 
     }
 }
