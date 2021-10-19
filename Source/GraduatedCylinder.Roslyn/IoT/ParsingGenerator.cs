@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
@@ -29,16 +28,18 @@ namespace GraduatedCylinder.Roslyn.IoT
             Buffer.AppendLine("\tpublic static partial class Parser");
             Buffer.AppendLine("\t{");
 
-            foreach (StructDeclarationSyntax @struct in receiver.Structs) {
+            foreach (StructDeclarationSyntax @struct in receiver.GetDimensions(context.Compilation)) {
                 Log($"Generating for {@struct.Identifier}");
                 NameSet names = NameSet.FromDimensionType(@struct.Identifier.ToString());
 
                 Buffer.AppendLine("");
-                Buffer.AppendLine($"\t\tpublic static {names.DimensionTypeName} Parse{names.DimensionTypeName}(string value, {names.UnitsTypeName} defaultUnits) {{");
+                Buffer.AppendLine(
+                    $"\t\tpublic static {names.DimensionTypeName} Parse{names.DimensionTypeName}(string value, {names.UnitsTypeName} defaultUnits) {{");
                 Buffer.AppendLine("\t\t\tMatch match = PairRegex.Match(value);");
                 Buffer.AppendLine("\t\t\tif (match.Success) {");
                 Buffer.AppendLine("\t\t\t\tif (float.TryParse(match.Groups[\"value\"].Value, out float floatValue)) {");
-                Buffer.AppendLine($"\t\t\t\t\t{names.UnitsTypeName} units = ShortNames.Get{names.UnitsTypeName}(match.Groups[\"units\"].Value);");
+                Buffer.AppendLine(
+                    $"\t\t\t\t\t{names.UnitsTypeName} units = ShortNames.Get{names.UnitsTypeName}(match.Groups[\"units\"].Value);");
                 Buffer.AppendLine($"\t\t\t\t\treturn new {names.DimensionTypeName}(floatValue, units);");
                 Buffer.AppendLine("\t\t\t\t}");
                 Buffer.AppendLine("\t\t\t\tthrow new Exception($\"Error parsing: {value}\");");

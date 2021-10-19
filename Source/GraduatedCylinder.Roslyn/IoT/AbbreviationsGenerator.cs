@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Text;
 using Microsoft.CodeAnalysis;
@@ -33,7 +32,7 @@ namespace GraduatedCylinder.Roslyn.IoT
             StringBuilder getAbbreviation = Buffer;
             StringBuilder getUnits = new StringBuilder();
 
-            foreach (EnumDeclarationSyntax @enum in receiver.Enums) {
+            foreach (EnumDeclarationSyntax @enum in receiver.GetUnits(context.Compilation)) {
                 Log($"Generating Abbreviations for {@enum.Identifier}");
                 NameSet names = NameSet.FromUnitsType(@enum.Identifier.ToString());
                 SemanticModel semanticModel = context.Compilation.GetSemanticModel(@enum.SyntaxTree);
@@ -57,12 +56,14 @@ namespace GraduatedCylinder.Roslyn.IoT
 
                     AttributeData? attribute = enumValue.GetAttributes()
                                                         .SingleOrDefault(
-                                                            a => a.AttributeClass?.ContainingNamespace.ToDisplayString() ==
-                                                                 "GraduatedCylinder.Abbreviations");
+                                                            a =>
+                                                                a.AttributeClass?.ContainingNamespace
+                                                                 .ToDisplayString() ==
+                                                                "GraduatedCylinder.Abbreviations");
                     if (attribute is null) {
                         continue;
                     }
-                    
+
                     getAbbreviation.AppendLine($"\t\t\t\tcase {names.UnitsTypeName}.{enumMember.Identifier}:");
                     getAbbreviation.AppendLine($"\t\t\t\t\treturn \"{attribute.ConstructorArguments[0].Value}\";");
 

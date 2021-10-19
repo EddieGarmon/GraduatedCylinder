@@ -17,7 +17,7 @@ namespace GraduatedCylinder.Roslyn.IoT
             }
             //Debugger.Launch();
 
-            foreach (StructDeclarationSyntax @struct in receiver.Structs) {
+            foreach (StructDeclarationSyntax @struct in receiver.GetDimensions(context.Compilation)) {
                 Log($"Generating for {@struct.Identifier}");
                 string source = GenerateFor(@struct);
                 context.AddSource($"{@struct.Identifier}.g.cs", source);
@@ -25,6 +25,7 @@ namespace GraduatedCylinder.Roslyn.IoT
         }
 
         protected override void InitializeInternal(GeneratorInitializationContext context) {
+            //Debugger.Launch();
             context.RegisterForSyntaxNotifications(() => new DimensionReceiver());
         }
 

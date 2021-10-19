@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
@@ -18,8 +20,8 @@ namespace GraduatedCylinder.Roslyn.IoT
             //Debugger.Launch();
 
             string sourceRoot = @"C:\GSP-Projects\GraduatedCylinder\Source\GraduatedCylinder.IoT.Json";
-            GenerateJsonHelper(sourceRoot, receiver);
-            foreach (StructDeclarationSyntax @struct in receiver.Structs) {
+            GenerateJsonHelper(sourceRoot, receiver, context.Compilation);
+            foreach (StructDeclarationSyntax @struct in receiver.GetDimensions(context.Compilation)) {
                 GenerateJsonConverter(sourceRoot, @struct);
             }
         }
@@ -71,7 +73,7 @@ namespace GraduatedCylinder.Roslyn.IoT
             File.WriteAllText(generatedFile.FileName, generatedFile.Content);
         }
 
-        private void GenerateJsonHelper(string sourceRoot, DimensionReceiver receiver) {
+        private void GenerateJsonHelper(string sourceRoot, DimensionReceiver receiver, Compilation compilation) {
             string filename = $"{sourceRoot}\\JsonHelper.g.cs";
 
             Buffer.AppendLine("using System.Text.Json;");
@@ -82,7 +84,8 @@ namespace GraduatedCylinder.Roslyn.IoT
             Buffer.AppendLine("\t{");
             Buffer.AppendLine();
 
-            foreach (StructDeclarationSyntax @struct in receiver.Structs) {
+            List<StructDeclarationSyntax>? dimensions = receiver.GetDimensions(compilation).ToList();
+            foreach (StructDeclarationSyntax @struct in dimensions) {
                 Buffer.AppendLine(
                     $"\t\tpublic static {@struct.Identifier}JsonConverter {@struct.Identifier}JsonConverter {{ get; }} = new {@struct.Identifier}JsonConverter();");
             }
@@ -90,7 +93,7 @@ namespace GraduatedCylinder.Roslyn.IoT
 
             Buffer.AppendLine("\t\tpublic static JsonSerializerOptions Options { get; } = new JsonSerializerOptions {");
             Buffer.AppendLine("\t\t\tConverters = {");
-            foreach (StructDeclarationSyntax @struct in receiver.Structs) {
+            foreach (StructDeclarationSyntax @struct in dimensions) {
                 Buffer.AppendLine($"\t\t\t\t{@struct.Identifier}JsonConverter,");
             }
             Buffer.AppendLine("\t\t\t}");
@@ -98,7 +101,7 @@ namespace GraduatedCylinder.Roslyn.IoT
             Buffer.AppendLine("");
 
             Buffer.AppendLine("\t\tpublic static void SetPrecision(int value) {");
-            foreach (StructDeclarationSyntax @struct in receiver.Structs) {
+            foreach (StructDeclarationSyntax @struct in dimensions) {
                 Buffer.AppendLine($"\t\t\t{@struct.Identifier}JsonConverter.Precision = value;");
             }
             Buffer.AppendLine("\t\t}");

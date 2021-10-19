@@ -10,16 +10,28 @@ namespace GraduatedCylinder.Roslyn.IoT
 
         public List<StructDeclarationSyntax> Structs { get; } = new();
 
+        public IEnumerable<StructDeclarationSyntax> GetDimensions(Compilation compilation) {
+            foreach (StructDeclarationSyntax @struct in Structs.OrderBy(s => s.Identifier.ToString())) {
+                SemanticModel semanticModel = compilation.GetSemanticModel(@struct.SyntaxTree);
+                ITypeSymbol? typeSymbol = (ITypeSymbol?)semanticModel.GetDeclaredSymbol(@struct);
+                if (typeSymbol is null) {
+                    continue;
+                }
+                bool isDimension = typeSymbol.AllInterfaces.Any(@interface => @interface.Name == "IDimension");
+                if (!isDimension) {
+                    continue;
+                }
+                yield return @struct;
+            }
+        }
+
         //this needs to catalog only and do it quickly
         public override void OnVisitSyntaxNode(SyntaxNode syntaxNode) {
             if (syntaxNode is StructDeclarationSyntax structSyntax) {
                 Log($"Found struct {structSyntax.Identifier}");
-
-                BaseTypeSyntax? singleOrDefault = structSyntax.BaseList?.Types.SingleOrDefault(syntax => syntax.ToString().StartsWith("IDimension"));
                 Structs.Add(structSyntax);
             }
         }
 
     }
-
 }

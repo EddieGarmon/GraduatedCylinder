@@ -18,9 +18,7 @@ namespace GraduatedCylinder.Roslyn.IoT
             }
             //Debugger.Launch();
 
-            foreach (EnumDeclarationSyntax @enum in receiver.Enums) {
-                //todo: ensure enum has base type of short
-
+            foreach (EnumDeclarationSyntax @enum in receiver.GetUnits(context.Compilation)) {
                 Log($"Generating for {@enum.Identifier}");
                 SemanticModel semanticModel = context.Compilation.GetSemanticModel(@enum.SyntaxTree);
                 context.AddSource(GenerateConverterFor(@enum, semanticModel));
