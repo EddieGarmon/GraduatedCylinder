@@ -9,15 +9,23 @@ namespace GraduatedCylinder
         Unspecified = short.MinValue,
 
         //todo: convert to rad/s^2 as the base
-        BaseUnit = RevolutionsPerMinutePerSecond,
+        BaseUnit = RadiansPerSecondSquared,
 
-        [UnitAbbreviation("r/min/s")]
+        [UnitAbbreviation("rad/s^2")]
         [Scale(1.0f)]
-        RevolutionsPerMinutePerSecond = 0,
+        RadiansPerSecondSquared = 0,
 
-        [UnitAbbreviation("r/s^2")]
-        [Scale(60.0f)]
-        RevolutionsPerSecondSquared = 1
+        [UnitAbbreviation("rad/min^2")]
+        [Scale(3600.0f)]
+        RadiansPerMinuteSquared,
+
+        [UnitAbbreviation("rev/s^2")]
+        [Scale(0.1591549431f)]
+        RevolutionsPerSecondSquared,
+
+        [UnitAbbreviation("rev/min/s")]
+        [Scale(9.549296586f)]
+        RevolutionsPerMinutePerSecond,
 
     }
 }

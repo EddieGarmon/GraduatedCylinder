@@ -104,7 +104,10 @@ namespace GraduatedCylinder
 
         [UnitAbbreviation("%grade")]
         [PercentGrade]
-        PercentGrade = 103
+        PercentGrade = 103,
+
+        [UnitAbbreviation("rev")]
+        Revolutions = 104,
 
     }
 }
