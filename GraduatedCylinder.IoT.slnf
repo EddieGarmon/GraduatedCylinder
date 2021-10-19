@@ -8,6 +8,7 @@
       "Source\\GraduatedCylinder.IoT\\GraduatedCylinder.IoT.csproj",
       "Source\\GraduatedCylinder.Roslyn\\GraduatedCylinder.Roslyn.csproj",
       "Source\\GraduatedCylinder\\GraduatedCylinder.csproj",
+      "Tests\\GraduatedCylinder.IoT.Tests\\GraduatedCylinder.IoT.Tests.csproj",
       "Tests\\GraduatedCylinder.Tests\\GraduatedCylinder.Tests.csproj"
     ]
   }
