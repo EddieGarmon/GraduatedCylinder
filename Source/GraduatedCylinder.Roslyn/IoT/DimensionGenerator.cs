@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
@@ -33,14 +34,28 @@ namespace GraduatedCylinder.Roslyn.IoT
             //todo: add IsCloseTo() implementation
             string format = @"//Generated {1}
 using System;
+using System.Runtime.InteropServices;
 using GraduatedCylinder.Converters;
 
 namespace GraduatedCylinder
 {{
-    public partial struct {0} : IComparable<{0}>, IEquatable<{0}>
+    [StructLayout(LayoutKind.Sequential)]
+    public readonly partial struct {0} : IComparable<{0}>, IEquatable<{0}>
     {{
 
-         public int CompareTo({0} other) {{
+        private readonly float _value;
+        private readonly {0}Unit _units;
+
+        public {0}(float value, {0}Unit units) {{
+            _value = value;
+            _units = units;
+        }}
+
+        public {0}Unit Units => _units;
+
+        public float Value => _value;
+
+        public int CompareTo({0} other) {{
             int unitsComparison = _units.CompareTo(other._units);
             if (unitsComparison != 0) {{
                 float thisInBase = {0}Converter.ToBase(this);
@@ -96,13 +111,13 @@ namespace GraduatedCylinder
         }}
 
         public static {0} operator +({0} left, {0} right) {{
-            {0} right2 = right.In(left.Units);
-            return new {0}(left.Value + right2.Value, left.Units);
+            right = right.In(left.Units);
+            return new {0}(left.Value + right.Value, left.Units);
         }}
 
         public static {0} operator -({0} left, {0} right) {{
-            {0} right2 = right.In(left.Units);
-            return new {0}(left.Value - right2.Value, left.Units);
+            right = right.In(left.Units);
+            return new {0}(left.Value - right.Value, left.Units);
         }}
 
         public static {0} operator -({0} source) {{
@@ -122,8 +137,8 @@ namespace GraduatedCylinder
         }}
 
         public static float operator /({0} left, {0} right) {{
-            {0} right2 = right.In(left.Units);
-            return left.Value / right2.Value;
+            right = right.In(left.Units);
+            return left.Value / right.Value;
         }}
 
     }}
