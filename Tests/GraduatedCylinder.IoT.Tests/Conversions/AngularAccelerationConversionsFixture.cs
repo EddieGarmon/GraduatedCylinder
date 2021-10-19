@@ -9,7 +9,7 @@ namespace GraduatedCylinder.IoT.Tests
         [Theory]
         [InlineData(36.75,
                     AngularAccelerationUnit.RevolutionsPerMinutePerSecond,
-                    0.6125,
+                    0.6125145,
                     AngularAccelerationUnit.RevolutionsPerSecondSquared)]
         public void AngularAccelerationConversions(float value1,
                                                    AngularAccelerationUnit units1,
