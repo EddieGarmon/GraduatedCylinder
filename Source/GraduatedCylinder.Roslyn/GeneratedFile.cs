@@ -1,4 +1,7 @@
-﻿namespace GraduatedCylinder.Roslyn
+﻿using System.IO;
+using Microsoft.CodeAnalysis;
+
+namespace GraduatedCylinder.Roslyn
 {
     public class GeneratedFile
     {
@@ -11,6 +14,15 @@
         public string Content { get; }
 
         public string FileName { get; }
+
+        public void AddToContext(GeneratorExecutionContext context) {
+            context.AddSource(FileName, Content);
+        }
+
+        public void SaveToDisk() {
+            //todo: ensure directory?
+            File.WriteAllText(FileName, Content);
+        }
 
     }
 }
