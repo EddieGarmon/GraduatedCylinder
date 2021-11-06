@@ -4,8 +4,7 @@ using System.Diagnostics;
 namespace GraduatedCylinder.Abbreviations
 {
     /// <summary>
-    ///     Apply this attribute to a dimensions unit to specify the string representation
-    ///     of the unit.
+    ///     Apply this attribute to a dimensions unit to specify the abbreviated representation of the unit.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field)]
     [DebuggerDisplay("{Value}")]

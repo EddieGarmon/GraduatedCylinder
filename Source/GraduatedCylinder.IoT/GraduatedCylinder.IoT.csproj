@@ -27,6 +27,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="..\GraduatedCylinder\Abbreviations\UnitAbbreviationAttribute.cs" Link="Abbreviations\UnitAbbreviationAttribute.cs" />
+    <Compile Include="..\GraduatedCylinder\Scales\PercentGradeAttribute.cs" Link="Scales\PercentGradeAttribute.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <!-- Note that this is not a "normal" ProjectReference.
          It needs the additional 'OutputItemType' and 'ReferenceOutputAssmbly' attributes. -->
     <ProjectReference Include="..\GraduatedCylinder.Roslyn\GraduatedCylinder.Roslyn.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
@@ -35,6 +40,10 @@
   <ItemGroup>
     <None Include="..\..\icon.png" Pack="true" PackagePath="\" Visible="false" />
     <None Update="GraduatedCylinder.IoT.csproj.DotSettings" Visible="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Abbreviations\" />
   </ItemGroup>
 
 </Project>

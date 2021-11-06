@@ -4,7 +4,7 @@
     <TargetFrameworks>netstandard2.0;net48;net5.0;net6.0</TargetFrameworks>
     <OutputType>Library</OutputType>
     <AssemblyName>GraduatedCylinder</AssemblyName>
-    <RootNamespace />
+    <RootNamespace>GraduatedCylinder</RootNamespace>
     <LangVersion>latest</LangVersion>
     <!--<Nullable>enable</Nullable>-->
 
@@ -28,6 +28,10 @@
 
   <ItemGroup>
     <None Include="..\..\icon.png" Pack="true" PackagePath="\" Visible="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Units\" />
   </ItemGroup>
 
 </Project>
