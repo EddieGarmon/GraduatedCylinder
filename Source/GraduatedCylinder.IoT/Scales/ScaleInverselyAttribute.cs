@@ -7,7 +7,7 @@ namespace GraduatedCylinder.Scales
     ///     This attribute should be applied to units that need inverse proportionality and scaling to go to and
     ///     from the base units.
     /// </summary>
-    [DebuggerDisplay("InverseScaleFactor: {InverseScaleFactor} | ScaleFactor: {ScaleFactor}")]
+    [DebuggerDisplay("ScaleFactor: {ScaleFactor} | InverseScaleFactor: {InverseScaleFactor}")]
     public sealed class ScaleInverselyAttribute : Attribute
     {
 
