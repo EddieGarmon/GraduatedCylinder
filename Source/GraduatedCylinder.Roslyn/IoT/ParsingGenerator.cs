@@ -1,5 +1,4 @@
-﻿using System.IO;
-using Microsoft.CodeAnalysis;
+﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace GraduatedCylinder.Roslyn.IoT;

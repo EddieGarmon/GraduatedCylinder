@@ -1,7 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
+﻿using System.Linq;
 using System.Text;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -45,8 +42,7 @@ public class ShortNamesGenerator : BaseGenerator
             SemanticModel semanticModel = context.Compilation.GetSemanticModel(@enum.SyntaxTree);
 
             getAbbreviation.AppendLine();
-            getAbbreviation.AppendLine(
-                $"\t\tpublic static string GetAbbreviation(this {names.UnitsTypeName} unit) {{");
+            getAbbreviation.AppendLine($"\t\tpublic static string GetAbbreviation(this {names.UnitsTypeName} unit) {{");
             getAbbreviation.AppendLine("\t\t\tswitch (unit) {");
 
             getUnits.AppendLine();
@@ -63,10 +59,8 @@ public class ShortNamesGenerator : BaseGenerator
 
                 AttributeData? attribute = enumValue.GetAttributes()
                                                     .SingleOrDefault(
-                                                        a =>
-                                                            a.AttributeClass?.ContainingNamespace
-                                                             .ToDisplayString() ==
-                                                            "GraduatedCylinder.Abbreviations");
+                                                        a => a.AttributeClass?.ContainingNamespace.ToDisplayString() ==
+                                                             "GraduatedCylinder.Abbreviations");
                 if (attribute is null) {
                     continue;
                 }

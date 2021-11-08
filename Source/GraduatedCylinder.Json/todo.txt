@@ -1,2 +1,0 @@
-﻿implement all json converters with source generators
-https://blog.jetbrains.com/dotnet/2020/11/12/source-generators-in-net-5-with-resharper/

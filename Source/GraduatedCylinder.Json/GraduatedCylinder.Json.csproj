@@ -5,6 +5,7 @@
   
     <AssemblyName>GraduatedCylinder.Json</AssemblyName>
     <RootNamespace>GraduatedCylinder.Json</RootNamespace>
+    <LangVersion>latest</LangVersion>
 
     <PackageId>GraduatedCylinder.Json</PackageId>
     <Title>Graduated Cylinder Json</Title>
@@ -29,7 +30,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GraduatedCylinder.Roslyn\GraduatedCylinder.Roslyn.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
     <ProjectReference Include="..\GraduatedCylinder\GraduatedCylinder.csproj" />
   </ItemGroup>
 

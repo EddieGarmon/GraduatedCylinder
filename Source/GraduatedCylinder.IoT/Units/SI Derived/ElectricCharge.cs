@@ -1,6 +1,6 @@
 ﻿namespace GraduatedCylinder
 {
-    public partial struct ElectricCharge:IDimension<ElectricCharge,ElectricChargeUnit>
+    public readonly partial struct ElectricCharge : IDimension<ElectricCharge, ElectricChargeUnit>
     {
 
         public static ElectricCharge ElementaryCharge { get; } =

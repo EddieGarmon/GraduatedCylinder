@@ -14,8 +14,8 @@ namespace GraduatedCylinder.Geo
             public Datum(DateTime time,
                          Latitude latitude,
                          Longitude longitude,
-                         Length altitude = null,
-                         Speed speed = null,
+                         Length altitude ,
+                         Speed speed,
                          Heading heading = null) {
                 Time = time;
                 Location = new GeoPosition(latitude, longitude, altitude);

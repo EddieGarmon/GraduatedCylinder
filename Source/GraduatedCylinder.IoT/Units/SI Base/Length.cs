@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace GraduatedCylinder
+﻿namespace GraduatedCylinder
 {
     public readonly partial struct Length : IDimension<Length, LengthUnit>
     {

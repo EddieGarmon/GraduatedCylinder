@@ -45,8 +45,7 @@ public class JsonConverterGenerator : BaseGenerator
         Buffer.AppendLine("");
         Buffer.AppendLine("namespace GraduatedCylinder.IoT.Json");
         Buffer.AppendLine("{");
-        Buffer.AppendLine(
-            $"\tpublic class {@struct.Identifier}JsonConverter : JsonConverter<{@struct.Identifier}>");
+        Buffer.AppendLine($"\tpublic class {@struct.Identifier}JsonConverter : JsonConverter<{@struct.Identifier}>");
         Buffer.AppendLine("\t{");
         Buffer.AppendLine("");
         Buffer.AppendLine("\t\tpublic int Precision { get; set; } = 2;");

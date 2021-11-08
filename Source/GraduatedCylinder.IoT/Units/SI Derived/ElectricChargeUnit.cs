@@ -4,8 +4,9 @@ using GraduatedCylinder.Scales;
 namespace GraduatedCylinder
 {
     //todo:
-   public enum ElectricChargeUnit:short
+    public enum ElectricChargeUnit : short
     {
+
         Unspecified = short.MinValue,
 
         BaseUnit = Coulomb,

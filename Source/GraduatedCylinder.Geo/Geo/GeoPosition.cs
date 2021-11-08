@@ -3,7 +3,10 @@
     public class GeoPosition
     {
 
-        public GeoPosition(Latitude latitude, Longitude longitude, Length altitude = null) {
+        public GeoPosition(Latitude latitude, Longitude longitude)
+            : this(latitude, longitude, Length.Zero) { }
+
+        public GeoPosition(Latitude latitude, Longitude longitude, Length altitude) {
             Latitude = latitude;
             Longitude = longitude;
             Altitude = altitude;

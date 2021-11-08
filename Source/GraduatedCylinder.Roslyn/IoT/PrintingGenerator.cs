@@ -41,10 +41,10 @@ public class PrintingGenerator : BaseGenerator
                 "\t\t\treturn string.Format(GetPrecisionFormat(precision), inUnits.Value, inUnits.Units.GetAbbreviation());");
             Buffer.AppendLine("\t\t}");
             Buffer.AppendLine();
-            Buffer.AppendLine($"\t\tpublic static string Print(this {names.DimensionTypeName} value, UnitPreferences preferences) {{");
+            Buffer.AppendLine(
+                $"\t\tpublic static string Print(this {names.DimensionTypeName} value, UnitPreferences preferences) {{");
             Buffer.AppendLine($"\t\t\treturn Print(value, preferences.{names.UnitsTypeName}, preferences.Precision);");
             Buffer.AppendLine("\t\t}");
-
         }
 
         Buffer.AppendLine("\t}");

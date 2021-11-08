@@ -11,10 +11,16 @@ namespace Sample.JsonUsage
         static void Main(string[] args) {
             JsonSerializerOptions options = new() {
                 WriteIndented = true,
-                Converters = { new LengthConverter() { Units = LengthUnit.Foot, Precision = 4 } }
+                Converters = {
+                    new LengthJsonConverter { Units = LengthUnit.Foot, Precision = 4 },
+                    new AreaJsonConverter { Units = AreaUnit.InchSquared, Precision = 3 },
+                    new VolumeJsonConverter { Units = VolumeUnit.CubicCentimeters, Precision = 2 }
+                }
             };
 
-            Cube cube = new Cube(3.0.Feet(), 0.5.Meters(), 12.0.Inches());
+            Cube cube = new Cube(new Length(3.0, LengthUnit.Foot),
+                                 new Length(0.5, LengthUnit.Meter),
+                                 new Length(12.0, LengthUnit.Inch));
             string json = JsonSerializer.Serialize(cube, options);
 
             Console.WriteLine(json);

@@ -1,4 +1,4 @@
 ﻿namespace GraduatedCylinder
 {
-    public partial struct RelativeHumidity : IDimension<RelativeHumidity, RelativeHumidityUnit> { }
+    public readonly partial struct RelativeHumidity : IDimension<RelativeHumidity, RelativeHumidityUnit> { }
 }
