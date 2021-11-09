@@ -95,7 +95,7 @@ namespace GraduatedCylinder
         Yottaradian = 24,
 
         [UnitAbbreviation("°")]
-        [Scale(0.0174532925199f)]
+        [Scale(0.0174532925199433f)]
         Degree = 101,
 
         [UnitAbbreviation("grads")]

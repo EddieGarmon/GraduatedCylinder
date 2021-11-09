@@ -38,9 +38,9 @@ namespace GraduatedCylinder
         LitersPerHour = 2,
 
         /// <summary>
-        ///     Meters^3/Second
+        ///     Meters³/Second
         /// </summary>
-        [UnitAbbreviation("m^3/s")]
+        [UnitAbbreviation("m³/s")]
         [Scale(1e3f)]
         CubicMetersPerSecond = 3,
 

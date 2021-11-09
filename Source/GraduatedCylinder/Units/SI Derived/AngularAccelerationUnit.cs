@@ -10,15 +10,15 @@ namespace GraduatedCylinder
 
         BaseUnit = RadiansPerSecondSquared,
 
-        [UnitAbbreviation("rad/s^2")]
+        [UnitAbbreviation("rad/s²")]
         [Scale(1.0f)]
         RadiansPerSecondSquared = 0,
 
-        [UnitAbbreviation("rad/min^2")]
+        [UnitAbbreviation("rad/min²")]
         [Scale(0.00028f)]
         RadiansPerMinuteSquared = 1,
 
-        [UnitAbbreviation("rev/s^2")]
+        [UnitAbbreviation("rev/s²")]
         [Scale(6.33345f)]
         RevolutionsPerSecondSquared = 100,
 
@@ -26,8 +26,8 @@ namespace GraduatedCylinder
         [Scale(0.10556f)]
         RevolutionsPerMinutePerSecond = 101,
 
-        [UnitAbbreviation("rev/min^2")]
-        [Scale(0.00176f)]
+        [UnitAbbreviation("rev/min²")]
+        [Scale(0.0017453f)]
         RevolutionsPerSquareMinute = 102
 
     }

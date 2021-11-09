@@ -3,9 +3,6 @@ using GraduatedCylinder.Scales;
 
 namespace GraduatedCylinder
 {
-    /// <summary>
-    /// One of the seven SI base quantities.
-    /// </summary>
     public enum LengthUnit : short
     {
 
@@ -53,9 +50,6 @@ namespace GraduatedCylinder
         [Scale(1e-1f)]
         Decimeter = -1,
 
-        /// <summary>
-        /// This is the Base Unit
-        /// </summary>
         [UnitAbbreviation("m")]
         [Scale(1.0f)]
         Meter = 0,

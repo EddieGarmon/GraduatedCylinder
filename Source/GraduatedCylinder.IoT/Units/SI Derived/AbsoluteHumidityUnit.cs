@@ -10,11 +10,11 @@ namespace GraduatedCylinder
 
         BaseUnit = GramsPerCubicMeter,
 
-        [UnitAbbreviation("g/m^3")]
+        [UnitAbbreviation("g/m³")]
         [Scale(1e-24f)]
         GramsPerCubicMeter = 0,
 
-        [UnitAbbreviation("kg/m^3")]
+        [UnitAbbreviation("kg/m³")]
         [Scale(1000f)]
         KilogramsPerCubicMeter,
 

@@ -4,7 +4,7 @@ using GraduatedCylinder.Scales;
 namespace GraduatedCylinder
 {
     /// <summary>
-    ///     List of Density units that are supported,Kilograms/Meter^3 is the Base Unit.
+    ///     List of Density units that are supported,Kilograms/Meter³ is the Base Unit.
     /// </summary>
     public enum MassDensityUnit : short
         //to
@@ -13,14 +13,14 @@ namespace GraduatedCylinder
         Unspecified = short.MinValue,
 
         /// <summary>
-        ///     Kilograms/Meter^3, This is the Base Unit
+        ///     Kilograms/Meter³, This is the Base Unit
         /// </summary>
         BaseUnit = KilogramsPerCubicMeter,
 
         /// <summary>
-        ///     Kilograms/Meter^3, This is the Base Unit
+        ///     Kilograms/Meter³, This is the Base Unit
         /// </summary>
-        [UnitAbbreviation("kg/m^3")]
+        [UnitAbbreviation("kg/m³")]
         [Scale(1.0f)]
         KilogramsPerCubicMeter = 0,
 
@@ -46,16 +46,16 @@ namespace GraduatedCylinder
         GramsPerMilliliter = 3,
 
         /// <summary>
-        ///     Grams/Centimeter^3
+        ///     Grams/Centimeter³
         /// </summary>
-        [UnitAbbreviation("g/cm^3")]
+        [UnitAbbreviation("g/cm³")]
         [Scale(1000f)]
         GramsPerCubicCentimeter = 4,
 
         /// <summary>
-        ///     Pounds/Feet^3
+        ///     Pounds/Feet³
         /// </summary>
-        [UnitAbbreviation("lb/ft^3")]
+        [UnitAbbreviation("lb/ft³")]
         [Scale(16.018463f)]
         PoundsPerCubicFeet = 5
 

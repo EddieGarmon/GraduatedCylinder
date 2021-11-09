@@ -31,9 +31,9 @@ namespace GraduatedCylinder
         MegaPascals = 1,
 
         /// <summary>
-        ///     Newtons/Meters^2
+        ///     Newtons/Meters²
         /// </summary>
-        [UnitAbbreviation("N/m^2")]
+        [UnitAbbreviation("N/m²")]
         [Scale(1.0f)]
         NewtonsPerSquareMeter = 2,
 
@@ -45,9 +45,9 @@ namespace GraduatedCylinder
         InchesOfMercury = 3,
 
         /// <summary>
-        ///     Kilogram Force/Meters^2
+        ///     Kilogram Force/Meters²
         /// </summary>
-        [UnitAbbreviation("kgf/m^2")]
+        [UnitAbbreviation("kgf/m²")]
         [Scale(9.80665f)]
         KilogramForcePerSquareMeter = 4,
 
@@ -73,7 +73,7 @@ namespace GraduatedCylinder
         Bars = 7,
 
         /// <summary>
-        ///     Pounds/Inch^2
+        ///     Pounds/Inch²
         /// </summary>
         [UnitAbbreviation("psi")]
         [Scale(6894.76f)]

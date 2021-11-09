@@ -5,9 +5,9 @@
 //        BaseUnit = MetersSquaredPerSecondSquared,
 
 //        /// <summary>
-//        ///     Meters^2/Second^2, This is the Base Unit
+//        ///     Meters²/Second², This is the Base Unit
 //        /// </summary>
-//        [UnitAbbreviation("m^2/s^2")]
+//        [UnitAbbreviation("m²/s²")]
 //        [Scale(1.0)]
 //        MetersSquaredPerSecondSquared = 0
 //    }

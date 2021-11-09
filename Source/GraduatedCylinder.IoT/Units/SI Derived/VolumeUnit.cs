@@ -17,21 +17,21 @@ namespace GraduatedCylinder
         BaseUnit = CubicMeters,
 
         /// <summary>
-        ///     Meters^3
+        ///     Meters³
         /// </summary>
-        [UnitAbbreviation("m^3")]
+        [UnitAbbreviation("m³")]
         [Scale(1.0f)]
         CubicMeters = 0,
 
         /// <summary>
-        ///     Millimeters^3
+        ///     Millimeters³
         /// </summary>
-        [UnitAbbreviation("mm^3")]
+        [UnitAbbreviation("mm³")]
         [Scale(0.000000001f)]
         CubicMillimeters = 1,
 
         /// <summary>
-        ///     Centimeters^3
+        ///     Centimeters³
         /// </summary>
         [UnitAbbreviation("cc")]
         [Scale(0.000001f)]
@@ -52,9 +52,9 @@ namespace GraduatedCylinder
         Centilitres = 4,
 
         /// <summary>
-        ///     Decimeters^3
+        ///     Decimeters³
         /// </summary>
-        [UnitAbbreviation("dm^3")]
+        [UnitAbbreviation("dm³")]
         [Scale(.001f)]
         CubicDecimeters = 5,
 
@@ -66,9 +66,9 @@ namespace GraduatedCylinder
         Liters = 6,
 
         /// <summary>
-        ///     Inches^3
+        ///     Inches³
         /// </summary>
-        [UnitAbbreviation("in^3")]
+        [UnitAbbreviation("in³")]
         [Scale(0.000016387064f)]
         CubicInches = 7,
 
@@ -150,16 +150,16 @@ namespace GraduatedCylinder
         GallonsUK = 18,
 
         /// <summary>
-        ///     Feet^3
+        ///     Feet³
         /// </summary>
-        [UnitAbbreviation("ft^3")]
+        [UnitAbbreviation("ft³")]
         [Scale(.028316846592f)]
         CubicFeet = 19,
 
         /// <summary>
-        ///     Yards^3
+        ///     Yards³
         /// </summary>
-        [UnitAbbreviation("yd^3")]
+        [UnitAbbreviation("yd³")]
         [Scale(.764554857984f)]
         CubicYards = 20
 

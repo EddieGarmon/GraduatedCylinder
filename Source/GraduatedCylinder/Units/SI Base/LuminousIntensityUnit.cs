@@ -3,9 +3,6 @@ using GraduatedCylinder.Scales;
 
 namespace GraduatedCylinder
 {
-    /// <summary>
-    /// One of the seven SI base quantities.
-    /// </summary>
     public enum LuminousIntensityUnit : short
     {
 

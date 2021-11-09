@@ -9,7 +9,7 @@ namespace GraduatedCylinder.IoT.Text
         private static Dictionary<int, string> PrecisionFormats { get; } = new Dictionary<int, string>();
 
         private static string GetPrecisionFormat(int precision) {
-            if (!PrecisionFormats.TryGetValue(precision, out string format)) {
+            if (!PrecisionFormats.TryGetValue(precision, out string? format)) {
                 format = "{0:N[pre]} {1}".Replace("[pre]", precision.ToString(CultureInfo.InvariantCulture));
                 PrecisionFormats.Add(precision, format);
             }

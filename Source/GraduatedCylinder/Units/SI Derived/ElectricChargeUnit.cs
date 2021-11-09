@@ -4,8 +4,9 @@ using GraduatedCylinder.Scales;
 namespace GraduatedCylinder
 {
     //todo:
-   public enum ElectricChargeUnit:short
+    public enum ElectricChargeUnit : short
     {
+
         Unspecified = short.MinValue,
 
         BaseUnit = Coulomb,
@@ -13,7 +14,10 @@ namespace GraduatedCylinder
         [UnitAbbreviation("C")]
         [Scale(1.0f)]
         Coulomb = 0,
-        AmpereSecond = 0,
+
+        [UnitAbbreviation("As")]
+        [Scale(1.0f)]
+        AmpereSecond = 1,
 
         [UnitAbbreviation("mAh")]
         [Scale(3.6f)]

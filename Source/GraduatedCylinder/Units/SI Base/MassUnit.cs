@@ -3,9 +3,6 @@ using GraduatedCylinder.Scales;
 
 namespace GraduatedCylinder
 {
-    /// <summary>
-    /// One of the seven SI base quantities.
-    /// </summary>
     public enum MassUnit : short
     {
 
@@ -65,9 +62,6 @@ namespace GraduatedCylinder
         [Scale(1e-1f)]
         Hectogram = 2,
 
-        /// <summary>
-        /// This is the Base Unit
-        /// </summary>
         [UnitAbbreviation("kg")]
         [Scale(1.0f)]
         Kilogram = 3,
