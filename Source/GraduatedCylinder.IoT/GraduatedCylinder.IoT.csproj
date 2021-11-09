@@ -8,6 +8,8 @@
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
 
+    <DefineConstants>$(DefineConstants);IOT</DefineConstants>
+
     <PackageId>GraduatedCylinder.IoT</PackageId>
     <Title>Graduated Cylinder for IoT</Title>
     <Description>A modeling of units of measures that does automatic conversion between units for any modeled quantity.</Description>
@@ -29,6 +31,11 @@
   <ItemGroup>
     <Compile Include="..\GraduatedCylinder\Abbreviations\UnitAbbreviationAttribute.cs" Link="Abbreviations\UnitAbbreviationAttribute.cs" />
     <Compile Include="..\GraduatedCylinder\Scales\PercentGradeAttribute.cs" Link="Scales\PercentGradeAttribute.cs" />
+    <Compile Include="..\GraduatedCylinder\Scales\ScaleAndOffsetAttribute.cs" Link="Scales\ScaleAndOffsetAttribute.cs" />
+    <Compile Include="..\GraduatedCylinder\Scales\ScaleAttribute.cs" Link="Scales\ScaleAttribute.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\IDimension.cs" Link="Units\IDimension.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Base\AmountOfSubstance.cs" Link="Units\SI Base\AmountOfSubstance.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Base\AmountOfSubstanceUnit.cs" Link="Units\SI Base\AmountOfSubstanceUnit.cs" />
     <Compile Include="..\GraduatedCylinder\Units\UnitPreferences.cs" Link="Units\UnitPreferences.cs" />
   </ItemGroup>
 

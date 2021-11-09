@@ -4,12 +4,17 @@
     <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
     <OutputType>Library</OutputType>
     <AssemblyName>GraduatedCylinder.IoT.Text</AssemblyName>
-    <RootNamespace>GraduatedCylinder.IoT.Text</RootNamespace>
+    <RootNamespace>GraduatedCylinder.Text</RootNamespace>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
 
     <PackageId>GraduatedCylinder.IoT.Text</PackageId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\GraduatedCylinder\Text\Formats.cs" Link="Formats.cs" />
+    <Compile Include="..\GraduatedCylinder\Text\Regexs.cs" Link="Regexs.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\GraduatedCylinder.IoT\GraduatedCylinder.IoT.csproj" />

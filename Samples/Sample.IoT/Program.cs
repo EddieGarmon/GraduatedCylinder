@@ -1,6 +1,8 @@
 ﻿using System;
 using GraduatedCylinder;
-using GraduatedCylinder.IoT.Text; //using System.Text.Json;
+using GraduatedCylinder.Text;
+
+//using System.Text.Json;
 //using GraduatedCylinder.IoT.Json;
 
 namespace Sample.IoT
@@ -13,9 +15,9 @@ namespace Sample.IoT
             Length width = new Length(1.23f, LengthUnit.Inch);
             Area area = length * width;
 
-            Console.WriteLine($"Length: {length.Print()}");
-            Console.WriteLine($"Width: {width.Print()}");
-            Console.WriteLine($"Area: {area.Print()} or {area.Print(AreaUnit.FootSquared, 3)}");
+            Console.WriteLine($"Length: {length.ToString(LengthUnit.Inch)}");
+            Console.WriteLine($"Width: {width.ToString(LengthUnit.Inch)}");
+            Console.WriteLine($"Area: {area.ToString(AreaUnit.InchSquared, 3)}");
 
             //Console.WriteLine(
             //    $"Default: {JsonSerializer.Serialize(length)}, Custom: {JsonSerializer.Serialize(length, JsonHelper.Options)}");

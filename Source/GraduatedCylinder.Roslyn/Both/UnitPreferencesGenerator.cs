@@ -1,14 +1,16 @@
-﻿using Microsoft.CodeAnalysis;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace GraduatedCylinder.Roslyn.IoT;
+namespace GraduatedCylinder.Roslyn.Both;
 
 [Generator]
-public class UnitPreferences32Generator : BaseGenerator
+public class UnitPreferencesGenerator : BaseGenerator
 {
 
-    public UnitPreferences32Generator()
-        : base("GraduatedCylinder.IoT") { }
+    public UnitPreferencesGenerator()
+        : base("GraduatedCylinder", "GraduatedCylinder.IoT") { }
 
     protected override void ExecuteInternal(GeneratorExecutionContext context) {
         if (context.SyntaxReceiver is not DimensionReceiver receiver) {
@@ -27,14 +29,25 @@ public class UnitPreferences32Generator : BaseGenerator
         Buffer.AppendLine("public partial class UnitPreferences {");
         Buffer.AppendLine();
 
-        foreach (StructDeclarationSyntax @struct in receiver.GetDimensions(context.Compilation)) {
-            Log($"Generating for {@struct.Identifier}");
-            NameSet names = NameSet.FromDimensionType(@struct.Identifier.ToString());
+        List<StructDeclarationSyntax> structs = receiver.GetDimensions(context.Compilation).ToList();
 
+        foreach (StructDeclarationSyntax @struct in structs) {
+            Log($"Generating property for {@struct.Identifier}");
             Buffer.AppendLine($"\tpublic {@struct.Identifier}Unit {@struct.Identifier}Unit {{ get; set; }}");
             Buffer.AppendLine();
         }
 
+        if (context.Compilation.AssemblyName == "GraduatedCylinder") {
+            foreach (StructDeclarationSyntax @struct in structs) {
+                Log($"Generating 'Fix' for {@struct.Identifier}");
+                Buffer.AppendLine($"\tpublic void Fix({@struct.Identifier} value) {{");
+                Buffer.AppendLine($"\t\tvalue.Units = {@struct.Identifier}Unit;");
+                Buffer.AppendLine("\t}");
+                Buffer.AppendLine();
+            }
+        }
+
+        Buffer.AppendLine();
         Buffer.AppendLine("}");
 
         BufferToGeneratedFile(filename).AddToContext(context);

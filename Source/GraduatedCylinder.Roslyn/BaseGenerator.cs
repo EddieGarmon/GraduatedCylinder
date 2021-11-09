@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using Microsoft.CodeAnalysis;
 
@@ -9,7 +10,7 @@ namespace GraduatedCylinder.Roslyn;
 public abstract class BaseGenerator : ISourceGenerator
 {
 
-    protected BaseGenerator(string generatorFor) {
+    protected BaseGenerator(params string[] generatorFor) {
         GeneratorFor = generatorFor;
     }
 
@@ -18,7 +19,7 @@ public abstract class BaseGenerator : ISourceGenerator
     /// <summary>
     /// Assembly Name for which this generator should run
     /// </summary>
-    public string GeneratorFor { get; }
+    public string[] GeneratorFor { get; }
 
     protected StringBuilder Buffer { get; set; } = new StringBuilder(16384);
 
@@ -27,7 +28,7 @@ public abstract class BaseGenerator : ISourceGenerator
 #endif
 
     public void Execute(GeneratorExecutionContext context) {
-        if (context.Compilation.AssemblyName != GeneratorFor) {
+        if (!GeneratorFor.Contains(context.Compilation.AssemblyName)) {
             return;
         }
         try {

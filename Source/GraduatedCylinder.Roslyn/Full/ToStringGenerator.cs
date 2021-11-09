@@ -4,10 +4,10 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 namespace GraduatedCylinder.Roslyn.Full;
 
 [Generator]
-public class PrintingGenerator : BaseGenerator
+public class ToStringGenerator : BaseGenerator
 {
 
-    public PrintingGenerator()
+    public ToStringGenerator()
         : base("GraduatedCylinder") { }
 
     protected override void ExecuteInternal(GeneratorExecutionContext context) {
@@ -37,7 +37,7 @@ public class PrintingGenerator : BaseGenerator
 
             Buffer.AppendLine();
             Buffer.AppendLine(
-                $"\tpublic string ToString({names.UnitsTypeName} units = {names.UnitsTypeName}.Unspecified, int precision = 4) {{");
+                $"\tpublic string ToString({names.UnitsTypeName} units = {names.UnitsTypeName}.Unspecified, int precision = 2) {{");
             Buffer.AppendLine($"\t\t{names.DimensionTypeName} inUnits = In(units);");
             Buffer.AppendLine("\t\tstring format = Formats.GetPrecisionFormat(precision);");
             Buffer.AppendLine("\t\treturn string.Format(format, inUnits.Value, inUnits.Units.GetAbbreviation());");
@@ -51,7 +51,7 @@ public class PrintingGenerator : BaseGenerator
             Buffer.AppendLine();
             Buffer.AppendLine("}");
 
-            string filename = $"{names.DimensionTypeName}.Print.g.cs";
+            string filename = $"{names.DimensionTypeName}.ToString.g.cs";
             BufferToGeneratedFile(filename).AddToContext(context);
         }
     }

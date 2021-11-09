@@ -4,7 +4,7 @@
     <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
     <OutputType>Library</OutputType>
     <AssemblyName>GraduatedCylinder.IoT.Json</AssemblyName>
-    <RootNamespace>GraduatedCylinder.IoT.Json</RootNamespace>
+    <RootNamespace>GraduatedCylinder.Json</RootNamespace>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
 

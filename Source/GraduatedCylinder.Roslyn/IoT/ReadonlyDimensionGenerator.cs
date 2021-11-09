@@ -5,10 +5,10 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 namespace GraduatedCylinder.Roslyn.IoT;
 
 [Generator]
-public class Dimension32Generator : BaseGenerator
+public class ReadonlyDimensionGenerator : BaseGenerator
 {
 
-    public Dimension32Generator()
+    public ReadonlyDimensionGenerator()
         : base("GraduatedCylinder.IoT") { }
 
     protected override void ExecuteInternal(GeneratorExecutionContext context) {
@@ -41,23 +41,23 @@ namespace GraduatedCylinder
     public readonly partial struct {0} : IComparable<{0}>, IEquatable<{0}>
     {{
 
-        private readonly float _value;
+        private readonly double _value;
         private readonly {0}Unit _units;
 
-        public {0}(float value, {0}Unit units) {{
+        public {0}(double value, {0}Unit units) {{
             _value = value;
             _units = units;
         }}
 
         public {0}Unit Units => _units;
 
-        public float Value => _value;
+        public double Value => _value;
 
         public int CompareTo({0} other) {{
             int unitsComparison = _units.CompareTo(other._units);
             if (unitsComparison != 0) {{
-                float thisInBase = {0}Converter.ToBase(this);
-                float otherInBase = {0}Converter.ToBase(other);
+                double thisInBase = {0}Converter.ToBase(this);
+                double otherInBase = {0}Converter.ToBase(other);
                 return thisInBase.CompareTo(otherInBase);
             }}
             return _value.CompareTo(other._value);
@@ -72,23 +72,15 @@ namespace GraduatedCylinder
         }}
 
         public override int GetHashCode() {{
-            return (int)In({0}Unit.BaseUnit).Value;
+            return (int)In({0}Unit.BaseUnit).Value.GetHashCode();
         }}
 
         public {0} In({0}Unit units) {{
             if ((Units == units) || (units == {0}Unit.Unspecified)) {{
                 return this;
             }}
-            float baseValue = {0}Converter.ToBase(this);
+            double baseValue = {0}Converter.ToBase(this);
             return {0}Converter.FromBase(baseValue, units);
-        }}
-
-        public bool IsCloseTo({0} other) {{
-            {0} delta = this - other;
-            if (delta < Zero) {{
-                delta = -delta;
-            }}
-            return delta.Value < Close.Margin;
         }}
 
         public static {0} Zero {{ get; }} = new {0}(0, {0}Unit.BaseUnit);
@@ -131,19 +123,19 @@ namespace GraduatedCylinder
             return new {0}(-source.Value, source.Units);
         }}
 
-        public static {0} operator *({0} left, float right) {{
+        public static {0} operator *({0} left, double right) {{
             return new {0}(left.Value * right, left.Units);
         }}
 
-        public static {0} operator *(float left, {0} right) {{
+        public static {0} operator *(double left, {0} right) {{
             return new {0}(left * right.Value, right.Units);
         }}
 
-        public static {0} operator /({0} left, float right) {{
+        public static {0} operator /({0} left, double right) {{
             return new {0}(left.Value / right, left.Units);
         }}
 
-        public static float operator /({0} left, {0} right) {{
+        public static double operator /({0} left, {0} right) {{
             right = right.In(left.Units);
             return left.Value / right.Value;
         }}

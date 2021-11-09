@@ -5,10 +5,10 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 namespace GraduatedCylinder.Roslyn.Full;
 
 [Generator]
-public class Dimension64Generator : BaseGenerator
+public class DimensionGenerator : BaseGenerator
 {
 
-    public Dimension64Generator()
+    public DimensionGenerator()
         : base("GraduatedCylinder") { }
 
     protected override void ExecuteInternal(GeneratorExecutionContext context) {
@@ -84,14 +84,6 @@ namespace GraduatedCylinder
                 return this;
             }}
             return {0}Converter.FromBase(_baseValue, units);
-        }}
-
-        public bool IsCloseTo({0} other) {{
-            {0} delta = this - other;
-            if (delta < Zero) {{
-                delta = -delta;
-            }}
-            return delta.Value < Close.Margin;
         }}
 
         public static {0} Zero {{ get; }} = new {0}(0, {0}Unit.BaseUnit);
