@@ -1,38 +1,37 @@
 using GraduatedCylinder.Abbreviations;
 using GraduatedCylinder.Scales;
 
-namespace GraduatedCylinder
+namespace GraduatedCylinder;
+
+public enum AngularVelocityUnit : short
 {
-    public enum AngularVelocityUnit : short
-    {
 
-        Unspecified = short.MinValue,
+    Unspecified = short.MinValue,
 
-        BaseUnit = RadiansPerSecond,
+    BaseUnit = RadiansPerSecond,
 
-        [UnitAbbreviation("rad/s")]
-        [Scale(1.0f)]
-        RadiansPerSecond = 0,
+    [UnitAbbreviation("rad/s")]
+    [Scale(1.0)]
+    RadiansPerSecond = 0,
 
-        [UnitAbbreviation("rad/min")]
-        [Scale(60.0f)]
-        RadiansPerMinute,
+    [UnitAbbreviation("rad/min")]
+    [Scale(60.0)]
+    RadiansPerMinute,
 
-        [UnitAbbreviation("°/s")]
-        [Scale(57.2958f)]
-        DegreesPerSecond,
+    [UnitAbbreviation("°/s")]
+    [Scale(57.2958)]
+    DegreesPerSecond,
 
-        [UnitAbbreviation("°/min")]
-        [Scale(3437.75f)]
-        DegreesPerMinute,
+    [UnitAbbreviation("°/min")]
+    [Scale(3437.75)]
+    DegreesPerMinute,
 
-        [UnitAbbreviation("rps")]
-        [Scale(0.159155f)]
-        RevolutionsPerSecond,
+    [UnitAbbreviation("rps")]
+    [Scale(0.159155)]
+    RevolutionsPerSecond,
 
-        [UnitAbbreviation("rpm")]
-        [Scale(9.5493f)]
-        RevolutionsPerMinute,
+    [UnitAbbreviation("rpm")]
+    [Scale(9.5493)]
+    RevolutionsPerMinute,
 
-    }
 }

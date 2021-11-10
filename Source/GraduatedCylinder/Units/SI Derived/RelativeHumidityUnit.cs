@@ -1,22 +1,21 @@
 ﻿using GraduatedCylinder.Abbreviations;
 using GraduatedCylinder.Scales;
 
-namespace GraduatedCylinder
+namespace GraduatedCylinder;
+
+public enum RelativeHumidityUnit : short
 {
-    public enum RelativeHumidityUnit : short
-    {
 
-        Unspecified = short.MinValue,
+    Unspecified = short.MinValue,
 
-        BaseUnit = Value,
+    BaseUnit = Value,
 
-        [UnitAbbreviation("")]
-        [Scale(1e-24f)]
-        Value = 0,
+    [UnitAbbreviation("")]
+    [Scale(1e-24)]
+    Value = 0,
 
-        [UnitAbbreviation("%")]
-        [Scale(100f)]
-        Percent = 1,
+    [UnitAbbreviation("%")]
+    [Scale(100)]
+    Percent = 1,
 
-    }
 }

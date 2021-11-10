@@ -1,31 +1,30 @@
 ﻿using GraduatedCylinder.Abbreviations;
 using GraduatedCylinder.Scales;
 
-namespace GraduatedCylinder
+namespace GraduatedCylinder;
+
+//todo:
+public enum ElectricChargeUnit : short
 {
-    //todo:
-    public enum ElectricChargeUnit : short
-    {
 
-        Unspecified = short.MinValue,
+    Unspecified = short.MinValue,
 
-        BaseUnit = Coulomb,
+    BaseUnit = Coulomb,
 
-        [UnitAbbreviation("C")]
-        [Scale(1.0f)]
-        Coulomb = 0,
+    [UnitAbbreviation("C")]
+    [Scale(1.0)]
+    Coulomb = 0,
 
-        [UnitAbbreviation("As")]
-        [Scale(1.0f)]
-        AmpereSecond = 1,
+    [UnitAbbreviation("As")]
+    [Scale(1.0)]
+    AmpereSecond = 1,
 
-        [UnitAbbreviation("mAh")]
-        [Scale(3.6f)]
-        MilliAmpereHour,
+    [UnitAbbreviation("mAh")]
+    [Scale(3.6)]
+    MilliAmpereHour,
 
-        [UnitAbbreviation("Ah")]
-        [Scale(3600f)]
-        AmpereHour,
+    [UnitAbbreviation("Ah")]
+    [Scale(3600)]
+    AmpereHour,
 
-    }
 }

@@ -1,23 +1,16 @@
-using DigitalHammer.Testing;
+namespace GraduatedCylinder;
 
-namespace GraduatedCylinder
+internal static class AssertionHelpers
 {
-    internal static class AssertionHelpers
-    {
 
-        //shrink this to increase required precision
-        internal const float Tolerance32 = 1e-4f;
-        internal const double Tolerance64 = 1e-4;
+    //shrink this to increase required precision
+    internal const double Tolerance = 1e-4;
 
-        public static void ShouldBeWithinToleranceOf(this float value, float expectedValue) {
-            (expectedValue - value).ShouldBeLessThanOrEqualTo(Tolerance32);
-            (value - expectedValue).ShouldBeLessThanOrEqualTo(Tolerance32);
+    public static void ShouldBeWithinToleranceOf(this double value, double expectedValue) {
+        double delta = value < expectedValue ? expectedValue - value : value - expectedValue;
+        if (delta > Tolerance) {
+            throw new ToleranceException(value, expectedValue, delta);
         }
-
-        public static void ShouldBeWithinToleranceOf(this double value, double expectedValue) {
-            (expectedValue - value).ShouldBeLessThanOrEqualTo(Tolerance64);
-            (value - expectedValue).ShouldBeLessThanOrEqualTo(Tolerance64);
-        }
-
     }
+
 }

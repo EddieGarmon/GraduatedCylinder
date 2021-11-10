@@ -1,58 +1,57 @@
 using GraduatedCylinder.Abbreviations;
 using GraduatedCylinder.Scales;
 
-namespace GraduatedCylinder
+namespace GraduatedCylinder;
+
+public enum PowerUnit : short
 {
-    public enum PowerUnit : short
-    {
 
-        Unspecified = short.MinValue,
+    Unspecified = short.MinValue,
 
-        BaseUnit = Watts,
+    BaseUnit = Watts,
 
-        [UnitAbbreviation("W")]
-        [Scale(1.0f)]
-        Watts = 0,
+    [UnitAbbreviation("W")]
+    [Scale(1.0)]
+    Watts = 0,
 
-        [UnitAbbreviation("Nm/s")]
-        [Scale(1.0f)]
-        NewtonMetersPerSecond = 1,
+    [UnitAbbreviation("Nm/s")]
+    [Scale(1.0)]
+    NewtonMetersPerSecond = 1,
 
-        [UnitAbbreviation("cal/h")]
-        [Scale(0.001163f)]
-        CaloriesPerHour = 2,
+    [UnitAbbreviation("cal/h")]
+    [Scale(0.001163)]
+    CaloriesPerHour = 2,
 
-        [UnitAbbreviation("J/h")]
-        [Scale(1.0f / 3600.0f)]
-        JoulesPerHour = 3,
+    [UnitAbbreviation("J/h")]
+    [Scale(1.0f / 3600.0)]
+    JoulesPerHour = 3,
 
-        [UnitAbbreviation("cal/min")]
-        [Scale(0.06978f)]
-        CaloriesPerMinute = 4,
+    [UnitAbbreviation("cal/min")]
+    [Scale(0.06978)]
+    CaloriesPerMinute = 4,
 
-        [UnitAbbreviation("J/min")]
-        [Scale(1.0f / 60.0f)]
-        JoulesPerMinute = 5,
+    [UnitAbbreviation("J/min")]
+    [Scale(1.0f / 60.0)]
+    JoulesPerMinute = 5,
 
-        [UnitAbbreviation("J/s")]
-        [Scale(1.0f)]
-        JoulesPerSecond = 6,
+    [UnitAbbreviation("J/s")]
+    [Scale(1.0)]
+    JoulesPerSecond = 6,
 
-        [UnitAbbreviation("cal/s")]
-        [Scale(4.1868f)]
-        CaloriesPerSecond = 7,
+    [UnitAbbreviation("cal/s")]
+    [Scale(4.1868)]
+    CaloriesPerSecond = 7,
 
-        [UnitAbbreviation("kW")]
-        [Scale(1000.0f)]
-        Kilowatts = 8,
+    [UnitAbbreviation("kW")]
+    [Scale(1000.0)]
+    Kilowatts = 8,
 
-        [UnitAbbreviation("MW")]
-        [Scale(1000000.0f)]
-        Megawatts = 9,
+    [UnitAbbreviation("MW")]
+    [Scale(1000000.0)]
+    Megawatts = 9,
 
-        [UnitAbbreviation("hp")]
-        [Scale(0.7457e3f)]
-        Horsepower = 10
+    [UnitAbbreviation("hp")]
+    [Scale(0.7457e3)]
+    Horsepower = 10
 
-    }
 }

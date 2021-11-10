@@ -1,9 +1,8 @@
-﻿namespace GraduatedCylinder
+﻿namespace GraduatedCylinder;
+
+public partial struct Azimuth : IDimension<Azimuth, AzimuthUnit>
 {
-    public partial struct Azimuth : IDimension<Azimuth, AzimuthUnit>
-    {
 
-        //https://en.wikipedia.org/wiki/Azimuth
+    //https://en.wikipedia.org/wiki/Azimuth
 
-    }
 }

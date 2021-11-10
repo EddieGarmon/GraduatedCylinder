@@ -1,4 +1,3 @@
-﻿namespace GraduatedCylinder
-{
-    public partial struct Angle : IDimension<Angle, AngleUnit> { }
-}
+﻿namespace GraduatedCylinder;
+
+public partial struct Angle : IDimension<Angle, AngleUnit> { }

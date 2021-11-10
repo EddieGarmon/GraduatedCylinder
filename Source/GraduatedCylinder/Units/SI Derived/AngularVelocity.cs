@@ -1,4 +1,3 @@
-﻿namespace GraduatedCylinder
-{
-    public partial struct AngularVelocity : IDimension<AngularVelocity, AngularVelocityUnit> { }
-}
+﻿namespace GraduatedCylinder;
+
+public partial struct AngularVelocity : IDimension<AngularVelocity, AngularVelocityUnit> { }

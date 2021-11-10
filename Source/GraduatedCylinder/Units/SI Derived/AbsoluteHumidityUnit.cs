@@ -1,22 +1,21 @@
 ﻿using GraduatedCylinder.Abbreviations;
 using GraduatedCylinder.Scales;
 
-namespace GraduatedCylinder
+namespace GraduatedCylinder;
+
+public enum AbsoluteHumidityUnit : short
 {
-    public enum AbsoluteHumidityUnit : short
-    {
 
-        Unspecified = short.MinValue,
+    Unspecified = short.MinValue,
 
-        BaseUnit = GramsPerCubicMeter,
+    BaseUnit = GramsPerCubicMeter,
 
-        [UnitAbbreviation("g/m³")]
-        [Scale(1e-24f)]
-        GramsPerCubicMeter = 0,
+    [UnitAbbreviation("g/m³")]
+    [Scale(1e-24)]
+    GramsPerCubicMeter = 0,
 
-        [UnitAbbreviation("kg/m³")]
-        [Scale(1000f)]
-        KilogramsPerCubicMeter,
+    [UnitAbbreviation("kg/m³")]
+    [Scale(1000)]
+    KilogramsPerCubicMeter,
 
-    }
 }

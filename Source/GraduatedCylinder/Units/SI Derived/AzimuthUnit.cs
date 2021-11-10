@@ -1,18 +1,17 @@
 using GraduatedCylinder.Abbreviations;
 using GraduatedCylinder.Scales;
 
-namespace GraduatedCylinder
+namespace GraduatedCylinder;
+
+public enum AzimuthUnit : short
 {
-    public enum AzimuthUnit : short
-    {
 
-        Unspecified = short.MinValue,
+    Unspecified = short.MinValue,
 
-        BaseUnit = Degree,
+    BaseUnit = Degree,
 
-        [UnitAbbreviation("°")]
-        [Scale(1.0f)]
-        Degree = 0
+    [UnitAbbreviation("°")]
+    [Scale(1.0)]
+    Degree = 0
 
-    }
 }

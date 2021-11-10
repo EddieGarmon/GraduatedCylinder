@@ -1,8 +1,3 @@
-﻿using System;
+﻿namespace GraduatedCylinder.Json;
 
-namespace GraduatedCylinder.Json.Tests
-{
-    public class Class1
-    {
-    }
-}
+public class Class1 { }

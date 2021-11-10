@@ -1,13 +1,12 @@
-﻿namespace GraduatedCylinder
+﻿namespace GraduatedCylinder;
+
+public partial struct Jerk : IDimension<Jerk, JerkUnit>
 {
-    public partial struct Jerk : IDimension<Jerk, JerkUnit>
-    {
 
-        public static Acceleration operator *(Jerk jerk, Time time) {
-            jerk = jerk.In(JerkUnit.KiloMetersPerSecondCubed);
-            time = time.In(TimeUnit.Second);
-            return new Acceleration(jerk.Value * time.Value, AccelerationUnit.MeterPerSecondSquared);
-        }
-
+    public static Acceleration operator *(Jerk jerk, Time time) {
+        jerk = jerk.In(JerkUnit.KiloMetersPerSecondCubed);
+        time = time.In(TimeUnit.Second);
+        return new Acceleration(jerk.Value * time.Value, AccelerationUnit.MeterPerSecondSquared);
     }
+
 }

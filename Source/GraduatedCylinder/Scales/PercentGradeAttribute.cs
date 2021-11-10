@@ -1,6 +1,5 @@
 using System;
 
-namespace GraduatedCylinder.Scales
-{
-    public class PercentGradeAttribute : Attribute { }
-}
+namespace GraduatedCylinder.Scales;
+
+public class PercentGradeAttribute : Attribute { }

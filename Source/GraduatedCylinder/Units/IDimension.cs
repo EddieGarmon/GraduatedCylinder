@@ -1,17 +1,16 @@
-﻿namespace GraduatedCylinder
+﻿namespace GraduatedCylinder;
+
+public interface IDimension<out TDimension, TUnits>
 {
-    public interface IDimension<out TDimension, TUnits>
-    {
 
 #if !IOT
-        TUnits Units { get; set; }
+    TUnits Units { get; set; }
 #else
         TUnits Units { get; }
 #endif
 
-        double Value { get; }
+    double Value { get; }
 
-        TDimension In(TUnits units);
+    TDimension In(TUnits units);
 
-    }
 }

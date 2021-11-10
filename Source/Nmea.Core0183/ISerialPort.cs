@@ -1,25 +1,24 @@
 ﻿using System.IO.Ports;
 
-namespace Nmea.Core0183
+namespace Nmea.Core0183;
+
+public interface ISerialPort
 {
-    public interface ISerialPort
-    {
 
-        int BytesToRead { get; }
+    int BytesToRead { get; }
 
-        bool IsOpen { get; }
+    bool IsOpen { get; }
 
-        event SerialDataReceivedEventHandler DataReceived;
+    event SerialDataReceivedEventHandler DataReceived;
 
-        event SerialErrorReceivedEventHandler ErrorReceived;
+    event SerialErrorReceivedEventHandler ErrorReceived;
 
-        void Close();
+    void Close();
 
-        void Open();
+    void Open();
 
-        int Read(byte[] buffer, int offset, int count);
+    int Read(byte[] buffer, int offset, int count);
 
-        void Write(string text);
+    void Write(string text);
 
-    }
 }

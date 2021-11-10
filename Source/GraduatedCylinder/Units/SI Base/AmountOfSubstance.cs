@@ -1,4 +1,3 @@
-namespace GraduatedCylinder
-{
-    public partial struct AmountOfSubstance : IDimension<AmountOfSubstance, AmountOfSubstanceUnit> { }
-}
+namespace GraduatedCylinder;
+
+public partial struct AmountOfSubstance : IDimension<AmountOfSubstance, AmountOfSubstanceUnit> { }

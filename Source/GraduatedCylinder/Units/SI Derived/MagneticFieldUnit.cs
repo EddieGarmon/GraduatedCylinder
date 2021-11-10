@@ -1,46 +1,45 @@
 ﻿using GraduatedCylinder.Abbreviations;
 using GraduatedCylinder.Scales;
 
-namespace GraduatedCylinder
+namespace GraduatedCylinder;
+
+public enum MagneticFieldUnit : short
 {
-    public enum MagneticFieldUnit : short
-    {
 
-        Unspecified = short.MinValue,
+    Unspecified = short.MinValue,
 
-        BaseUnit = Tesla,
+    BaseUnit = Tesla,
 
-        [UnitAbbreviation("pT")]
-        [Scale(1e-12f)]
-        PicoTesla = -12,
+    [UnitAbbreviation("pT")]
+    [Scale(1e-12)]
+    PicoTesla = -12,
 
-        [UnitAbbreviation("nT")]
-        [Scale(1e-9f)]
-        NanoTesla = -9,
+    [UnitAbbreviation("nT")]
+    [Scale(1e-9)]
+    NanoTesla = -9,
 
-        [UnitAbbreviation("µT")]
-        [Scale(1e-6f)]
-        MicroTesla = -6,
+    [UnitAbbreviation("µT")]
+    [Scale(1e-6)]
+    MicroTesla = -6,
 
-        [UnitAbbreviation("mT")]
-        [Scale(1e-3f)]
-        MilliTesla = -3,
+    [UnitAbbreviation("mT")]
+    [Scale(1e-3)]
+    MilliTesla = -3,
 
-        [UnitAbbreviation("T")]
-        [Scale(1.0f)]
-        Tesla = 0,
+    [UnitAbbreviation("T")]
+    [Scale(1.0)]
+    Tesla = 0,
 
-        [UnitAbbreviation("kT")]
-        [Scale(1e3f)]
-        KiloTesla = 3,
+    [UnitAbbreviation("kT")]
+    [Scale(1e3)]
+    KiloTesla = 3,
 
-        [UnitAbbreviation("MT")]
-        [Scale(1e6f)]
-        MegaTesla = 6,
+    [UnitAbbreviation("MT")]
+    [Scale(1e6)]
+    MegaTesla = 6,
 
-        [UnitAbbreviation("G")]
-        [Scale(10000.0f)]
-        Gauss = 100,
+    [UnitAbbreviation("G")]
+    [Scale(10000.0)]
+    Gauss = 100,
 
-    }
 }

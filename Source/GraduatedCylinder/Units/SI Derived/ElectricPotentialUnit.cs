@@ -1,98 +1,97 @@
 using GraduatedCylinder.Abbreviations;
 using GraduatedCylinder.Scales;
 
-namespace GraduatedCylinder
+namespace GraduatedCylinder;
+
+public enum ElectricPotentialUnit : short
 {
-    public enum ElectricPotentialUnit : short
-    {
 
-        Unspecified = short.MinValue,
+    Unspecified = short.MinValue,
 
-        BaseUnit = Volt,
+    BaseUnit = Volt,
 
-        [UnitAbbreviation("yV")]
-        [Scale(1e-24f)]
-        Yoctovolt = -24,
+    [UnitAbbreviation("yV")]
+    [Scale(1e-24)]
+    Yoctovolt = -24,
 
-        [UnitAbbreviation("zV")]
-        [Scale(1e-21f)]
-        Zeptovolt = -21,
+    [UnitAbbreviation("zV")]
+    [Scale(1e-21)]
+    Zeptovolt = -21,
 
-        [UnitAbbreviation("aV")]
-        [Scale(1e-18f)]
-        Attovolt = -18,
+    [UnitAbbreviation("aV")]
+    [Scale(1e-18)]
+    Attovolt = -18,
 
-        [UnitAbbreviation("fV")]
-        [Scale(1e-15f)]
-        Femtovolt = -15,
+    [UnitAbbreviation("fV")]
+    [Scale(1e-15)]
+    Femtovolt = -15,
 
-        [UnitAbbreviation("pV")]
-        [Scale(1e-12f)]
-        Picovolt = -12,
+    [UnitAbbreviation("pV")]
+    [Scale(1e-12)]
+    Picovolt = -12,
 
-        [UnitAbbreviation("nV")]
-        [Scale(1e-9f)]
-        Nanovolt = -9,
+    [UnitAbbreviation("nV")]
+    [Scale(1e-9)]
+    Nanovolt = -9,
 
-        [UnitAbbreviation("µV")]
-        [Scale(1e-6f)]
-        Microvolt = -6,
+    [UnitAbbreviation("µV")]
+    [Scale(1e-6)]
+    Microvolt = -6,
 
-        [UnitAbbreviation("mV")]
-        [Scale(1e-3f)]
-        Millivolt = -3,
+    [UnitAbbreviation("mV")]
+    [Scale(1e-3)]
+    Millivolt = -3,
 
-        [UnitAbbreviation("cV")]
-        [Scale(1e-2f)]
-        Centivolt = -2,
+    [UnitAbbreviation("cV")]
+    [Scale(1e-2)]
+    Centivolt = -2,
 
-        [UnitAbbreviation("dV")]
-        [Scale(1e-1f)]
-        Decivolt = -1,
+    [UnitAbbreviation("dV")]
+    [Scale(1e-1)]
+    Decivolt = -1,
 
-        [UnitAbbreviation("V")]
-        [Scale(1.0f)]
-        Volt = 0,
+    [UnitAbbreviation("V")]
+    [Scale(1.0)]
+    Volt = 0,
 
-        [UnitAbbreviation("daV")]
-        [Scale(10f)]
-        Dekavolt = 1,
+    [UnitAbbreviation("daV")]
+    [Scale(10)]
+    Dekavolt = 1,
 
-        [UnitAbbreviation("hV")]
-        [Scale(1e2f)]
-        Hectovolt = 2,
+    [UnitAbbreviation("hV")]
+    [Scale(1e2)]
+    Hectovolt = 2,
 
-        [UnitAbbreviation("kV")]
-        [Scale(1e3f)]
-        Kilovolt = 3,
+    [UnitAbbreviation("kV")]
+    [Scale(1e3)]
+    Kilovolt = 3,
 
-        [UnitAbbreviation("MV")]
-        [Scale(1e6f)]
-        Megavolt = 6,
+    [UnitAbbreviation("MV")]
+    [Scale(1e6)]
+    Megavolt = 6,
 
-        [UnitAbbreviation("GV")]
-        [Scale(1e9f)]
-        Gigavolt = 9,
+    [UnitAbbreviation("GV")]
+    [Scale(1e9)]
+    Gigavolt = 9,
 
-        [UnitAbbreviation("TV")]
-        [Scale(1e12f)]
-        Teravolt = 12,
+    [UnitAbbreviation("TV")]
+    [Scale(1e12)]
+    Teravolt = 12,
 
-        [UnitAbbreviation("PV")]
-        [Scale(1e15f)]
-        Petavolt = 15,
+    [UnitAbbreviation("PV")]
+    [Scale(1e15)]
+    Petavolt = 15,
 
-        [UnitAbbreviation("EV")]
-        [Scale(1e18f)]
-        Exavolt = 18,
+    [UnitAbbreviation("EV")]
+    [Scale(1e18)]
+    Exavolt = 18,
 
-        [UnitAbbreviation("ZV")]
-        [Scale(1e21f)]
-        Zettavolt = 21,
+    [UnitAbbreviation("ZV")]
+    [Scale(1e21)]
+    Zettavolt = 21,
 
-        [UnitAbbreviation("YV")]
-        [Scale(1e24f)]
-        Yottavolt = 24
+    [UnitAbbreviation("YV")]
+    [Scale(1e24)]
+    Yottavolt = 24
 
-    }
 }

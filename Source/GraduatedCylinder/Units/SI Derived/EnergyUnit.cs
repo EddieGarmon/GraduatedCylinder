@@ -1,54 +1,53 @@
 using GraduatedCylinder.Abbreviations;
 using GraduatedCylinder.Scales;
 
-namespace GraduatedCylinder
+namespace GraduatedCylinder;
+
+public enum EnergyUnit : short
 {
-    public enum EnergyUnit : short
-    {
 
-        Unspecified = short.MinValue,
+    Unspecified = short.MinValue,
 
-        BaseUnit = Joules,
+    BaseUnit = Joules,
 
-        [UnitAbbreviation("J")]
-        [Scale(1.0f)]
-        Joules = 0,
+    [UnitAbbreviation("J")]
+    [Scale(1.0)]
+    Joules = 0,
 
-        [UnitAbbreviation("Nm")]
-        [Scale(1.0f)]
-        NewtonMeters = 1,
+    [UnitAbbreviation("Nm")]
+    [Scale(1.0)]
+    NewtonMeters = 1,
 
-        [UnitAbbreviation("Ws")]
-        [Scale(1.0f)]
-        WattSeconds = 2,
+    [UnitAbbreviation("Ws")]
+    [Scale(1.0)]
+    WattSeconds = 2,
 
-        [UnitAbbreviation("cal")]
-        [Scale(4.1868f)]
-        Calories = 3,
+    [UnitAbbreviation("cal")]
+    [Scale(4.1868)]
+    Calories = 3,
 
-        [UnitAbbreviation("kgfm")]
-        [Scale(9.80665f)]
-        KilogramForceMeters = 4,
+    [UnitAbbreviation("kgfm")]
+    [Scale(9.80665)]
+    KilogramForceMeters = 4,
 
-        [UnitAbbreviation("kJ")]
-        [Scale(1000.0f)]
-        Kilojoules = 5,
+    [UnitAbbreviation("kJ")]
+    [Scale(1000.0)]
+    Kilojoules = 5,
 
-        [UnitAbbreviation("Wh")]
-        [Scale(3600.0f)]
-        WattHours = 6,
+    [UnitAbbreviation("Wh")]
+    [Scale(3600.0)]
+    WattHours = 6,
 
-        [UnitAbbreviation("kcal")]
-        [Scale(4186.8f)]
-        KiloCalories = 7,
+    [UnitAbbreviation("kcal")]
+    [Scale(4186.8)]
+    KiloCalories = 7,
 
-        [UnitAbbreviation("kWh")]
-        [Scale(3600000.0f)]
-        KilowattHours = 8,
+    [UnitAbbreviation("kWh")]
+    [Scale(3600000.0)]
+    KilowattHours = 8,
 
-        [UnitAbbreviation("BTU")]
-        [Scale(1055.056f)]
-        BritishThermalUnit = 9
+    [UnitAbbreviation("BTU")]
+    [Scale(1055.056)]
+    BritishThermalUnit = 9
 
-    }
 }

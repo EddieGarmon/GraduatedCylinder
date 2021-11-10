@@ -1,4 +1,3 @@
-﻿namespace GraduatedCylinder
-{
-    public partial struct AbsoluteHumidity : IDimension<AbsoluteHumidity, AbsoluteHumidityUnit> { }
-}
+﻿namespace GraduatedCylinder;
+
+public partial struct AbsoluteHumidity : IDimension<AbsoluteHumidity, AbsoluteHumidityUnit> { }

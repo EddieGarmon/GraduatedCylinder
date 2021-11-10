@@ -1,17 +1,16 @@
 ﻿using System;
 
-namespace Nmea.Core0183
+namespace Nmea.Core0183;
+
+public interface IProvideSentences
 {
-    public interface IProvideSentences
-    {
 
-        bool IsOpen { get; }
+    bool IsOpen { get; }
 
-        event Action<Sentence> SentenceReceived;
+    event Action<Sentence> SentenceReceived;
 
-        void Close();
+    void Close();
 
-        void Open();
+    void Open();
 
-    }
 }
