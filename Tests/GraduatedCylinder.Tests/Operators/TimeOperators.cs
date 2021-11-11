@@ -98,7 +98,7 @@ public class TimeOperators
     [Fact]
     public void OpMultiplicationAcceleration() {
         Speed speedBase = new Time(20, TimeUnit.Second)
-                          * new Acceleration(3, AccelerationUnit.MeterPerSecondSquared);
+                          * new Acceleration(3, AccelerationUnit.MeterPerSquareSecond);
         speedBase.ShouldBe(new Speed(60, SpeedUnit.MeterPerSecond));
 
         var time = new Time(1, TimeUnit.Minutes);

@@ -8,103 +8,103 @@ public enum AreaUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = MeterSquared,
+    BaseUnit = SquareMeter,
 
     [UnitAbbreviation("ym²")]
     [Scale(1e-48)]
-    YoctometerSquared = -24,
+    SquareYoctometer = -48,
 
     [UnitAbbreviation("zm²")]
     [Scale(1e-42)]
-    ZeptometerSquared = -21,
+    SquareZeptometer = -42,
 
     [UnitAbbreviation("am²")]
     [Scale(1e-36)]
-    AttometerSquared = -18,
+    SquareAttometer = -36,
 
     [UnitAbbreviation("fm²")]
     [Scale(1e-30)]
-    FemtometerSquared = -15,
+    SquareFemtometer = -30,
 
     [UnitAbbreviation("pm²")]
     [Scale(1e-24)]
-    PicometerSquared = -12,
+    SquarePicometer = -24,
 
     [UnitAbbreviation("nm²")]
     [Scale(1e-18)]
-    NanometerSquared = -9,
+    SquareNanometer = -18,
 
     [UnitAbbreviation("µm²")]
     [Scale(1e-12)]
-    MicrometerSquared = -6,
+    SquareMicrometer = -12,
 
     [UnitAbbreviation("mm²")]
     [Scale(1e-6)]
-    MillimeterSquared = -3,
+    SquareMillimeter = -6,
 
     [UnitAbbreviation("cm²")]
     [Scale(1e-4)]
-    CentimeterSquared = -2,
+    SquareCentimeter = -4,
 
     [UnitAbbreviation("dm²")]
     [Scale(1e-2)]
-    DecimeterSquared = -1,
+    SquareDecimeter = -2,
 
     [UnitAbbreviation("m²")]
     [Scale(1.0)]
-    MeterSquared = 0,
+    SquareMeter = 0,
 
     [UnitAbbreviation("dam²")]
     [Scale(1e2)]
-    DekameterSquared = 1,
+    SquareDekameter = 2,
 
     [UnitAbbreviation("hm²")]
     [Scale(1e4)]
-    HectometerSquared = 2,
+    SquareHectometer = 4,
 
     [UnitAbbreviation("km²")]
     [Scale(1e6)]
-    KilometerSquared = 3,
+    SquareKilometer = 6,
 
     [UnitAbbreviation("Mm²")]
     [Scale(1e12)]
-    MegameterSquared = 6,
+    SquareMegameter = 12,
 
     [UnitAbbreviation("Gm²")]
     [Scale(1e18)]
-    GigameterSquared = 9,
+    SquareGigameter = 18,
 
     [UnitAbbreviation("Tm²")]
     [Scale(1e24)]
-    TerameterSquared = 12,
+    SquareTerameter = 24,
 
     [UnitAbbreviation("Pm²")]
     [Scale(1e30)]
-    PetameterSquared = 15,
+    SquarePetameter = 30,
 
     [UnitAbbreviation("Em²")]
     [Scale(1e36)]
-    ExameterSquared = 18,
+    SquareExameter = 36,
 
-    //[UnitAbbreviation("Zm²")]
-    //[Scale(1e42)]
-    //ZettameterSquared = 21,
+    [UnitAbbreviation("Zm²")]
+    [Scale(1e42)]
+    SquareZettameter = 42,
 
-    //[UnitAbbreviation("Ym²")]
-    //[Scale(1e48)]
-    //YottameterSquared = 24,
+    [UnitAbbreviation("Ym²")]
+    [Scale(1e48)]
+    SquareYottameter = 48,
 
     [UnitAbbreviation("in²")]
     [Scale(0.00064516)]
-    InchSquared = 101,
+    SquareInch = 101,
 
     [UnitAbbreviation("ft²")]
     [Scale(0.09290304)]
-    FootSquared = 102,
+    SquareFoot = 102,
 
     [UnitAbbreviation("yd²")]
     [Scale(0.83612736)]
-    YardSquared = 103,
+    SquareYard = 103,
 
     [UnitAbbreviation("ac")]
     [Scale(4046.8564224)]

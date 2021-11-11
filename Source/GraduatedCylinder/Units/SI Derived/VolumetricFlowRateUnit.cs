@@ -23,7 +23,7 @@ public enum VolumetricFlowRateUnit : short
     LitersPerHour = 2,
 
     [UnitAbbreviation("m³/s")]
-    [Scale(1e3)]
+    [Scale(1000)]
     CubicMetersPerSecond = 3,
 
     [UnitAbbreviation("gal/s")]
@@ -31,7 +31,7 @@ public enum VolumetricFlowRateUnit : short
     GallonsUsPerSecond = 4,
 
     [UnitAbbreviation("gal/h")]
-    [Scale(3.785411784f / 3600.0)]
+    [Scale(3.785411784 / 3600.0)]
     GallonsUsPerHour = 5
 
 }

@@ -34,13 +34,17 @@ public enum TimeUnit : short
     [Scale(1e-9)]
     Nanosecond = -9,
 
+    [UnitAbbreviation("ticks")]
+    [Scale(1e-7)]
+    Ticks = -7,
+
     [UnitAbbreviation("µs")]
     [Scale(1e-6)]
     MicroSecond = -6,
 
     [UnitAbbreviation("ms")]
     [Scale(1e-3)]
-    MilliSecond = -3,
+    Millisecond = -3,
 
     [UnitAbbreviation("cs")]
     [Scale(1e-2)]
@@ -96,22 +100,18 @@ public enum TimeUnit : short
 
     [UnitAbbreviation("min")]
     [Scale(60.0)]
-    Minutes = 103,
+    Minutes = 110,
 
     [UnitAbbreviation("h")]
     [Scale(3600.0)]
-    Hours = 104,
+    Hours = 111,
 
     [UnitAbbreviation("d")]
     [Scale(86400.0)]
-    Days = 105,
+    Days = 112,
 
-    //Weeks = 106,
-    //Months = 107,
-    //Years = 108,
-
-    [UnitAbbreviation("ticks")]
-    [Scale(1e-7)]
-    Ticks = 110
+    [UnitAbbreviation("week")]
+    [Scale(604800)]
+    Weeks = 113,
 
 }

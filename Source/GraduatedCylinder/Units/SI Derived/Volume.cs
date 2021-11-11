@@ -6,12 +6,12 @@ public partial struct Volume : IDimension<Volume, VolumeUnit>
     public static Area operator /(Volume volume, Length length) {
         volume = volume.In(VolumeUnit.CubicMeters);
         length = length.In(LengthUnit.Meter);
-        return new Area(volume.Value / length.Value, AreaUnit.MeterSquared);
+        return new Area(volume.Value / length.Value, AreaUnit.SquareMeter);
     }
 
     public static Length operator /(Volume volume, Area area) {
         volume = volume.In(VolumeUnit.CubicMeters);
-        area = area.In(AreaUnit.MeterSquared);
+        area = area.In(AreaUnit.SquareMeter);
         return new Length(volume.Value / area.Value, LengthUnit.Meter);
     }
 

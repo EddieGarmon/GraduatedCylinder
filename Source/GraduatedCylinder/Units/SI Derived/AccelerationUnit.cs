@@ -8,91 +8,91 @@ public enum AccelerationUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = MeterPerSecondSquared,
+    BaseUnit = MeterPerSquareSecond,
 
     [UnitAbbreviation("ym/s²")]
     [Scale(1e-24)]
-    YoctometerPerSecondSquared = -24,
+    YoctometerPerSquareSecond = -24,
 
     [UnitAbbreviation("zm/s²")]
     [Scale(1e-21)]
-    ZeptometerPerSecondSquared = -21,
+    ZeptometerPerSquareSecond = -21,
 
     [UnitAbbreviation("am/s²")]
     [Scale(1e-18)]
-    AttometerPerSecondSquared = -18,
+    AttometerPerSquareSecond = -18,
 
     [UnitAbbreviation("fm/s²")]
     [Scale(1e-15)]
-    FemtometerPerSecondSquared = -15,
+    FemtometerPerSquareSecond = -15,
 
     [UnitAbbreviation("pm/s²")]
     [Scale(1e-12)]
-    PicometerPerSecondSquared = -12,
+    PicometerPerSquareSecond = -12,
 
     [UnitAbbreviation("nm/s²")]
     [Scale(1e-9)]
-    NanometerPerSecondSquared = -9,
+    NanometerPerSquareSecond = -9,
 
     [UnitAbbreviation("µm/s²")]
     [Scale(1e-6)]
-    MicrometerPerSecondSquared = -6,
+    MicrometerPerSquareSecond = -6,
 
     [UnitAbbreviation("mm/s²")]
     [Scale(1e-3)]
-    MillimeterPerSecondSquared = -3,
+    MillimeterPerSquareSecond = -3,
 
     [UnitAbbreviation("cm/s²")]
     [Scale(1e-2)]
-    CentimeterPerSecondSquared = -2,
+    CentimeterPerSquareSecond = -2,
 
     [UnitAbbreviation("dm/s²")]
     [Scale(1e-1)]
-    DecimeterPerSecondSquared = -1,
+    DecimeterPerSquareSecond = -1,
 
     [UnitAbbreviation("m/s²")]
     [Scale(1.0)]
-    MeterPerSecondSquared = 0,
+    MeterPerSquareSecond = 0,
 
     [UnitAbbreviation("dam/s²")]
     [Scale(10)]
-    DekameterPerSecondSquared = 1,
+    DekameterPerSquareSecond = 1,
 
     [UnitAbbreviation("hm/s²")]
     [Scale(1e2)]
-    HectometerPerSecondSquared = 2,
+    HectometerPerSquareSecond = 2,
 
     [UnitAbbreviation("km/s²")]
     [Scale(1e3)]
-    KilometerPerSecondSquared = 3,
+    KilometerPerSquareSecond = 3,
 
     [UnitAbbreviation("Mm/s²")]
     [Scale(1e6)]
-    MegameterPerSecondSquared = 6,
+    MegameterPerSquareSecond = 6,
 
     [UnitAbbreviation("Gm/s²")]
     [Scale(1e9)]
-    GigameterPerSecondSquared = 9,
+    GigameterPerSquareSecond = 9,
 
     [UnitAbbreviation("Tm/s²")]
     [Scale(1e12)]
-    TerameterPerSecondSquared = 12,
+    TerameterPerSquareSecond = 12,
 
     [UnitAbbreviation("Pm/s²")]
     [Scale(1e15)]
-    PetameterPerSecondSquared = 15,
+    PetameterPerSquareSecond = 15,
 
     [UnitAbbreviation("Em/s²")]
     [Scale(1e18)]
-    ExameterPerSecondSquared = 18,
+    ExameterPerSquareSecond = 18,
 
     [UnitAbbreviation("Zm/s²")]
     [Scale(1e21)]
-    ZettameterPerSecondSquared = 21,
+    ZettameterPerSquareSecond = 21,
 
     [UnitAbbreviation("Ym/s²")]
     [Scale(1e24)]
-    YottameterPerSecondSquared = 24,
+    YottameterPerSquareSecond = 24,
 
     [UnitAbbreviation("km/h/s")]
     [Scale(1.0f / 3.6)]

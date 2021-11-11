@@ -18,12 +18,12 @@ public partial struct Length : IDimension<Length, LengthUnit>
     public static Area operator *(Length left, Length right) {
         left = left.In(LengthUnit.Meter);
         right = right.In(LengthUnit.Meter);
-        return new Area(left.Value * right.Value, AreaUnit.MeterSquared);
+        return new Area(left.Value * right.Value, AreaUnit.SquareMeter);
     }
 
     public static Volume operator *(Length length, Area area) {
         length = length.In(LengthUnit.Meter);
-        area = area.In(AreaUnit.MeterSquared);
+        area = area.In(AreaUnit.SquareMeter);
         return new Volume(length.Value * area.Value, VolumeUnit.CubicMeters);
     }
 

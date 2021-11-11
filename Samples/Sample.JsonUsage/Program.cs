@@ -13,7 +13,7 @@ class Program
             WriteIndented = true,
             Converters = {
                 new LengthJsonConverter { Units = LengthUnit.Foot, Precision = 4 },
-                new AreaJsonConverter { Units = AreaUnit.InchSquared, Precision = 3 },
+                new AreaJsonConverter { Units = AreaUnit.SquareInch, Precision = 3 },
                 new VolumeJsonConverter { Units = VolumeUnit.CubicCentimeters, Precision = 2 }
             }
         };

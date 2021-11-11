@@ -21,7 +21,7 @@ public partial struct Time : IDimension<Time, TimeUnit>
 
     public static Speed operator *(Time time, Acceleration acceleration) {
         time = time.In(TimeUnit.Second);
-        acceleration = acceleration.In(AccelerationUnit.MeterPerSecondSquared);
+        acceleration = acceleration.In(AccelerationUnit.MeterPerSquareSecond);
         return new Speed(time.Value * acceleration.Value, SpeedUnit.MeterPerSecond);
     }
 
@@ -52,7 +52,7 @@ public partial struct Time : IDimension<Time, TimeUnit>
     public static Acceleration operator *(Time time, Jerk jerk) {
         time = time.In(TimeUnit.Second);
         jerk = jerk.In(JerkUnit.MetersPerSecondCubed);
-        return new Acceleration(time.Value * jerk.Value, AccelerationUnit.MeterPerSecondSquared);
+        return new Acceleration(time.Value * jerk.Value, AccelerationUnit.MeterPerSquareSecond);
     }
 
 }

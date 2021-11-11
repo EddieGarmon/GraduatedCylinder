@@ -17,7 +17,7 @@ class Program
 
         Console.WriteLine($"Length: {length.ToString(LengthUnit.Inch)}");
         Console.WriteLine($"Width: {width.ToString(LengthUnit.Inch)}");
-        Console.WriteLine($"Area: {area.ToString(AreaUnit.InchSquared, 3)}");
+        Console.WriteLine($"Area: {area.ToString(AreaUnit.SquareInch, 3)}");
 
         //Console.WriteLine(
         //    $"Default: {JsonSerializer.Serialize(length)}, Custom: {JsonSerializer.Serialize(length, JsonHelper.Options)}");

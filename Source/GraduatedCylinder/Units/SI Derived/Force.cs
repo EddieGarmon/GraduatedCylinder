@@ -6,24 +6,24 @@ public partial struct Force : IDimension<Force, ForceUnit>
     public static Acceleration operator /(Force force, Mass mass) {
         force = force.In(ForceUnit.Newtons);
         mass = mass.In(MassUnit.Kilogram);
-        return new Acceleration(force.Value / mass.Value, AccelerationUnit.MeterPerSecondSquared);
+        return new Acceleration(force.Value / mass.Value, AccelerationUnit.MeterPerSquareSecond);
     }
 
     public static Area operator /(Force force, Pressure pressure) {
         force = force.In(ForceUnit.Newtons);
         pressure = pressure.In(PressureUnit.NewtonsPerSquareMeter);
-        return new Area(force.Value / pressure.Value, AreaUnit.MeterSquared);
+        return new Area(force.Value / pressure.Value, AreaUnit.SquareMeter);
     }
 
     public static Mass operator /(Force force, Acceleration acceleration) {
         force = force.In(ForceUnit.Newtons);
-        acceleration = acceleration.In(AccelerationUnit.MeterPerSecondSquared);
+        acceleration = acceleration.In(AccelerationUnit.MeterPerSquareSecond);
         return new Mass(force.Value / acceleration.Value, MassUnit.Kilogram);
     }
 
     public static Pressure operator /(Force force, Area area) {
         force = force.In(ForceUnit.Newtons);
-        area = area.In(AreaUnit.MeterSquared);
+        area = area.In(AreaUnit.SquareMeter);
         return new Pressure(force.Value / area.Value, PressureUnit.NewtonsPerSquareMeter);
     }
 

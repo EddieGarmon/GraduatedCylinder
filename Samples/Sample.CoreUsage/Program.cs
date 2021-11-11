@@ -13,7 +13,7 @@ class Program
 
         double value = ((endSpeed.Value * endSpeed.Value) - (startSpeed.Value * startSpeed.Value)) /
                        (2 * distance.Value);
-        return new Acceleration(value, AccelerationUnit.MeterPerSecondSquared);
+        return new Acceleration(value, AccelerationUnit.MeterPerSquareSecond);
     }
 
     static void Main(string[] args) {

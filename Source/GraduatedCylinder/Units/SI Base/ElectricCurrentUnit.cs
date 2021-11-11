@@ -64,7 +64,7 @@ public enum ElectricCurrentUnit : short
 
     [UnitAbbreviation("kA")]
     [Scale(1e3)]
-    KiloAmpere = 3,
+    Kiloampere = 3,
 
     [UnitAbbreviation("MA")]
     [Scale(1e6)]

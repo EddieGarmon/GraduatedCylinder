@@ -72,7 +72,7 @@ public partial class UnitPreferences
     public static UnitPreferences GetMetricUnits() {
         return new UnitPreferences {
             AccelerationUnit = AccelerationUnit.KilometerPerHourPerSecond,
-            AreaUnit = AreaUnit.KilometerSquared,
+            AreaUnit = AreaUnit.SquareKilometer,
             EnergyUnit = EnergyUnit.NewtonMeters,
             JerkUnit = JerkUnit.KiloMetersPerSecondCubed,
             LengthUnit = LengthUnit.Kilometer,
