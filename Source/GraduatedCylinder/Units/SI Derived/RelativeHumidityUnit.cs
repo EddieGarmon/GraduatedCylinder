@@ -11,7 +11,7 @@ public enum RelativeHumidityUnit : short
     BaseUnit = Value,
 
     [UnitAbbreviation("")]
-    [Scale(1e-24)]
+    [Scale(1)]
     Value = 0,
 
     [UnitAbbreviation("%")]

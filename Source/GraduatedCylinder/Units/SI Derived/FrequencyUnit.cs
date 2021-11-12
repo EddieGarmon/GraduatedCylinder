@@ -28,14 +28,14 @@ public enum FrequencyUnit : short
 
     [UnitAbbreviation("n/s")]
     [Scale(1.0)]
-    CyclePerSecond = 102,
+    CyclePerSecond = -100,
 
     [UnitAbbreviation("r/s")]
     [Scale(1.0)]
-    RevolutionPerSecond = 103,
+    RevolutionPerSecond = -101,
 
     [UnitAbbreviation("rpm")]
     [Scale(0.0166666666667)]
-    RevolutionsPerMinute = 104
+    RevolutionsPerMinute = 102
 
 }

@@ -20,7 +20,7 @@ public enum MassDensityUnit : short
 
     [UnitAbbreviation("g/l")]
     [Scale(1.0)]
-    GramsPerLiter = 2,
+    GramsPerLiter = -100,
 
     [UnitAbbreviation("g/ml")]
     [Scale(1000)]

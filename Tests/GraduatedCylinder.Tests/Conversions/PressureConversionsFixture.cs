@@ -12,7 +12,7 @@ public class PressureConversionsFixture
     [InlineData(5897.56, PressureUnit.Pascals, 0.0589756, PressureUnit.Bars)]
     [InlineData(5897.56, PressureUnit.Pascals, 5.89756, PressureUnit.KiloPascals)]
     [InlineData(5897.56, PressureUnit.Pascals, 0.00589756, PressureUnit.MegaPascals)]
-    [InlineData(5897.56, PressureUnit.Pascals, 58.9756, PressureUnit.MilliBars)]
+    [InlineData(5897.56, PressureUnit.Pascals, 58.9756, PressureUnit.Millibars)]
     [InlineData(5897.56, PressureUnit.Pascals, 5897.56, PressureUnit.NewtonsPerSquareMeter)]
     public void PressureConversions(double value1, PressureUnit units1, double value2, PressureUnit units2) {
         new Pressure(value1, units1).In(units2).Value.ShouldBeWithinToleranceOf(value2);

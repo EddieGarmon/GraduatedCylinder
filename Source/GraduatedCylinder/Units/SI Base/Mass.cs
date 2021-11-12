@@ -29,7 +29,7 @@ public partial struct Mass : IDimension<Mass, MassUnit>
 
     public static Force operator *(Mass left, Acceleration right) {
         left = left.In(MassUnit.Kilogram);
-        right = right.In(AccelerationUnit.MegameterPerSquareSecond);
+        right = right.In(AccelerationUnit.MeterPerSquareSecond);
         return new Force(left.Value * right.Value, ForceUnit.Newtons);
     }
 

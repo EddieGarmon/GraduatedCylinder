@@ -37,4 +37,8 @@
     <None Update="GraduatedCylinder.csproj.DotSettings" Visible="false" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Calculators\" />
+  </ItemGroup>
+
 </Project>

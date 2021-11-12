@@ -11,11 +11,11 @@ public enum AbsoluteHumidityUnit : short
     BaseUnit = GramsPerCubicMeter,
 
     [UnitAbbreviation("g/m³")]
-    [Scale(1e-24)]
+    [Scale(1)]
     GramsPerCubicMeter = 0,
 
     [UnitAbbreviation("kg/m³")]
-    [Scale(1000)]
+    [Scale(0.001)]
     KilogramsPerCubicMeter,
 
 }
