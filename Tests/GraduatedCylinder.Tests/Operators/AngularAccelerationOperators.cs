@@ -19,8 +19,8 @@ public class AngularAngularAccelerationOperators
     public void OpDivision() {
         var angularAcceleration1 = new AngularAcceleration(60, AngularAccelerationUnit.RevolutionsPerSquareMinute);
         var angularAcceleration2 = new AngularAcceleration(1, AngularAccelerationUnit.RevolutionsPerSquareSecond);
-        (angularAcceleration1 / angularAcceleration2).ShouldBeWithinToleranceOf(1);
-        (angularAcceleration2 / angularAcceleration1).ShouldBeWithinToleranceOf(1);
+        (angularAcceleration1 / angularAcceleration2).ShouldBeCloseTo(1);
+        (angularAcceleration2 / angularAcceleration1).ShouldBeCloseTo(1);
 
         (angularAcceleration1 / 2).ShouldBe(new AngularAcceleration(30, AngularAccelerationUnit.RevolutionsPerSquareMinute));
         (angularAcceleration2 / 2).ShouldBe(new AngularAcceleration(.5, AngularAccelerationUnit.RevolutionsPerSquareSecond));

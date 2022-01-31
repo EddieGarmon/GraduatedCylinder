@@ -1,3 +1,4 @@
+using DigitalHammer.Testing;
 using Xunit;
 
 namespace GraduatedCylinder.Conversions;
@@ -15,8 +16,8 @@ public class PressureConversionsFixture
     [InlineData(5897.56, PressureUnit.Pascals, 58.9756, PressureUnit.Millibars)]
     [InlineData(5897.56, PressureUnit.Pascals, 5897.56, PressureUnit.NewtonsPerSquareMeter)]
     public void PressureConversions(double value1, PressureUnit units1, double value2, PressureUnit units2) {
-        new Pressure(value1, units1).In(units2).Value.ShouldBeWithinToleranceOf(value2);
-        new Pressure(value2, units2).In(units1).Value.ShouldBeWithinToleranceOf(value1);
+        new Pressure(value1, units1).In(units2).ShouldBe(new Pressure(value2, units2));
+        new Pressure(value2, units2).In(units1).ShouldBe(new Pressure(value1, units1));
     }
 
 }

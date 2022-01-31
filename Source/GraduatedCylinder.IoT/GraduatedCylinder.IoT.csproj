@@ -30,6 +30,7 @@
 
   <ItemGroup>
     <Compile Include="..\GraduatedCylinder\Abbreviations\UnitAbbreviationAttribute.cs" Link="Abbreviations\UnitAbbreviationAttribute.cs" />
+    <Compile Include="..\GraduatedCylinder\Equality.cs" Link="Equality.cs" />
     <Compile Include="..\GraduatedCylinder\Scales\PercentGradeAttribute.cs" Link="Scales\PercentGradeAttribute.cs" />
     <Compile Include="..\GraduatedCylinder\Scales\ScaleAndOffsetAttribute.cs" Link="Scales\ScaleAndOffsetAttribute.cs" />
     <Compile Include="..\GraduatedCylinder\Scales\ScaleAttribute.cs" Link="Scales\ScaleAttribute.cs" />

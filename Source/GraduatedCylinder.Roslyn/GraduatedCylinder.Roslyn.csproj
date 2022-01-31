@@ -8,6 +8,7 @@
     <IsRoslynComponent>true</IsRoslynComponent>
 
     <!--  Dont Package as we are consuming as a project only -->
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>

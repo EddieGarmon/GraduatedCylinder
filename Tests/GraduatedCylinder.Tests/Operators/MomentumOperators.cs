@@ -18,8 +18,8 @@ public class MomentumOperators
     public void OpDivision() {
         var momentum1 = new Momentum(300000, MomentumUnit.GramCentimetersPerSecond);
         var momentum2 = new Momentum(3, MomentumUnit.KilogramMetersPerSecond);
-        (momentum1 / momentum2).ShouldBeWithinToleranceOf(1);
-        (momentum2 / momentum1).ShouldBeWithinToleranceOf(1);
+        (momentum1 / momentum2).ShouldBeCloseTo(1);
+        (momentum2 / momentum1).ShouldBeCloseTo(1);
 
         (momentum1 / 2).ShouldBe(new Momentum(150000, MomentumUnit.GramCentimetersPerSecond));
         (momentum2 / 2).ShouldBe(new Momentum(1.5, MomentumUnit.KilogramMetersPerSecond));

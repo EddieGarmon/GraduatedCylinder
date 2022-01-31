@@ -18,8 +18,8 @@ public class JerkOperators
     public void OpDivision() {
         var jerk1 = new Jerk(1000, JerkUnit.MetersPerSecondCubed);
         var jerk2 = new Jerk(1, JerkUnit.KiloMetersPerSecondCubed);
-        (jerk1 / jerk2).ShouldBeWithinToleranceOf(1);
-        (jerk2 / jerk1).ShouldBeWithinToleranceOf(1);
+        (jerk1 / jerk2).ShouldBeCloseTo(1);
+        (jerk2 / jerk1).ShouldBeCloseTo(1);
 
         (jerk1 / 2).ShouldBe(new Jerk(500, JerkUnit.MetersPerSecondCubed));
         (jerk2 / 2).ShouldBe(new Jerk(.5, JerkUnit.KiloMetersPerSecondCubed));

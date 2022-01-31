@@ -1,3 +1,4 @@
+using DigitalHammer.Testing;
 using Xunit;
 
 namespace GraduatedCylinder.Conversions;
@@ -15,8 +16,8 @@ public class TimeConversionsFixture
     [InlineData(2.35678978, TimeUnit.Second, 2356789.78, TimeUnit.MicroSecond)]
     [InlineData(2.657843, TimeUnit.Second, 2657.843, TimeUnit.Millisecond)]
     public void TimeConversions(double value1, TimeUnit units1, double value2, TimeUnit units2) {
-        new Time(value1, units1).In(units2).Value.ShouldBeWithinToleranceOf(value2);
-        new Time(value2, units2).In(units1).Value.ShouldBeWithinToleranceOf(value1);
+        new Time(value1, units1).In(units2).ShouldBe(new Time(value2, units2));
+        new Time(value2, units2).In(units1).ShouldBe(new Time(value1, units1));
     }
 
 }

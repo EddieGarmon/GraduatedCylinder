@@ -18,8 +18,8 @@ public class TemperatureOperators
     public void OpDivision() {
         var temperature1 = new Temperature(68, TemperatureUnit.Fahrenheit);
         var temperature2 = new Temperature(20, TemperatureUnit.Celsius);
-        (temperature1 / temperature2).ShouldBeWithinToleranceOf(1);
-        (temperature2 / temperature1).ShouldBeWithinToleranceOf(1);
+        (temperature1 / temperature2).ShouldBeCloseTo(1);
+        (temperature2 / temperature1).ShouldBeCloseTo(1);
 
         (temperature1 / 2).ShouldBe(new Temperature(50, TemperatureUnit.Fahrenheit));
         (temperature2 / 2).ShouldBe(new Temperature(10, TemperatureUnit.Celsius));

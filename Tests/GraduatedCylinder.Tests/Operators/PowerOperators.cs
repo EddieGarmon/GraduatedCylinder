@@ -18,8 +18,8 @@ public class PowerOperators
     public void OpDivision() {
         var power1 = new Power(2000, PowerUnit.Watts);
         var power2 = new Power(2, PowerUnit.Kilowatts);
-        (power1 / power2).ShouldBeWithinToleranceOf(1);
-        (power2 / power1).ShouldBeWithinToleranceOf(1);
+        (power1 / power2).ShouldBeCloseTo(1);
+        (power2 / power1).ShouldBeCloseTo(1);
 
         (power1 / 2).ShouldBe(new Power(1000, PowerUnit.Watts));
         (power2 / 2).ShouldBe(new Power(1, PowerUnit.Kilowatts));

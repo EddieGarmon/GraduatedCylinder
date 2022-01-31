@@ -18,8 +18,8 @@ public class PressureOperators
     public void OpDivision() {
         var pressure1 = new Pressure(4000, PressureUnit.Pascals);
         var pressure2 = new Pressure(4, PressureUnit.KiloPascals);
-        (pressure1 / pressure2).ShouldBeWithinToleranceOf(1);
-        (pressure2 / pressure1).ShouldBeWithinToleranceOf(1);
+        (pressure1 / pressure2).ShouldBeCloseTo(1);
+        (pressure2 / pressure1).ShouldBeCloseTo(1);
 
         (pressure1 / 2).ShouldBe(new Pressure(2000, PressureUnit.Pascals));
         (pressure2 / 2).ShouldBe(new Pressure(2, PressureUnit.KiloPascals));

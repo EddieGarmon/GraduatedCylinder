@@ -1,3 +1,4 @@
+using DigitalHammer.Testing;
 using Xunit;
 
 namespace GraduatedCylinder.Conversions;
@@ -10,8 +11,8 @@ public class ForceConversionsFixture
     [InlineData(156.789, ForceUnit.Newtons, 35.247582178938991326867825781998, ForceUnit.PoundForce)]
     [InlineData(1678.254, ForceUnit.PoundForce, 760.98297735779816513761467889908, ForceUnit.KilogramForce)]
     public void ForceConversions(double value1, ForceUnit units1, double value2, ForceUnit units2) {
-        new Force(value1, units1).In(units2).Value.ShouldBeWithinToleranceOf(value2);
-        new Force(value2, units2).In(units1).Value.ShouldBeWithinToleranceOf(value1);
+        new Force(value1, units1).In(units2).ShouldBe(new Force(value2, units2));
+        new Force(value2, units2).In(units1).ShouldBe(new Force(value1, units1));
     }
 
 }

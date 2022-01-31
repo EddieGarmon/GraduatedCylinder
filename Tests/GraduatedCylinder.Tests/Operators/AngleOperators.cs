@@ -5,21 +5,21 @@ namespace GraduatedCylinder.Operators;
 
 public class AngleOperators
 {
+
     [Fact]
     public void OpAddition() {
         var angle1 = new Angle(180, AngleUnit.Degree);
         var angle2 = new Angle(200, AngleUnit.Grad);
-        var expected = new Angle(360, AngleUnit.Degree);
-        (angle1 + angle2).ShouldBe(expected);
-        (angle2 + angle1).ShouldBe(expected);
+        (angle1 + angle2).In(AngleUnit.Degree).Value.ShouldBeCloseTo(360);
+        (angle2 + angle1).In(AngleUnit.Revolutions).Value.ShouldBeCloseTo(1);
     }
 
     [Fact]
     public void OpDivision() {
         var angle1 = new Angle(180, AngleUnit.Degree);
         var angle2 = new Angle(200, AngleUnit.Grad);
-        (angle1 / angle2).ShouldBeWithinToleranceOf(1);
-        (angle2 / angle1).ShouldBeWithinToleranceOf(1);
+        (angle1 / angle2).ShouldBeCloseTo(1);
+        (angle2 / angle1).ShouldBeCloseTo(1);
 
         (angle1 / 2).ShouldBe(new Angle(90, AngleUnit.Degree));
         (angle2 / 2).ShouldBe(new Angle(100, AngleUnit.Grad));
@@ -28,7 +28,7 @@ public class AngleOperators
     [Fact]
     public void OpEquals() {
         var angle1 = new Angle(180, AngleUnit.Degree);
-        var angle2 = new Angle(200, AngleUnit.Grad);
+        var angle2 = new Angle(.5, AngleUnit.Revolutions);
         var angle3 = new Angle(200, AngleUnit.Degree);
         (angle1 == angle2).ShouldBeTrue();
         (angle2 == angle1).ShouldBeTrue();
@@ -110,4 +110,5 @@ public class AngleOperators
         (angle1 - angle2).ShouldBe(new Angle(90, AngleUnit.Degree));
         (angle2 - angle1).ShouldBe(new Angle(-100, AngleUnit.Grad));
     }
+
 }

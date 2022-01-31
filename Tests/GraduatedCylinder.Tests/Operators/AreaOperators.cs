@@ -18,8 +18,8 @@ public class AreaOperators
     public void OpDivision() {
         var area1 = new Area(36000000, AreaUnit.SquareMeter);
         var area2 = new Area(36, AreaUnit.SquareKilometer);
-        (area1 / area2).ShouldBeWithinToleranceOf(1);
-        (area2 / area1).ShouldBeWithinToleranceOf(1);
+        (area1 / area2).ShouldBeCloseTo(1);
+        (area2 / area1).ShouldBeCloseTo(1);
 
         (area1 / 2).ShouldBe(new Area(18000000, AreaUnit.SquareMeter));
         (area2 / 2).ShouldBe(new Area(18, AreaUnit.SquareKilometer));

@@ -32,6 +32,10 @@ public enum MassDensityUnit : short
 
     [UnitAbbreviation("lb/ft³")]
     [Scale(16.018463)]
-    PoundsPerCubicFeet = 5
+    PoundsPerCubicFeet = 5,
+
+    [UnitAbbreviation("lb/in³")]
+    [Scale(27679.90)]
+    PoundsPerCubicInch = 6
 
 }

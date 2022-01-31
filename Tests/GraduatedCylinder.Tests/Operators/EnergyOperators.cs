@@ -18,8 +18,8 @@ public class EnergyOperators
     public void OpDivision() {
         var energy1 = new Energy(2000, EnergyUnit.NewtonMeters);
         var energy2 = new Energy(2, EnergyUnit.Kilojoules);
-        (energy1 / energy2).ShouldBeWithinToleranceOf(1);
-        (energy2 / energy1).ShouldBeWithinToleranceOf(1);
+        (energy1 / energy2).ShouldBeCloseTo(1);
+        (energy2 / energy1).ShouldBeCloseTo(1);
 
         (energy1 / 2).ShouldBe(new Energy(1000, EnergyUnit.NewtonMeters));
         (energy2 / 2).ShouldBe(new Energy(1, EnergyUnit.Kilojoules));

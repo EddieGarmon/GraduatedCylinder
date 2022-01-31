@@ -18,8 +18,8 @@ public class FrequencyOperators
     public void OpDivision() {
         var frequency1 = new Frequency(2, FrequencyUnit.Hertz);
         var frequency2 = new Frequency(2, FrequencyUnit.CyclePerSecond);
-        (frequency1 / frequency2).ShouldBeWithinToleranceOf(1);
-        (frequency2 / frequency1).ShouldBeWithinToleranceOf(1);
+        (frequency1 / frequency2).ShouldBeCloseTo(1);
+        (frequency2 / frequency1).ShouldBeCloseTo(1);
 
         (frequency1 / 2).ShouldBe(new Frequency(1, FrequencyUnit.Hertz));
         (frequency2 / 2).ShouldBe(new Frequency(1, FrequencyUnit.CyclePerSecond));

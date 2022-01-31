@@ -18,8 +18,8 @@ public class ElectricPotentialUnitOperators
     public void OpDivision() {
         var voltage1 = new ElectricPotential(3000, ElectricPotentialUnit.Volt);
         var voltage2 = new ElectricPotential(3, ElectricPotentialUnit.Kilovolt);
-        (voltage1 / voltage2).ShouldBeWithinToleranceOf(1);
-        (voltage2 / voltage1).ShouldBeWithinToleranceOf(1);
+        (voltage1 / voltage2).ShouldBeCloseTo(1);
+        (voltage2 / voltage1).ShouldBeCloseTo(1);
 
         (voltage1 / 2).ShouldBe(new ElectricPotential(1500, ElectricPotentialUnit.Volt));
         (voltage2 / 2).ShouldBe(new ElectricPotential(1.5, ElectricPotentialUnit.Kilovolt));

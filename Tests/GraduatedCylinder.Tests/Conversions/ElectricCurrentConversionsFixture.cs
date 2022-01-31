@@ -3,7 +3,7 @@ using Xunit;
 
 namespace GraduatedCylinder.Conversions;
 
-public class ElectricCurrentConversionsFixture
+public class CurrentConversionsFixture
 {
 
     [Theory]

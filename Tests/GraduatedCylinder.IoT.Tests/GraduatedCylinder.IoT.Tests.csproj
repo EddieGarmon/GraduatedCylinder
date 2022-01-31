@@ -9,13 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\GraduatedCylinder.Tests\AssertionHelpers.cs" Link="AssertionHelpers.cs" />
+    <Compile Include="..\GraduatedCylinder.Tests\CloseTo.cs" Link="CloseTo.cs" />
     <Compile Include="..\GraduatedCylinder.Tests\Conversions\AccelerationConversionsFixture.cs" Link="Conversions\AccelerationConversionsFixture.cs" />
     <Compile Include="..\GraduatedCylinder.Tests\Conversions\AngleConversionsFixture.cs" Link="Conversions\AngleConversionsFixture.cs" />
     <Compile Include="..\GraduatedCylinder.Tests\Conversions\AngularAccelerationConversionsFixture.cs" Link="Conversions\AngularAccelerationConversionsFixture.cs" />
     <Compile Include="..\GraduatedCylinder.Tests\Conversions\AreaConversionsFixture.cs" Link="Conversions\AreaConversionsFixture.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\CurrentConversionsFixture.cs" Link="Conversions\CurrentConversionsFixture.cs" />
     <Compile Include="..\GraduatedCylinder.Tests\Conversions\DensityConversionsFixture.cs" Link="Conversions\DensityConversionsFixture.cs" />
+    <Compile Include="..\GraduatedCylinder.Tests\Conversions\ElectricCurrentConversionsFixture.cs" Link="Conversions\ElectricCurrentConversionsFixture.cs" />
     <Compile Include="..\GraduatedCylinder.Tests\Conversions\ElectricPotentialConversionsFixture.cs" Link="Conversions\ElectricPotentialConversionsFixture.cs" />
     <Compile Include="..\GraduatedCylinder.Tests\Conversions\EnergyConversionsFixture.cs" Link="Conversions\EnergyConversionsFixture.cs" />
     <Compile Include="..\GraduatedCylinder.Tests\Conversions\ForceConversionsFixture.cs" Link="Conversions\ForceConversionsFixture.cs" />
@@ -59,7 +59,6 @@
     <Compile Include="..\GraduatedCylinder.Tests\Operators\TorqueOperators.cs" Link="Operators\TorqueOperators.cs" />
     <Compile Include="..\GraduatedCylinder.Tests\Operators\VolumeOperators.cs" Link="Operators\VolumeOperators.cs" />
     <Compile Include="..\GraduatedCylinder.Tests\Operators\VolumetricFlowRateOperators.cs" Link="Operators\VolumetricFlowRateOperators.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\ToleranceException.cs" Link="ToleranceException.cs" />
   </ItemGroup>
 
   <ItemGroup>

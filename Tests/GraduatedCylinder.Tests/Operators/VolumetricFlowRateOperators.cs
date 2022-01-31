@@ -18,8 +18,8 @@ public class VolumetricFlowRateOperators
     public void OpDivision() {
         var volumetricFlowRate1 = new VolumetricFlowRate(3600, VolumetricFlowRateUnit.LitersPerHour);
         var volumetricFlowRate2 = new VolumetricFlowRate(60, VolumetricFlowRateUnit.LitersPerMinute);
-        (volumetricFlowRate1 / volumetricFlowRate2).ShouldBeWithinToleranceOf(1);
-        (volumetricFlowRate2 / volumetricFlowRate1).ShouldBeWithinToleranceOf(1);
+        (volumetricFlowRate1 / volumetricFlowRate2).ShouldBeCloseTo(1);
+        (volumetricFlowRate2 / volumetricFlowRate1).ShouldBeCloseTo(1);
 
         (volumetricFlowRate1 / 2).ShouldBe(new VolumetricFlowRate(1800, VolumetricFlowRateUnit.LitersPerHour));
         (volumetricFlowRate2 / 2).ShouldBe(new VolumetricFlowRate(30, VolumetricFlowRateUnit.LitersPerMinute));

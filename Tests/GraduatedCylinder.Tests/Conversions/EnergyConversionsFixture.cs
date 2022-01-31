@@ -1,3 +1,4 @@
+using DigitalHammer.Testing;
 using Xunit;
 
 namespace GraduatedCylinder.Conversions;
@@ -15,8 +16,8 @@ public class EnergyConversionsFixture
     [InlineData(1000.345, EnergyUnit.Joules, 0.2778736111, EnergyUnit.WattHours)]
     [InlineData(1000.345, EnergyUnit.Joules, 1000.345, EnergyUnit.WattSeconds)]
     public void EnergyConversions(double value1, EnergyUnit units1, double value2, EnergyUnit units2) {
-        new Energy(value1, units1).In(units2).Value.ShouldBeWithinToleranceOf(value2);
-        new Energy(value2, units2).In(units1).Value.ShouldBeWithinToleranceOf(value1);
+        new Energy(value1, units1).In(units2).ShouldBe(new Energy(value2, units2));
+        new Energy(value2, units2).In(units1).ShouldBe(new Energy(value1, units1));
     }
 
 }

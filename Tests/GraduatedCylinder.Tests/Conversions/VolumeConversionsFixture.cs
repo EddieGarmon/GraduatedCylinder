@@ -1,3 +1,4 @@
+using DigitalHammer.Testing;
 using Xunit;
 
 namespace GraduatedCylinder.Conversions;
@@ -27,8 +28,8 @@ public class VolumeConversionsFixture
     [InlineData(1000.7865, VolumeUnit.Liters, 908.797191536, VolumeUnit.QuartsUSDry)]
     [InlineData(1000.7865, VolumeUnit.Liters, 1057.519294709, VolumeUnit.QuartsUSLiquid)]
     public void VolumeConversions(double value1, VolumeUnit units1, double value2, VolumeUnit units2) {
-        new Volume(value1, units1).In(units2).Value.ShouldBeWithinToleranceOf(value2);
-        new Volume(value2, units2).In(units1).Value.ShouldBeWithinToleranceOf(value1);
+        new Volume(value1, units1).In(units2).ShouldBe(new Volume(value2, units2));
+        new Volume(value2, units2).In(units1).ShouldBe(new Volume(value1, units1));
     }
 
 }

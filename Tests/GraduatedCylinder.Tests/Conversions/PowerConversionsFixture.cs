@@ -1,3 +1,4 @@
+using DigitalHammer.Testing;
 using Xunit;
 
 namespace GraduatedCylinder.Conversions;
@@ -17,8 +18,8 @@ public class PowerConversionsFixture
     [InlineData(7654.986, PowerUnit.Watts, 0.007654986, PowerUnit.Megawatts)]
     [InlineData(7654.986, PowerUnit.Watts, 7654.986, PowerUnit.NewtonMetersPerSecond)]
     public void PowerConversions(double value1, PowerUnit units1, double value2, PowerUnit units2) {
-        new Power(value1, units1).In(units2).Value.ShouldBeWithinToleranceOf(value2);
-        new Power(value2, units2).In(units1).Value.ShouldBeWithinToleranceOf(value1);
+        new Power(value1, units1).In(units2).ShouldBe(new Power(value2, units2));
+        new Power(value2, units2).In(units1).ShouldBe(new Power(value1, units1));
     }
 
 }

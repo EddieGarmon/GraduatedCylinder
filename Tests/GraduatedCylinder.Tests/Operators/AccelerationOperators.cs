@@ -17,8 +17,8 @@ public class AccelerationOperators
     public void OpDivision() {
         var acceleration1 = new Acceleration(3600, AccelerationUnit.MeterPerSquareSecond);
         var acceleration2 = new Acceleration(3.6, AccelerationUnit.KilometerPerSquareSecond);
-        (acceleration1 / acceleration2).ShouldBeWithinToleranceOf(1);
-        (acceleration2 / acceleration1).ShouldBeWithinToleranceOf(1);
+        (acceleration1 / acceleration2).ShouldBeCloseTo(1);
+        (acceleration2 / acceleration1).ShouldBeCloseTo(1);
 
         (acceleration1 / 2).ShouldBe(new Acceleration(1800, AccelerationUnit.MeterPerSquareSecond));
         (acceleration2 / 2).ShouldBe(new Acceleration(1.8, AccelerationUnit.KilometerPerSquareSecond));

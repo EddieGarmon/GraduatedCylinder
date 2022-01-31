@@ -99,7 +99,7 @@ public enum AngleUnit : short
     Degree = 101,
 
     [UnitAbbreviation("grads")]
-    [Scale(0.0157079632679)]
+    [Scale(0.015707963267949)]
     Grad = 102,
 
     [UnitAbbreviation("%grade")]
@@ -107,7 +107,7 @@ public enum AngleUnit : short
     PercentGrade = 103,
 
     [UnitAbbreviation("rev")]
-    [Scale(6.283185307179586476925286766559)]
+    [Scale(6.28318530717959)]
     Revolutions = 104,
 
 }

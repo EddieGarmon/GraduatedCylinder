@@ -18,8 +18,8 @@ public class MassFlowRateOperators
     public void OpDivision() {
         var massFlowRate1 = new MassFlowRate(3600, MassFlowRateUnit.GramsPerSecond);
         var massFlowRate2 = new MassFlowRate(3.6, MassFlowRateUnit.KilogramsPerSecond);
-        (massFlowRate1 / massFlowRate2).ShouldBeWithinToleranceOf(1);
-        (massFlowRate2 / massFlowRate1).ShouldBeWithinToleranceOf(1);
+        (massFlowRate1 / massFlowRate2).ShouldBeCloseTo(1);
+        (massFlowRate2 / massFlowRate1).ShouldBeCloseTo(1);
 
         (massFlowRate1 / 2).ShouldBe(new MassFlowRate(1800, MassFlowRateUnit.GramsPerSecond));
         (massFlowRate2 / 2).ShouldBe(new MassFlowRate(1.8, MassFlowRateUnit.KilogramsPerSecond));

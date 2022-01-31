@@ -18,8 +18,8 @@ public class TimeOperators
     public void OpDivision() {
         var time1 = new Time(3600, TimeUnit.Second);
         var time2 = new Time(1, TimeUnit.Hours);
-        (time1 / time2).ShouldBeWithinToleranceOf(1);
-        (time2 / time1).ShouldBeWithinToleranceOf(1);
+        (time1 / time2).ShouldBeCloseTo(1);
+        (time2 / time1).ShouldBeCloseTo(1);
 
         (time1 / 2).ShouldBe(new Time(1800, TimeUnit.Second));
         (time2 / 2).ShouldBe(new Time(.5, TimeUnit.Hours));

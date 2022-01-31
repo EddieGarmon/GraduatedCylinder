@@ -18,8 +18,8 @@ public class LengthOperators
     public void OpDivision() {
         var length1 = new Length(4000, LengthUnit.Meter);
         var length2 = new Length(4, LengthUnit.Kilometer);
-        (length1 / length2).ShouldBeWithinToleranceOf(1);
-        (length2 / length1).ShouldBeWithinToleranceOf(1);
+        (length1 / length2).ShouldBeCloseTo(1);
+        (length2 / length1).ShouldBeCloseTo(1);
 
         (length1 / 2).ShouldBe(new Length(2000, LengthUnit.Meter));
         (length2 / 2).ShouldBe(new Length(2, LengthUnit.Kilometer));

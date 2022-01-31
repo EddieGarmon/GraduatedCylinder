@@ -18,8 +18,8 @@ public class ForceOperators
     public void OpDivision() {
         var force1 = new Force(19.62, ForceUnit.Newtons);
         var force2 = new Force(2, ForceUnit.KilogramForce);
-        (force1 / force2).ShouldBeWithinToleranceOf(1);
-        (force2 / force1).ShouldBeWithinToleranceOf(1);
+        (force1 / force2).ShouldBeCloseTo(1);
+        (force2 / force1).ShouldBeCloseTo(1);
 
         (force1 / 2).ShouldBe(new Force(9.81, ForceUnit.Newtons));
         (force2 / 2).ShouldBe(new Force(1, ForceUnit.KilogramForce));

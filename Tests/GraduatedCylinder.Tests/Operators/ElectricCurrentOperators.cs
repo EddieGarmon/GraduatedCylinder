@@ -18,8 +18,8 @@ public class ElectricCurrentOperators
     public void OpDivision() {
         var current1 = new ElectricCurrent(2000, ElectricCurrentUnit.Ampere);
         var current2 = new ElectricCurrent(2, ElectricCurrentUnit.Kiloampere);
-        (current1 / current2).ShouldBeWithinToleranceOf(1);
-        (current2 / current1).ShouldBeWithinToleranceOf(1);
+        (current1 / current2).ShouldBeCloseTo(1);
+        (current2 / current1).ShouldBeCloseTo(1);
 
         (current1 / 2).ShouldBe(new ElectricCurrent(1000, ElectricCurrentUnit.Ampere));
         (current2 / 2).ShouldBe(new ElectricCurrent(1, ElectricCurrentUnit.Kiloampere));

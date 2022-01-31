@@ -18,8 +18,8 @@ public class DensityOperators
     public void OpDivision() {
         var density1 = new MassDensity(3000, MassDensityUnit.KilogramsPerCubicMeter);
         var density2 = new MassDensity(3, MassDensityUnit.GramsPerCubicCentimeter);
-        (density1 / density2).ShouldBeWithinToleranceOf(1);
-        (density2 / density1).ShouldBeWithinToleranceOf(1);
+        (density1 / density2).ShouldBeCloseTo(1);
+        (density2 / density1).ShouldBeCloseTo(1);
 
         (density1 / 2).ShouldBe(new MassDensity(1500, MassDensityUnit.KilogramsPerCubicMeter));
         (density2 / 2).ShouldBe(new MassDensity(1.5, MassDensityUnit.GramsPerCubicCentimeter));

@@ -18,8 +18,8 @@ public class SpeedOperators
     public void OpDivision() {
         var speed1 = new Speed(3600, SpeedUnit.MetersPerHour);
         var speed2 = new Speed(60, SpeedUnit.MetersPerMinute);
-        (speed1 / speed2).ShouldBeWithinToleranceOf(1);
-        (speed2 / speed1).ShouldBeWithinToleranceOf(1);
+        (speed1 / speed2).ShouldBeCloseTo(1);
+        (speed2 / speed1).ShouldBeCloseTo(1);
 
         (speed1 / 2).ShouldBe(new Speed(1800, SpeedUnit.MetersPerHour));
         (speed2 / 2).ShouldBe(new Speed(30, SpeedUnit.MetersPerMinute));

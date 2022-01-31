@@ -18,8 +18,8 @@ public class TorqueOperators
     public void OpDivision() {
         var torque1 = new Torque(19.62, TorqueUnit.NewtonMeters);
         var torque2 = new Torque(2, TorqueUnit.KilogramForceMeters);
-        (torque1 / torque2).ShouldBeWithinToleranceOf(1);
-        (torque2 / torque1).ShouldBeWithinToleranceOf(1);
+        (torque1 / torque2).ShouldBeCloseTo(1);
+        (torque2 / torque1).ShouldBeCloseTo(1);
 
         (torque1 / 2).ShouldBe(new Torque(9.81, TorqueUnit.NewtonMeters));
         (torque2 / 2).ShouldBe(new Torque(1, TorqueUnit.KilogramForceMeters));

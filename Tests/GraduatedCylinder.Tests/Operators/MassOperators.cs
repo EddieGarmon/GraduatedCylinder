@@ -18,8 +18,8 @@ public class MassOperators
     public void OpDivision() {
         var mass1 = new Mass(2000, MassUnit.Gram);
         var mass2 = new Mass(2, MassUnit.Kilogram);
-        (mass1 / mass2).ShouldBeWithinToleranceOf(1);
-        (mass2 / mass1).ShouldBeWithinToleranceOf(1);
+        (mass1 / mass2).ShouldBeCloseTo(1);
+        (mass2 / mass1).ShouldBeCloseTo(1);
 
         (mass1 / 2).ShouldBe(new Mass(1000, MassUnit.Gram));
         (mass2 / 2).ShouldBe(new Mass(1, MassUnit.Kilogram));

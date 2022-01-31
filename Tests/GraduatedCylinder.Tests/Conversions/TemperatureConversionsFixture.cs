@@ -1,3 +1,4 @@
+using DigitalHammer.Testing;
 using Xunit;
 
 namespace GraduatedCylinder.Conversions;
@@ -17,8 +18,8 @@ public class TemperatureConversionsFixture
     [InlineData(68, TemperatureUnit.Fahrenheit, 293.15, TemperatureUnit.Kelvin)]
     [InlineData(167, TemperatureUnit.Fahrenheit, 348.15, TemperatureUnit.Kelvin)]
     public void TemperatureConversions(double value1, TemperatureUnit units1, double value2, TemperatureUnit units2) {
-        new Temperature(value1, units1).In(units2).Value.ShouldBeWithinToleranceOf(value2);
-        new Temperature(value2, units2).In(units1).Value.ShouldBeWithinToleranceOf(value1);
+        new Temperature(value1, units1).In(units2).ShouldBe(new Temperature(value2, units2));
+        new Temperature(value2, units2).In(units1).ShouldBe(new Temperature(value1, units1));
     }
 
 }

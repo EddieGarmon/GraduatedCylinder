@@ -1,3 +1,4 @@
+using DigitalHammer.Testing;
 using Xunit;
 
 namespace GraduatedCylinder.Conversions;
@@ -18,8 +19,8 @@ public class SpeedConversionsFixture
     [InlineData(3564.765, SpeedUnit.KilometersPerHour, 2215.042278096, SpeedUnit.MilesPerHour)]
     [InlineData(2176.546, SpeedUnit.MilesPerHour, 3502.811245824, SpeedUnit.KilometersPerHour)]
     public void SpeedConversions(double value1, SpeedUnit units1, double value2, SpeedUnit units2) {
-        new Speed(value1, units1).In(units2).Value.ShouldBeWithinToleranceOf(value2);
-        new Speed(value2, units2).In(units1).Value.ShouldBeWithinToleranceOf(value1);
+        new Speed(value1, units1).In(units2).ShouldBe(new Speed(value2, units2));
+        new Speed(value2, units2).In(units1).ShouldBe(new Speed(value1, units1));
     }
 
 }

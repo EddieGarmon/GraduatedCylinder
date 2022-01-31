@@ -18,8 +18,8 @@ public class ElectricResistanceOperators
     public void OpDivision() {
         var resistance1 = new ElectricResistance(2000, ElectricResistanceUnit.Ohm);
         var resistance2 = new ElectricResistance(2, ElectricResistanceUnit.Kiloohm);
-        (resistance1 / resistance2).ShouldBeWithinToleranceOf(1);
-        (resistance2 / resistance1).ShouldBeWithinToleranceOf(1);
+        (resistance1 / resistance2).ShouldBeCloseTo(1);
+        (resistance2 / resistance1).ShouldBeCloseTo(1);
 
         (resistance1 / 2).ShouldBe(new ElectricResistance(1000, ElectricResistanceUnit.Ohm));
         (resistance2 / 2).ShouldBe(new ElectricResistance(1, ElectricResistanceUnit.Kiloohm));
