@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
+﻿using System.Text;
 using Microsoft.CodeAnalysis;
 
 namespace GraduatedCylinder.Roslyn;
@@ -41,12 +37,7 @@ public abstract class BaseGenerator : ISourceGenerator
             ExecuteInternal(context);
         } catch (Exception e) {
             DiagnosticDescriptor descriptor =
-                new DiagnosticDescriptor(GetType().Name,
-                                         "Error",
-                                         e.ToString(),
-                                         "Error",
-                                         DiagnosticSeverity.Error,
-                                         true);
+                new DiagnosticDescriptor(GetType().Name, "Error", e.ToString(), "Error", DiagnosticSeverity.Error, true);
             Diagnostic diagnostic = Diagnostic.Create(descriptor, Location.None);
             context.ReportDiagnostic(diagnostic);
         } finally {

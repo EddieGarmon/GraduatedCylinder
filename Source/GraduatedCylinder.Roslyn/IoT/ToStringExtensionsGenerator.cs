@@ -32,7 +32,8 @@ public class ToStringExtensionsGenerator : BaseGenerator
             NameSet names = NameSet.FromDimensionType(@struct.Identifier.ToString());
 
             Buffer.AppendLine();
-            Buffer.AppendLine($"\tpublic static string ToString(this {names.DimensionTypeName} value, {names.UnitsTypeName} units = {names.UnitsTypeName}.Unspecified, int precision = 2) {{");
+            Buffer.AppendLine(
+                $"\tpublic static string ToString(this {names.DimensionTypeName} value, {names.UnitsTypeName} units = {names.UnitsTypeName}.Unspecified, int precision = 2) {{");
             Buffer.AppendLine($"\t\t{names.DimensionTypeName} inUnits = value.In(units);");
             Buffer.AppendLine("\t\tstring format = Formats.GetPrecisionFormat(precision);");
             Buffer.AppendLine("\t\treturn string.Format(format, inUnits.Value, inUnits.Units.GetAbbreviation());");

@@ -5,6 +5,7 @@ namespace GraduatedCylinder.Operators;
 
 public class AreaOperators
 {
+
     [Fact]
     public void OpAddition() {
         var area1 = new Area(36000000, AreaUnit.SquareMeter);
@@ -110,4 +111,5 @@ public class AreaOperators
         (area1 - area2).ShouldBe(new Area(36000000, AreaUnit.SquareMeter));
         (area2 - area1).ShouldBe(new Area(-36, AreaUnit.SquareKilometer));
     }
+
 }

@@ -79,4 +79,5 @@ public class NmeaSerialPortSpec
         nmea.BufferCount.ShouldBe(0);
         nmea.Close();
     }
+
 }

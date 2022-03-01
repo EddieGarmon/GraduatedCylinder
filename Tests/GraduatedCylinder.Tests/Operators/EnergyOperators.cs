@@ -5,6 +5,7 @@ namespace GraduatedCylinder.Operators;
 
 public class EnergyOperators
 {
+
     [Fact]
     public void OpAddition() {
         var energy1 = new Energy(2000, EnergyUnit.NewtonMeters);
@@ -110,4 +111,5 @@ public class EnergyOperators
         (energy1 - energy2).ShouldBe(new Energy(1000, EnergyUnit.Joules));
         (energy2 - energy1).ShouldBe(new Energy(-1, EnergyUnit.Kilojoules));
     }
+
 }

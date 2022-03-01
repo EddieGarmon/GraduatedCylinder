@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Microsoft.CodeAnalysis;
+﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace GraduatedCylinder.Roslyn.Both;
@@ -40,7 +38,7 @@ public class UnitPreferencesGenerator : BaseGenerator
         if (context.Compilation.AssemblyName == "GraduatedCylinder") {
             foreach (StructDeclarationSyntax @struct in structs) {
                 Log($"Generating 'Fix' for {@struct.Identifier}");
-                Buffer.AppendLine($"\tpublic void Fix({@struct.Identifier} value) {{");
+                Buffer.AppendLine($"\tpublic void Fix(ref {@struct.Identifier} value) {{");
                 Buffer.AppendLine($"\t\tvalue.Units = {@struct.Identifier}Unit;");
                 Buffer.AppendLine("\t}");
                 Buffer.AppendLine();

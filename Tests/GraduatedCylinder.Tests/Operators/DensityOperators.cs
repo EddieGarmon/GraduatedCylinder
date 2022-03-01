@@ -5,6 +5,7 @@ namespace GraduatedCylinder.Operators;
 
 public class DensityOperators
 {
+
     [Fact]
     public void OpAddition() {
         var density1 = new MassDensity(3000, MassDensityUnit.KilogramsPerCubicMeter);
@@ -110,4 +111,5 @@ public class DensityOperators
         (density1 - density2).ShouldBe(new MassDensity(3000, MassDensityUnit.KilogramsPerCubicMeter));
         (density2 - density1).ShouldBe(new MassDensity(-3, MassDensityUnit.GramsPerCubicCentimeter));
     }
+
 }

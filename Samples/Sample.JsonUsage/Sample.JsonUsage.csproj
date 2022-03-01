@@ -2,12 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>10</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
     <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Source\GraduatedCylinder.Json\GraduatedCylinder.Json.csproj" />
-    <ProjectReference Include="..\Sample.CoreUsage\Sample.CoreUsage.csproj" />
   </ItemGroup>
 
 </Project>

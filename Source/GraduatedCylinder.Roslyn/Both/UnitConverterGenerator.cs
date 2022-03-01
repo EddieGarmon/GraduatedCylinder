@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Microsoft.CodeAnalysis;
+﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace GraduatedCylinder.Roslyn.Both;
@@ -30,17 +29,15 @@ public class UnitConverterGenerator : BaseGenerator
 
     private void Generate_FromBase(NameSet names, EnumDeclarationSyntax @enum, SemanticModel semanticModel) {
         Buffer.AppendLine();
-        Buffer.AppendLine(
-            $"\tpublic static {names.DimensionTypeName} FromBase(double baseValue, {names.UnitsTypeName} wantedUnits) {{");
+        Buffer.AppendLine($"\tpublic static {names.DimensionTypeName} FromBase(double baseValue, {names.UnitsTypeName} wantedUnits) {{");
         Buffer.AppendLine("\t\tdouble newValue = 0;");
         Buffer.AppendLine("\t\tswitch (wantedUnits) {");
 
         foreach (EnumMemberDeclarationSyntax enumMember in @enum.Members) {
             ISymbol? enumValue = semanticModel.GetDeclaredSymbol(enumMember);
             AttributeData? attribute = enumValue?.GetAttributes()
-                                                .SingleOrDefault(
-                                                    a => a.AttributeClass?.ContainingNamespace.ToDisplayString() ==
-                                                         "GraduatedCylinder.Scales");
+                                                .SingleOrDefault(a => a.AttributeClass?.ContainingNamespace.ToDisplayString() ==
+                                                                      "GraduatedCylinder.Scales");
             if (attribute is null) {
                 continue;
             }
@@ -85,9 +82,8 @@ public class UnitConverterGenerator : BaseGenerator
         foreach (EnumMemberDeclarationSyntax enumMember in @enum.Members) {
             ISymbol? enumValue = semanticModel.GetDeclaredSymbol(enumMember);
             AttributeData? attribute = enumValue?.GetAttributes()
-                                                .SingleOrDefault(
-                                                    a => a.AttributeClass?.ContainingNamespace.ToDisplayString() ==
-                                                         "GraduatedCylinder.Scales");
+                                                .SingleOrDefault(a => a.AttributeClass?.ContainingNamespace.ToDisplayString() ==
+                                                                      "GraduatedCylinder.Scales");
             if (attribute is null) {
                 continue;
             }

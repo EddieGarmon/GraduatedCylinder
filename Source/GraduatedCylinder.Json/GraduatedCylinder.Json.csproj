@@ -2,27 +2,18 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
+    <LangVersion>10</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
     <OutputType>Library</OutputType>
     <AssemblyName>GraduatedCylinder.Json</AssemblyName>
     <RootNamespace>GraduatedCylinder.Json</RootNamespace>
-    <LangVersion>latest</LangVersion>
 
     <PackageId>GraduatedCylinder.Json</PackageId>
     <Title>Graduated Cylinder Json</Title>
     <Description>JSON serialization support for GraduatedCylinder</Description>
-    <Product>Graduated Cylinder</Product>
-    <Authors>Eddie Garmon</Authors>
-    <Company />
-    <Copyright>Copyright (c) Eddie Garmon 2010-2021</Copyright>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageIcon>icon.png</PackageIcon>
-    <PackageProjectUrl>https://github.com/EddieGarmon/GraduatedCylinder</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/EddieGarmon/GraduatedCylinder</RepositoryUrl>
     <PackageTags>unit;units;measure;measures;json;serialization</PackageTags>
-    <IncludeSymbols>true</IncludeSymbols>
-    <IncludeSource>false</IncludeSource>
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,10 +22,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GraduatedCylinder\GraduatedCylinder.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="..\..\icon.png" Pack="true" PackagePath="\" Visible="false" />
   </ItemGroup>
 
 </Project>

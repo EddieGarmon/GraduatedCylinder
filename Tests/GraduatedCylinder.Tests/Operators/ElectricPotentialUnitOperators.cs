@@ -5,6 +5,7 @@ namespace GraduatedCylinder.Operators;
 
 public class ElectricPotentialUnitOperators
 {
+
     [Fact]
     public void OpAddition() {
         var voltage1 = new ElectricPotential(3000, ElectricPotentialUnit.Volt);
@@ -110,4 +111,5 @@ public class ElectricPotentialUnitOperators
         (voltage1 - voltage2).ShouldBe(new ElectricPotential(6000, ElectricPotentialUnit.Volt));
         (voltage2 - voltage1).ShouldBe(new ElectricPotential(-6, ElectricPotentialUnit.Kilovolt));
     }
+
 }

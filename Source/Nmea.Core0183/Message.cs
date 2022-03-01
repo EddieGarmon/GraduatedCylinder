@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Nmea.Core0183;
+﻿namespace Nmea.Core0183;
 
 public class Message
 {
@@ -16,13 +14,5 @@ public class Message
     public Sentence Sentence { get; }
 
     public object Value { get; }
-
-    public T ValueAs<T>()
-        where T : class {
-        if (Value is T variable) {
-            return variable;
-        }
-        return null;
-    }
 
 }

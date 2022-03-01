@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace GraduatedCylinder;
+﻿namespace GraduatedCylinder;
 
 public static class CloseTo
 {

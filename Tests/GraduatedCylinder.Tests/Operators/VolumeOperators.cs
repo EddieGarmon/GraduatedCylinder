@@ -5,6 +5,7 @@ namespace GraduatedCylinder.Operators;
 
 public class VolumeOperators
 {
+
     [Fact]
     public void OpAddition() {
         var volume1 = new Volume(3600, VolumeUnit.Liters);
@@ -110,4 +111,5 @@ public class VolumeOperators
         (volume1 - volume2).ShouldBe(new Volume(6200, VolumeUnit.Liters));
         (volume2 - volume1).ShouldBe(new Volume(-6.2, VolumeUnit.CubicMeters));
     }
+
 }

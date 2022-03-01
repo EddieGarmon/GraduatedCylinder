@@ -5,6 +5,7 @@ namespace GraduatedCylinder.Operators;
 
 public class SpeedOperators
 {
+
     [Fact]
     public void OpAddition() {
         var speed1 = new Speed(3600, SpeedUnit.MetersPerHour);
@@ -110,4 +111,5 @@ public class SpeedOperators
         (speed1 - speed2).ShouldBe(new Speed(3600, SpeedUnit.MetersPerHour));
         (speed2 - speed1).ShouldBe(new Speed(-60, SpeedUnit.MetersPerMinute));
     }
+
 }

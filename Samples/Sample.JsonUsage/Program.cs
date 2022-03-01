@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text.Json;
+﻿using System.Text.Json;
 using GraduatedCylinder;
 using GraduatedCylinder.Json;
 
@@ -18,9 +17,7 @@ class Program
             }
         };
 
-        Cube cube = new Cube(new Length(3.0, LengthUnit.Foot),
-                             new Length(0.5, LengthUnit.Meter),
-                             new Length(12.0, LengthUnit.Inch));
+        Cube cube = new Cube(new Length(3.0, LengthUnit.Foot), new Length(0.5, LengthUnit.Meter), new Length(12.0, LengthUnit.Inch));
         string json = JsonSerializer.Serialize(cube, options);
 
         Console.WriteLine(json);

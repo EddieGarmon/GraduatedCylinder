@@ -1,27 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net48;net5.0;net6.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
+    <LangVersion>10</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
 
+    <OutputType>Library</OutputType>
     <AssemblyName>GraduatedCylinder.Geo</AssemblyName>
-    <RootNamespace>GraduatedCylinder</RootNamespace>
+    <RootNamespace>GraduatedCylinder.Geo</RootNamespace>
 
     <PackageId>GraduatedCylinder.Geo</PackageId>
     <Title>Graduated Cylinder Geo</Title>
-    <Description>Geo based extensions to the units modeling library. Includes latitude, longitude, and the like. NMEA parsing for GPS and LASERS.</Description>
-    <Product>Graduated Cylinder</Product>
-    <Authors>Eddie Garmon</Authors>
-    <Company />
-    <Copyright>Copyright (c) Eddie Garmon 2010-2021</Copyright>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageIcon>icon.png</PackageIcon>
-    <PackageProjectUrl>https://github.com/EddieGarmon/GraduatedCylinder</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/EddieGarmon/GraduatedCylinder</RepositoryUrl>
-    <PackageTags>latitude;longitude;altitude;geoposition;gps;trupulse;nmea</PackageTags>
-    <IncludeSymbols>true</IncludeSymbols>
-    <IncludeSource>false</IncludeSource>
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <Description>Geo based extensions to the units modeling library. Includes latitude, longitude, and the like.</Description>
+    <PackageTags>latitude;longitude;altitude;geoposition</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,10 +23,6 @@
   <ItemGroup>
     <ProjectReference Include="..\GraduatedCylinder\GraduatedCylinder.csproj" />
     <ProjectReference Include="..\Nmea.Core0183\Nmea.Core0183.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="..\..\icon.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>

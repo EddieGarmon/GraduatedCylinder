@@ -5,6 +5,7 @@ namespace GraduatedCylinder.Operators;
 
 public class MassFlowRateOperators
 {
+
     [Fact]
     public void OpAddition() {
         var massFlowRate1 = new MassFlowRate(4000, MassFlowRateUnit.GramsPerSecond);
@@ -110,4 +111,5 @@ public class MassFlowRateOperators
         (massFlowRate1 - massFlowRate2).ShouldBe(new MassFlowRate(4000, MassFlowRateUnit.GramsPerSecond));
         (massFlowRate2 - massFlowRate1).ShouldBe(new MassFlowRate(-4, MassFlowRateUnit.KilogramsPerSecond));
     }
+
 }

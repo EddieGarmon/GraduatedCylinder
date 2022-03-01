@@ -1,6 +1,26 @@
 <Project>
   <PropertyGroup>
+
+    <Product>Graduated Cylinder</Product>
+    <Authors>Eddie Garmon</Authors>
+    <Company />
+    <Copyright>Copyright (c) Eddie Garmon 2010-2022</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+	<PackageIcon>icon.png</PackageIcon>
+	<PackageProjectUrl>https://github.com/EddieGarmon/GraduatedCylinder</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/EddieGarmon/GraduatedCylinder</RepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <IncludeSource>false</IncludeSource>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+
     <Deterministic>true</Deterministic>
-    <Version>6.0.1</Version>
+    <Version>6.0.3</Version>
+
   </PropertyGroup>
+  
+  <ItemGroup>
+    <None Include="..\..\icon.png" Pack="true" PackagePath="\" Visible="false" />
+  </ItemGroup>
+
 </Project>

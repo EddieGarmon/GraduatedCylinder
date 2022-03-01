@@ -13,9 +13,7 @@ public class LiveSerialPort : ISerialPort
                           Parity parity = Parity.None,
                           int dataBits = 8,
                           StopBits stopBits = StopBits.One) {
-        _port = new SerialPort(portName, baudRate, parity, dataBits, stopBits) {
-            Handshake = Handshake.None, Encoding = Encoding.ASCII
-        };
+        _port = new SerialPort(portName, baudRate, parity, dataBits, stopBits) { Handshake = Handshake.None, Encoding = Encoding.ASCII };
     }
 
     public int BytesToRead => _port.BytesToRead;

@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFrameworks>net6.0</TargetFrameworks>
+    <LangVersion>10</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
 
     <AssemblyName>Nmea.Core0183.Tests</AssemblyName>
     <RootNamespace>Nmea.Core0183</RootNamespace>

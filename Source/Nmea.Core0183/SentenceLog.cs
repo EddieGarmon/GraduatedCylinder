@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace Nmea.Core0183;
+﻿namespace Nmea.Core0183;
 
 public class SentenceLog : IProvideSentences
 {
@@ -20,12 +14,12 @@ public class SentenceLog : IProvideSentences
     private readonly string _filename;
     private readonly bool _loopEnd;
     private readonly PlaybackRate _rate;
-    private CancellationTokenSource _cancel;
-    private Task _playback;
+    private CancellationTokenSource _cancel = new();
+    private Task? _playback;
 
     public SentenceLog(string filename, PlaybackRate rate = PlaybackRate.AsRecorded, bool loopEnd = false) {
         if (!File.Exists(filename)) {
-            string message = string.Format("The NMEA log file '{0}' cannot be found.", filename);
+            string message = $"The NMEA log file '{filename}' cannot be found.";
             throw new ArgumentException(message);
         }
         _filename = filename;
@@ -37,7 +31,7 @@ public class SentenceLog : IProvideSentences
 
     public bool PlaybackComplete { get; private set; }
 
-    public event Action<Sentence> SentenceReceived;
+    public event Action<Sentence>? SentenceReceived;
 
     public void Close() {
         if (_playback != null) {
@@ -54,12 +48,11 @@ public class SentenceLog : IProvideSentences
         }
         PlaybackComplete = false;
         _cancel = new CancellationTokenSource();
-        _playback = Task.Run(() => ReadAndBroadcast(), _cancel.Token);
+        _playback = Task.Run(ReadAndBroadcast, _cancel.Token);
     }
 
     private void RaiseSentenceReceived(Sentence sentence) {
-        Action<Sentence> handler = SentenceReceived;
-        handler?.Invoke(sentence);
+        SentenceReceived?.Invoke(sentence);
     }
 
     private void ReadAndBroadcast() {
@@ -67,7 +60,7 @@ public class SentenceLog : IProvideSentences
         List<SentenceRecord> records = new List<SentenceRecord>();
         using (StreamReader reader = File.OpenText(_filename)) {
             while (!reader.EndOfStream) {
-                string line = reader.ReadLine();
+                string line = reader.ReadLine()!;
                 records.Add(SentenceRecord.Parse(line));
             }
         }

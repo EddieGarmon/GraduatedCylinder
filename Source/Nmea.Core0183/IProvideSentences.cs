@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Nmea.Core0183;
+﻿namespace Nmea.Core0183;
 
 public interface IProvideSentences
 {

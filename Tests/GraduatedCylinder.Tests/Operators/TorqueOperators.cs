@@ -5,6 +5,7 @@ namespace GraduatedCylinder.Operators;
 
 public class TorqueOperators
 {
+
     [Fact]
     public void OpAddition() {
         var torque1 = new Torque(9.81, TorqueUnit.NewtonMeters);
@@ -110,4 +111,5 @@ public class TorqueOperators
         (torque1 - torque2).ShouldBe(new Torque(9.81, TorqueUnit.NewtonMeters));
         (torque2 - torque1).ShouldBe(new Torque(-1, TorqueUnit.KilogramForceMeters));
     }
+
 }

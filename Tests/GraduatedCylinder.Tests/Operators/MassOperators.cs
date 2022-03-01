@@ -5,6 +5,7 @@ namespace GraduatedCylinder.Operators;
 
 public class MassOperators
 {
+
     [Fact]
     public void OpAddition() {
         var mass1 = new Mass(2000, MassUnit.Gram);
@@ -110,4 +111,5 @@ public class MassOperators
         (mass1 - mass2).ShouldBe(new Mass(6000, MassUnit.Gram));
         (mass2 - mass1).ShouldBe(new Mass(-6, MassUnit.Kilogram));
     }
+
 }

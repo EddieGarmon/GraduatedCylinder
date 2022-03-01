@@ -5,6 +5,7 @@ namespace GraduatedCylinder.Operators;
 
 public class TimeOperators
 {
+
     [Fact]
     public void OpAddition() {
         var time1 = new Time(3600, TimeUnit.Second);
@@ -97,8 +98,7 @@ public class TimeOperators
 
     [Fact]
     public void OpMultiplicationAcceleration() {
-        Speed speedBase = new Time(20, TimeUnit.Second)
-                          * new Acceleration(3, AccelerationUnit.MeterPerSquareSecond);
+        Speed speedBase = new Time(20, TimeUnit.Second) * new Acceleration(3, AccelerationUnit.MeterPerSquareSecond);
         speedBase.ShouldBe(new Speed(60, SpeedUnit.MeterPerSecond));
 
         var time = new Time(1, TimeUnit.Minutes);
@@ -132,4 +132,5 @@ public class TimeOperators
         (time1 - time2).ShouldBe(new Time(3600, TimeUnit.Second));
         (time2 - time1).ShouldBe(new Time(-1, TimeUnit.Hours));
     }
+
 }

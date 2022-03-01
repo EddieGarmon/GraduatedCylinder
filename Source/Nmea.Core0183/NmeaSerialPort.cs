@@ -1,11 +1,9 @@
-﻿using System;
-using System.IO.Ports;
-using System.Linq;
+﻿using System.IO.Ports;
 using System.Text;
 
 namespace Nmea.Core0183;
 
-public sealed class NmeaSerialPort : IProvideSentences, IDisposable
+public sealed class NmeaSerialPort : ITalkSentences, IDisposable
 {
 
     private readonly char[] _buffer = new char[262144];
@@ -38,11 +36,11 @@ public sealed class NmeaSerialPort : IProvideSentences, IDisposable
 
     public bool IsOpen => _port.IsOpen;
 
-    public event Action<Exception, string> ParseException;
+    public event Action<Exception, string>? ParseException;
 
-    public event Action<SerialError> PortError;
+    public event Action<SerialError>? PortError;
 
-    public event Action<Sentence> SentenceReceived;
+    public event Action<Sentence>? SentenceReceived;
 
     public void Close() {
         if (_port.IsOpen) {
@@ -56,8 +54,8 @@ public sealed class NmeaSerialPort : IProvideSentences, IDisposable
         }
     }
 
-    public void SendData(string message) {
-        _port.Write(message);
+    public void Send(Sentence sentence) {
+        _port.Write(sentence.ToString(includeChecksum: false));
     }
 
     private void AppendToBuffer(char[] data) {
@@ -86,9 +84,9 @@ public sealed class NmeaSerialPort : IProvideSentences, IDisposable
         SentenceReceived = null;
     }
 
-    private string GetNextBufferedSentence() {
+    private string? GetNextBufferedSentence() {
         for (int i = _bufferHead; i < _bufferTail; i++) {
-            if ((_buffer[i] == '\r') && (_buffer[i + 1] == '\n')) {
+            if (_buffer[i] == '\r' && _buffer[i + 1] == '\n') {
                 string result = new string(_buffer, _bufferHead, i - _bufferHead);
                 _bufferHead = i + 2;
                 return result;
@@ -106,9 +104,9 @@ public sealed class NmeaSerialPort : IProvideSentences, IDisposable
             AppendToBuffer(Encoding.ASCII.GetChars(bytes));
 
             //process all complete sentences available
-            string possibleSentence = GetNextBufferedSentence();
+            string? possibleSentence = GetNextBufferedSentence();
             while (possibleSentence != null) {
-                Sentence sentence = Sentence.Parse(possibleSentence);
+                Sentence? sentence = Sentence.Parse(possibleSentence);
                 if (sentence != null) {
                     PublishSentence(sentence);
                 }
@@ -124,13 +122,11 @@ public sealed class NmeaSerialPort : IProvideSentences, IDisposable
     }
 
     private void ProcessError(object sender, SerialErrorReceivedEventArgs e) {
-        var handler = PortError;
-        handler?.Invoke(e.EventType);
+        PortError?.Invoke(e.EventType);
     }
 
     private void PublishSentence(Sentence sentence) {
-        var handler = SentenceReceived;
-        handler?.Invoke(sentence);
+        SentenceReceived?.Invoke(sentence);
     }
 
 }

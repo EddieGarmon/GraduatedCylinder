@@ -1,7 +1,4 @@
-﻿using System;
-using GraduatedCylinder.Converters;
-
-namespace GraduatedCylinder;
+﻿namespace GraduatedCylinder;
 
 public partial struct ElectricCurrent : IDimension<ElectricCurrent, ElectricCurrentUnit>
 {

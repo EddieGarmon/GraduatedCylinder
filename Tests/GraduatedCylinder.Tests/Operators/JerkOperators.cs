@@ -5,6 +5,7 @@ namespace GraduatedCylinder.Operators;
 
 public class JerkOperators
 {
+
     [Fact]
     public void OpAddition() {
         var jerk1 = new Jerk(1000, JerkUnit.MetersPerSecondCubed);
@@ -110,4 +111,5 @@ public class JerkOperators
         (jerk1 - jerk2).ShouldBe(new Jerk(1000, JerkUnit.MetersPerSecondCubed));
         (jerk2 - jerk1).ShouldBe(new Jerk(-1, JerkUnit.KiloMetersPerSecondCubed));
     }
+
 }

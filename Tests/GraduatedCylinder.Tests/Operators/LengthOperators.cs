@@ -5,6 +5,7 @@ namespace GraduatedCylinder.Operators;
 
 public class LengthOperators
 {
+
     [Fact]
     public void OpAddition() {
         var length1 = new Length(5000, LengthUnit.Meter);
@@ -110,4 +111,5 @@ public class LengthOperators
         (length1 - length2).ShouldBe(new Length(6000, LengthUnit.Meter));
         (length2 - length1).ShouldBe(new Length(-6, LengthUnit.Kilometer));
     }
+
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.CodeAnalysis;
+﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace GraduatedCylinder.Roslyn.Full;
@@ -94,7 +93,9 @@ public partial struct {0} : IComparable<{0}>, IEquatable<{0}>
         return {0}Converter.FromBase(_baseValue, units);
     }}
 
-    public static {0} Zero {{ get; }} = new {0}(0, {0}Unit.BaseUnit);
+    public static {0} Unknown {{ get; }} = new {0}(double.NaN, {0}Unit.BaseUnit);
+
+    public static {0} Zero {{ get; }} = new {0}(0.0, {0}Unit.BaseUnit);
 
     public static bool operator ==({0} left, {0} right) {{
         return left.CompareTo(right) == 0;

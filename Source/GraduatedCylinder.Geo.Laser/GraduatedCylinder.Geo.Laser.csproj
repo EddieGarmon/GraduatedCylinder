@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>10</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <OutputType>Library</OutputType>
+    <AssemblyName>GraduatedCylinder.Geo.Laser</AssemblyName>
+    <RootNamespace>GraduatedCylinder.Geo.Laser</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GraduatedCylinder.Geo\GraduatedCylinder.Geo.csproj" />
+  </ItemGroup>
+
+</Project>

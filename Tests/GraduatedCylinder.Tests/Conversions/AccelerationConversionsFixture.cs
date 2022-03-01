@@ -3,8 +3,15 @@ using Xunit;
 
 namespace GraduatedCylinder.Conversions;
 
-public class AccelerationConversionsFixture
+public class AccelerationConversionsFixture:IDisposable
 {
+
+    private bool _keyOn;
+    private string oldParam;
+
+    public AccelerationConversionsFixture() {
+        //set up
+    }
 
     [Theory]
     [InlineData(3.25, AccelerationUnit.MeterPerSquareSecond, 11.7, AccelerationUnit.KilometerPerHourPerSecond)]
@@ -15,6 +22,10 @@ public class AccelerationConversionsFixture
     public void AccelerationConversions(double value1, AccelerationUnit units1, double value2, AccelerationUnit units2) {
         new Acceleration(value1, units1).In(units2).ShouldBe(new Acceleration(value2, units2));
         new Acceleration(value2, units2).In(units1).ShouldBe(new Acceleration(value1, units1));
+    }
+
+    public void Dispose() {
+        //tear down
     }
 
 }

@@ -5,6 +5,7 @@ namespace GraduatedCylinder.Operators;
 
 public class ForceOperators
 {
+
     [Fact]
     public void OpAddition() {
         var force1 = new Force(9.81, ForceUnit.Newtons);
@@ -110,4 +111,5 @@ public class ForceOperators
         (force1 - force2).ShouldBe(new Force(9.81, ForceUnit.Newtons));
         (force2 - force1).ShouldBe(new Force(-1, ForceUnit.KilogramForce));
     }
+
 }

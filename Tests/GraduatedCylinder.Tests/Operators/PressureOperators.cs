@@ -5,6 +5,7 @@ namespace GraduatedCylinder.Operators;
 
 public class PressureOperators
 {
+
     [Fact]
     public void OpAddition() {
         var pressure1 = new Pressure(1000, PressureUnit.Pascals);
@@ -110,4 +111,5 @@ public class PressureOperators
         (pressure1 - pressure2).ShouldBe(new Pressure(6000, PressureUnit.Pascals));
         (pressure2 - pressure1).ShouldBe(new Pressure(-6, PressureUnit.KiloPascals));
     }
+
 }

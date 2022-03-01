@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Nmea.Core0183;
+﻿namespace Nmea.Core0183;
 
 public class SentenceRecord
 {
@@ -18,7 +16,7 @@ public class SentenceRecord
     public Sentence Sentence { get; }
 
     public override string ToString() {
-        return string.Format("{0:F8}\t{1}", SecondsFromStart.TotalSeconds, Sentence);
+        return $"{SecondsFromStart.TotalSeconds:F8}\t{Sentence}";
     }
 
     private static readonly char[] _separator = { '\t' };

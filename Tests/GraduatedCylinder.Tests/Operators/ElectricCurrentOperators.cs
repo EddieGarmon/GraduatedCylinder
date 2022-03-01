@@ -5,6 +5,7 @@ namespace GraduatedCylinder.Operators;
 
 public class ElectricCurrentOperators
 {
+
     [Fact]
     public void OpAddition() {
         var current1 = new ElectricCurrent(3000, ElectricCurrentUnit.Ampere);
@@ -110,4 +111,5 @@ public class ElectricCurrentOperators
         (current1 - current2).ShouldBe(new ElectricCurrent(6000, ElectricCurrentUnit.Ampere));
         (current2 - current1).ShouldBe(new ElectricCurrent(-6, ElectricCurrentUnit.Kiloampere));
     }
+
 }

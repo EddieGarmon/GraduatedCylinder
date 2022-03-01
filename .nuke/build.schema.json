@@ -79,6 +79,8 @@
             "enum": [
               "Clean",
               "Compile",
+              "Pack",
+              "PushToNuGet",
               "Restore",
               "Test"
             ]
@@ -96,6 +98,8 @@
             "enum": [
               "Clean",
               "Compile",
+              "Pack",
+              "PushToNuGet",
               "Restore",
               "Test"
             ]

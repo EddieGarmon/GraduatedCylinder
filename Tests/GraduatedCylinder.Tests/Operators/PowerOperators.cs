@@ -5,6 +5,7 @@ namespace GraduatedCylinder.Operators;
 
 public class PowerOperators
 {
+
     [Fact]
     public void OpAddition() {
         var power1 = new Power(6000, PowerUnit.Watts);
@@ -110,4 +111,5 @@ public class PowerOperators
         (power1 - power2).ShouldBe(new Power(4000, PowerUnit.Watts));
         (power2 - power1).ShouldBe(new Power(-4, PowerUnit.Kilowatts));
     }
+
 }

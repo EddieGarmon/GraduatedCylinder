@@ -5,6 +5,7 @@ namespace GraduatedCylinder.Operators;
 
 public class VolumetricFlowRateOperators
 {
+
     [Fact]
     public void OpAddition() {
         var volumetricFlowRate1 = new VolumetricFlowRate(3600, VolumetricFlowRateUnit.LitersPerHour);
@@ -107,9 +108,8 @@ public class VolumetricFlowRateOperators
     public void OpSubtraction() {
         var volumetricFlowRate1 = new VolumetricFlowRate(720, VolumetricFlowRateUnit.LitersPerHour);
         var volumetricFlowRate2 = new VolumetricFlowRate(1, VolumetricFlowRateUnit.LitersPerMinute);
-        (volumetricFlowRate1 - volumetricFlowRate2).ShouldBe(
-            new VolumetricFlowRate(660, VolumetricFlowRateUnit.LitersPerHour));
-        (volumetricFlowRate2 - volumetricFlowRate1).ShouldBe(
-            new VolumetricFlowRate(-11, VolumetricFlowRateUnit.LitersPerMinute));
+        (volumetricFlowRate1 - volumetricFlowRate2).ShouldBe(new VolumetricFlowRate(660, VolumetricFlowRateUnit.LitersPerHour));
+        (volumetricFlowRate2 - volumetricFlowRate1).ShouldBe(new VolumetricFlowRate(-11, VolumetricFlowRateUnit.LitersPerMinute));
     }
+
 }

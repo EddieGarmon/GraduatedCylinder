@@ -3,6 +3,12 @@
 public partial struct Volume : IDimension<Volume, VolumeUnit>
 {
 
+    public Length CubeLength() {
+        Volume cube = In(VolumeUnit.CubicMeters);
+        Length length = new Length(Math.Pow(cube.Value, 1.0 / 3.0), LengthUnit.Meter);
+        return length;
+    }
+
     public static Area operator /(Volume volume, Length length) {
         volume = volume.In(VolumeUnit.CubicMeters);
         length = length.In(LengthUnit.Meter);

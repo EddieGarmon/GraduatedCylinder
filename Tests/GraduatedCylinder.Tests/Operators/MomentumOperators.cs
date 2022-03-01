@@ -5,6 +5,7 @@ namespace GraduatedCylinder.Operators;
 
 public class MomentumOperators
 {
+
     [Fact]
     public void OpAddition() {
         var momentum1 = new Momentum(300000, MomentumUnit.GramCentimetersPerSecond);
@@ -110,4 +111,5 @@ public class MomentumOperators
         (momentum1 - momentum2).ShouldBe(new Momentum(400000, MomentumUnit.GramCentimetersPerSecond));
         (momentum2 - momentum1).ShouldBe(new Momentum(-4, MomentumUnit.KilogramMetersPerSecond));
     }
+
 }

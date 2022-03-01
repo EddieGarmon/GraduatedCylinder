@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace GraduatedCylinder;
+﻿namespace GraduatedCylinder;
 
 public partial struct Time : IDimension<Time, TimeUnit>
 {

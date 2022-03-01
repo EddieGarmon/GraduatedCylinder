@@ -5,6 +5,7 @@ namespace GraduatedCylinder.Operators;
 
 public class FrequencyOperators
 {
+
     [Fact]
     public void OpAddition() {
         var frequency1 = new Frequency(1, FrequencyUnit.Hertz);
@@ -110,4 +111,5 @@ public class FrequencyOperators
         (frequency1 - frequency2).ShouldBe(new Frequency(9, FrequencyUnit.Hertz));
         (frequency2 - frequency1).ShouldBe(new Frequency(-9, FrequencyUnit.CyclePerSecond));
     }
+
 }

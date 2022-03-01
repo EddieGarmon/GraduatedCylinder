@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Nmea.Core0183;
+﻿namespace Nmea.Core0183;
 
 /// <summary>
 ///     Class Sentence
@@ -20,30 +17,35 @@ public class Sentence
     private readonly string[] _parts;
 
     public Sentence(string[] parts) {
-        if (parts == null) {
-            throw new ArgumentNullException("parts");
-        }
-        _parts = parts;
+        _parts = parts ?? throw new ArgumentNullException(nameof(parts));
     }
 
     public string Id {
-        get { return _parts[0]; }
+        get => _parts[0];
     }
 
-    public string[] Parts {
-        get { return _parts; }
+    public int WordCount {
+        get => _parts.Length;
+    }
+
+    public string this[int index] {
+        get => _parts[index];
     }
 
     public override string ToString() {
-        return ToString(true);
+        return WithChecksum();
     }
 
     public string ToString(bool includeChecksum) {
-        return string.Format("{0}{1}{2}{3}",
-                             string.Join(",", _parts),
-                             includeChecksum ? "*" : null,
-                             includeChecksum ? CalculateChecksum(_parts).ToString("X2") : null,
-                             Terminator);
+        return includeChecksum ? WithChecksum() : WithoutChecksum();
+    }
+
+    private string WithChecksum() {
+        return $"{string.Join(",", _parts)}*{CalculateChecksum(_parts):X2}{Terminator}";
+    }
+
+    private string WithoutChecksum() {
+        return $"{string.Join(",", _parts)}{Terminator}";
     }
 
     public const string Terminator = "\r\n";
@@ -53,7 +55,7 @@ public class Sentence
     /// </summary>
     /// <param name="raw">The raw.</param>
     /// <returns>Sentence.</returns>
-    public static Sentence Parse(string raw) {
+    public static Sentence? Parse(string raw) {
         if (raw == null) {
             throw new ArgumentNullException(nameof(raw));
         }
@@ -84,7 +86,7 @@ public class Sentence
         string[] lines = raw.Split(new[] { Terminator }, StringSplitOptions.RemoveEmptyEntries);
         var result = new List<Sentence>();
         foreach (string line in lines) {
-            Sentence sentence = Parse(line);
+            Sentence? sentence = Parse(line);
             if (sentence != null) {
                 result.Add(sentence);
             }

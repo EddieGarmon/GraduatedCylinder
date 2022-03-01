@@ -5,6 +5,7 @@ namespace GraduatedCylinder.Operators;
 
 public class ElectricResistanceOperators
 {
+
     [Fact]
     public void OpAddition() {
         var resistance1 = new ElectricResistance(3000, ElectricResistanceUnit.Ohm);
@@ -110,4 +111,5 @@ public class ElectricResistanceOperators
         (resistance1 - resistance2).ShouldBe(new ElectricResistance(6000, ElectricResistanceUnit.Ohm));
         (resistance2 - resistance1).ShouldBe(new ElectricResistance(-6, ElectricResistanceUnit.Kiloohm));
     }
+
 }

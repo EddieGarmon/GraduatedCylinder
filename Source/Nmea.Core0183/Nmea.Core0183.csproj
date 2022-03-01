@@ -2,28 +2,19 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
+    <LangVersion>10</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
     <OutputType>Library</OutputType>
     <AssemblyName>Nmea.Core0183</AssemblyName>
     <RootNamespace>Nmea.Core0183</RootNamespace>
-    <LangVersion>latest</LangVersion>
 
     <PackageId>Nmea.Core0183</PackageId>
     <Title>NMEA 0183 Core Parser</Title>
     <Description>NMEA parsing for the 0183 standard.</Description>
-    <Product>Graduated Cylinder</Product>
-    <Authors>Eddie Garmon</Authors>
-    <Company />
-    <Copyright>Copyright (c) Eddie Garmon 2010-2021</Copyright>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageIcon>icon.png</PackageIcon>
-    <PackageProjectUrl>https://github.com/EddieGarmon/GraduatedCylinder</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/EddieGarmon/GraduatedCylinder</RepositoryUrl>
     <PackageTags>nmea;parser;0183;serial</PackageTags>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
-    <IncludeSymbols>true</IncludeSymbols>
-    <IncludeSource>false</IncludeSource>
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\icon.png" Pack="true" PackagePath="\" />
     <None Include="readme.md" Pack="true" PackagePath="\" />
   </ItemGroup>
   

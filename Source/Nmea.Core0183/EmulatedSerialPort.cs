@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO.Ports;
+﻿using System.IO.Ports;
 using System.Reflection;
 using System.Text;
 
@@ -16,9 +15,9 @@ public class EmulatedSerialPort : ISerialPort
 
     public bool IsOpen { get; private set; }
 
-    public event SerialDataReceivedEventHandler DataReceived;
+    public event SerialDataReceivedEventHandler? DataReceived;
 
-    public event SerialErrorReceivedEventHandler ErrorReceived;
+    public event SerialErrorReceivedEventHandler? ErrorReceived;
 
     public void Close() {
         IsOpen = false;
@@ -100,10 +99,8 @@ public class EmulatedSerialPort : ISerialPort
                 BindingFlags.NonPublic | BindingFlags.Instance,
                 null,
                 new[] { typeof(SerialData) },
-                null);
-            DataConstructor = serialData => {
-                                  return (SerialDataReceivedEventArgs)data.Invoke(new object[] { serialData });
-                              };
+                null)!;
+            DataConstructor = serialData => { return (SerialDataReceivedEventArgs)data.Invoke(new object[] { serialData }); };
             DataReceivedArgs = DataConstructor(SerialData.Chars);
             DataEofArgs = DataConstructor(SerialData.Eof);
 
@@ -111,10 +108,8 @@ public class EmulatedSerialPort : ISerialPort
                 BindingFlags.NonPublic | BindingFlags.Instance,
                 null,
                 new[] { typeof(SerialError) },
-                null);
-            ErrorConstructor = serialError => {
-                                   return (SerialErrorReceivedEventArgs)error.Invoke(new object[] { serialError });
-                               };
+                null)!;
+            ErrorConstructor = serialError => { return (SerialErrorReceivedEventArgs)error.Invoke(new object[] { serialError }); };
         }
 
         public static SerialDataReceivedEventArgs DataEofArgs { get; }

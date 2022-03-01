@@ -1,8 +1,7 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Threading;
+﻿using System.Diagnostics;
+using System.Reflection;
 using DigitalHammer.Testing;
+using GraduatedCylinder.Geo.Gps;
 using Nmea.Core0183;
 using Xunit;
 
@@ -10,6 +9,7 @@ namespace GraduatedCylinder.Devices.Gps
 {
     public class GpsSpec
     {
+
         [Fact(Skip = "Requires Hardware")]
         public void LiveGpsOnCOM4() {
             string fileName = @"C:\Gps\Test.glog";
@@ -20,16 +20,14 @@ namespace GraduatedCylinder.Devices.Gps
             sentences = new SentenceLogger(sentences, fileName);
             GpsUnit gps = new GpsUnit(sentences);
             gps.LocationChanged += args => {
-                                       Trace.TraceInformation("Recieved: {0:u}: Message Timestamp: {1:u}",
-                                                              DateTime.Now,
-                                                              args.Time);
+                                       Trace.TraceInformation("Recieved: {0:u}: Message Timestamp: {1:u}", DateTime.Now, args.Time);
                                        Trace.TraceInformation("    Lat: {0} Long: {1} Alt: {2}",
                                                               args.Position.Latitude,
                                                               args.Position.Longitude,
                                                               args.Position.Altitude.ToString(LengthUnit.Foot, 1));
                                        Trace.TraceInformation("    Heading: {0} at Speed: {1}",
                                                               args.Heading,
-                                                              args.Speed.ToString(SpeedUnit.MilesPerHour, 2));
+                                                              args.Speed.ToString(SpeedUnit.MilesPerHour));
                                        Trace.TraceInformation("");
                                    };
             gps.IsEnabled = true;
@@ -45,7 +43,7 @@ namespace GraduatedCylinder.Devices.Gps
         [Fact]
         public void PlaybackLogAsFastAsPossible() {
             int eventCount = 0;
-            string fileName = @".\NMEA\Sample1.glog";
+            string fileName = @".\Devices\Gps\Sample1.gpslog";
             SentenceLog sentences = new SentenceLog(fileName, SentenceLog.PlaybackRate.AsFastAsPossible);
             GpsUnit gps = new GpsUnit(sentences);
             gps.LocationChanged += _ => eventCount++;
@@ -64,9 +62,9 @@ namespace GraduatedCylinder.Devices.Gps
         [Trait("time", "long")]
         public void PlaybackLogAsRecorded() {
             int eventCount = 0;
-            string fileName = @".\NMEA\Sample1.glog";
+            string fileName = @".\Devices\Gps\Sample1.gpslog";
             SentenceLog sentences = new SentenceLog(fileName);
-            SentenceLogger loggedSentences = new SentenceLogger(sentences, @".\NMEA\Sample1.replay.glog");
+            SentenceLogger loggedSentences = new SentenceLogger(sentences, @".\Devices\Gps\Sample1.replay.gpslog");
             GpsUnit gps = new GpsUnit(loggedSentences);
             gps.LocationChanged += _ => eventCount++;
             DateTime startTime = DateTime.Now;
@@ -84,9 +82,9 @@ namespace GraduatedCylinder.Devices.Gps
         [Trait("time", "long")]
         public void PlaybackLogAsRecordedLooped() {
             int eventCount = 0;
-            string fileName = @".\NMEA\Sample1.glog";
+            string fileName = @".\Devices\Gps\Sample1.gpslog";
             SentenceLog sentences = new SentenceLog(fileName, SentenceLog.PlaybackRate.AsRecorded, true);
-            SentenceLogger loggedSentences = new SentenceLogger(sentences, @".\NMEA\Sample1.looped.glog");
+            SentenceLogger loggedSentences = new SentenceLogger(sentences, @".\Devices\Gps\Sample1.looped.gpslog");
             GpsUnit gps = new GpsUnit(loggedSentences);
             gps.LocationChanged += _ => eventCount++;
             DateTime startTime = DateTime.Now;
@@ -96,5 +94,6 @@ namespace GraduatedCylinder.Devices.Gps
             }
             gps.IsEnabled = false;
         }
+
     }
 }

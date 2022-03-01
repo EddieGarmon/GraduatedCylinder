@@ -1,4 +1,3 @@
-using System;
 using DigitalHammer.Testing;
 using Xunit;
 

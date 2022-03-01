@@ -5,6 +5,7 @@ namespace GraduatedCylinder.Operators;
 
 public class AccelerationOperators
 {
+
     [Fact]
     public void OpAddition() {
         var acceleration1 = new Acceleration(3600, AccelerationUnit.MeterPerSquareSecond);
@@ -107,7 +108,7 @@ public class AccelerationOperators
         var acceleration1 = new Acceleration(7200, AccelerationUnit.MeterPerSquareSecond);
         var acceleration2 = new Acceleration(3.6, AccelerationUnit.KilometerPerSquareSecond);
         (acceleration1 - acceleration2).ShouldBe(new Acceleration(3600, AccelerationUnit.MeterPerSquareSecond));
-        (acceleration2 - acceleration1).ShouldBe(
-            new Acceleration(-3.6, AccelerationUnit.KilometerPerSquareSecond));
+        (acceleration2 - acceleration1).ShouldBe(new Acceleration(-3.6, AccelerationUnit.KilometerPerSquareSecond));
     }
+
 }

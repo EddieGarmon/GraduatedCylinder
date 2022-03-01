@@ -3,6 +3,12 @@
 public partial struct Area : IDimension<Area, AreaUnit>
 {
 
+    public Length SquareLength() {
+        Area area = In(AreaUnit.SquareMeter);
+        Length length = new Length(Math.Sqrt(area.Value), LengthUnit.Meter);
+        return length;
+    }
+
     public static Length operator /(Area area, Length length) {
         area = area.In(AreaUnit.SquareMeter);
         length = length.In(LengthUnit.Meter);
