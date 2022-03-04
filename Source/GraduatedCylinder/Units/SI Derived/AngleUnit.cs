@@ -95,19 +95,28 @@ public enum AngleUnit : short
     Yottaradian = 24,
 
     [UnitAbbreviation("°")]
-    [Scale(0.0174532925199433)]
+    [Scale(Math.PI / 180)]
     Degree = 101,
+
+    [UnitAbbreviation("'")]
+    [Scale(Math.PI / 10800)]
+    Minute = 102,
+
+    //todo: this abbreviation generates invalid code and kills the build
+    //[UnitAbbreviation("\"")]
+    //[Scale(Math.PI / 648000)]
+    //Second = 103,
 
     [UnitAbbreviation("grads")]
     [Scale(0.015707963267949)]
-    Grad = 102,
+    Grad = 110,
 
     [UnitAbbreviation("%grade")]
     [PercentGrade]
-    PercentGrade = 103,
+    PercentGrade = 111,
 
     [UnitAbbreviation("rev")]
     [Scale(6.28318530717959)]
-    Revolutions = 104,
+    Revolutions = 120,
 
 }
