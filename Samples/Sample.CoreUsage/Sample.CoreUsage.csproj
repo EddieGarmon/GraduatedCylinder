@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Source\GraduatedCylinder.Calculators\GraduatedCylinder.Calculators.csproj" />
     <ProjectReference Include="..\..\Source\GraduatedCylinder\GraduatedCylinder.csproj" />
   </ItemGroup>
 

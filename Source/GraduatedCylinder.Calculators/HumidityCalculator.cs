@@ -1,6 +1,6 @@
 ﻿namespace GraduatedCylinder.Calculators;
 
-public class HumidityCalculator
+public static class HumidityCalculator
 {
 
     //todo: compute different humidity

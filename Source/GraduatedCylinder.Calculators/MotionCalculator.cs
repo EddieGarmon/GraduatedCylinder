@@ -1,6 +1,6 @@
 ﻿namespace GraduatedCylinder.Calculators;
 
-public class MotionCalculator
+public static class MotionCalculator
 {
 
     public static Acceleration ComputeConstantAcceleration(Speed startSpeed, Speed endSpeed, Length distance) {
