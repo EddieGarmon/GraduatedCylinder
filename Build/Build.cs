@@ -15,6 +15,8 @@ using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.IO.PathConstruction;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
+// NB: To trigger manual generation invoke:
+//     nuke --generate-configuration GitHubActions_BuildAndPack --host GitHubActions
 [CheckBuildProjectConfigurations]
 [ShutdownDotNetAfterServerBuild]
 [GitHubActions("BuildAndPack",
@@ -24,7 +26,7 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
                OnPushBranches = new [] {"master", "main"},
                OnPushTags = new [] {"*"},
                OnPullRequestBranches = new [] {"*"},
-               AutoGenerate = true,
+               AutoGenerate = false,
                ImportSecrets = new [] {nameof(NuGetToken)},
                InvokedTargets = new [] {nameof(Clean), nameof(Test), nameof(PushToNuGet)}
                )]
@@ -34,7 +36,8 @@ class Build : NukeBuild
     public static int Main () => Execute<Build>(x => x.Compile);
 
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
-    readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
+    //readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
+    readonly Configuration Configuration = Configuration.Release;
 
     [Solution] readonly Solution Solution;
     [GitRepository] readonly GitRepository GitRepository;
@@ -73,7 +76,10 @@ class Build : NukeBuild
             DotNetBuild(s => s
                 .SetProjectFile(Solution)
                 .SetConfiguration(Configuration)
-                .When(IsServerBuild, x => x.SetProperty("ContinuousIntegrationBuild", "true"))
+                .EnableNoLogo()
+                .EnableDisableParallel()
+                .EnableDeterministic()
+                .When(/*IsServerBuild*/true, x => x.EnableContinuousIntegrationBuild())
                 .EnableNoRestore());
         });
 
@@ -97,9 +103,10 @@ class Build : NukeBuild
             DotNetPack(s => s
                 .SetConfiguration(Configuration)
                 .SetOutputDirectory(ArtifactsDirectory)
+                .EnableNoLogo()
                 .EnableNoRestore()
                 .EnableNoBuild()
-                .When(IsServerBuild, x => x.SetProperty("ContinuousIntegrationBuild", "true"))
+                .When(/*IsServerBuild*/true , x => x.SetProperty("ContinuousIntegrationBuild", "true"))
                 .SetProject(Solution));
         });
 
