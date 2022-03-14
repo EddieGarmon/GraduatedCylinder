@@ -1,10 +1,8 @@
 ﻿using DigitalHammer.Testing;
-using GraduatedCylinder.Geo.Gps;
-using GraduatedCylinder.Geo.Gps.Nmea;
 using Nmea.Core0183;
 using Xunit;
 
-namespace GraduatedCylinder.Devices.Gps.Nmea
+namespace GraduatedCylinder.Geo.Gps.Nmea
 {
     public class GPRMC_Spec
     {
@@ -27,15 +25,15 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
             GpsParser parser = new GpsParser();
             Sentence? sentence = Sentence.Parse(nmea);
             sentence.ShouldNotBeNull();
-            sentence.Id.ShouldBe("$GPRMC");
+            sentence!.Id.ShouldBe("$GPRMC");
             sentence.WordCount.ShouldBe(expectedParts);
 
             Message? message = parser.Parse(sentence);
             message.ShouldNotBeNull();
-            message.Sentence.ShouldBe(sentence);
+            message!.Sentence.ShouldBe(sentence);
 
             IProvideGeoPosition? provideGeoPosition = message.Value as IProvideGeoPosition;
-            provideGeoPosition.CurrentLocation.Latitude.Value.ShouldBeNear(latitude, .00001);
+            provideGeoPosition!.CurrentLocation.Latitude.Value.ShouldBeNear(latitude, .00001);
             provideGeoPosition.CurrentLocation.Latitude.Hemisphere.ShouldBe(latHemisphere);
             provideGeoPosition.CurrentLocation.Longitude.Value.ShouldBeNear(longitude, .00001);
             provideGeoPosition.CurrentLocation.Longitude.Hemisphere.ShouldBe(longHemisphere);
@@ -56,11 +54,11 @@ namespace GraduatedCylinder.Devices.Gps.Nmea
             GpsParser parser = new GpsParser();
             Message? message = parser.Parse(sentence);
             message.ShouldNotBeNull();
-            message.Sentence.ShouldBe(sentence);
+            message!.Sentence.ShouldBe(sentence);
 
             IProvideTrajectory? provideTrajectory = message.Value as IProvideTrajectory;
             provideTrajectory.ShouldNotBeNull();
-            provideTrajectory.CurrentHeading.Value.ShouldBe(expectedHeading);
+            provideTrajectory!.CurrentHeading.Value.ShouldBe(expectedHeading);
         }
 
     }

@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
     <LangVersion>10</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -9,11 +9,15 @@
     <OutputType>Library</OutputType>
     <AssemblyName>GraduatedCylinder.Geo.Gps</AssemblyName>
     <RootNamespace>GraduatedCylinder.Geo.Gps</RootNamespace>
+
+    <PackageId>GraduatedCylinder.Geo.Gps</PackageId>
+    <Title>Graduated Cylinder GPS</Title>
+    <Description>GPS implementation using GraduatedCylinder.</Description>
+    <PackageTags>GPS;latitude;longitude;altitude;geoposition</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\GraduatedCylinder.Geo\GraduatedCylinder.Geo.csproj" />
-    <ProjectReference Include="..\GraduatedCylinder\GraduatedCylinder.csproj" />
     <ProjectReference Include="..\Nmea.Core0183\Nmea.Core0183.csproj" />
   </ItemGroup>
 

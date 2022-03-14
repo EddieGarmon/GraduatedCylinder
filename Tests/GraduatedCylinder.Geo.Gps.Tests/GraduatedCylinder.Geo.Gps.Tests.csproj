@@ -1,19 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net6.0</TargetFrameworks>
+    <TargetFramework>net6.0</TargetFramework>
     <LangVersion>10</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
-    <AssemblyName>GraduatedCylinder.Geo.Tests</AssemblyName>
-    <RootNamespace>GraduatedCylinder.Geo</RootNamespace>
+    <AssemblyName>GraduatedCylinder.Geo.Gps.Tests</AssemblyName>
+    <RootNamespace>GraduatedCylinder.Geo.Gps</RootNamespace>
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Source\GraduatedCylinder.Geo\GraduatedCylinder.Geo.csproj" />
+    <ProjectReference Include="..\..\Source\GraduatedCylinder.Geo.Gps\GraduatedCylinder.Geo.Gps.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,6 +25,15 @@
     </PackageReference>
     <PackageReference Include="DigitalHammer.Should" Version="0.302.4" />
     <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Sample1.gpslog">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Sample2.gpslog">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

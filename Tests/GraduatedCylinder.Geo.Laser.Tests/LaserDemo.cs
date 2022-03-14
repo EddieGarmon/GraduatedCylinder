@@ -1,6 +1,6 @@
 ﻿using System.IO.Ports;
 
-namespace GraduatedCylinder.Devices.Laser
+namespace GraduatedCylinder.Geo.Laser
 {
     class Program
     {

@@ -28,7 +28,11 @@ public class SentenceLogger : IProvideSentences
 
     public void Open() {
         _logStart = DateTime.Now;
-        Directory.CreateDirectory(Path.GetDirectoryName(_filename));
+        string? directoryName = Path.GetDirectoryName(_filename);
+        if (directoryName is null) {
+            throw new Exception($"Invalid filename: {_filename}");
+        }
+        Directory.CreateDirectory(directoryName);
         _source.Open();
     }
 

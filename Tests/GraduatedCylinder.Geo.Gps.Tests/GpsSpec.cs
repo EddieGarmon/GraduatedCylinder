@@ -1,11 +1,9 @@
 ﻿using System.Diagnostics;
-using System.Reflection;
 using DigitalHammer.Testing;
-using GraduatedCylinder.Geo.Gps;
 using Nmea.Core0183;
 using Xunit;
 
-namespace GraduatedCylinder.Devices.Gps
+namespace GraduatedCylinder.Geo.Gps
 {
     public class GpsSpec
     {
@@ -43,7 +41,7 @@ namespace GraduatedCylinder.Devices.Gps
         [Fact]
         public void PlaybackLogAsFastAsPossible() {
             int eventCount = 0;
-            string fileName = @".\Devices\Gps\Sample1.gpslog";
+            string fileName = @".\Sample1.gpslog";
             SentenceLog sentences = new SentenceLog(fileName, SentenceLog.PlaybackRate.AsFastAsPossible);
             GpsUnit gps = new GpsUnit(sentences);
             gps.LocationChanged += _ => eventCount++;
@@ -62,7 +60,7 @@ namespace GraduatedCylinder.Devices.Gps
         [Trait("time", "long")]
         public void PlaybackLogAsRecorded() {
             int eventCount = 0;
-            string fileName = @".\Devices\Gps\Sample1.gpslog";
+            string fileName = @".\Sample1.gpslog";
             SentenceLog sentences = new SentenceLog(fileName);
             SentenceLogger loggedSentences = new SentenceLogger(sentences, @".\Devices\Gps\Sample1.replay.gpslog");
             GpsUnit gps = new GpsUnit(loggedSentences);
@@ -82,7 +80,7 @@ namespace GraduatedCylinder.Devices.Gps
         [Trait("time", "long")]
         public void PlaybackLogAsRecordedLooped() {
             int eventCount = 0;
-            string fileName = @".\Devices\Gps\Sample1.gpslog";
+            string fileName = @".\Sample1.gpslog";
             SentenceLog sentences = new SentenceLog(fileName, SentenceLog.PlaybackRate.AsRecorded, true);
             SentenceLogger loggedSentences = new SentenceLogger(sentences, @".\Devices\Gps\Sample1.looped.gpslog");
             GpsUnit gps = new GpsUnit(loggedSentences);

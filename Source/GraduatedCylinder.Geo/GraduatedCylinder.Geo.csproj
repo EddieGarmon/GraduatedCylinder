@@ -17,12 +17,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.IO.Ports" Version="5.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\GraduatedCylinder\GraduatedCylinder.csproj" />
-    <ProjectReference Include="..\Nmea.Core0183\Nmea.Core0183.csproj" />
   </ItemGroup>
 
 </Project>

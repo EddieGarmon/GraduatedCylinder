@@ -15,7 +15,7 @@
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 
     <Deterministic>true</Deterministic>
-    <Version>6.0.3</Version>
+    <Version>6.0.6</Version>
 
   </PropertyGroup>
   

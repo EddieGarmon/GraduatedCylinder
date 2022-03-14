@@ -24,7 +24,10 @@ public class SentenceRecord
     public static SentenceRecord Parse(string input) {
         string[] parts = input.Split(_separator, 2);
         TimeSpan fromStart = TimeSpan.FromSeconds(double.Parse(parts[0]));
-        Sentence sentence = Sentence.Parse(parts[1]);
+        Sentence? sentence = Sentence.Parse(parts[1]);
+        if (sentence is null) {
+            throw new Exception($"Invalid sentence: {input}");
+        }
         return new SentenceRecord(fromStart, sentence);
     }
 
