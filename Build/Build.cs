@@ -16,10 +16,10 @@ using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.IO.PathConstruction;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
-// NB: To trigger manual generation invoke:
-//     nuke --generate-configuration GitHubActions_BuildAndPack --host GitHubActions
 [CheckBuildProjectConfigurations]
 [ShutdownDotNetAfterServerBuild]
+// NB: To trigger manual generation invoke:
+//     nuke --generate-configuration GitHubActions_BuildAndPack --host GitHubActions
 [GitHubActions("BuildAndPack",
                GitHubActionsImage.WindowsLatest,
                //todo: GitHubActionsImage.UbuntuLatest,
@@ -28,9 +28,18 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
                OnPushTags = new [] {"*"},
                OnPullRequestBranches = new [] {"*"},
                AutoGenerate = false,
+               InvokedTargets = new [] {nameof(Clean), nameof(Test), nameof(Pack)}
+               )]
+// NB: To trigger manual generation invoke:
+//     nuke --generate-configuration GitHubActions_Publish --host GitHubActions
+[GitHubActions("Publish",
+               GitHubActionsImage.WindowsLatest,
+               CacheExcludePatterns = new [] {"~/.nuget/packages/GraduatedCylinder"},
+               OnPushTags = new [] {"v*"},
+               AutoGenerate = false,
                ImportSecrets = new [] {nameof(NugetApiKey)},
                InvokedTargets = new [] {nameof(Clean), nameof(Test), nameof(PushToNuGet)}
-               )]
+)]
 class Build : NukeBuild
 {
 
@@ -38,8 +47,8 @@ class Build : NukeBuild
 
     [GitRepository] readonly GitRepository GitRepository;
 
-    [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
-    readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
+    [Parameter("Configuration to build - Default is 'Release'")]
+    readonly Configuration Configuration = Configuration.Release;
 
     //[Parameter] readonly string GitHubToken;
 
@@ -121,6 +130,7 @@ class Build : NukeBuild
         .Requires(() => Configuration.Equals(Configuration.Release))
         .Requires(() => IsTag)
         .Requires(() => IsWin)
+        .WhenSkipped(DependencyBehavior.Execute)
         .Executes(() =>
         {
             GlobFiles(ArtifactsDirectory, "*.nupkg")
