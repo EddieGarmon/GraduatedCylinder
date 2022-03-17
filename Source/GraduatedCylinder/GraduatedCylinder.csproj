@@ -17,10 +17,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\Directory.Build.props" Link="Directory.Build.props" />
-  </ItemGroup>
-
-  <ItemGroup>
     <!-- Note that this is not a "normal" ProjectReference.
          It needs the additional 'OutputItemType' and 'ReferenceOutputAssmbly' attributes. -->
     <ProjectReference Include="..\GraduatedCylinder.Roslyn\GraduatedCylinder.Roslyn.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />

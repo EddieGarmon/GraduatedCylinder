@@ -46,6 +46,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "build\_build.csproj", "{F7DF448C-0DFB-499C-8B23-51C5B97D63D1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{720322D4-6652-4BCB-86FD-190AF4C97DFD}"
+	ProjectSection(SolutionItems) = preProject
+		Source\Directory.Build.props = Source\Directory.Build.props
+		README.md = README.md
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraduatedCylinder.Geo.Gps", "Source\GraduatedCylinder.Geo.Gps\GraduatedCylinder.Geo.Gps.csproj", "{F87C5D73-1E50-49EC-8AD1-71506C64F22B}"
 EndProject
@@ -53,9 +57,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraduatedCylinder.Geo.Laser
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraduatedCylinder.Calculators", "Source\GraduatedCylinder.Calculators\GraduatedCylinder.Calculators.csproj", "{877CC000-6C15-45B9-B099-7E572BDABA28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraduatedCylinder.Geo.Gps.Tests", "Tests\GraduatedCylinder.Geo.Gps.Tests\GraduatedCylinder.Geo.Gps.Tests.csproj", "{BBFF5B07-F654-4553-8C49-6B488693F5D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraduatedCylinder.Geo.Gps.Tests", "Tests\GraduatedCylinder.Geo.Gps.Tests\GraduatedCylinder.Geo.Gps.Tests.csproj", "{BBFF5B07-F654-4553-8C49-6B488693F5D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraduatedCylinder.Geo.Laser.Tests", "Tests\GraduatedCylinder.Geo.Laser.Tests\GraduatedCylinder.Geo.Laser.Tests.csproj", "{AB958A06-6CC2-4945-B87E-281190AADA70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraduatedCylinder.Geo.Laser.Tests", "Tests\GraduatedCylinder.Geo.Laser.Tests\GraduatedCylinder.Geo.Laser.Tests.csproj", "{AB958A06-6CC2-4945-B87E-281190AADA70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
