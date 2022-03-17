@@ -20,8 +20,6 @@ on:
   push:
     branches:
       - master
-    tags:
-      - '*'
   pull_request:
     branches:
       - '*'
@@ -42,6 +40,8 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj') }}
       - name: Run './build.cmd Clean Test Pack'
         run: ./build.cmd Clean Test Pack
+        env:
+          NugetApiKey: ${{ secrets.NUGET_API_KEY }}
       - uses: actions/upload-artifact@v1
         with:
           name: Artifacts

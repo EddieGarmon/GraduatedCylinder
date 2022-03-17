@@ -25,9 +25,9 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
                //todo: GitHubActionsImage.UbuntuLatest,
                CacheExcludePatterns = new [] {"~/.nuget/packages/GraduatedCylinder"},
                OnPushBranches = new [] {"master"},
-               OnPushTags = new [] {"*"},
                OnPullRequestBranches = new [] {"*"},
                AutoGenerate = false,
+               ImportSecrets = new [] {nameof(NugetApiKey)},
                InvokedTargets = new [] {nameof(Clean), nameof(Test), nameof(Pack)}
                )]
 // NB: To trigger manual generation invoke:
