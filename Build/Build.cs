@@ -22,7 +22,7 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
 [ShutdownDotNetAfterServerBuild]
 [GitHubActions("BuildAndPack",
                GitHubActionsImage.WindowsLatest,
-               GitHubActionsImage.UbuntuLatest,
+               //todo: GitHubActionsImage.UbuntuLatest,
                CacheExcludePatterns = new [] {"~/.nuget/packages/GraduatedCylinder"},
                OnPushBranches = new [] {"master"},
                OnPushTags = new [] {"*"},

@@ -48,24 +48,3 @@ jobs:
         with:
           name: Artifacts
           path: Artifacts
-  ubuntu-latest:
-    name: ubuntu-latest
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Cache .nuke/temp, ~/.nuget/packages
-        uses: actions/cache@v2
-        with:
-          path: |
-            .nuke/temp
-            ~/.nuget/packages
-            !~/.nuget/packages/GraduatedCylinder
-          key: ${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj') }}
-      - name: Run './build.cmd Clean Test PushToNuGet'
-        run: ./build.cmd Clean Test PushToNuGet
-        env:
-          NugetApiKey: ${{ secrets.NUGET_API_KEY }}
-      - uses: actions/upload-artifact@v1
-        with:
-          name: Artifacts
-          path: Artifacts
