@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Nuke.Common;
 using Nuke.Common.CI;
 using Nuke.Common.CI.GitHubActions;
@@ -23,35 +24,38 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
                GitHubActionsImage.WindowsLatest,
                GitHubActionsImage.UbuntuLatest,
                CacheExcludePatterns = new [] {"~/.nuget/packages/GraduatedCylinder"},
-               OnPushBranches = new [] {"master", "main"},
+               OnPushBranches = new [] {"master"},
                OnPushTags = new [] {"*"},
                OnPullRequestBranches = new [] {"*"},
                AutoGenerate = false,
-               ImportSecrets = new [] {nameof(NuGetToken)},
+               ImportSecrets = new [] {nameof(NugetApiKey)},
                InvokedTargets = new [] {nameof(Clean), nameof(Test), nameof(PushToNuGet)}
                )]
 class Build : NukeBuild
 {
 
-    public static int Main () => Execute<Build>(x => x.Compile);
+    public static int Main () => Execute<Build>(x => x.Pack);
 
-    [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
-    //readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
-    readonly Configuration Configuration = Configuration.Release;
-
-    [Solution] readonly Solution Solution;
     [GitRepository] readonly GitRepository GitRepository;
 
+    [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
+    readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
+
+    //[Parameter] readonly string GitHubToken;
+
+    [Parameter] readonly string NugetApiUrl = "https://api.nuget.org/v3/index.json";
+    [Parameter] [Secret] readonly string NugetApiKey;
+
+    [Solution] readonly Solution Solution;
+    
     AbsolutePath SourceDirectory => RootDirectory / "Source";
     AbsolutePath TestsDirectory => RootDirectory / "Tests";
     AbsolutePath ArtifactsDirectory => RootDirectory / "Artifacts";
 
-    [Parameter] readonly string GitHubToken;
-    [Parameter] readonly string NuGetToken;
-    //[Parameter] readonly string PackagesDirectory = RootDirectory / "Packages";
+    bool IsOriginalRepository => GitRepository.Identifier == "EddieGarmon/GraduatedCylinder";
 
-    const string NugetOrgUrl = "https://api.nuget.org/v3/index.json";
-    //bool IsTag => GitHubActions.Instance?.GitHubRef?.StartsWith("refs/tags/") ?? false;
+    bool IsTag => GitRepository.Tags.Any(tag => TagRegex.IsMatch(tag));
+    Regex TagRegex = new Regex(@"v\d+\.\d+.\d+");
 
     Target Clean => _ => _
         .Before(Restore)
@@ -79,7 +83,7 @@ class Build : NukeBuild
                 .EnableNoLogo()
                 .EnableDisableParallel()
                 .EnableDeterministic()
-                .When(/*IsServerBuild*/true, x => x.EnableContinuousIntegrationBuild())
+                .When(IsServerBuild, x => x.EnableContinuousIntegrationBuild())
                 .EnableNoRestore());
         });
 
@@ -106,22 +110,25 @@ class Build : NukeBuild
                 .EnableNoLogo()
                 .EnableNoRestore()
                 .EnableNoBuild()
-                .When(/*IsServerBuild*/true , x => x.SetProperty("ContinuousIntegrationBuild", "true"))
+                .When(IsServerBuild , x => x.EnableContinuousIntegrationBuild())
                 .SetProject(Solution));
         });
 
     Target PushToNuGet => _ => _
         .DependsOn(Pack)
-        .OnlyWhenStatic(() => /* IsTag && */ IsServerBuild && IsWin)
-        .Requires(() => NuGetToken)
+        .Requires(() => NugetApiUrl)
+        .Requires(() => NugetApiKey)
+        .Requires(() => Configuration.Equals(Configuration.Release))
+        .Requires(() => IsTag)
+        .Requires(() => IsWin)
         .Executes(() =>
         {
-            var packages = ArtifactsDirectory.GlobFiles("*.nupkg");
-            DotNetNuGetPush(s => s
-                .SetApiKey(NuGetToken)
-                .SetSource(NugetOrgUrl)
-                .EnableSkipDuplicate()
-                .CombineWith(packages, (x, package) => x.SetTargetPath(package)));
+            GlobFiles(ArtifactsDirectory, "*.nupkg")
+                .Where(name => !name.EndsWith("symbols.nupkg"))
+                .ForEach(packageName => DotNetNuGetPush(s => s.SetTargetPath(packageName)
+                                                              .SetSource(NugetApiKey)
+                                                              .SetApiKey(NugetApiKey)
+                                                              .EnableSkipDuplicate()));
         });
 
 }
