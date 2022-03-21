@@ -28,7 +28,7 @@ env:
   DOTNET_NOLOGO: true
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   DOTNET_CLI_TELEMETRY_OPTOUT: true
-  GraduatedCylinder: $GITHUB_WORKSPACE
+  GraduatedCylinder: 'D:\a\GraduatedCylinder\GraduatedCylinder\'
   
 jobs:
   build:
