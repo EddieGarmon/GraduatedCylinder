@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
+    <LangVersion>10</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <OutputType>Library</OutputType>
+    <AssemblyName>GraduatedCylinder.Json</AssemblyName>
+    <RootNamespace>GraduatedCylinder.Json</RootNamespace>
+
+    <PackageId>GraduatedCylinder.Json</PackageId>
+    <Title>Graduated Cylinder Json</Title>
+    <Description>JSON serialization support for GraduatedCylinder</Description>
+    <PackageTags>unit;units;measure;measures;json;serialization</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="6.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GraduatedCylinder\GraduatedCylinder.csproj" />
+  </ItemGroup>
+
+</Project>

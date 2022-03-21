@@ -10,7 +10,7 @@ indent_size = 4
 indent_style = space
 
 [*.cs]
-max_line_length = 120
+max_line_length = 140
 end_of_line = crlf
 indent_size = 4
 indent_style = space

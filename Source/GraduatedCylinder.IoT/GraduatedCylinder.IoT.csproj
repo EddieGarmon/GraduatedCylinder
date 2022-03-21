@@ -1,0 +1,109 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
+    <LangVersion>10</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <OutputType>Library</OutputType>
+    <AssemblyName>GraduatedCylinder.IoT</AssemblyName>
+    <RootNamespace>GraduatedCylinder</RootNamespace>
+
+    <DefineConstants>$(DefineConstants);IOT</DefineConstants>
+
+    <PackageId>GraduatedCylinder.IoT</PackageId>
+    <Title>Graduated Cylinder for IoT</Title>
+    <Description>A modeling of units of measures that does automatic conversion between units for any modeled quantity.</Description>
+    <PackageTags>unit;units;measure;measures;quantity;quantities;dimension;conversion;UOM;physical;SI;imperial;metric;unitsofmeasure;abbreviation;length;mass;time;temperature;current;acceleration;area;angle;electric;charge;potential;resistance;energy;force;frequency;jerk;density;flow rate;momentum;power;pressure;speed;torque;volume</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\GraduatedCylinder\Abbreviations\UnitAbbreviationAttribute.cs" Link="Abbreviations\UnitAbbreviationAttribute.cs" />
+    <Compile Include="..\GraduatedCylinder\Equality.cs" Link="Equality.cs" />
+    <Compile Include="..\GraduatedCylinder\Scales\PercentGradeAttribute.cs" Link="Scales\PercentGradeAttribute.cs" />
+    <Compile Include="..\GraduatedCylinder\Scales\ScaleAndOffsetAttribute.cs" Link="Scales\ScaleAndOffsetAttribute.cs" />
+    <Compile Include="..\GraduatedCylinder\Scales\ScaleAttribute.cs" Link="Scales\ScaleAttribute.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\IDimension.cs" Link="Units\IDimension.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Base\AmountOfSubstance.cs" Link="Units\SI Base\AmountOfSubstance.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Base\AmountOfSubstanceUnit.cs" Link="Units\SI Base\AmountOfSubstanceUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Base\ElectricCurrent.cs" Link="Units\SI Base\ElectricCurrent.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Base\ElectricCurrentUnit.cs" Link="Units\SI Base\ElectricCurrentUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Base\Length.cs" Link="Units\SI Base\Length.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Base\LengthUnit.cs" Link="Units\SI Base\LengthUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Base\LuminousIntensity.cs" Link="Units\SI Base\LuminousIntensity.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Base\LuminousIntensityUnit.cs" Link="Units\SI Base\LuminousIntensityUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Base\Mass.cs" Link="Units\SI Base\Mass.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Base\MassUnit.cs" Link="Units\SI Base\MassUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Base\Temperature.cs" Link="Units\SI Base\Temperature.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Base\TemperatureUnit.cs" Link="Units\SI Base\TemperatureUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Base\Time.cs" Link="Units\SI Base\Time.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Base\TimeUnit.cs" Link="Units\SI Base\TimeUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\AbsoluteHumidity.cs" Link="Units\SI Derived\AbsoluteHumidity.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\AbsoluteHumidityUnit.cs" Link="Units\SI Derived\AbsoluteHumidityUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\Acceleration.cs" Link="Units\SI Derived\Acceleration.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\AccelerationUnit.cs" Link="Units\SI Derived\AccelerationUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\Angle.cs" Link="Units\SI Derived\Angle.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\AngleUnit.cs" Link="Units\SI Derived\AngleUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\AngularAcceleration.cs" Link="Units\SI Derived\AngularAcceleration.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\AngularAccelerationUnit.cs" Link="Units\SI Derived\AngularAccelerationUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\AngularVelocity.cs" Link="Units\SI Derived\AngularVelocity.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\AngularVelocityUnit.cs" Link="Units\SI Derived\AngularVelocityUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\Area.cs" Link="Units\SI Derived\Area.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\AreaUnit.cs" Link="Units\SI Derived\AreaUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\Azimuth.cs" Link="Units\SI Derived\Azimuth.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\AzimuthUnit.cs" Link="Units\SI Derived\AzimuthUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\ElectricCharge.cs" Link="Units\SI Derived\ElectricCharge.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\ElectricChargeUnit.cs" Link="Units\SI Derived\ElectricChargeUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\ElectricPotential.cs" Link="Units\SI Derived\ElectricPotential.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\ElectricPotentialUnit.cs" Link="Units\SI Derived\ElectricPotentialUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\ElectricResistance.cs" Link="Units\SI Derived\ElectricResistance.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\ElectricResistanceUnit.cs" Link="Units\SI Derived\ElectricResistanceUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\Energy.cs" Link="Units\SI Derived\Energy.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\EnergyUnit.cs" Link="Units\SI Derived\EnergyUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\Force.cs" Link="Units\SI Derived\Force.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\ForceUnit.cs" Link="Units\SI Derived\ForceUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\Frequency.cs" Link="Units\SI Derived\Frequency.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\FrequencyUnit.cs" Link="Units\SI Derived\FrequencyUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\Jerk.cs" Link="Units\SI Derived\Jerk.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\JerkUnit.cs" Link="Units\SI Derived\JerkUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\MagneticField.cs" Link="Units\SI Derived\MagneticField.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\MagneticFieldUnit.cs" Link="Units\SI Derived\MagneticFieldUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\MassDensity.cs" Link="Units\SI Derived\MassDensity.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\MassDensityUnit.cs" Link="Units\SI Derived\MassDensityUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\MassFlowRate.cs" Link="Units\SI Derived\MassFlowRate.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\MassFlowRateUnit.cs" Link="Units\SI Derived\MassFlowRateUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\Momentum.cs" Link="Units\SI Derived\Momentum.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\MomentumUnit.cs" Link="Units\SI Derived\MomentumUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\Power.cs" Link="Units\SI Derived\Power.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\PowerUnit.cs" Link="Units\SI Derived\PowerUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\Pressure.cs" Link="Units\SI Derived\Pressure.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\PressureUnit.cs" Link="Units\SI Derived\PressureUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\RelativeHumidity.cs" Link="Units\SI Derived\RelativeHumidity.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\RelativeHumidityUnit.cs" Link="Units\SI Derived\RelativeHumidityUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\Speed.cs" Link="Units\SI Derived\Speed.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\SpeedUnit.cs" Link="Units\SI Derived\SpeedUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\Torque.cs" Link="Units\SI Derived\Torque.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\TorqueUnit.cs" Link="Units\SI Derived\TorqueUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\Volume.cs" Link="Units\SI Derived\Volume.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\VolumetricFlowRate.cs" Link="Units\SI Derived\VolumetricFlowRate.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\VolumetricFlowRateUnit.cs" Link="Units\SI Derived\VolumetricFlowRateUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\SI Derived\VolumeUnit.cs" Link="Units\SI Derived\VolumeUnit.cs" />
+    <Compile Include="..\GraduatedCylinder\Units\UnitPreferences.cs" Link="Units\UnitPreferences.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Note that this is not a "normal" ProjectReference.
+         It needs the additional 'OutputItemType' and 'ReferenceOutputAssmbly' attributes. -->
+    <ProjectReference Include="..\GraduatedCylinder.Roslyn\GraduatedCylinder.Roslyn.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="GraduatedCylinder.IoT.csproj.DotSettings" Visible="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Units\SI Derived\" />
+  </ItemGroup>
+
+</Project>

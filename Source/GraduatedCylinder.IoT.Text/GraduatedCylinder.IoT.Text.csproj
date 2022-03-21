@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
+    <LangVersion>10</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <OutputType>Library</OutputType>
+    <AssemblyName>GraduatedCylinder.IoT.Text</AssemblyName>
+    <RootNamespace>GraduatedCylinder.Text</RootNamespace>
+
+    <PackageId>GraduatedCylinder.IoT.Text</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\GraduatedCylinder\Text\Formats.cs" Link="Formats.cs" />
+    <Compile Include="..\GraduatedCylinder\Text\Regexs.cs" Link="Regexs.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GraduatedCylinder.IoT\GraduatedCylinder.IoT.csproj" />
+  </ItemGroup>
+
+</Project>

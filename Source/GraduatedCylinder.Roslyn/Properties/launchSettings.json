@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "GraduatedCylinder.Roslyn": {
+      "commandName": "DebugRoslynComponent",
+      "targetProject": "..\\GraduatedCylinder.IoT\\GraduatedCylinder.IoT.csproj"
+    }
+  }
+}

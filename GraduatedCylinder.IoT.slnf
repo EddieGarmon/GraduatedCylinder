@@ -1,0 +1,15 @@
+{
+  "solution": {
+    "path": "GraduatedCylinder.sln",
+    "projects": [
+      "Samples\\Sample.IoT\\Sample.IoT.csproj",
+      "Source\\GraduatedCylinder.IoT.Json\\GraduatedCylinder.IoT.Json.csproj",
+      "Source\\GraduatedCylinder.IoT.Text\\GraduatedCylinder.IoT.Text.csproj",
+      "Source\\GraduatedCylinder.IoT\\GraduatedCylinder.IoT.csproj",
+      "Source\\GraduatedCylinder.Roslyn\\GraduatedCylinder.Roslyn.csproj",
+      "Source\\GraduatedCylinder\\GraduatedCylinder.csproj",
+      "Tests\\GraduatedCylinder.IoT.Tests\\GraduatedCylinder.IoT.Tests.csproj",
+      "Tests\\GraduatedCylinder.Tests\\GraduatedCylinder.Tests.csproj"
+    ]
+  }
+}

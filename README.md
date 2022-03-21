@@ -2,10 +2,10 @@
 
 - A typed implementation of measurable dimensions for .NET (i.e. Length, Speed, Acceleration, Jerk).
 - Unit conversions are supported at runtime and for view binding. Many operators are implemented to allow derivative computations without you explicitly worrying about units, it is taken care of for you (i.e. Jerk = Acceleration / Time). 
-- Unit conversions are supported by an IUnitConverter interface that can be extended.
+- Starting at version 6.0, this library uses Roslyn to generate many features from built in metadata, so no runtime reflection is required anymore.
 
 ### Build
-You can build GraduatedCylinder using MS Visual Studio or MonoDevelop. It is recommended that anyone planning to contribute to the project familiarise themselves with the PSake build script as it is he build process for validating pull-requests and package creation.
+You can build GraduatedCylinder using MS Visual Studio 2022. We use [Nuke](https://nuke.build/) as the build engine, and deliver packages on [NuGet.org](https://www.nuget.org/packages?q=GraduatedCylinder)
 
 ### Contribute
 Contributions to GraduatedCylinder are gratefully received but we do ask you to follow certain conditions:
@@ -26,7 +26,7 @@ The main contributors to the project will manage releases and [SemVer-compliant]
     Speed startSpeed = new Speed(72, SpeedUnit.MilesPerHour);
     Speed endSpeed = new Speed(0, SpeedUnit.MilesPerHour);
     Length stoppingDistance = new Length(1234, LengthUnit.Feet);
-    Acceleration deceleration = ((endSpeed * endSpeed) - (startSpeed * startSpeed)) / (2 * stoppingDistance);
+    Acceleration deceleration = MotionCalculator.ComputeConstantAcceleration(startSpeed, endSpeed, stoppingDistance);
     Force stoppingForceRequired = vehicleMass * deceleration;
 
     Console.WriteLine("The stopping force required is:");
@@ -35,8 +35,10 @@ The main contributors to the project will manage releases and [SemVer-compliant]
     Console.WriteLine("\t{0}", stoppingForceRequired.ToString(ForceUnit.PoundForce, 3));
     
     The output is as follows:
-    The stopping force required is:
-        -1,561.721 N
-        -159.197 kgf
-        -351.089 lbf
+    To stop a vehicle of 2,500.00 lbs moving at 72.00 mph within 1,234.00 ft,
+    the force required is:
+            -1,561.72 N
+            -1,561.721 N
+            -159.20 kgf
+            -351.08893 lbf
 ```

@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
+    <LangVersion>10</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <OutputType>Library</OutputType>
+    <AssemblyName>Nmea.Core0183</AssemblyName>
+    <RootNamespace>Nmea.Core0183</RootNamespace>
+
+    <PackageId>Nmea.Core0183</PackageId>
+    <Title>NMEA 0183 Core Parser</Title>
+    <Description>NMEA parsing for the 0183 standard.</Description>
+    <PackageTags>nmea;parser;0183;serial</PackageTags>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.IO.Ports" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="readme.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+  
+</Project>
