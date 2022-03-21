@@ -136,7 +136,7 @@ class Build : NukeBuild
             GlobFiles(ArtifactsDirectory, "*.nupkg")
                 .Where(name => !name.EndsWith("symbols.nupkg"))
                 .ForEach(packageName => DotNetNuGetPush(s => s.SetTargetPath(packageName)
-                                                              .SetSource(NugetApiKey)
+                                                              .SetSource(NugetApiUrl)
                                                               .SetApiKey(NugetApiKey)
                                                               .EnableSkipDuplicate()));
         });
