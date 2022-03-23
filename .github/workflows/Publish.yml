@@ -25,16 +25,7 @@ jobs:
         uses: actions/setup-dotnet@v2
         with:
           dotnet-version: 6.0.x
-      
-      - name: Cache .nuke/temp, ~/.nuget/packages
-        uses: actions/cache@v3
-        with:
-          path: |
-            .nuke/temp
-            ~/.nuget/packages
-            !~/.nuget/packages/GraduatedCylinder
-          key: ${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj') }}
-          
+                
       - name: Run './build.cmd Clean Test PushToNuGet'
         run: ./build.cmd Clean Test PushToNuGet
       

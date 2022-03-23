@@ -20,7 +20,7 @@
     <IncludeSource>false</IncludeSource>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
 
-    <Version>6.0.0-beta.2</Version>
+    <Version>6.0.0-beta.3</Version>
 
   </PropertyGroup>
   
