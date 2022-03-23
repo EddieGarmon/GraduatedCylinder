@@ -28,8 +28,6 @@ class Build : NukeBuild
     [Parameter("Configuration to build - Default is 'Release'")]
     readonly Configuration Configuration = Configuration.Release;
 
-    //[Parameter] readonly string GitHubToken;
-
     [Parameter] readonly string NugetApiUrl = "https://api.nuget.org/v3/index.json";
     [Parameter] [Secret] readonly string NugetApiKey;
 
@@ -71,7 +69,7 @@ class Build : NukeBuild
                 .EnableNoLogo()
                 .EnableDisableParallel()
                 .EnableDeterministic()
-                .When(IsServerBuild, x => x.EnableContinuousIntegrationBuild())
+                .EnableContinuousIntegrationBuild()
                 .EnableNoRestore());
         });
 
@@ -98,7 +96,7 @@ class Build : NukeBuild
                 .EnableNoLogo()
                 .EnableNoRestore()
                 .EnableNoBuild()
-                .When(IsServerBuild , x => x.EnableContinuousIntegrationBuild())
+                .EnableContinuousIntegrationBuild()
                 .SetProject(Solution));
         });
 
@@ -107,13 +105,13 @@ class Build : NukeBuild
         .Requires(() => NugetApiUrl)
         .Requires(() => NugetApiKey)
         .Requires(() => Configuration.Equals(Configuration.Release))
+        .Requires(() => IsOriginalRepository)
         .Requires(() => IsTag)
         .Requires(() => IsWin)
         .WhenSkipped(DependencyBehavior.Execute)
         .Executes(() =>
         {
             GlobFiles(ArtifactsDirectory, "*.nupkg")
-                .Where(name => !name.EndsWith("symbols.nupkg"))
                 .ForEach(packageName => DotNetNuGetPush(s => s.SetTargetPath(packageName)
                                                               .SetSource(NugetApiUrl)
                                                               .SetApiKey(NugetApiKey)
