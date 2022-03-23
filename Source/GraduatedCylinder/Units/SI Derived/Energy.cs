@@ -18,7 +18,7 @@ public partial struct Energy : IDimension<Energy, EnergyUnit>
     public static Momentum operator /(Energy energy, Speed speed) {
         energy = energy.In(EnergyUnit.NewtonMeters);
         speed = speed.In(SpeedUnit.MeterPerSecond);
-        return new Momentum(energy.Value / speed.Value, MomentumUnit.KilogramMetersPerSecond);
+        return new Momentum(energy.Value / speed.Value, MomentumUnit.KiloGramMetersPerSecond);
     }
 
     public static Power operator /(Energy energy, Time time) {
@@ -29,7 +29,7 @@ public partial struct Energy : IDimension<Energy, EnergyUnit>
 
     public static Speed operator /(Energy energy, Momentum momentum) {
         energy = energy.In(EnergyUnit.NewtonMeters);
-        momentum = momentum.In(MomentumUnit.KilogramMetersPerSecond);
+        momentum = momentum.In(MomentumUnit.KiloGramMetersPerSecond);
         return new Speed(energy.Value / momentum.Value, SpeedUnit.MeterPerSecond);
     }
 

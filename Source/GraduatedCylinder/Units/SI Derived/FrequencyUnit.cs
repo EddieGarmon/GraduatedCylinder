@@ -16,11 +16,11 @@ public enum FrequencyUnit : short
 
     [UnitAbbreviation("MHz")]
     [Scale(1e6)]
-    Megahertz = 6,
+    MegaHertz = 6,
 
     [UnitAbbreviation("GHz")]
     [Scale(1e9)]
-    Gigahertz = 9,
+    GigaHertz = 9,
 
     [UnitAbbreviation("rad/s")]
     [Scale(0.159154943274)]

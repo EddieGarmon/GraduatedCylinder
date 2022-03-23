@@ -8,17 +8,26 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 	<PackageIcon>icon.png</PackageIcon>
+
 	<PackageProjectUrl>https://github.com/EddieGarmon/GraduatedCylinder</PackageProjectUrl>
     <RepositoryUrl>https://github.com/EddieGarmon/GraduatedCylinder</RepositoryUrl>
-    <IncludeSymbols>true</IncludeSymbols>
-    <IncludeSource>false</IncludeSource>
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
 
-    <Deterministic>true</Deterministic>
-    <Version>6.0.0-beta.2</Version>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <!--<IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>-->
+    <IncludeSource>false</IncludeSource>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+
+    <Version>6.0.0-beta.3</Version>
 
   </PropertyGroup>
   
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+  </ItemGroup>
+
   <ItemGroup>
     <None Include="..\..\icon.png" Pack="true" PackagePath="\" Visible="false" />
   </ItemGroup>

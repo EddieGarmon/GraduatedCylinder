@@ -12,43 +12,43 @@ public enum ElectricCurrentUnit : short
 
     [UnitAbbreviation("yA")]
     [Scale(1e-24)]
-    Yoctoampere = -24,
+    YoctoAmpere = -24,
 
     [UnitAbbreviation("zA")]
     [Scale(1e-21)]
-    Zeptoampere = -21,
+    ZeptoAmpere = -21,
 
     [UnitAbbreviation("aA")]
     [Scale(1e-18)]
-    Attoampere = -18,
+    AttoAmpere = -18,
 
     [UnitAbbreviation("fA")]
     [Scale(1e-15)]
-    Femtoampere = -15,
+    FemtoAmpere = -15,
 
     [UnitAbbreviation("pA")]
     [Scale(1e-12)]
-    Picoampere = -12,
+    PicoAmpere = -12,
 
     [UnitAbbreviation("nA")]
     [Scale(1e-9)]
-    Nanoampere = -9,
+    NanoAmpere = -9,
 
     [UnitAbbreviation("µA")]
     [Scale(1e-6)]
-    Microampere = -6,
+    MicroAmpere = -6,
 
     [UnitAbbreviation("mA")]
     [Scale(1e-3)]
-    Milliampere = -3,
+    MilliAmpere = -3,
 
     [UnitAbbreviation("cA")]
     [Scale(1e-2)]
-    Centiampere = -2,
+    CentiAmpere = -2,
 
     [UnitAbbreviation("dA")]
     [Scale(1e-1)]
-    Deciampere = -1,
+    DeciAmpere = -1,
 
     [UnitAbbreviation("A")]
     [Scale(1.0)]
@@ -56,42 +56,42 @@ public enum ElectricCurrentUnit : short
 
     [UnitAbbreviation("daA")]
     [Scale(10)]
-    Dekaampere = 1,
+    DekaAmpere = 1,
 
     [UnitAbbreviation("hA")]
     [Scale(100)]
-    Hectoampere = 2,
+    HectoAmpere = 2,
 
     [UnitAbbreviation("kA")]
     [Scale(1e3)]
-    Kiloampere = 3,
+    KiloAmpere = 3,
 
     [UnitAbbreviation("MA")]
     [Scale(1e6)]
-    Megaampere = 6,
+    MegaAmpere = 6,
 
     [UnitAbbreviation("GA")]
     [Scale(1e9)]
-    Gigaampere = 9,
+    GigaAmpere = 9,
 
     [UnitAbbreviation("TA")]
     [Scale(1e12)]
-    Teraampere = 12,
+    TeraAmpere = 12,
 
     [UnitAbbreviation("PA")]
     [Scale(1e15)]
-    Petaampere = 15,
+    PetaAmpere = 15,
 
     [UnitAbbreviation("EA")]
     [Scale(1e18)]
-    Exaampere = 18,
+    ExaAmpere = 18,
 
     [UnitAbbreviation("ZA")]
     [Scale(1e21)]
-    Zetaampere = 21,
+    ZettaAmpere = 21,
 
     [UnitAbbreviation("YA")]
     [Scale(1e24)]
-    Yottaampere = 24,
+    YottaAmpere = 24,
 
 }

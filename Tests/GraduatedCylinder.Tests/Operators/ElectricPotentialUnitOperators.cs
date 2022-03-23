@@ -9,7 +9,7 @@ public class ElectricPotentialUnitOperators
     [Fact]
     public void OpAddition() {
         var voltage1 = new ElectricPotential(3000, ElectricPotentialUnit.Volt);
-        var voltage2 = new ElectricPotential(1, ElectricPotentialUnit.Kilovolt);
+        var voltage2 = new ElectricPotential(1, ElectricPotentialUnit.KiloVolt);
         var expected = new ElectricPotential(4000, ElectricPotentialUnit.Volt);
         (voltage1 + voltage2).ShouldBe(expected);
         (voltage2 + voltage1).ShouldBe(expected);
@@ -18,19 +18,19 @@ public class ElectricPotentialUnitOperators
     [Fact]
     public void OpDivision() {
         var voltage1 = new ElectricPotential(3000, ElectricPotentialUnit.Volt);
-        var voltage2 = new ElectricPotential(3, ElectricPotentialUnit.Kilovolt);
+        var voltage2 = new ElectricPotential(3, ElectricPotentialUnit.KiloVolt);
         (voltage1 / voltage2).ShouldBeCloseTo(1);
         (voltage2 / voltage1).ShouldBeCloseTo(1);
 
         (voltage1 / 2).ShouldBe(new ElectricPotential(1500, ElectricPotentialUnit.Volt));
-        (voltage2 / 2).ShouldBe(new ElectricPotential(1.5, ElectricPotentialUnit.Kilovolt));
+        (voltage2 / 2).ShouldBe(new ElectricPotential(1.5, ElectricPotentialUnit.KiloVolt));
     }
 
     [Fact]
     public void OpEquals() {
         var voltage1 = new ElectricPotential(3000, ElectricPotentialUnit.Volt);
-        var voltage2 = new ElectricPotential(3, ElectricPotentialUnit.Kilovolt);
-        var voltage3 = new ElectricPotential(10, ElectricPotentialUnit.Kilovolt);
+        var voltage2 = new ElectricPotential(3, ElectricPotentialUnit.KiloVolt);
+        var voltage3 = new ElectricPotential(10, ElectricPotentialUnit.KiloVolt);
         (voltage1 == voltage2).ShouldBeTrue();
         (voltage2 == voltage1).ShouldBeTrue();
         (voltage1 == voltage3).ShouldBeFalse();
@@ -44,8 +44,8 @@ public class ElectricPotentialUnitOperators
     [Fact]
     public void OpGreaterThan() {
         var voltage1 = new ElectricPotential(3000, ElectricPotentialUnit.Volt);
-        var voltage2 = new ElectricPotential(3, ElectricPotentialUnit.Kilovolt);
-        var voltage3 = new ElectricPotential(10, ElectricPotentialUnit.Kilovolt);
+        var voltage2 = new ElectricPotential(3, ElectricPotentialUnit.KiloVolt);
+        var voltage3 = new ElectricPotential(10, ElectricPotentialUnit.KiloVolt);
         (voltage1 > voltage3).ShouldBeFalse();
         (voltage3 > voltage1).ShouldBeTrue();
         (voltage1 > voltage2).ShouldBeFalse();
@@ -55,8 +55,8 @@ public class ElectricPotentialUnitOperators
     [Fact]
     public void OpGreaterThanOrEqual() {
         var voltage1 = new ElectricPotential(3000, ElectricPotentialUnit.Volt);
-        var voltage2 = new ElectricPotential(3, ElectricPotentialUnit.Kilovolt);
-        var voltage3 = new ElectricPotential(10, ElectricPotentialUnit.Kilovolt);
+        var voltage2 = new ElectricPotential(3, ElectricPotentialUnit.KiloVolt);
+        var voltage3 = new ElectricPotential(10, ElectricPotentialUnit.KiloVolt);
         (voltage1 >= voltage3).ShouldBeFalse();
         (voltage3 >= voltage1).ShouldBeTrue();
         (voltage1 >= voltage2).ShouldBeTrue();
@@ -66,8 +66,8 @@ public class ElectricPotentialUnitOperators
     [Fact]
     public void OpInverseEquals() {
         var voltage1 = new ElectricPotential(3000, ElectricPotentialUnit.Volt);
-        var voltage2 = new ElectricPotential(3, ElectricPotentialUnit.Kilovolt);
-        var voltage3 = new ElectricPotential(10, ElectricPotentialUnit.Kilovolt);
+        var voltage2 = new ElectricPotential(3, ElectricPotentialUnit.KiloVolt);
+        var voltage3 = new ElectricPotential(10, ElectricPotentialUnit.KiloVolt);
         (voltage1 != voltage2).ShouldBeFalse();
         (voltage2 != voltage1).ShouldBeFalse();
         (voltage1 != voltage3).ShouldBeTrue();
@@ -77,8 +77,8 @@ public class ElectricPotentialUnitOperators
     [Fact]
     public void OpLessThan() {
         var voltage1 = new ElectricPotential(3000, ElectricPotentialUnit.Volt);
-        var voltage2 = new ElectricPotential(3, ElectricPotentialUnit.Kilovolt);
-        var voltage3 = new ElectricPotential(10, ElectricPotentialUnit.Kilovolt);
+        var voltage2 = new ElectricPotential(3, ElectricPotentialUnit.KiloVolt);
+        var voltage3 = new ElectricPotential(10, ElectricPotentialUnit.KiloVolt);
         (voltage1 < voltage3).ShouldBeTrue();
         (voltage3 < voltage1).ShouldBeFalse();
         (voltage1 < voltage2).ShouldBeFalse();
@@ -88,8 +88,8 @@ public class ElectricPotentialUnitOperators
     [Fact]
     public void OpLessThanOrEqual() {
         var voltage1 = new ElectricPotential(3000, ElectricPotentialUnit.Volt);
-        var voltage2 = new ElectricPotential(3, ElectricPotentialUnit.Kilovolt);
-        var voltage3 = new ElectricPotential(10, ElectricPotentialUnit.Kilovolt);
+        var voltage2 = new ElectricPotential(3, ElectricPotentialUnit.KiloVolt);
+        var voltage3 = new ElectricPotential(10, ElectricPotentialUnit.KiloVolt);
         (voltage1 <= voltage3).ShouldBeTrue();
         (voltage3 <= voltage1).ShouldBeFalse();
         (voltage1 <= voltage2).ShouldBeTrue();
@@ -107,9 +107,9 @@ public class ElectricPotentialUnitOperators
     [Fact]
     public void OpSubtraction() {
         var voltage1 = new ElectricPotential(7000, ElectricPotentialUnit.Volt);
-        var voltage2 = new ElectricPotential(1, ElectricPotentialUnit.Kilovolt);
+        var voltage2 = new ElectricPotential(1, ElectricPotentialUnit.KiloVolt);
         (voltage1 - voltage2).ShouldBe(new ElectricPotential(6000, ElectricPotentialUnit.Volt));
-        (voltage2 - voltage1).ShouldBe(new ElectricPotential(-6, ElectricPotentialUnit.Kilovolt));
+        (voltage2 - voltage1).ShouldBe(new ElectricPotential(-6, ElectricPotentialUnit.KiloVolt));
     }
 
 }

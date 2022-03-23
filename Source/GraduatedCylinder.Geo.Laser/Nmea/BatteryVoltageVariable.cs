@@ -18,7 +18,7 @@ internal class BatteryVoltageVariable : Variable<ElectricPotential>
         if (!double.TryParse(line[1], out double newValue)) {
             return false;
         }
-        value = new ElectricPotential(newValue, ElectricPotentialUnit.Millivolt);
+        value = new ElectricPotential(newValue, ElectricPotentialUnit.MilliVolt);
         return true;
     }
 

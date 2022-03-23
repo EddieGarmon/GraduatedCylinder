@@ -12,27 +12,27 @@ public enum TimeUnit : short
 
     [UnitAbbreviation("ys")]
     [Scale(1e-24)]
-    Yoctosecond = -24,
+    YoctoSecond = -24,
 
     [UnitAbbreviation("zs")]
     [Scale(1e-21)]
-    Zeptosecond = -21,
+    ZeptoSecond = -21,
 
     [UnitAbbreviation("as")]
     [Scale(1e-18)]
-    Attosecond = -18,
+    AttoSecond = -18,
 
     [UnitAbbreviation("fs")]
     [Scale(1e-15)]
-    Femtosecond = -15,
+    FemtoSecond = -15,
 
     [UnitAbbreviation("ps")]
     [Scale(1e-12)]
-    Picosecond = -12,
+    PicoSecond = -12,
 
     [UnitAbbreviation("ns")]
     [Scale(1e-9)]
-    Nanosecond = -9,
+    NanoSecond = -9,
 
     [UnitAbbreviation("ticks")]
     [Scale(1e-7)]
@@ -44,15 +44,15 @@ public enum TimeUnit : short
 
     [UnitAbbreviation("ms")]
     [Scale(1e-3)]
-    Millisecond = -3,
+    MilliSecond = -3,
 
     [UnitAbbreviation("cs")]
     [Scale(1e-2)]
-    Centisecond = -2,
+    CentiSecond = -2,
 
     [UnitAbbreviation("ds")]
     [Scale(1e-1)]
-    Decisecond = -1,
+    DeciSecond = -1,
 
     [UnitAbbreviation("s")]
     [Scale(1.0)]
@@ -60,43 +60,43 @@ public enum TimeUnit : short
 
     [UnitAbbreviation("das")]
     [Scale(10)]
-    Dekasecond = 1,
+    DekaSecond = 1,
 
     [UnitAbbreviation("hs")]
     [Scale(100)]
-    Hectosecond = 2,
+    HectoSecond = 2,
 
     [UnitAbbreviation("ks")]
     [Scale(1e3)]
-    Kilosecond = 3,
+    KiloSecond = 3,
 
     [UnitAbbreviation("Ms")]
     [Scale(1e6)]
-    Megasecond = 6,
+    MegaSecond = 6,
 
     [UnitAbbreviation("Gs")]
     [Scale(1e9)]
-    Gigasecond = 9,
+    GigaSecond = 9,
 
     [UnitAbbreviation("Ts")]
     [Scale(1e12)]
-    Terasecond = 12,
+    TeraSecond = 12,
 
     [UnitAbbreviation("Ps")]
     [Scale(1e15)]
-    Petasecond = 15,
+    PetaSecond = 15,
 
     [UnitAbbreviation("Es")]
     [Scale(1e18)]
-    Exasecond = 18,
+    ExaSecond = 18,
 
     [UnitAbbreviation("Zs")]
     [Scale(1e21)]
-    Zettasecond = 21,
+    ZettaSecond = 21,
 
     [UnitAbbreviation("Ys")]
     [Scale(1e24)]
-    Yottasecond = 24,
+    YottaSecond = 24,
 
     [UnitAbbreviation("min")]
     [Scale(60.0)]

@@ -13,7 +13,7 @@ namespace GraduatedCylinder.Geo
         public void VerifyDistance(double lat1, double long1, double lat2, double long2, double expectedLengthInKilometers) {
             GeoPosition start = new GeoPosition(lat1, long1);
             GeoPosition stop = new GeoPosition(lat2, long2);
-            GreatArc.Distance(start, stop).In(LengthUnit.Kilometer).Value.ShouldBeNear(expectedLengthInKilometers, .0001);
+            GreatArc.Distance(start, stop).In(LengthUnit.KiloMeter).Value.ShouldBeNear(expectedLengthInKilometers, .0001);
         }
 
     }

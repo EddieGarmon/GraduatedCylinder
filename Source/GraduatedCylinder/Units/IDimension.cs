@@ -6,7 +6,7 @@ public interface IDimension<out TDimension, TUnits>
 #if !IOT
     TUnits Units { get; set; }
 #else
-        TUnits Units { get; }
+    TUnits Units { get; }
 #endif
 
     double Value { get; }

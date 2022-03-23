@@ -3,7 +3,7 @@ using GraduatedCylinder.Scales;
 
 namespace GraduatedCylinder;
 
-public enum MagneticFieldUnit : short
+public enum MagneticFluxDensityUnit : short
 {
 
     Unspecified = short.MinValue,

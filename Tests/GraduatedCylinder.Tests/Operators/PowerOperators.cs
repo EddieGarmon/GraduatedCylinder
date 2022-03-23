@@ -9,7 +9,7 @@ public class PowerOperators
     [Fact]
     public void OpAddition() {
         var power1 = new Power(6000, PowerUnit.Watts);
-        var power2 = new Power(1, PowerUnit.Kilowatts);
+        var power2 = new Power(1, PowerUnit.KiloWatts);
         var expected = new Power(7000, PowerUnit.Watts);
         (power1 + power2).ShouldBe(expected);
         (power2 + power1).ShouldBe(expected);
@@ -18,18 +18,18 @@ public class PowerOperators
     [Fact]
     public void OpDivision() {
         var power1 = new Power(2000, PowerUnit.Watts);
-        var power2 = new Power(2, PowerUnit.Kilowatts);
+        var power2 = new Power(2, PowerUnit.KiloWatts);
         (power1 / power2).ShouldBeCloseTo(1);
         (power2 / power1).ShouldBeCloseTo(1);
 
         (power1 / 2).ShouldBe(new Power(1000, PowerUnit.Watts));
-        (power2 / 2).ShouldBe(new Power(1, PowerUnit.Kilowatts));
+        (power2 / 2).ShouldBe(new Power(1, PowerUnit.KiloWatts));
     }
 
     [Fact]
     public void OpEquals() {
         var power1 = new Power(3000, PowerUnit.Watts);
-        var power2 = new Power(3, PowerUnit.Kilowatts);
+        var power2 = new Power(3, PowerUnit.KiloWatts);
         var power3 = new Power(5000, PowerUnit.NewtonMetersPerSecond);
         (power1 == power2).ShouldBeTrue();
         (power2 == power1).ShouldBeTrue();
@@ -44,7 +44,7 @@ public class PowerOperators
     [Fact]
     public void OpGreaterThan() {
         var power1 = new Power(3000, PowerUnit.Watts);
-        var power2 = new Power(3, PowerUnit.Kilowatts);
+        var power2 = new Power(3, PowerUnit.KiloWatts);
         var power3 = new Power(5000, PowerUnit.NewtonMetersPerSecond);
         (power1 > power3).ShouldBeFalse();
         (power3 > power1).ShouldBeTrue();
@@ -55,7 +55,7 @@ public class PowerOperators
     [Fact]
     public void OpGreaterThanOrEqual() {
         var power1 = new Power(3000, PowerUnit.Watts);
-        var power2 = new Power(3, PowerUnit.Kilowatts);
+        var power2 = new Power(3, PowerUnit.KiloWatts);
         var power3 = new Power(5000, PowerUnit.NewtonMetersPerSecond);
         (power1 >= power3).ShouldBeFalse();
         (power3 >= power1).ShouldBeTrue();
@@ -66,7 +66,7 @@ public class PowerOperators
     [Fact]
     public void OpInverseEquals() {
         var power1 = new Power(3000, PowerUnit.Watts);
-        var power2 = new Power(3, PowerUnit.Kilowatts);
+        var power2 = new Power(3, PowerUnit.KiloWatts);
         var power3 = new Power(5000, PowerUnit.NewtonMetersPerSecond);
         (power1 != power2).ShouldBeFalse();
         (power2 != power1).ShouldBeFalse();
@@ -77,7 +77,7 @@ public class PowerOperators
     [Fact]
     public void OpLessThan() {
         var power1 = new Power(3000, PowerUnit.Watts);
-        var power2 = new Power(3, PowerUnit.Kilowatts);
+        var power2 = new Power(3, PowerUnit.KiloWatts);
         var power3 = new Power(5000, PowerUnit.NewtonMetersPerSecond);
         (power1 < power3).ShouldBeTrue();
         (power3 < power1).ShouldBeFalse();
@@ -88,7 +88,7 @@ public class PowerOperators
     [Fact]
     public void OpLessThanOrEqual() {
         var power1 = new Power(3000, PowerUnit.Watts);
-        var power2 = new Power(3, PowerUnit.Kilowatts);
+        var power2 = new Power(3, PowerUnit.KiloWatts);
         var power3 = new Power(5000, PowerUnit.NewtonMetersPerSecond);
         (power1 <= power3).ShouldBeTrue();
         (power3 <= power1).ShouldBeFalse();
@@ -98,8 +98,8 @@ public class PowerOperators
 
     [Fact]
     public void OpMultiplicationScaler() {
-        var power = new Power(1, PowerUnit.Kilowatts);
-        var expected = new Power(2, PowerUnit.Kilowatts);
+        var power = new Power(1, PowerUnit.KiloWatts);
+        var expected = new Power(2, PowerUnit.KiloWatts);
         (power * 2).ShouldBe(expected);
         (2 * power).ShouldBe(expected);
     }
@@ -107,9 +107,9 @@ public class PowerOperators
     [Fact]
     public void OpSubtraction() {
         var power1 = new Power(5000, PowerUnit.Watts);
-        var power2 = new Power(1, PowerUnit.Kilowatts);
+        var power2 = new Power(1, PowerUnit.KiloWatts);
         (power1 - power2).ShouldBe(new Power(4000, PowerUnit.Watts));
-        (power2 - power1).ShouldBe(new Power(-4, PowerUnit.Kilowatts));
+        (power2 - power1).ShouldBe(new Power(-4, PowerUnit.KiloWatts));
     }
 
 }

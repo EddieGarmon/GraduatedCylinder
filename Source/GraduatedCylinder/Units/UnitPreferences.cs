@@ -15,7 +15,7 @@ public partial class UnitPreferences
             JerkUnit = JerkUnit.MilesPerSecondCubed,
             LengthUnit = LengthUnit.Mile,
             MassUnit = MassUnit.Pounds,
-            MassDensityUnit = MassDensityUnit.PoundsPerCubicFeet,
+            MassDensityUnit = MassDensityUnit.PoundsPerCubicFoot,
             MassFlowRateUnit = MassFlowRateUnit.PoundsPerSecond,
             MomentumUnit = MomentumUnit.PoundsMilesPerHour,
             PowerUnit = PowerUnit.Horsepower,
@@ -39,7 +39,7 @@ public partial class UnitPreferences
             JerkUnit = JerkUnit.MilesPerSecondCubed,
             LengthUnit = LengthUnit.Mile,
             MassUnit = MassUnit.Pounds,
-            MassDensityUnit = MassDensityUnit.PoundsPerCubicFeet,
+            MassDensityUnit = MassDensityUnit.PoundsPerCubicFoot,
             MassFlowRateUnit = MassFlowRateUnit.PoundsPerSecond,
             MomentumUnit = MomentumUnit.PoundsMilesPerHour,
             PowerUnit = PowerUnit.Horsepower,
@@ -71,13 +71,13 @@ public partial class UnitPreferences
 
     public static UnitPreferences GetMetricUnits() {
         return new UnitPreferences {
-            AccelerationUnit = AccelerationUnit.KilometerPerHourPerSecond,
-            AreaUnit = AreaUnit.SquareKilometer,
+            AccelerationUnit = AccelerationUnit.KiloMeterPerHourPerSecond,
+            AreaUnit = AreaUnit.SquareKiloMeter,
             EnergyUnit = EnergyUnit.NewtonMeters,
             JerkUnit = JerkUnit.KiloMetersPerSecondCubed,
-            LengthUnit = LengthUnit.Kilometer,
-            PowerUnit = PowerUnit.Kilowatts,
-            SpeedUnit = SpeedUnit.KilometersPerHour,
+            LengthUnit = LengthUnit.KiloMeter,
+            PowerUnit = PowerUnit.KiloWatts,
+            SpeedUnit = SpeedUnit.KiloMetersPerHour,
             VolumeUnit = VolumeUnit.Liters
         };
     }

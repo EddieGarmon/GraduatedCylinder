@@ -14,8 +14,8 @@ public class PowerConversionsFixture
     [InlineData(7654.986, PowerUnit.Watts, 27557949.6, PowerUnit.JoulesPerHour)]
     [InlineData(7654.986, PowerUnit.Watts, 459299.16, PowerUnit.JoulesPerMinute)]
     [InlineData(7654.986, PowerUnit.Watts, 7654.986, PowerUnit.JoulesPerSecond)]
-    [InlineData(7654.986, PowerUnit.Watts, 7.654986, PowerUnit.Kilowatts)]
-    [InlineData(7654.986, PowerUnit.Watts, 0.007654986, PowerUnit.Megawatts)]
+    [InlineData(7654.986, PowerUnit.Watts, 7.654986, PowerUnit.KiloWatts)]
+    [InlineData(7654.986, PowerUnit.Watts, 0.007654986, PowerUnit.MegaWatts)]
     [InlineData(7654.986, PowerUnit.Watts, 7654.986, PowerUnit.NewtonMetersPerSecond)]
     public void PowerConversions(double value1, PowerUnit units1, double value2, PowerUnit units2) {
         new Power(value1, units1).In(units2).ShouldBe(new Power(value2, units2));

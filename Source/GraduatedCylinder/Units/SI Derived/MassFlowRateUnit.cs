@@ -8,11 +8,11 @@ public enum MassFlowRateUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = KilogramsPerSecond,
+    BaseUnit = KiloGramsPerSecond,
 
     [UnitAbbreviation("kg/s")]
     [Scale(1.0)]
-    KilogramsPerSecond = 0,
+    KiloGramsPerSecond = 0,
 
     [UnitAbbreviation("g/s")]
     [Scale(1e-3)]
@@ -20,11 +20,11 @@ public enum MassFlowRateUnit : short
 
     [UnitAbbreviation("kg/min")]
     [Scale(1.0f / 60.0)]
-    KilogramsPerMinute = 2,
+    KiloGramsPerMinute = 2,
 
     [UnitAbbreviation("kg/h")]
     [Scale(1.0f / 3600.0)]
-    KilogramsPerHour = 3,
+    KiloGramsPerHour = 3,
 
     [UnitAbbreviation("lbs/s")]
     [Scale(0.45359237)]

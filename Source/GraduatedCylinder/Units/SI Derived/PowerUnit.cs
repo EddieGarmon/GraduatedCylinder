@@ -12,7 +12,7 @@ public enum PowerUnit : short
 
     [UnitAbbreviation("mW")]
     [Scale(0.001)]
-    Milliwatts = -3,
+    MilliWatts = -3,
 
     [UnitAbbreviation("W")]
     [Scale(1.0)]
@@ -20,11 +20,11 @@ public enum PowerUnit : short
 
     [UnitAbbreviation("kW")]
     [Scale(1000.0)]
-    Kilowatts = 3,
+    KiloWatts = 3,
 
     [UnitAbbreviation("MW")]
     [Scale(1000000.0)]
-    Megawatts = 6,
+    MegaWatts = 6,
 
     [UnitAbbreviation("Nm/s")]
     [Scale(1.0)]

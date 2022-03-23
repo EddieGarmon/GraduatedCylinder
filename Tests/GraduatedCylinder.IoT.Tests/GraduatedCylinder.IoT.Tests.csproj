@@ -13,55 +13,16 @@
 
   <ItemGroup>
     <Compile Include="..\GraduatedCylinder.Tests\CloseTo.cs" Link="CloseTo.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\AccelerationConversionsFixture.cs" Link="Conversions\AccelerationConversionsFixture.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\AngleConversionsFixture.cs" Link="Conversions\AngleConversionsFixture.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\AngularAccelerationConversionsFixture.cs" Link="Conversions\AngularAccelerationConversionsFixture.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\AreaConversionsFixture.cs" Link="Conversions\AreaConversionsFixture.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\DensityConversionsFixture.cs" Link="Conversions\DensityConversionsFixture.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\ElectricCurrentConversionsFixture.cs" Link="Conversions\ElectricCurrentConversionsFixture.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\ElectricPotentialConversionsFixture.cs" Link="Conversions\ElectricPotentialConversionsFixture.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\EnergyConversionsFixture.cs" Link="Conversions\EnergyConversionsFixture.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\ForceConversionsFixture.cs" Link="Conversions\ForceConversionsFixture.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\FrequencyConversionsFixture.cs" Link="Conversions\FrequencyConversionsFixture.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\JerkConversionsFixture.cs" Link="Conversions\JerkConversionsFixture.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\LengthConversionsFixture.cs" Link="Conversions\LengthConversionsFixture.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\MassConversionsFixture.cs" Link="Conversions\MassConversionsFixture.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\MassFlowRateConversionsFixture.cs" Link="Conversions\MassFlowRateConversionsFixture.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\MomentumConversionsFixture.cs" Link="Conversions\MomentumConversionsFixture.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\PowerConversionsFixture.cs" Link="Conversions\PowerConversionsFixture.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\PressureConversionsFixture.cs" Link="Conversions\PressureConversionsFixture.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\ResistanceConversionsFixture.cs" Link="Conversions\ResistanceConversionsFixture.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\SpeedConversionsFixture.cs" Link="Conversions\SpeedConversionsFixture.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\TemperatureConversionsFixture.cs" Link="Conversions\TemperatureConversionsFixture.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\TimeConversionsFixture.cs" Link="Conversions\TimeConversionsFixture.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\TorqueConversionsFixture.cs" Link="Conversions\TorqueConversionsFixture.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\VoltageConversionsFixture.cs" Link="Conversions\VoltageConversionsFixture.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\VolumeConversionsFixture.cs" Link="Conversions\VolumeConversionsFixture.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\VolumetricFlowRateConversionsFixture.cs" Link="Conversions\VolumetricFlowRateConversionsFixture.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Operators\AccelerationOperators.cs" Link="Operators\AccelerationOperators.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Operators\AngleOperators.cs" Link="Operators\AngleOperators.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Operators\AngularAccelerationOperators.cs" Link="Operators\AngularAccelerationOperators.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Operators\AreaOperators.cs" Link="Operators\AreaOperators.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Operators\DensityOperators.cs" Link="Operators\DensityOperators.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Operators\ElectricCurrentOperators.cs" Link="Operators\ElectricCurrentOperators.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Operators\ElectricPotentialUnitOperators.cs" Link="Operators\ElectricPotentialUnitOperators.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Operators\EnergyOperators.cs" Link="Operators\EnergyOperators.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Operators\ForceOperators.cs" Link="Operators\ForceOperators.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Operators\FrequencyOperators.cs" Link="Operators\FrequencyOperators.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Operators\JerkOperators.cs" Link="Operators\JerkOperators.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Operators\LengthOperators.cs" Link="Operators\LengthOperators.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Operators\MassFlowRateOperators.cs" Link="Operators\MassFlowRateOperators.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Operators\MassOperators.cs" Link="Operators\MassOperators.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Operators\MomentumOperators.cs" Link="Operators\MomentumOperators.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Operators\PowerOperators.cs" Link="Operators\PowerOperators.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Operators\PressureOperators.cs" Link="Operators\PressureOperators.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Operators\ResistanceOperators.cs" Link="Operators\ResistanceOperators.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Operators\SpeedOperators.cs" Link="Operators\SpeedOperators.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Operators\TemperatureOperators.cs" Link="Operators\TemperatureOperators.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Operators\TimeOperators.cs" Link="Operators\TimeOperators.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Operators\TorqueOperators.cs" Link="Operators\TorqueOperators.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Operators\VolumeOperators.cs" Link="Operators\VolumeOperators.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Operators\VolumetricFlowRateOperators.cs" Link="Operators\VolumetricFlowRateOperators.cs" />
+    <Compile Include="..\GraduatedCylinder.Tests\Conversions\**\*.*">
+      <Link>Conversions\%(RecursiveDir)%(FileName)%(Extension)</Link>
+    </Compile>
+    <Compile Include="..\GraduatedCylinder.Tests\Operators\**\*.*">
+      <Link>Operators\%(RecursiveDir)%(FileName)%(Extension)</Link>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Source\GraduatedCylinder.IoT\GraduatedCylinder.IoT.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -76,14 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Source\GraduatedCylinder.IoT\GraduatedCylinder.IoT.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="GraduatedCylinder.IoT.Tests.csproj.DotSettings" Visible="false" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Operators\" />
-  </ItemGroup>
 </Project>

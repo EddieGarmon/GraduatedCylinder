@@ -11,11 +11,11 @@ public class UnitPreferencesFixture
     public void SetUnitPreferences() {
         UnitPreferences usPreferences = UnitPreferences.GetAmericanEnglishUnits();
 
-        var time = new Time(3600, TimeUnit.Millisecond);
+        var time = new Time(3600, TimeUnit.MilliSecond);
         usPreferences.Fix(ref time);
         time.Units.GetAbbreviation().ShouldBe(usPreferences.TimeUnit.GetAbbreviation());
 
-        var acceleration = new Acceleration(5, AccelerationUnit.KilometerPerSquareSecond);
+        var acceleration = new Acceleration(5, AccelerationUnit.KiloMeterPerSquareSecond);
         usPreferences.Fix(ref acceleration);
         acceleration.Units.GetAbbreviation().ShouldBe(usPreferences.AccelerationUnit.GetAbbreviation());
 

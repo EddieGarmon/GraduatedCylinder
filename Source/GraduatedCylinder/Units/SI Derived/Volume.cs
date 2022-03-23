@@ -35,8 +35,8 @@ public partial struct Volume : IDimension<Volume, VolumeUnit>
 
     public static Mass operator *(Volume volume, MassDensity density) {
         volume = volume.In(VolumeUnit.Liters);
-        density = density.In(MassDensityUnit.KilogramsPerLiter);
-        return new Mass(volume.Value * density.Value, MassUnit.Kilogram);
+        density = density.In(MassDensityUnit.KiloGramsPerLiter);
+        return new Mass(volume.Value * density.Value, MassUnit.KiloGram);
     }
 
 }

@@ -18,28 +18,6 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
 [CheckBuildProjectConfigurations]
 [ShutdownDotNetAfterServerBuild]
-// NB: To trigger manual generation invoke:
-//     nuke --generate-configuration GitHubActions_BuildAndPack --host GitHubActions
-[GitHubActions("BuildAndPack",
-               GitHubActionsImage.WindowsLatest,
-               //todo: GitHubActionsImage.UbuntuLatest,
-               CacheExcludePatterns = new [] {"~/.nuget/packages/GraduatedCylinder"},
-               OnPushBranches = new [] {"master"},
-               OnPullRequestBranches = new [] {"*"},
-               AutoGenerate = false,
-               ImportSecrets = new [] {nameof(NugetApiKey)},
-               InvokedTargets = new [] {nameof(Clean), nameof(Test), nameof(Pack)}
-               )]
-// NB: To trigger manual generation invoke:
-//     nuke --generate-configuration GitHubActions_Publish --host GitHubActions
-[GitHubActions("Publish",
-               GitHubActionsImage.WindowsLatest,
-               CacheExcludePatterns = new [] {"~/.nuget/packages/GraduatedCylinder"},
-               OnPushTags = new [] {"v*"},
-               AutoGenerate = false,
-               ImportSecrets = new [] {nameof(NugetApiKey)},
-               InvokedTargets = new [] {nameof(Clean), nameof(Test), nameof(PushToNuGet)}
-)]
 class Build : NukeBuild
 {
 
@@ -49,8 +27,6 @@ class Build : NukeBuild
 
     [Parameter("Configuration to build - Default is 'Release'")]
     readonly Configuration Configuration = Configuration.Release;
-
-    //[Parameter] readonly string GitHubToken;
 
     [Parameter] readonly string NugetApiUrl = "https://api.nuget.org/v3/index.json";
     [Parameter] [Secret] readonly string NugetApiKey;
@@ -73,6 +49,7 @@ class Build : NukeBuild
             SourceDirectory.GlobDirectories("**/bin", "**/obj").ForEach(DeleteDirectory);
             TestsDirectory.GlobDirectories("**/bin", "**/obj").ForEach(DeleteDirectory);
             EnsureCleanDirectory(ArtifactsDirectory);
+            SourceDirectory.GlobFiles("**/*.g.cs").ForEach(DeleteFile);
         });
 
     Target Restore => _ => _
@@ -92,7 +69,7 @@ class Build : NukeBuild
                 .EnableNoLogo()
                 .EnableDisableParallel()
                 .EnableDeterministic()
-                .When(IsServerBuild, x => x.EnableContinuousIntegrationBuild())
+                .EnableContinuousIntegrationBuild()
                 .EnableNoRestore());
         });
 
@@ -119,7 +96,7 @@ class Build : NukeBuild
                 .EnableNoLogo()
                 .EnableNoRestore()
                 .EnableNoBuild()
-                .When(IsServerBuild , x => x.EnableContinuousIntegrationBuild())
+                .EnableContinuousIntegrationBuild()
                 .SetProject(Solution));
         });
 
@@ -128,13 +105,13 @@ class Build : NukeBuild
         .Requires(() => NugetApiUrl)
         .Requires(() => NugetApiKey)
         .Requires(() => Configuration.Equals(Configuration.Release))
+        .Requires(() => IsOriginalRepository)
         .Requires(() => IsTag)
         .Requires(() => IsWin)
         .WhenSkipped(DependencyBehavior.Execute)
         .Executes(() =>
         {
             GlobFiles(ArtifactsDirectory, "*.nupkg")
-                .Where(name => !name.EndsWith("symbols.nupkg"))
                 .ForEach(packageName => DotNetNuGetPush(s => s.SetTargetPath(packageName)
                                                               .SetSource(NugetApiUrl)
                                                               .SetApiKey(NugetApiKey)

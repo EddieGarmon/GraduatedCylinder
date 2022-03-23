@@ -3,7 +3,7 @@
 public abstract class NmeaParser
 {
 
-    private readonly List<Func<Sentence, object?>> _decoders = new ();
+    private readonly List<Func<Sentence, object?>> _decoders = new();
 
     protected NmeaParser(IEnumerable<Func<Sentence, object>> decoders) {
         _decoders.AddRange(decoders);

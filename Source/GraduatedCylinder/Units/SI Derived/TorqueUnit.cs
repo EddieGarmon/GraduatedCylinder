@@ -16,7 +16,7 @@ public enum TorqueUnit : short
 
     [UnitAbbreviation("kgf-m")]
     [Scale(9.81)]
-    KilogramForceMeters = 1,
+    KiloGramForceMeters = 1,
 
     [UnitAbbreviation("ft-lbs")]
     [Scale(1.35581795)]

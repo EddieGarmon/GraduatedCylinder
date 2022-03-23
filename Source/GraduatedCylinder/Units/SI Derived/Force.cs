@@ -5,7 +5,7 @@ public partial struct Force : IDimension<Force, ForceUnit>
 
     public static Acceleration operator /(Force force, Mass mass) {
         force = force.In(ForceUnit.Newtons);
-        mass = mass.In(MassUnit.Kilogram);
+        mass = mass.In(MassUnit.KiloGram);
         return new Acceleration(force.Value / mass.Value, AccelerationUnit.MeterPerSquareSecond);
     }
 
@@ -18,7 +18,7 @@ public partial struct Force : IDimension<Force, ForceUnit>
     public static Mass operator /(Force force, Acceleration acceleration) {
         force = force.In(ForceUnit.Newtons);
         acceleration = acceleration.In(AccelerationUnit.MeterPerSquareSecond);
-        return new Mass(force.Value / acceleration.Value, MassUnit.Kilogram);
+        return new Mass(force.Value / acceleration.Value, MassUnit.KiloGram);
     }
 
     public static Pressure operator /(Force force, Area area) {
@@ -36,7 +36,7 @@ public partial struct Force : IDimension<Force, ForceUnit>
     public static Momentum operator *(Force force, Time time) {
         force = force.In(ForceUnit.Newtons);
         time = time.In(TimeUnit.Second);
-        return new Momentum(force.Value * time.Value, MomentumUnit.KilogramMetersPerSecond);
+        return new Momentum(force.Value * time.Value, MomentumUnit.KiloGramMetersPerSecond);
     }
 
     public static Power operator *(Force force, Speed speed) {
