@@ -18,28 +18,6 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
 [CheckBuildProjectConfigurations]
 [ShutdownDotNetAfterServerBuild]
-// NB: To trigger manual generation invoke:
-//     nuke --generate-configuration GitHubActions_BuildAndPack --host GitHubActions
-[GitHubActions("BuildAndPack",
-               GitHubActionsImage.WindowsLatest,
-               //todo: GitHubActionsImage.UbuntuLatest,
-               CacheExcludePatterns = new [] {"~/.nuget/packages/GraduatedCylinder"},
-               OnPushBranches = new [] {"master"},
-               OnPullRequestBranches = new [] {"*"},
-               AutoGenerate = false,
-               ImportSecrets = new [] {nameof(NugetApiKey)},
-               InvokedTargets = new [] {nameof(Clean), nameof(Test), nameof(Pack)}
-               )]
-// NB: To trigger manual generation invoke:
-//     nuke --generate-configuration GitHubActions_Publish --host GitHubActions
-[GitHubActions("Publish",
-               GitHubActionsImage.WindowsLatest,
-               CacheExcludePatterns = new [] {"~/.nuget/packages/GraduatedCylinder"},
-               OnPushTags = new [] {"v*"},
-               AutoGenerate = false,
-               ImportSecrets = new [] {nameof(NugetApiKey)},
-               InvokedTargets = new [] {nameof(Clean), nameof(Test), nameof(PushToNuGet)}
-)]
 class Build : NukeBuild
 {
 
@@ -73,6 +51,7 @@ class Build : NukeBuild
             SourceDirectory.GlobDirectories("**/bin", "**/obj").ForEach(DeleteDirectory);
             TestsDirectory.GlobDirectories("**/bin", "**/obj").ForEach(DeleteDirectory);
             EnsureCleanDirectory(ArtifactsDirectory);
+            SourceDirectory.GlobFiles("**/*.g.cs").ForEach(DeleteFile);
         });
 
     Target Restore => _ => _
