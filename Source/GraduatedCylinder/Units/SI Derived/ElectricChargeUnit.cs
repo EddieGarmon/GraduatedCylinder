@@ -13,7 +13,7 @@ public enum ElectricChargeUnit : short
 
     [UnitAbbreviation("mC")]
     [Scale(0.001)]
-    Millicoulomb = -3,
+    MilliCoulomb = -3,
 
     [UnitAbbreviation("C")]
     [Scale(1.0)]
@@ -21,11 +21,11 @@ public enum ElectricChargeUnit : short
 
     [UnitAbbreviation("kC")]
     [Scale(1000)]
-    Kilocoulomb = 3,
+    KiloCoulomb = 3,
 
     [UnitAbbreviation("MC")]
     [Scale(1E6)]
-    Megacoulomb = 6,
+    MegaCoulomb = 6,
 
     [UnitAbbreviation("As")]
     [Scale(1.0)]
@@ -33,7 +33,7 @@ public enum ElectricChargeUnit : short
 
     [UnitAbbreviation("mAh")]
     [Scale(3.6)]
-    MilliampereHour,
+    MilliAmpereHour,
 
     [UnitAbbreviation("Ah")]
     [Scale(3600)]

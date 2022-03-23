@@ -9,7 +9,7 @@ public class MassFlowRateOperators
     [Fact]
     public void OpAddition() {
         var massFlowRate1 = new MassFlowRate(4000, MassFlowRateUnit.GramsPerSecond);
-        var massFlowRate2 = new MassFlowRate(1, MassFlowRateUnit.KilogramsPerSecond);
+        var massFlowRate2 = new MassFlowRate(1, MassFlowRateUnit.KiloGramsPerSecond);
         var expected = new MassFlowRate(5000, MassFlowRateUnit.GramsPerSecond);
         (massFlowRate1 + massFlowRate2).ShouldBe(expected);
         (massFlowRate2 + massFlowRate1).ShouldBe(expected);
@@ -18,19 +18,19 @@ public class MassFlowRateOperators
     [Fact]
     public void OpDivision() {
         var massFlowRate1 = new MassFlowRate(3600, MassFlowRateUnit.GramsPerSecond);
-        var massFlowRate2 = new MassFlowRate(3.6, MassFlowRateUnit.KilogramsPerSecond);
+        var massFlowRate2 = new MassFlowRate(3.6, MassFlowRateUnit.KiloGramsPerSecond);
         (massFlowRate1 / massFlowRate2).ShouldBeCloseTo(1);
         (massFlowRate2 / massFlowRate1).ShouldBeCloseTo(1);
 
         (massFlowRate1 / 2).ShouldBe(new MassFlowRate(1800, MassFlowRateUnit.GramsPerSecond));
-        (massFlowRate2 / 2).ShouldBe(new MassFlowRate(1.8, MassFlowRateUnit.KilogramsPerSecond));
+        (massFlowRate2 / 2).ShouldBe(new MassFlowRate(1.8, MassFlowRateUnit.KiloGramsPerSecond));
     }
 
     [Fact]
     public void OpEquals() {
         var massFlowRate1 = new MassFlowRate(3000, MassFlowRateUnit.GramsPerSecond);
-        var massFlowRate2 = new MassFlowRate(3, MassFlowRateUnit.KilogramsPerSecond);
-        var massFlowRate3 = new MassFlowRate(5, MassFlowRateUnit.KilogramsPerSecond);
+        var massFlowRate2 = new MassFlowRate(3, MassFlowRateUnit.KiloGramsPerSecond);
+        var massFlowRate3 = new MassFlowRate(5, MassFlowRateUnit.KiloGramsPerSecond);
         (massFlowRate1 == massFlowRate2).ShouldBeTrue();
         (massFlowRate2 == massFlowRate1).ShouldBeTrue();
         (massFlowRate1 == massFlowRate3).ShouldBeFalse();
@@ -44,8 +44,8 @@ public class MassFlowRateOperators
     [Fact]
     public void OpGreaterThan() {
         var massFlowRate1 = new MassFlowRate(3000, MassFlowRateUnit.GramsPerSecond);
-        var massFlowRate2 = new MassFlowRate(3, MassFlowRateUnit.KilogramsPerSecond);
-        var massFlowRate3 = new MassFlowRate(5, MassFlowRateUnit.KilogramsPerSecond);
+        var massFlowRate2 = new MassFlowRate(3, MassFlowRateUnit.KiloGramsPerSecond);
+        var massFlowRate3 = new MassFlowRate(5, MassFlowRateUnit.KiloGramsPerSecond);
         (massFlowRate1 > massFlowRate3).ShouldBeFalse();
         (massFlowRate3 > massFlowRate1).ShouldBeTrue();
         (massFlowRate1 > massFlowRate2).ShouldBeFalse();
@@ -55,8 +55,8 @@ public class MassFlowRateOperators
     [Fact]
     public void OpGreaterThanOrEqual() {
         var massFlowRate1 = new MassFlowRate(3000, MassFlowRateUnit.GramsPerSecond);
-        var massFlowRate2 = new MassFlowRate(3, MassFlowRateUnit.KilogramsPerSecond);
-        var massFlowRate3 = new MassFlowRate(5, MassFlowRateUnit.KilogramsPerSecond);
+        var massFlowRate2 = new MassFlowRate(3, MassFlowRateUnit.KiloGramsPerSecond);
+        var massFlowRate3 = new MassFlowRate(5, MassFlowRateUnit.KiloGramsPerSecond);
         (massFlowRate1 >= massFlowRate3).ShouldBeFalse();
         (massFlowRate3 >= massFlowRate1).ShouldBeTrue();
         (massFlowRate1 >= massFlowRate2).ShouldBeTrue();
@@ -66,8 +66,8 @@ public class MassFlowRateOperators
     [Fact]
     public void OpInverseEquals() {
         var massFlowRate1 = new MassFlowRate(3000, MassFlowRateUnit.GramsPerSecond);
-        var massFlowRate2 = new MassFlowRate(3, MassFlowRateUnit.KilogramsPerSecond);
-        var massFlowRate3 = new MassFlowRate(5, MassFlowRateUnit.KilogramsPerSecond);
+        var massFlowRate2 = new MassFlowRate(3, MassFlowRateUnit.KiloGramsPerSecond);
+        var massFlowRate3 = new MassFlowRate(5, MassFlowRateUnit.KiloGramsPerSecond);
         (massFlowRate1 != massFlowRate2).ShouldBeFalse();
         (massFlowRate2 != massFlowRate1).ShouldBeFalse();
         (massFlowRate1 != massFlowRate3).ShouldBeTrue();
@@ -77,8 +77,8 @@ public class MassFlowRateOperators
     [Fact]
     public void OpLessThan() {
         var massFlowRate1 = new MassFlowRate(3000, MassFlowRateUnit.GramsPerSecond);
-        var massFlowRate2 = new MassFlowRate(3, MassFlowRateUnit.KilogramsPerSecond);
-        var massFlowRate3 = new MassFlowRate(5, MassFlowRateUnit.KilogramsPerSecond);
+        var massFlowRate2 = new MassFlowRate(3, MassFlowRateUnit.KiloGramsPerSecond);
+        var massFlowRate3 = new MassFlowRate(5, MassFlowRateUnit.KiloGramsPerSecond);
         (massFlowRate1 < massFlowRate3).ShouldBeTrue();
         (massFlowRate3 < massFlowRate1).ShouldBeFalse();
         (massFlowRate1 < massFlowRate2).ShouldBeFalse();
@@ -88,8 +88,8 @@ public class MassFlowRateOperators
     [Fact]
     public void OpLessThanOrEqual() {
         var massFlowRate1 = new MassFlowRate(3000, MassFlowRateUnit.GramsPerSecond);
-        var massFlowRate2 = new MassFlowRate(3, MassFlowRateUnit.KilogramsPerSecond);
-        var massFlowRate3 = new MassFlowRate(5, MassFlowRateUnit.KilogramsPerSecond);
+        var massFlowRate2 = new MassFlowRate(3, MassFlowRateUnit.KiloGramsPerSecond);
+        var massFlowRate3 = new MassFlowRate(5, MassFlowRateUnit.KiloGramsPerSecond);
         (massFlowRate1 <= massFlowRate3).ShouldBeTrue();
         (massFlowRate3 <= massFlowRate1).ShouldBeFalse();
         (massFlowRate1 <= massFlowRate2).ShouldBeTrue();
@@ -98,8 +98,8 @@ public class MassFlowRateOperators
 
     [Fact]
     public void OpMultiplicationScaler() {
-        var massFlowRate = new MassFlowRate(1, MassFlowRateUnit.KilogramsPerSecond);
-        var expected = new MassFlowRate(2, MassFlowRateUnit.KilogramsPerSecond);
+        var massFlowRate = new MassFlowRate(1, MassFlowRateUnit.KiloGramsPerSecond);
+        var expected = new MassFlowRate(2, MassFlowRateUnit.KiloGramsPerSecond);
         (massFlowRate * 2).ShouldBe(expected);
         (2 * massFlowRate).ShouldBe(expected);
     }
@@ -107,9 +107,9 @@ public class MassFlowRateOperators
     [Fact]
     public void OpSubtraction() {
         var massFlowRate1 = new MassFlowRate(5000, MassFlowRateUnit.GramsPerSecond);
-        var massFlowRate2 = new MassFlowRate(1, MassFlowRateUnit.KilogramsPerSecond);
+        var massFlowRate2 = new MassFlowRate(1, MassFlowRateUnit.KiloGramsPerSecond);
         (massFlowRate1 - massFlowRate2).ShouldBe(new MassFlowRate(4000, MassFlowRateUnit.GramsPerSecond));
-        (massFlowRate2 - massFlowRate1).ShouldBe(new MassFlowRate(-4, MassFlowRateUnit.KilogramsPerSecond));
+        (massFlowRate2 - massFlowRate1).ShouldBe(new MassFlowRate(-4, MassFlowRateUnit.KiloGramsPerSecond));
     }
 
 }

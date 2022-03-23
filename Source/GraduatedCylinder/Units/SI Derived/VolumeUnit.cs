@@ -12,15 +12,15 @@ public enum VolumeUnit : short
 
     [UnitAbbreviation("mm³")]
     [Scale(1E-9)]
-    CubicMillimeters = -9,
+    CubicMilliMeters = -9,
 
     [UnitAbbreviation("cm³")]
     [Scale(1E-6)]
-    CubicCentimeters = -6,
+    CubicCentiMeters = -6,
 
     [UnitAbbreviation("dm³")]
     [Scale(.001)]
-    CubicDecimeters = -3,
+    CubicDeciMeters = -3,
 
     [UnitAbbreviation("m³")]
     [Scale(1.0)]
@@ -28,15 +28,15 @@ public enum VolumeUnit : short
 
     [UnitAbbreviation("km³")]
     [Scale(1E9)]
-    CubicKilometers = 9,
+    CubicKiloMeters = 9,
 
     [UnitAbbreviation("mL")]
     [Scale(0.000001)]
-    Milliliters = 100,
+    MilliLiters = 100,
 
     [UnitAbbreviation("cL")]
     [Scale(0.00001)]
-    Centiliters = 101,
+    CentiLiters = 101,
 
     [UnitAbbreviation("L")]
     [Scale(.001)]

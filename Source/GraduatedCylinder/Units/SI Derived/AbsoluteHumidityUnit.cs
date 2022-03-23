@@ -16,6 +16,6 @@ public enum AbsoluteHumidityUnit : short
 
     [UnitAbbreviation("kg/m³")]
     [Scale(0.001)]
-    KilogramsPerCubicMeter,
+    KiloGramsPerCubicMeter,
 
 }

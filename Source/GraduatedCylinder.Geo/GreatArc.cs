@@ -3,7 +3,7 @@
 public static class GreatArc
 {
 
-    private static Length EarthsRadius { get; } = new Length(6371, LengthUnit.Kilometer);
+    private static Length EarthsRadius { get; } = new Length(6371, LengthUnit.KiloMeter);
 
     //http://www.movable-type.co.uk/scripts/latlong.html
     public static Length Distance(GeoPosition start, GeoPosition stop) {

@@ -5,7 +5,7 @@ public partial struct Power : IDimension<Power, PowerUnit>
 
     public static Acceleration operator /(Power power, Momentum momentum) {
         power = power.In(PowerUnit.Watts);
-        momentum = momentum.In(MomentumUnit.KilogramMetersPerSecond);
+        momentum = momentum.In(MomentumUnit.KiloGramMetersPerSecond);
         return new Acceleration(power.Value / momentum.Value, AccelerationUnit.MeterPerSquareSecond);
     }
 
@@ -18,7 +18,7 @@ public partial struct Power : IDimension<Power, PowerUnit>
     public static Momentum operator /(Power power, Acceleration acceleration) {
         power = power.In(PowerUnit.Watts);
         acceleration = acceleration.In(AccelerationUnit.MeterPerSquareSecond);
-        return new Momentum(power.Value / acceleration.Value, MomentumUnit.KilogramMetersPerSecond);
+        return new Momentum(power.Value / acceleration.Value, MomentumUnit.KiloGramMetersPerSecond);
     }
 
     public static Frequency operator /(Power power, Torque torque) {

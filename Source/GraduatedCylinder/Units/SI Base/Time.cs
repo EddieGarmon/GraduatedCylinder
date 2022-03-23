@@ -31,14 +31,14 @@ public partial struct Time : IDimension<Time, TimeUnit>
 
     public static Mass operator *(Time time, MassFlowRate massFlowRate) {
         time = time.In(TimeUnit.Second);
-        massFlowRate = massFlowRate.In(MassFlowRateUnit.KilogramsPerSecond);
-        return new Mass(time.Value * massFlowRate.Value, MassUnit.Kilogram);
+        massFlowRate = massFlowRate.In(MassFlowRateUnit.KiloGramsPerSecond);
+        return new Mass(time.Value * massFlowRate.Value, MassUnit.KiloGram);
     }
 
     public static Momentum operator *(Time time, Force force) {
         time = time.In(TimeUnit.Second);
         force = force.In(ForceUnit.Newtons);
-        return new Momentum(time.Value * force.Value, MomentumUnit.KilogramMetersPerSecond);
+        return new Momentum(time.Value * force.Value, MomentumUnit.KiloGramMetersPerSecond);
     }
 
     public static Volume operator *(Time time, VolumetricFlowRate volumetricFlowRate) {

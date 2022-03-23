@@ -19,13 +19,13 @@ public partial struct Acceleration : IDimension<Acceleration, AccelerationUnit>
 
     public static Force operator *(Acceleration acceleration, Mass mass) {
         acceleration = acceleration.In(AccelerationUnit.MeterPerSquareSecond);
-        mass = mass.In(MassUnit.Kilogram);
+        mass = mass.In(MassUnit.KiloGram);
         return new Force(acceleration.Value * mass.Value, ForceUnit.Newtons);
     }
 
     public static Power operator *(Acceleration acceleration, Momentum momentum) {
         acceleration = acceleration.In(AccelerationUnit.MeterPerSquareSecond);
-        momentum = momentum.In(MomentumUnit.KilogramMetersPerSecond);
+        momentum = momentum.In(MomentumUnit.KiloGramMetersPerSecond);
         return new Power(acceleration.Value * momentum.Value, PowerUnit.Watts);
     }
 

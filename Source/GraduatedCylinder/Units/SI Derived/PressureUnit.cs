@@ -16,7 +16,7 @@ public enum PressureUnit : short
 
     [UnitAbbreviation("mBar")]
     [Scale(1e2)]
-    Millibars = 2,
+    MilliBars = 2,
 
     [UnitAbbreviation("kPa")]
     [Scale(1e3)]
@@ -40,7 +40,7 @@ public enum PressureUnit : short
 
     [UnitAbbreviation("kgf/m²")]
     [Scale(9.80665)]
-    KilogramForcePerSquareMeter = 101,
+    KiloGramForcePerSquareMeter = 101,
 
     [UnitAbbreviation("psi")]
     [Scale(6894.76)]

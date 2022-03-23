@@ -8,15 +8,15 @@ public enum MassDensityUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = KilogramsPerCubicMeter,
+    BaseUnit = KiloGramsPerCubicMeter,
 
     [UnitAbbreviation("kg/m³")]
     [Scale(1.0)]
-    KilogramsPerCubicMeter = 0,
+    KiloGramsPerCubicMeter = 0,
 
     [UnitAbbreviation("kg/l")]
     [Scale(1000)]
-    KilogramsPerLiter = 1,
+    KiloGramsPerLiter = 1,
 
     [UnitAbbreviation("g/l")]
     [Scale(1.0)]
@@ -24,15 +24,15 @@ public enum MassDensityUnit : short
 
     [UnitAbbreviation("g/ml")]
     [Scale(1000)]
-    GramsPerMilliliter = 3,
+    GramsPerMilliLiter = 3,
 
     [UnitAbbreviation("g/cm³")]
     [Scale(1000)]
-    GramsPerCubicCentimeter = 4,
+    GramsPerCubicCentiMeter = 4,
 
     [UnitAbbreviation("lb/ft³")]
     [Scale(16.018463)]
-    PoundsPerCubicFeet = 5,
+    PoundsPerCubicFoot = 5,
 
     [UnitAbbreviation("lb/in³")]
     [Scale(27679.90)]

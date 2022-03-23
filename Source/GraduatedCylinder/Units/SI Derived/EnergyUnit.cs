@@ -12,7 +12,7 @@ public enum EnergyUnit : short
 
     [UnitAbbreviation("mJ")]
     [Scale(0.001)]
-    Millijoules = -3,
+    MilliJoules = -3,
 
     [UnitAbbreviation("J")]
     [Scale(1.0)]
@@ -20,7 +20,7 @@ public enum EnergyUnit : short
 
     [UnitAbbreviation("kJ")]
     [Scale(1000.0)]
-    Kilojoules = 3,
+    KiloJoules = 3,
 
     [UnitAbbreviation("Nm")]
     [Scale(1.0)]
@@ -40,7 +40,7 @@ public enum EnergyUnit : short
 
     [UnitAbbreviation("kgfm")]
     [Scale(9.80665)]
-    KilogramForceMeters = 102,
+    KiloGramForceMeters = 102,
 
     [UnitAbbreviation("Wh")]
     [Scale(3600.0)]
@@ -48,7 +48,7 @@ public enum EnergyUnit : short
 
     [UnitAbbreviation("kWh")]
     [Scale(3600000.0)]
-    KilowattHours = 104,
+    KiloWattHours = 104,
 
     [UnitAbbreviation("BTU")]
     [Scale(1055.056)]

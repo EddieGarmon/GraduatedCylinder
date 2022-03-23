@@ -20,6 +20,6 @@ public enum ForceUnit : short
 
     [UnitAbbreviation("kgf")]
     [Scale(9.81)]
-    KilogramForce = 2
+    KiloGramForce = 2
 
 }

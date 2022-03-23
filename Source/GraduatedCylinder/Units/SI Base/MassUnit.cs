@@ -8,47 +8,47 @@ public enum MassUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = Kilogram,
+    BaseUnit = KiloGram,
 
     [UnitAbbreviation("yg")]
     [Scale(1e-27)]
-    Yoctogram = -24,
+    YoctoGram = -24,
 
     [UnitAbbreviation("zg")]
     [Scale(1e-24)]
-    Zeptogram = -21,
+    ZeptoGram = -21,
 
     [UnitAbbreviation("ag")]
     [Scale(1e-21)]
-    Attogram = -18,
+    AttoGram = -18,
 
     [UnitAbbreviation("fg")]
     [Scale(1e-18)]
-    Femtogram = -15,
+    FemtoGram = -15,
 
     [UnitAbbreviation("pg")]
     [Scale(1e-15)]
-    Picogram = -12,
+    PicoGram = -12,
 
     [UnitAbbreviation("ng")]
     [Scale(1e-12)]
-    Nanogram = -9,
+    NanoGram = -9,
 
     [UnitAbbreviation("µg")]
     [Scale(1e-9)]
-    Microgram = -6,
+    MicroGram = -6,
 
     [UnitAbbreviation("mg")]
     [Scale(1e-6)]
-    Milligram = -3,
+    MilliGram = -3,
 
     [UnitAbbreviation("cg")]
     [Scale(1e-5)]
-    Centigram = -2,
+    CentiGram = -2,
 
     [UnitAbbreviation("dg")]
     [Scale(1e-4)]
-    Decigram = -1,
+    DeciGram = -1,
 
     [UnitAbbreviation("g")]
     [Scale(1e-3)]
@@ -56,43 +56,43 @@ public enum MassUnit : short
 
     [UnitAbbreviation("dag")]
     [Scale(1e-2)]
-    Dekagram = 1,
+    DekaGram = 1,
 
     [UnitAbbreviation("hg")]
     [Scale(1e-1)]
-    Hectogram = 2,
+    HectoGram = 2,
 
     [UnitAbbreviation("kg")]
     [Scale(1.0)]
-    Kilogram = 3,
+    KiloGram = 3,
 
     [UnitAbbreviation("Mg")]
     [Scale(1e3)]
-    Megagram = 6,
+    MegaGram = 6,
 
     [UnitAbbreviation("Gg")]
     [Scale(1e6)]
-    Gigagram = 9,
+    GigaGram = 9,
 
     [UnitAbbreviation("Tg")]
     [Scale(1e9)]
-    Teragram = 12,
+    TeraGram = 12,
 
     [UnitAbbreviation("Pg")]
     [Scale(1e12)]
-    Petagram = 15,
+    PetaGram = 15,
 
     [UnitAbbreviation("Eg")]
     [Scale(1e15)]
-    Exagram = 18,
+    ExaGram = 18,
 
     [UnitAbbreviation("Zg")]
     [Scale(1e18)]
-    Zettagram = 21,
+    ZettaGram = 21,
 
     [UnitAbbreviation("Yg")]
     [Scale(1e21)]
-    Yottagram = 24,
+    YottaGram = 24,
 
     [UnitAbbreviation("CD")]
     [Scale(0.0002)]

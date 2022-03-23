@@ -7,9 +7,9 @@ public class AreaConversionsFixture
 {
 
     [Theory]
-    [InlineData(1, AreaUnit.SquareMeter, 1000000, AreaUnit.SquareMillimeter)]
-    [InlineData(1, AreaUnit.SquareMeter, 10000, AreaUnit.SquareCentimeter)]
-    [InlineData(1, AreaUnit.SquareMeter, 0.000001, AreaUnit.SquareKilometer)]
+    [InlineData(1, AreaUnit.SquareMeter, 1000000, AreaUnit.SquareMilliMeter)]
+    [InlineData(1, AreaUnit.SquareMeter, 10000, AreaUnit.SquareCentiMeter)]
+    [InlineData(1, AreaUnit.SquareMeter, 0.000001, AreaUnit.SquareKiloMeter)]
     [InlineData(1, AreaUnit.SquareMeter, 1550.0031, AreaUnit.SquareInch)]
     [InlineData(1, AreaUnit.SquareMeter, 10.76391042, AreaUnit.SquareFoot)]
     [InlineData(1, AreaUnit.SquareMeter, 1.19599005, AreaUnit.SquareYard)]
