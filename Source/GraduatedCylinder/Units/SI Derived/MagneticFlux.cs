@@ -1,3 +1,3 @@
 ﻿namespace GraduatedCylinder;
 
-public partial struct MagneticFlux : IDimension<MagneticFlux,MagneticFluxUnit> { }
+public partial struct MagneticFlux : IDimension<MagneticFlux, MagneticFluxUnit> { }
