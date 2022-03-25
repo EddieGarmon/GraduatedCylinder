@@ -63,14 +63,43 @@ class Build : NukeBuild
         .DependsOn(Restore)
         .Executes(() =>
         {
-            DotNetBuild(s => s
-                .SetProjectFile(Solution)
-                .SetConfiguration(Configuration)
-                .EnableNoLogo()
-                .EnableDisableParallel()
-                .EnableDeterministic()
-                .EnableContinuousIntegrationBuild()
-                .EnableNoRestore());
+            // The build depends on massive code generation, so project build order matters
+            // therefore we cannot just build the solution, unfortunately
+
+            string[] buildOrder = {
+                //Libraries
+                "GraduatedCylinder.Roslyn",
+                "Nmea.Core0183",
+                "GraduatedCylinder",
+                "GraduatedCylinder.Calculators",
+                "GraduatedCylinder.Geo",
+                "GraduatedCylinder.Geo.Gps",
+                "GraduatedCylinder.Geo.Laser",
+                "GraduatedCylinder.Json",
+                "GraduatedCylinder.IoT",
+                "GraduatedCylinder.IoT.Text",
+                "GraduatedCylinder.IoT.Json",
+
+                //Tests
+                "Nmea.Core0183.Tests",
+                "GraduatedCylinder.Tests",
+                "GraduatedCylinder.Geo.Tests",
+                "GraduatedCylinder.Geo.Gps.Tests",
+                "GraduatedCylinder.Geo.Laser.Tests",
+                "GraduatedCylinder.Json.Tests",
+                "GraduatedCylinder.IoT.Tests",
+            };
+
+            foreach (string project in buildOrder) {
+                DotNetBuild(s => s
+                      .SetProjectFile(Solution.GetProject(project))
+                      .SetConfiguration(Configuration)
+                      .EnableNoLogo()
+                      .EnableNoRestore()
+                      .EnableDeterministic()
+                      .EnableContinuousIntegrationBuild());
+         
+            }
         });
 
     Target Test => _ => _
