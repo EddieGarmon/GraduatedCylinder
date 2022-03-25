@@ -11,8 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="GraduatedCylinder" Version="6.0.0" />
-    <PackageReference Include="GraduatedCylinder.Geo" Version="6.0.0" />
+    <PackageReference Include="GraduatedCylinder.Geo" Version="6.1.0" />
   </ItemGroup>
 
 </Project>
