@@ -1,9 +1,6 @@
 name: BuildAndPack
 
 on:
-  push:
-    branches:
-      - master
   pull_request:
     branches:
       - '*'
