@@ -71,7 +71,6 @@ class Build : NukeBuild
                 "GraduatedCylinder.Roslyn",
                 "Nmea.Core0183",
                 "GraduatedCylinder",
-                "GraduatedCylinder.Calculators",
                 "GraduatedCylinder.Geo",
                 "GraduatedCylinder.Geo.Gps",
                 "GraduatedCylinder.Geo.Laser",

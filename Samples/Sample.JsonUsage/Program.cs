@@ -13,7 +13,7 @@ class Program
             Converters = {
                 new LengthJsonConverter { Units = LengthUnit.Foot, Precision = 4 },
                 new AreaJsonConverter { Units = AreaUnit.SquareInch, Precision = 3 },
-                new VolumeJsonConverter { Units = VolumeUnit.CubicCentimeters, Precision = 2 }
+                new VolumeJsonConverter { Units = VolumeUnit.CubicCentiMeters, Precision = 2 }
             }
         };
 

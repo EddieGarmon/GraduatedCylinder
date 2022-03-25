@@ -11,8 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="GraduatedCylinder" Version="6.0.0" />
-    <PackageReference Include="GraduatedCylinder.Json" Version="6.0.0" />
+    <PackageReference Include="GraduatedCylinder.Json" Version="6.1.0" />
     <PackageReference Include="System.Text.Json" Version="6.0.2" />
   </ItemGroup>
 
