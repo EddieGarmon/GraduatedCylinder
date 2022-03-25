@@ -11,8 +11,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Source\GraduatedCylinder.IoT.Text\GraduatedCylinder.IoT.Text.csproj" />
-    <ProjectReference Include="..\..\Source\GraduatedCylinder.IoT\GraduatedCylinder.IoT.csproj" />
+    <PackageReference Include="GraduatedCylinder.IoT" Version="6.0.0" />
+    <PackageReference Include="GraduatedCylinder.IoT.Json" Version="6.0.0" />
+    <PackageReference Include="GraduatedCylinder.IoT.Text" Version="6.0.0" />
   </ItemGroup>
 
 </Project>

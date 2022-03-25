@@ -11,8 +11,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Source\GraduatedCylinder.Calculators\GraduatedCylinder.Calculators.csproj" />
-    <ProjectReference Include="..\..\Source\GraduatedCylinder\GraduatedCylinder.csproj" />
+    <PackageReference Include="GraduatedCylinder" Version="6.0.0" />
+    <PackageReference Include="GraduatedCylinder.Calculators" Version="6.0.0" />
   </ItemGroup>
 
 </Project>
