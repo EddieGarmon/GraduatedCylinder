@@ -19,7 +19,7 @@ class Program
         Console.WriteLine("the force required is:");
         Console.WriteLine($"\t{constantStoppingForce}");
         Console.WriteLine($"\t{constantStoppingForce.ToString(ForceUnit.Newtons, 3)}");
-        Console.WriteLine($"\t{constantStoppingForce.ToString(ForceUnit.KilogramForce)}");
+        Console.WriteLine($"\t{constantStoppingForce.ToString(ForceUnit.KiloGramForce)}");
         Console.WriteLine($"\t{constantStoppingForce.ToString(ForceUnit.PoundForce, 5)}");
         Console.ReadLine();
     }
