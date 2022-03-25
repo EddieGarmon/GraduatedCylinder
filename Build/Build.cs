@@ -23,7 +23,7 @@ class Build : NukeBuild
 
     public static int Main () => Execute<Build>(x => x.Pack);
 
-    [GitRepository] readonly GitRepository GitRepository;
+    //[GitRepository] readonly GitRepository GitRepository;
 
     [Parameter("Configuration to build - Default is 'Release'")]
     readonly Configuration Configuration = Configuration.Release;
@@ -32,14 +32,14 @@ class Build : NukeBuild
     [Parameter] [Secret] readonly string NugetApiKey;
 
     [Solution] readonly Solution Solution;
-    
+
     AbsolutePath SourceDirectory => RootDirectory / "Source";
     AbsolutePath TestsDirectory => RootDirectory / "Tests";
     AbsolutePath ArtifactsDirectory => RootDirectory / "Artifacts";
 
-    bool IsOriginalRepository => GitRepository.Identifier == "EddieGarmon/GraduatedCylinder";
+    //bool IsOriginalRepository => GitRepository.Identifier == "EddieGarmon/GraduatedCylinder";
 
-    bool IsTag => GitRepository.Tags.Any(tag => TagRegex.IsMatch(tag));
+    //bool IsTag => GitRepository.Tags.Any(tag => TagRegex.IsMatch(tag));
     Regex TagRegex = new Regex(@"v\d+\.\d+.\d+");
 
     Target Clean => _ => _
@@ -97,7 +97,7 @@ class Build : NukeBuild
                       .EnableNoRestore()
                       .EnableDeterministic()
                       .EnableContinuousIntegrationBuild());
-         
+
             }
         });
 
@@ -133,9 +133,9 @@ class Build : NukeBuild
         .Requires(() => NugetApiUrl)
         .Requires(() => NugetApiKey)
         .Requires(() => Configuration.Equals(Configuration.Release))
-        .Requires(() => IsOriginalRepository)
-        .Requires(() => IsTag)
-        .Requires(() => IsWin)
+        //.Requires(() => IsOriginalRepository)
+        //.Requires(() => IsTag)
+        //.Requires(() => IsWin)
         .WhenSkipped(DependencyBehavior.Execute)
         .Executes(() =>
         {
