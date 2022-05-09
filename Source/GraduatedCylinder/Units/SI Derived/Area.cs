@@ -27,4 +27,10 @@ public partial struct Area : IDimension<Area, AreaUnit>
         return new Volume(area.Value * length.Value, VolumeUnit.CubicMeters);
     }
 
+    public static VolumetricFlowRate operator *(Area area, Speed speed) {
+        area = area.In(AreaUnit.SquareMeter);
+        speed = speed.In(SpeedUnit.MeterPerSecond);
+        return new VolumetricFlowRate(area.Value * speed.Value, VolumetricFlowRateUnit.CubicMetersPerSecond);
+    }
+
 }

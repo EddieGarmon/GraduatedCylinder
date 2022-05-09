@@ -17,6 +17,18 @@ public partial struct Acceleration : IDimension<Acceleration, AccelerationUnit>
         return new Jerk(acceleration.Value / time.Value, JerkUnit.MetersPerSecondCubed);
     }
 
+    public static Frequency operator /(Acceleration acceleration, Speed speed) {
+        acceleration = acceleration.In(AccelerationUnit.MeterPerSquareSecond);
+        speed = speed.In(SpeedUnit.MeterPerSecond);
+        return new Frequency(acceleration.Value / speed.Value, FrequencyUnit.Hertz);
+    }
+
+    public static Speed operator /(Acceleration acceleration, Frequency frequency) {
+        acceleration = acceleration.In(AccelerationUnit.MeterPerSquareSecond);
+        frequency = frequency.In(FrequencyUnit.Hertz);
+        return new Speed(acceleration.Value / frequency.Value, SpeedUnit.MeterPerSecond);
+    }
+
     public static Force operator *(Acceleration acceleration, Mass mass) {
         acceleration = acceleration.In(AccelerationUnit.MeterPerSquareSecond);
         mass = mass.In(MassUnit.KiloGram);
@@ -33,6 +45,12 @@ public partial struct Acceleration : IDimension<Acceleration, AccelerationUnit>
         acceleration = acceleration.In(AccelerationUnit.MeterPerSquareSecond);
         time = time.In(TimeUnit.Second);
         return new Speed(acceleration.Value * time.Value, SpeedUnit.MeterPerSecond);
+    }
+
+    public static Jerk operator *(Acceleration acceleration, Frequency frequency) {
+        acceleration = acceleration.In(AccelerationUnit.MeterPerSquareSecond);
+        frequency = frequency.In(FrequencyUnit.Hertz);
+        return new Jerk(acceleration.Value * frequency.Value, JerkUnit.MetersPerSecondCubed);
     }
 
 }

@@ -39,4 +39,9 @@ public partial struct Volume : IDimension<Volume, VolumeUnit>
         return new Mass(volume.Value * density.Value, MassUnit.KiloGram);
     }
 
+    public static Length operator *(Volume volume, FuelEconomy fuelEconomy) {
+        volume = volume.In(VolumeUnit.Liters);
+        fuelEconomy = fuelEconomy.In(FuelEconomyUnit.KiloMetersPerLiter);
+        return new Length(volume.Value * fuelEconomy.Value, LengthUnit.KiloMeter);
+    }
 }

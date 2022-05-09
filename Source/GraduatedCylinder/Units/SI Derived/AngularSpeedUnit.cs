@@ -3,7 +3,7 @@ using GraduatedCylinder.Scales;
 
 namespace GraduatedCylinder;
 
-public enum AngularVelocityUnit : short
+public enum AngularSpeedUnit : short
 {
 
     Unspecified = short.MinValue,

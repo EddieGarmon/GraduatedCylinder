@@ -27,4 +27,10 @@ public partial struct Momentum : IDimension<Momentum, MomentumUnit>
         return new Time(momentum.Value / force.Value, TimeUnit.Second);
     }
 
+    public static Power operator *(Momentum momentum, Acceleration acceleration) {
+        momentum = momentum.In(MomentumUnit.KiloGramMetersPerSecond);
+        acceleration = acceleration.In(AccelerationUnit.MeterPerSquareSecond);
+        return new Power(momentum.Value * acceleration.Value, PowerUnit.Watts);
+    }
+
 }

@@ -34,7 +34,8 @@ public enum FrequencyUnit : short
     [Scale(1.0)]
     RevolutionPerSecond = -101,
 
-    [UnitAbbreviation("rpm")]
+    [UnitAbbreviation("r/min")]
+    //[AlternateUnitAbbreviation("rpm")]
     [Scale(0.0166666666667)]
     RevolutionsPerMinute = 102
 
