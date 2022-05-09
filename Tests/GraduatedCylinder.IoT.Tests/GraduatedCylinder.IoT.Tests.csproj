@@ -13,10 +13,10 @@
 
   <ItemGroup>
     <Compile Include="..\GraduatedCylinder.Tests\CloseTo.cs" Link="CloseTo.cs" />
-    <Compile Include="..\GraduatedCylinder.Tests\Conversions\**\*.*">
+    <Compile Include="..\GraduatedCylinder.Tests\Conversions\**\*.cs">
       <Link>Conversions\%(RecursiveDir)%(FileName)%(Extension)</Link>
     </Compile>
-    <Compile Include="..\GraduatedCylinder.Tests\Operators\**\*.*">
+    <Compile Include="..\GraduatedCylinder.Tests\Operators\**\*.cs">
       <Link>Operators\%(RecursiveDir)%(FileName)%(Extension)</Link>
     </Compile>
   </ItemGroup>

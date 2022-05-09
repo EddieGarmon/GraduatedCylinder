@@ -1,4 +1,5 @@
 using GraduatedCylinder.Abbreviations;
+using GraduatedCylinder.Extensions;
 using GraduatedCylinder.Scales;
 
 namespace GraduatedCylinder;
@@ -12,6 +13,7 @@ public enum TemperatureUnit : short
 
     [UnitAbbreviation("°C")]
     [ScaleAndOffset(1.0, 0.0)]
+    [Extension("Celsius")]
     Celsius = 0,
 
     [UnitAbbreviation("°K")]
@@ -20,6 +22,7 @@ public enum TemperatureUnit : short
 
     [UnitAbbreviation("°F")]
     [ScaleAndOffset(9.0 / 5.0, 32.0)]
+    [Extension("Fahrenheit")]
     Fahrenheit = 2
 
 }

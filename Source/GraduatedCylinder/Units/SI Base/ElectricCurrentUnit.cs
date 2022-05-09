@@ -1,4 +1,5 @@
 ﻿using GraduatedCylinder.Abbreviations;
+using GraduatedCylinder.Extensions;
 using GraduatedCylinder.Scales;
 
 namespace GraduatedCylinder;
@@ -40,6 +41,7 @@ public enum ElectricCurrentUnit : short
 
     [UnitAbbreviation("mA")]
     [Scale(1e-3)]
+    [Extension("MilliAmps")]
     MilliAmpere = -3,
 
     [UnitAbbreviation("cA")]
@@ -52,6 +54,7 @@ public enum ElectricCurrentUnit : short
 
     [UnitAbbreviation("A")]
     [Scale(1.0)]
+    [Extension("Amps")]
     Ampere = 0,
 
     [UnitAbbreviation("daA")]

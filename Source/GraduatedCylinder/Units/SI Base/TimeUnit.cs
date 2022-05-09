@@ -1,4 +1,5 @@
 using GraduatedCylinder.Abbreviations;
+using GraduatedCylinder.Extensions;
 using GraduatedCylinder.Scales;
 
 namespace GraduatedCylinder;
@@ -44,6 +45,7 @@ public enum TimeUnit : short
 
     [UnitAbbreviation("ms")]
     [Scale(1e-3)]
+    [Extension("MilliSeconds")]
     MilliSecond = -3,
 
     [UnitAbbreviation("cs")]
@@ -56,6 +58,7 @@ public enum TimeUnit : short
 
     [UnitAbbreviation("s")]
     [Scale(1.0)]
+    [Extension("Seconds")]
     Second = 0,
 
     [UnitAbbreviation("das")]
@@ -100,18 +103,29 @@ public enum TimeUnit : short
 
     [UnitAbbreviation("min")]
     [Scale(60.0)]
+    [Extension("Minutes")]
     Minutes = 110,
 
     [UnitAbbreviation("h")]
     [Scale(3600.0)]
+    [Extension("Hours")]
     Hours = 111,
 
     [UnitAbbreviation("d")]
     [Scale(86400.0)]
+    [Extension("Days")]
     Days = 112,
 
     [UnitAbbreviation("week")]
     [Scale(604800)]
     Weeks = 113,
+
+    [UnitAbbreviation("month")]
+    [Scale(2629746)]
+    Months = 114,
+
+    [UnitAbbreviation("year")]
+    [Scale(3.154e+7)]
+    Years = 115
 
 }
