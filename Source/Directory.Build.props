@@ -15,12 +15,10 @@
 
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-    <!--<IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>-->
     <IncludeSource>false</IncludeSource>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
 
-    <Version>6.1.0</Version>
+    <Version>6.2.1</Version>
 
   </PropertyGroup>
   
