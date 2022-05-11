@@ -26,4 +26,8 @@
     <None Update="GraduatedCylinder.csproj.DotSettings" Visible="false" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+
 </Project>

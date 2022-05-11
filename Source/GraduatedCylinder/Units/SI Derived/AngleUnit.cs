@@ -1,4 +1,5 @@
 using GraduatedCylinder.Abbreviations;
+using GraduatedCylinder.Extensions;
 using GraduatedCylinder.Scales;
 
 namespace GraduatedCylinder;
@@ -52,6 +53,7 @@ public enum AngleUnit : short
 
     [UnitAbbreviation("rad")]
     [Scale(1)]
+    [Extension("Radians")]
     Radian = 0,
 
     [UnitAbbreviation("darad")]
@@ -96,6 +98,7 @@ public enum AngleUnit : short
 
     [UnitAbbreviation("°")]
     [Scale(Math.PI / 180)]
+    [Extension("Degrees")]
     Degree = 101,
 
     [UnitAbbreviation("'")]
@@ -117,6 +120,7 @@ public enum AngleUnit : short
 
     [UnitAbbreviation("rev")]
     [Scale(6.28318530717959)]
+    [Extension("Revolutions")]
     Revolutions = 120,
 
 }

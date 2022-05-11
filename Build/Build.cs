@@ -1,3 +1,6 @@
+// @formatter:off
+// ReSharper disable InconsistentNaming
+#pragma warning disable IDE1006 // Naming Styles
 using System;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -23,8 +26,6 @@ class Build : NukeBuild
 
     public static int Main () => Execute<Build>(x => x.Pack);
 
-    //[GitRepository] readonly GitRepository GitRepository;
-
     [Parameter("Configuration to build - Default is 'Release'")]
     readonly Configuration Configuration = Configuration.Release;
 
@@ -37,10 +38,10 @@ class Build : NukeBuild
     AbsolutePath TestsDirectory => RootDirectory / "Tests";
     AbsolutePath ArtifactsDirectory => RootDirectory / "Artifacts";
 
+    //[GitRepository] readonly GitRepository GitRepository;
     //bool IsOriginalRepository => GitRepository.Identifier == "EddieGarmon/GraduatedCylinder";
-
     //bool IsTag => GitRepository.Tags.Any(tag => TagRegex.IsMatch(tag));
-    Regex TagRegex = new Regex(@"v\d+\.\d+.\d+");
+    Regex TagRegex = new Regex(@"v\d+\.\d+.\d+", RegexOptions.Compiled);
 
     Target Clean => _ => _
         .Before(Restore)
@@ -71,6 +72,7 @@ class Build : NukeBuild
                 "GraduatedCylinder.Roslyn",
                 "Nmea.Core0183",
                 "GraduatedCylinder",
+                "GraduatedCylinder.Extensions",
                 "GraduatedCylinder.Geo",
                 "GraduatedCylinder.Geo.Gps",
                 "GraduatedCylinder.Geo.Laser",

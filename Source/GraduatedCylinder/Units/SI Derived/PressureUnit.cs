@@ -1,4 +1,5 @@
 using GraduatedCylinder.Abbreviations;
+using GraduatedCylinder.Extensions;
 using GraduatedCylinder.Scales;
 
 namespace GraduatedCylinder;
@@ -24,6 +25,7 @@ public enum PressureUnit : short
 
     [UnitAbbreviation("bar")]
     [Scale(1e5)]
+    [Extension("Bars")]
     Bars = 5,
 
     [UnitAbbreviation("MPa")]

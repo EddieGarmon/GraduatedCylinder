@@ -1,4 +1,5 @@
 ﻿using GraduatedCylinder.Abbreviations;
+using GraduatedCylinder.Extensions;
 using GraduatedCylinder.Scales;
 
 namespace GraduatedCylinder;
@@ -28,6 +29,7 @@ public enum ElectricCapacitanceUnit : short
 
     [UnitAbbreviation("F")]
     [Scale(1.0)]
+    [Extension("Farads")]
     Farad = 0,
 
     [UnitAbbreviation("kF")]

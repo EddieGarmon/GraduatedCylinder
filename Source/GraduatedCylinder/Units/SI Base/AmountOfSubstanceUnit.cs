@@ -1,4 +1,5 @@
 ﻿using GraduatedCylinder.Abbreviations;
+using GraduatedCylinder.Extensions;
 using GraduatedCylinder.Scales;
 
 namespace GraduatedCylinder;
@@ -52,6 +53,7 @@ public enum AmountOfSubstanceUnit : short
 
     [UnitAbbreviation("mol")]
     [Scale(1.0)]
+    [Extension("Moles")]
     Mole = 0,
 
     [UnitAbbreviation("damol")]

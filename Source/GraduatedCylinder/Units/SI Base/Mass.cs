@@ -9,6 +9,12 @@ public partial struct Mass : IDimension<Mass, MassUnit>
         return new MassDensity(left.Value / right.Value, MassDensityUnit.KiloGramsPerCubicMeter);
     }
 
+    public static Volume operator /(Mass left, MassDensity right) {
+        left = left.In(MassUnit.KiloGram);
+        right = right.In(MassDensityUnit.KiloGramsPerCubicMeter);
+        return new Volume(left.Value / right.Value, VolumeUnit.CubicMeters);
+    }
+
     public static MassFlowRate operator /(Mass left, Time right) {
         left = left.In(MassUnit.KiloGram);
         right = right.In(TimeUnit.Second);
@@ -19,12 +25,6 @@ public partial struct Mass : IDimension<Mass, MassUnit>
         left = left.In(MassUnit.KiloGram);
         right = right.In(MassFlowRateUnit.KiloGramsPerSecond);
         return new Time(left.Value / right.Value, TimeUnit.Second);
-    }
-
-    public static Volume operator /(Mass left, MassDensity right) {
-        left = left.In(MassUnit.KiloGram);
-        right = right.In(MassDensityUnit.KiloGramsPerCubicMeter);
-        return new Volume(left.Value / right.Value, VolumeUnit.CubicMeters);
     }
 
     public static Force operator *(Mass left, Acceleration right) {

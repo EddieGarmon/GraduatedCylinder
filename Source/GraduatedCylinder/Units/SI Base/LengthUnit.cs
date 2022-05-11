@@ -1,4 +1,5 @@
 using GraduatedCylinder.Abbreviations;
+using GraduatedCylinder.Extensions;
 using GraduatedCylinder.Scales;
 
 namespace GraduatedCylinder;
@@ -40,10 +41,12 @@ public enum LengthUnit : short
 
     [UnitAbbreviation("mm")]
     [Scale(1e-3)]
+    [Extension("MilliMeters")]
     MilliMeter = -3,
 
     [UnitAbbreviation("cm")]
     [Scale(1e-2)]
+    [Extension("CentiMeters")]
     CentiMeter = -2,
 
     [UnitAbbreviation("dm")]
@@ -52,6 +55,7 @@ public enum LengthUnit : short
 
     [UnitAbbreviation("m")]
     [Scale(1.0)]
+    [Extension("Meters")]
     Meter = 0,
 
     [UnitAbbreviation("dam")]
@@ -64,6 +68,7 @@ public enum LengthUnit : short
 
     [UnitAbbreviation("km")]
     [Scale(1e3)]
+    [Extension("KiloMeters")]
     KiloMeter = 3,
 
     [UnitAbbreviation("Mm")]
@@ -96,14 +101,17 @@ public enum LengthUnit : short
 
     [UnitAbbreviation("in")]
     [Scale(0.0254)]
+    [Extension("Inches")]
     Inch = 101,
 
     [UnitAbbreviation("ft")]
     [Scale(0.3048)]
+    [Extension("Feet")]
     Foot = 102,
 
     [UnitAbbreviation("yd")]
     [Scale(0.9144)]
+    [Extension("Yards")]
     Yard = 103,
 
     [UnitAbbreviation("fath")]
@@ -112,6 +120,7 @@ public enum LengthUnit : short
 
     [UnitAbbreviation("mi")]
     [Scale(1609.344)]
+    [Extension("Miles")]
     Mile = 105,
 
     [UnitAbbreviation("nmi")]

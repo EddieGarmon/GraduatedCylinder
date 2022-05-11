@@ -1,4 +1,5 @@
 ﻿using GraduatedCylinder.Abbreviations;
+using GraduatedCylinder.Extensions;
 using GraduatedCylinder.Scales;
 
 namespace GraduatedCylinder;
@@ -52,6 +53,7 @@ public enum LuminousIntensityUnit : short
 
     [UnitAbbreviation("cd")]
     [Scale(1.0)]
+    [Extension("Candela")]
     Candela = 0,
 
     [UnitAbbreviation("dacd")]

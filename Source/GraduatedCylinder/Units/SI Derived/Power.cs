@@ -9,28 +9,28 @@ public partial struct Power : IDimension<Power, PowerUnit>
         return new Acceleration(power.Value / momentum.Value, AccelerationUnit.MeterPerSquareSecond);
     }
 
-    public static Force operator /(Power power, Speed speed) {
-        power = power.In(PowerUnit.Watts);
-        speed = speed.In(SpeedUnit.MeterPerSecond);
-        return new Force(power.Value / speed.Value, ForceUnit.Newtons);
-    }
-
     public static Momentum operator /(Power power, Acceleration acceleration) {
         power = power.In(PowerUnit.Watts);
         acceleration = acceleration.In(AccelerationUnit.MeterPerSquareSecond);
         return new Momentum(power.Value / acceleration.Value, MomentumUnit.KiloGramMetersPerSecond);
     }
 
-    public static Frequency operator /(Power power, Torque torque) {
+    public static Force operator /(Power power, Speed speed) {
         power = power.In(PowerUnit.Watts);
-        torque = torque.In(TorqueUnit.NewtonMeters);
-        return new Frequency(power.Value / torque.Value, FrequencyUnit.RevolutionsPerMinute);
+        speed = speed.In(SpeedUnit.MeterPerSecond);
+        return new Force(power.Value / speed.Value, ForceUnit.Newtons);
     }
 
     public static Speed operator /(Power power, Force force) {
         power = power.In(PowerUnit.Watts);
         force = force.In(ForceUnit.Newtons);
         return new Speed(power.Value / force.Value, SpeedUnit.MeterPerSecond);
+    }
+
+    public static Frequency operator /(Power power, Torque torque) {
+        power = power.In(PowerUnit.Watts);
+        torque = torque.In(TorqueUnit.NewtonMeters);
+        return new Frequency(power.Value / torque.Value, FrequencyUnit.RevolutionsPerMinute);
     }
 
     public static Torque operator /(Power power, Frequency angularVelocity) {

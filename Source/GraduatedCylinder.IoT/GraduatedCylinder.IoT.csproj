@@ -19,13 +19,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\GraduatedCylinder\Abbreviations\**\*.*">
+    <Compile Include="..\GraduatedCylinder\Abbreviations\**\*.cs">
       <Link>Abbreviations\%(RecursiveDir)%(FileName)%(Extension)</Link>
     </Compile>
-    <Compile Include="..\GraduatedCylinder\Scales\**\*.*">
+    <Compile Include="..\GraduatedCylinder\Extensions\**\*.cs">
+      <Link>Extensions\%(RecursiveDir)%(FileName)%(Extension)</Link>
+    </Compile>
+    <Compile Include="..\GraduatedCylinder\Scales\**\*.cs">
       <Link>Scales\%(RecursiveDir)%(FileName)%(Extension)</Link>
     </Compile>
-    <Compile Include="..\GraduatedCylinder\Units\**\*.*">
+    <Compile Include="..\GraduatedCylinder\Units\**\*.cs">
       <Link>Units\%(RecursiveDir)%(FileName)%(Extension)</Link>
     </Compile>
   </ItemGroup>

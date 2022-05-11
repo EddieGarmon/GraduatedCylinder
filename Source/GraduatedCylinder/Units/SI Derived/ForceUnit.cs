@@ -1,4 +1,5 @@
 using GraduatedCylinder.Abbreviations;
+using GraduatedCylinder.Extensions;
 using GraduatedCylinder.Scales;
 
 namespace GraduatedCylinder;
@@ -12,6 +13,7 @@ public enum ForceUnit : short
 
     [UnitAbbreviation("N")]
     [Scale(1.0)]
+    [Extension("Newtons")]
     Newtons = 0,
 
     [UnitAbbreviation("lbf")]
