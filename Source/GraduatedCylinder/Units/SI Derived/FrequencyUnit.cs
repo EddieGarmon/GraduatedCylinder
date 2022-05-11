@@ -1,4 +1,5 @@
 using GraduatedCylinder.Abbreviations;
+using GraduatedCylinder.Extensions;
 using GraduatedCylinder.Scales;
 
 namespace GraduatedCylinder;
@@ -12,14 +13,17 @@ public enum FrequencyUnit : short
 
     [UnitAbbreviation("Hz")]
     [Scale(1.0)]
+    [Extension("Hertz")]
     Hertz = 0,
 
     [UnitAbbreviation("MHz")]
     [Scale(1e6)]
+    [Extension("MegaHertz")]
     MegaHertz = 6,
 
     [UnitAbbreviation("GHz")]
     [Scale(1e9)]
+    [Extension("GigaHertz")]
     GigaHertz = 9,
 
     [UnitAbbreviation("rad/s")]
@@ -37,6 +41,7 @@ public enum FrequencyUnit : short
     [UnitAbbreviation("r/min")]
     //[AlternateUnitAbbreviation("rpm")]
     [Scale(0.0166666666667)]
+    [Extension("RevolutionsPerMinute")]
     RevolutionsPerMinute = 102
 
 }

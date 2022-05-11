@@ -1,4 +1,5 @@
 using GraduatedCylinder.Abbreviations;
+using GraduatedCylinder.Extensions;
 using GraduatedCylinder.Scales;
 
 namespace GraduatedCylinder;
@@ -52,6 +53,7 @@ public enum MassUnit : short
 
     [UnitAbbreviation("g")]
     [Scale(1e-3)]
+    [Extension("Grams")]
     Gram = 0,
 
     [UnitAbbreviation("dag")]
@@ -64,6 +66,7 @@ public enum MassUnit : short
 
     [UnitAbbreviation("kg")]
     [Scale(1.0)]
+    [Extension("KiloGrams")]
     KiloGram = 3,
 
     [UnitAbbreviation("Mg")]
@@ -104,6 +107,7 @@ public enum MassUnit : short
 
     [UnitAbbreviation("lbs")]
     [Scale(0.45359237)]
+    [Extension("Pounds")]
     Pounds = 103,
 
     [UnitAbbreviation("T")]

@@ -1,4 +1,5 @@
 using GraduatedCylinder.Abbreviations;
+using GraduatedCylinder.Extensions;
 using GraduatedCylinder.Scales;
 
 namespace GraduatedCylinder;
@@ -52,6 +53,7 @@ public enum SpeedUnit : short
 
     [UnitAbbreviation("m/s")]
     [Scale(1.0)]
+    [Extension("MetersPerSecond")]
     MeterPerSecond = 0,
 
     [UnitAbbreviation("dam/s")]
@@ -104,6 +106,7 @@ public enum SpeedUnit : short
 
     [UnitAbbreviation("km/h")]
     [Scale(1.0f / 3.6)]
+    [Extension("KiloMetersPerHour")]
     KiloMetersPerHour = 103,
 
     [UnitAbbreviation("ft/s")]
@@ -120,6 +123,7 @@ public enum SpeedUnit : short
 
     [UnitAbbreviation("mph")]
     [Scale(0.44704)]
+    [Extension("MilesPerHour")]
     MilesPerHour = 107,
 
     [UnitAbbreviation("knots")]

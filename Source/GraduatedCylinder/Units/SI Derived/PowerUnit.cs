@@ -1,4 +1,5 @@
 using GraduatedCylinder.Abbreviations;
+using GraduatedCylinder.Extensions;
 using GraduatedCylinder.Scales;
 
 namespace GraduatedCylinder;
@@ -16,10 +17,12 @@ public enum PowerUnit : short
 
     [UnitAbbreviation("W")]
     [Scale(1.0)]
+    [Extension("Watts")]
     Watts = 0,
 
     [UnitAbbreviation("kW")]
     [Scale(1000.0)]
+    [Extension("KiloWatts")]
     KiloWatts = 3,
 
     [UnitAbbreviation("MW")]

@@ -1,4 +1,5 @@
 ﻿using GraduatedCylinder.Abbreviations;
+using GraduatedCylinder.Extensions;
 using GraduatedCylinder.Scales;
 
 namespace GraduatedCylinder;
@@ -12,6 +13,7 @@ public enum FuelEconomyUnit : short
 
     [UnitAbbreviation("km/L")]
     [Scale(1.0)]
+    [Extension("KiloMetersPerLiter")]
     KiloMetersPerLiter = 0,
 
     [UnitAbbreviation("L/100km")]
@@ -22,6 +24,7 @@ public enum FuelEconomyUnit : short
 
     [UnitAbbreviation("mpg(US)")]
     [Scale(0.425144)]
+    [Extension("MilesPerGallonUS")]
     MilesPerGallonUS = 2,
 
     [UnitAbbreviation("mpg(UK)")]

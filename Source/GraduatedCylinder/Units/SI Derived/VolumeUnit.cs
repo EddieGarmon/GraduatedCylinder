@@ -1,4 +1,5 @@
 using GraduatedCylinder.Abbreviations;
+using GraduatedCylinder.Extensions;
 using GraduatedCylinder.Scales;
 
 namespace GraduatedCylinder;
@@ -40,6 +41,7 @@ public enum VolumeUnit : short
 
     [UnitAbbreviation("L")]
     [Scale(.001)]
+    [Extension("Liters")]
     Liters = 102,
 
     [UnitAbbreviation("in³")]

@@ -1,4 +1,5 @@
 using GraduatedCylinder.Abbreviations;
+using GraduatedCylinder.Extensions;
 using GraduatedCylinder.Scales;
 
 namespace GraduatedCylinder;
@@ -52,6 +53,7 @@ public enum ElectricPotentialUnit : short
 
     [UnitAbbreviation("V")]
     [Scale(1.0)]
+    [Extension("Volts")]
     Volt = 0,
 
     [UnitAbbreviation("daV")]
