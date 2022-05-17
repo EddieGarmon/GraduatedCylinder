@@ -61,6 +61,14 @@ public class ExtensionApiGenerator : BaseGenerator
             Buffer.AppendLine($"\t\treturn new {names.DimensionTypeName}(value, {names.UnitsTypeName}.{enumValue?.Name});");
             Buffer.AppendLine("\t}");
             Buffer.AppendLine();
+            Buffer.AppendLine($"\tpublic static {names.DimensionTypeName} {methodName}(this long value) {{");
+            Buffer.AppendLine($"\t\treturn new {names.DimensionTypeName}(value, {names.UnitsTypeName}.{enumValue?.Name});");
+            Buffer.AppendLine("\t}");
+            Buffer.AppendLine();
+            Buffer.AppendLine($"\tpublic static {names.DimensionTypeName} {methodName}(this float value) {{");
+            Buffer.AppendLine($"\t\treturn new {names.DimensionTypeName}(value, {names.UnitsTypeName}.{enumValue?.Name});");
+            Buffer.AppendLine("\t}");
+            Buffer.AppendLine();
             Buffer.AppendLine($"\tpublic static {names.DimensionTypeName} {methodName}(this double value) {{");
             Buffer.AppendLine($"\t\treturn new {names.DimensionTypeName}(value, {names.UnitsTypeName}.{enumValue?.Name});");
             Buffer.AppendLine("\t}");
