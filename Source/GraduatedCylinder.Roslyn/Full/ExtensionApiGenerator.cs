@@ -41,6 +41,7 @@ public class ExtensionApiGenerator : BaseGenerator
 
         Buffer.AppendLine("#nullable enable");
         Buffer.AppendLine("using System;");
+        Buffer.AppendLine("using System.Runtime.CompilerServices;");
         Buffer.AppendLine();
         Buffer.AppendLine("namespace GraduatedCylinder.Extensions;");
         Buffer.AppendLine();
@@ -57,18 +58,22 @@ public class ExtensionApiGenerator : BaseGenerator
             hasExtensions = true;
             string methodName = attribute.ConstructorArguments[0].Value!.ToString();
 
+            Buffer.AppendLine("\t[MethodImpl(MethodImplOptions.AggressiveInlining)]");
             Buffer.AppendLine($"\tpublic static {names.DimensionTypeName} {methodName}(this int value) {{");
             Buffer.AppendLine($"\t\treturn new {names.DimensionTypeName}(value, {names.UnitsTypeName}.{enumValue?.Name});");
             Buffer.AppendLine("\t}");
             Buffer.AppendLine();
+            Buffer.AppendLine("\t[MethodImpl(MethodImplOptions.AggressiveInlining)]");
             Buffer.AppendLine($"\tpublic static {names.DimensionTypeName} {methodName}(this long value) {{");
             Buffer.AppendLine($"\t\treturn new {names.DimensionTypeName}(value, {names.UnitsTypeName}.{enumValue?.Name});");
             Buffer.AppendLine("\t}");
             Buffer.AppendLine();
+            Buffer.AppendLine("\t[MethodImpl(MethodImplOptions.AggressiveInlining)]");
             Buffer.AppendLine($"\tpublic static {names.DimensionTypeName} {methodName}(this float value) {{");
             Buffer.AppendLine($"\t\treturn new {names.DimensionTypeName}(value, {names.UnitsTypeName}.{enumValue?.Name});");
             Buffer.AppendLine("\t}");
             Buffer.AppendLine();
+            Buffer.AppendLine("\t[MethodImpl(MethodImplOptions.AggressiveInlining)]");
             Buffer.AppendLine($"\tpublic static {names.DimensionTypeName} {methodName}(this double value) {{");
             Buffer.AppendLine($"\t\treturn new {names.DimensionTypeName}(value, {names.UnitsTypeName}.{enumValue?.Name});");
             Buffer.AppendLine("\t}");
