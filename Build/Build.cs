@@ -1,47 +1,30 @@
 // @formatter:off
 // ReSharper disable InconsistentNaming
 #pragma warning disable IDE1006 // Naming Styles
-using System;
-using System.Linq;
-using System.Text.RegularExpressions;
 using Nuke.Common;
 using Nuke.Common.CI;
-using Nuke.Common.CI.GitHubActions;
-using Nuke.Common.Execution;
-using Nuke.Common.Git;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
-using Nuke.Common.Tooling;
 using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Utilities.Collections;
-using static Nuke.Common.EnvironmentInfo;
 using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.IO.PathConstruction;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
-[CheckBuildProjectConfigurations]
 [ShutdownDotNetAfterServerBuild]
 class Build : NukeBuild
 {
 
-    public static int Main () => Execute<Build>(x => x.Pack);
-
     [Parameter("Configuration to build - Default is 'Release'")]
     readonly Configuration Configuration = Configuration.Release;
 
-    [Parameter] readonly string NugetApiUrl = "https://api.nuget.org/v3/index.json";
     [Parameter] [Secret] readonly string NugetApiKey;
+
+    [Parameter] readonly string NugetApiUrl = "https://api.nuget.org/v3/index.json";
 
     [Solution] readonly Solution Solution;
 
-    AbsolutePath SourceDirectory => RootDirectory / "Source";
-    AbsolutePath TestsDirectory => RootDirectory / "Tests";
     AbsolutePath ArtifactsDirectory => RootDirectory / "Artifacts";
-
-    //[GitRepository] readonly GitRepository GitRepository;
-    //bool IsOriginalRepository => GitRepository.Identifier == "EddieGarmon/GraduatedCylinder";
-    //bool IsTag => GitRepository.Tags.Any(tag => TagRegex.IsMatch(tag));
-    Regex TagRegex = new Regex(@"v\d+\.\d+.\d+", RegexOptions.Compiled);
 
     Target Clean => _ => _
         .Before(Restore)
@@ -51,13 +34,6 @@ class Build : NukeBuild
             TestsDirectory.GlobDirectories("**/bin", "**/obj").ForEach(DeleteDirectory);
             EnsureCleanDirectory(ArtifactsDirectory);
             SourceDirectory.GlobFiles("**/*.g.cs").ForEach(DeleteFile);
-        });
-
-    Target Restore => _ => _
-        .Executes(() =>
-        {
-            DotNetRestore(s => s
-                .SetProjectFile(Solution));
         });
 
     Target Compile => _ => _
@@ -72,7 +48,6 @@ class Build : NukeBuild
                 "GraduatedCylinder.Roslyn",
                 "Nmea.Core0183",
                 "GraduatedCylinder",
-                "GraduatedCylinder.Extensions",
                 "GraduatedCylinder.Geo",
                 "GraduatedCylinder.Geo.Gps",
                 "GraduatedCylinder.Geo.Laser",
@@ -88,7 +63,7 @@ class Build : NukeBuild
                 "GraduatedCylinder.Geo.Gps.Tests",
                 "GraduatedCylinder.Geo.Laser.Tests",
                 "GraduatedCylinder.Json.Tests",
-                "GraduatedCylinder.IoT.Tests",
+                "GraduatedCylinder.IoT.Tests"
             };
 
             foreach (string project in buildOrder) {
@@ -101,17 +76,6 @@ class Build : NukeBuild
                       .EnableContinuousIntegrationBuild());
 
             }
-        });
-
-    Target Test => _ => _
-        .DependsOn(Compile)
-        .Executes(() =>
-        {
-            DotNetTest(s => s
-                .SetProjectFile(Solution)
-                .SetConfiguration(Configuration)
-                .EnableNoRestore()
-                .EnableNoBuild());
         });
 
     Target Pack => _ => _
@@ -131,6 +95,8 @@ class Build : NukeBuild
         });
 
     Target PushToNuGet => _ => _
+        .DependsOn(Clean)
+        .DependsOn(Test)
         .DependsOn(Pack)
         .Requires(() => NugetApiUrl)
         .Requires(() => NugetApiKey)
@@ -148,4 +114,25 @@ class Build : NukeBuild
                                                               .EnableSkipDuplicate()));
         });
 
-}
+    Target Restore => _ => _
+        .Executes(() =>
+        {
+            DotNetRestore(s => s
+                .SetProjectFile(Solution));
+        });
+
+    AbsolutePath SourceDirectory => RootDirectory / "Source";
+
+    Target Test => _ => _
+        .DependsOn(Compile)
+        .Executes(() =>
+        {
+            DotNetTest(s => s
+                .SetProjectFile(Solution)
+                .SetConfiguration(Configuration)
+                .EnableNoRestore()
+                .EnableNoBuild());
+        });
+    AbsolutePath TestsDirectory => RootDirectory / "Tests";
+
+    public static int Main () => Execute<Build>(x => x.Pack);}
