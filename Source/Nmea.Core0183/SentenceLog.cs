@@ -57,7 +57,7 @@ public class SentenceLog : IProvideSentences
 
     private void ReadAndBroadcast() {
         //open file and parse/cache the log
-        List<SentenceRecord> records = new List<SentenceRecord>();
+        List<SentenceRecord> records = new();
         using (StreamReader reader = File.OpenText(_filename)) {
             while (!reader.EndOfStream) {
                 string line = reader.ReadLine()!;
@@ -74,7 +74,7 @@ public class SentenceLog : IProvideSentences
                 break;
             }
 
-            var record = records[index];
+            SentenceRecord record = records[index];
 
             switch (_rate) {
                 case PlaybackRate.AsRecorded:

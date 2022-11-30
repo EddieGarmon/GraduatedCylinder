@@ -20,17 +20,11 @@ public class Sentence
         _parts = parts ?? throw new ArgumentNullException(nameof(parts));
     }
 
-    public string Id {
-        get => _parts[0];
-    }
+    public string Id => _parts[0];
 
-    public int WordCount {
-        get => _parts.Length;
-    }
+    public int WordCount => _parts.Length;
 
-    public string this[int index] {
-        get => _parts[index];
-    }
+    public string this[int index] => _parts[index];
 
     public override string ToString() {
         return WithChecksum();
@@ -84,7 +78,7 @@ public class Sentence
     /// <returns>IEnumerable{Sentence}.</returns>
     public static IEnumerable<Sentence> ParseAll(string raw) {
         string[] lines = raw.Split(new[] { Terminator }, StringSplitOptions.RemoveEmptyEntries);
-        var result = new List<Sentence>();
+        List<Sentence> result = new List<Sentence>();
         foreach (string line in lines) {
             Sentence? sentence = Parse(line);
             if (sentence != null) {
