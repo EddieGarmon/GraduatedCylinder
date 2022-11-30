@@ -81,15 +81,15 @@ public class GSA_Sentence
             VerticalDop = verticalDop;
         }
 
-        public int[] ActiveSatellitePrns { get; private set; }
+        public int[] ActiveSatellitePrns { get; }
 
-        public GpsFixType CurrentFix { get; private set; }
+        public GpsFixType CurrentFix { get; }
 
-        public double HorizontalDop { get; private set; }
+        public double HorizontalDop { get; }
 
-        public double PositionDop { get; private set; }
+        public double PositionDop { get; }
 
-        public double VerticalDop { get; private set; }
+        public double VerticalDop { get; }
 
     }
 

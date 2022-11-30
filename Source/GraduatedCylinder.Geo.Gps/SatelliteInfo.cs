@@ -10,12 +10,12 @@ public class SatelliteInfo
         SignalToNoise = signalToNoise;
     }
 
-    public int Azimuth { get; private set; }
+    public int Azimuth { get; }
 
-    public int Elevation { get; private set; }
+    public int Elevation { get; }
 
-    public int Prn { get; private set; }
+    public int Prn { get; }
 
-    public double SignalToNoise { get; private set; }
+    public double SignalToNoise { get; }
 
 }

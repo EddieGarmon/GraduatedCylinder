@@ -6,10 +6,10 @@ namespace GraduatedCylinder.Geo.Gps;
 public class GpsUnit : IProvideGeoPosition, IProvideTrajectory, IProvideTime, IProvideSatelliteInfo, IDisposable
 {
 
-    private readonly List<int> _activeSatellitePrns = new List<int>();
+    private readonly List<int> _activeSatellitePrns = new();
     private readonly IProvideSentences _nmeaProvider;
-    private readonly GpsParser _parser = new GpsParser();
-    private readonly Dictionary<int, SatelliteInfo> _satellites = new Dictionary<int, SatelliteInfo>();
+    private readonly GpsParser _parser = new();
+    private readonly Dictionary<int, SatelliteInfo> _satellites = new();
 
     private bool _isEnabled;
 
@@ -106,9 +106,7 @@ public class GpsUnit : IProvideGeoPosition, IProvideTrajectory, IProvideTime, IP
 
     public double PositionDop { get; private set; }
 
-    public IEnumerable<SatelliteInfo> Satellites {
-        get { return _activeSatellitePrns.Select(prn => _satellites[prn]); }
-    }
+    public IEnumerable<SatelliteInfo> Satellites => _activeSatellitePrns.Select(prn => _satellites[prn]);
 
     public double VerticalDop { get; private set; }
 
@@ -127,11 +125,7 @@ public class GpsUnit : IProvideGeoPosition, IProvideTrajectory, IProvideTime, IP
         if (handler == null) {
             return;
         }
-        LocationChangedEventArgs args = new LocationChangedEventArgs(CurrentTime,
-                                                                     CurrentLocation,
-                                                                     CurrentHeading,
-                                                                     CurrentSpeed,
-                                                                     CurrentFixType);
+        LocationChangedEventArgs args = new(CurrentTime, CurrentLocation, CurrentHeading, CurrentSpeed, CurrentFixType);
         handler(args);
     }
 

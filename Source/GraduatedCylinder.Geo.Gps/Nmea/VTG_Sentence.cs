@@ -48,11 +48,11 @@ public class VTG_Sentence
             CurrentSpeed = currentSpeed;
         }
 
-        public Heading CurrentHeading { get; private set; }
+        public Heading CurrentHeading { get; }
 
-        public Speed CurrentSpeed { get; private set; }
+        public Speed CurrentSpeed { get; }
 
-        public Heading MagneticCourse { get; private set; }
+        public Heading MagneticCourse { get; }
 
     }
 

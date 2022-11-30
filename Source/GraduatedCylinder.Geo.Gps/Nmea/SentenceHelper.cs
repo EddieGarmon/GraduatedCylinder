@@ -6,12 +6,12 @@ internal class SentenceHelper
 {
 
     /// <summary>
-    /// Parses the latitude.
-    /// formats supported:
-    /// 0) [empty] = latitude 0
-    /// 1) dd
-    /// 2) ddmm
-    /// 3) ddmm.mmmm
+    ///     Parses the latitude.
+    ///     formats supported:
+    ///     0) [empty] = latitude 0
+    ///     1) dd
+    ///     2) ddmm
+    ///     3) ddmm.mmmm
     /// </summary>
     /// <param name="value">The value.</param>
     /// <param name="direction">The direction.</param>
@@ -24,9 +24,9 @@ internal class SentenceHelper
         }
         if (length >= 4) {
             double.TryParse(value.Substring(2), out double minutes);
-            degrees += (minutes / 60);
+            degrees += minutes / 60;
         }
-        return (direction == "S") ? -degrees : degrees;
+        return direction == "S" ? -degrees : degrees;
     }
 
     public static Length ParseLength(string value, string units) {
@@ -38,12 +38,12 @@ internal class SentenceHelper
     }
 
     /// <summary>
-    /// Parses the longitude.
-    /// formats supported:
-    /// 0) [empty] = longitude 0
-    /// 1) ddd
-    /// 2) dddmm
-    /// 3) dddmm.mmmm
+    ///     Parses the longitude.
+    ///     formats supported:
+    ///     0) [empty] = longitude 0
+    ///     1) ddd
+    ///     2) dddmm
+    ///     3) dddmm.mmmm
     /// </summary>
     /// <param name="value">The value.</param>
     /// <param name="direction">The direction.</param>
@@ -56,15 +56,15 @@ internal class SentenceHelper
         }
         if (length >= 5) {
             double.TryParse(value.Substring(3), out double minutes);
-            degrees += (minutes / 60);
+            degrees += minutes / 60;
         }
-        return (direction == "W") ? -degrees : degrees;
+        return direction == "W" ? -degrees : degrees;
     }
 
     /// <summary>
-    /// Parses the utc date.
-    /// formats supported:
-    /// ddmmyy
+    ///     Parses the utc date.
+    ///     formats supported:
+    ///     ddmmyy
     /// </summary>
     /// <param name="value">The value.</param>
     /// <returns></returns>
@@ -82,13 +82,13 @@ internal class SentenceHelper
     }
 
     /// <summary>
-    /// Parses the utc time.
-    /// formats supported:
-    /// 0) [empty] = time 0
-    /// 1) hh
-    /// 2) hhmm
-    /// 3) hhmmss
-    /// 4) hhmmss.sss
+    ///     Parses the utc time.
+    ///     formats supported:
+    ///     0) [empty] = time 0
+    ///     1) hh
+    ///     2) hhmm
+    ///     3) hhmmss
+    ///     4) hhmmss.sss
     /// </summary>
     /// <param name="value">The value.</param>
     /// <returns></returns>
