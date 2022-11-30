@@ -8,17 +8,17 @@ public class VolumeOperators
 
     [Fact]
     public void OpAddition() {
-        var volume1 = new Volume(3600, VolumeUnit.Liters);
-        var volume2 = new Volume(1, VolumeUnit.CubicMeters);
-        var expected = new Volume(4600, VolumeUnit.Liters);
+        Volume volume1 = new(3600, VolumeUnit.Liters);
+        Volume volume2 = new(1, VolumeUnit.CubicMeters);
+        Volume expected = new(4600, VolumeUnit.Liters);
         (volume1 + volume2).ShouldBe(expected);
         (volume2 + volume1).ShouldBe(expected);
     }
 
     [Fact]
     public void OpDivision() {
-        var volume1 = new Volume(3600, VolumeUnit.Liters);
-        var volume2 = new Volume(3.6, VolumeUnit.CubicMeters);
+        Volume volume1 = new(3600, VolumeUnit.Liters);
+        Volume volume2 = new(3.6, VolumeUnit.CubicMeters);
         (volume1 / volume2).ShouldBeCloseTo(1);
         (volume2 / volume1).ShouldBeCloseTo(1);
 
@@ -28,9 +28,9 @@ public class VolumeOperators
 
     [Fact]
     public void OpEquals() {
-        var volume1 = new Volume(3600, VolumeUnit.Liters);
-        var volume2 = new Volume(3.6, VolumeUnit.CubicMeters);
-        var volume3 = new Volume(5, VolumeUnit.CubicMeters);
+        Volume volume1 = new(3600, VolumeUnit.Liters);
+        Volume volume2 = new(3.6, VolumeUnit.CubicMeters);
+        Volume volume3 = new(5, VolumeUnit.CubicMeters);
         (volume1 == volume2).ShouldBeTrue();
         (volume2 == volume1).ShouldBeTrue();
         (volume1 == volume3).ShouldBeFalse();
@@ -43,9 +43,9 @@ public class VolumeOperators
 
     [Fact]
     public void OpGreaterThan() {
-        var volume1 = new Volume(3600, VolumeUnit.Liters);
-        var volume2 = new Volume(3.6, VolumeUnit.CubicMeters);
-        var volume3 = new Volume(5, VolumeUnit.CubicMeters);
+        Volume volume1 = new(3600, VolumeUnit.Liters);
+        Volume volume2 = new(3.6, VolumeUnit.CubicMeters);
+        Volume volume3 = new(5, VolumeUnit.CubicMeters);
         (volume1 > volume3).ShouldBeFalse();
         (volume3 > volume1).ShouldBeTrue();
         (volume1 > volume2).ShouldBeFalse();
@@ -54,9 +54,9 @@ public class VolumeOperators
 
     [Fact]
     public void OpGreaterThanOrEqual() {
-        var volume1 = new Volume(3600, VolumeUnit.Liters);
-        var volume2 = new Volume(3.6, VolumeUnit.CubicMeters);
-        var volume3 = new Volume(5, VolumeUnit.CubicMeters);
+        Volume volume1 = new(3600, VolumeUnit.Liters);
+        Volume volume2 = new(3.6, VolumeUnit.CubicMeters);
+        Volume volume3 = new(5, VolumeUnit.CubicMeters);
         (volume1 >= volume3).ShouldBeFalse();
         (volume3 >= volume1).ShouldBeTrue();
         (volume1 >= volume2).ShouldBeTrue();
@@ -65,9 +65,9 @@ public class VolumeOperators
 
     [Fact]
     public void OpInverseEquals() {
-        var volume1 = new Volume(3600, VolumeUnit.Liters);
-        var volume2 = new Volume(3.6, VolumeUnit.CubicMeters);
-        var volume3 = new Volume(5, VolumeUnit.CubicMeters);
+        Volume volume1 = new(3600, VolumeUnit.Liters);
+        Volume volume2 = new(3.6, VolumeUnit.CubicMeters);
+        Volume volume3 = new(5, VolumeUnit.CubicMeters);
         (volume1 != volume2).ShouldBeFalse();
         (volume2 != volume1).ShouldBeFalse();
         (volume1 != volume3).ShouldBeTrue();
@@ -76,9 +76,9 @@ public class VolumeOperators
 
     [Fact]
     public void OpLessThan() {
-        var volume1 = new Volume(3600, VolumeUnit.Liters);
-        var volume2 = new Volume(3.6, VolumeUnit.CubicMeters);
-        var volume3 = new Volume(5, VolumeUnit.CubicMeters);
+        Volume volume1 = new(3600, VolumeUnit.Liters);
+        Volume volume2 = new(3.6, VolumeUnit.CubicMeters);
+        Volume volume3 = new(5, VolumeUnit.CubicMeters);
         (volume1 < volume3).ShouldBeTrue();
         (volume3 < volume1).ShouldBeFalse();
         (volume1 < volume2).ShouldBeFalse();
@@ -87,9 +87,9 @@ public class VolumeOperators
 
     [Fact]
     public void OpLessThanOrEqual() {
-        var volume1 = new Volume(3600, VolumeUnit.Liters);
-        var volume2 = new Volume(3.6, VolumeUnit.CubicMeters);
-        var volume3 = new Volume(5, VolumeUnit.CubicMeters);
+        Volume volume1 = new(3600, VolumeUnit.Liters);
+        Volume volume2 = new(3.6, VolumeUnit.CubicMeters);
+        Volume volume3 = new(5, VolumeUnit.CubicMeters);
         (volume1 <= volume3).ShouldBeTrue();
         (volume3 <= volume1).ShouldBeFalse();
         (volume1 <= volume2).ShouldBeTrue();
@@ -98,16 +98,16 @@ public class VolumeOperators
 
     [Fact]
     public void OpMultiplicationScaler() {
-        var volume = new Volume(1, VolumeUnit.Liters);
-        var expected = new Volume(2, VolumeUnit.Liters);
+        Volume volume = new(1, VolumeUnit.Liters);
+        Volume expected = new(2, VolumeUnit.Liters);
         (volume * 2).ShouldBe(expected);
         (2 * volume).ShouldBe(expected);
     }
 
     [Fact]
     public void OpSubtraction() {
-        var volume1 = new Volume(7200, VolumeUnit.Liters);
-        var volume2 = new Volume(1, VolumeUnit.CubicMeters);
+        Volume volume1 = new(7200, VolumeUnit.Liters);
+        Volume volume2 = new(1, VolumeUnit.CubicMeters);
         (volume1 - volume2).ShouldBe(new Volume(6200, VolumeUnit.Liters));
         (volume2 - volume1).ShouldBe(new Volume(-6.2, VolumeUnit.CubicMeters));
     }

@@ -8,17 +8,17 @@ public class FrequencyOperators
 
     [Fact]
     public void OpAddition() {
-        var frequency1 = new Frequency(1, FrequencyUnit.Hertz);
-        var frequency2 = new Frequency(1, FrequencyUnit.CyclePerSecond);
-        var expected = new Frequency(2, FrequencyUnit.Hertz);
+        Frequency frequency1 = new(1, FrequencyUnit.Hertz);
+        Frequency frequency2 = new(1, FrequencyUnit.CyclePerSecond);
+        Frequency expected = new(2, FrequencyUnit.Hertz);
         (frequency1 + frequency2).ShouldBe(expected);
         (frequency2 + frequency1).ShouldBe(expected);
     }
 
     [Fact]
     public void OpDivision() {
-        var frequency1 = new Frequency(2, FrequencyUnit.Hertz);
-        var frequency2 = new Frequency(2, FrequencyUnit.CyclePerSecond);
+        Frequency frequency1 = new(2, FrequencyUnit.Hertz);
+        Frequency frequency2 = new(2, FrequencyUnit.CyclePerSecond);
         (frequency1 / frequency2).ShouldBeCloseTo(1);
         (frequency2 / frequency1).ShouldBeCloseTo(1);
 
@@ -28,9 +28,9 @@ public class FrequencyOperators
 
     [Fact]
     public void OpEquals() {
-        var frequency1 = new Frequency(1, FrequencyUnit.Hertz);
-        var frequency2 = new Frequency(1, FrequencyUnit.CyclePerSecond);
-        var frequency3 = new Frequency(2, FrequencyUnit.CyclePerSecond);
+        Frequency frequency1 = new(1, FrequencyUnit.Hertz);
+        Frequency frequency2 = new(1, FrequencyUnit.CyclePerSecond);
+        Frequency frequency3 = new(2, FrequencyUnit.CyclePerSecond);
         (frequency1 == frequency2).ShouldBeTrue();
         (frequency2 == frequency1).ShouldBeTrue();
         (frequency1 == frequency3).ShouldBeFalse();
@@ -43,9 +43,9 @@ public class FrequencyOperators
 
     [Fact]
     public void OpGreaterThan() {
-        var frequency1 = new Frequency(1, FrequencyUnit.Hertz);
-        var frequency2 = new Frequency(1, FrequencyUnit.CyclePerSecond);
-        var frequency3 = new Frequency(2, FrequencyUnit.CyclePerSecond);
+        Frequency frequency1 = new(1, FrequencyUnit.Hertz);
+        Frequency frequency2 = new(1, FrequencyUnit.CyclePerSecond);
+        Frequency frequency3 = new(2, FrequencyUnit.CyclePerSecond);
         (frequency1 > frequency3).ShouldBeFalse();
         (frequency3 > frequency1).ShouldBeTrue();
         (frequency1 > frequency2).ShouldBeFalse();
@@ -54,9 +54,9 @@ public class FrequencyOperators
 
     [Fact]
     public void OpGreaterThanOrEqual() {
-        var frequency1 = new Frequency(1, FrequencyUnit.Hertz);
-        var frequency2 = new Frequency(1, FrequencyUnit.CyclePerSecond);
-        var frequency3 = new Frequency(2, FrequencyUnit.CyclePerSecond);
+        Frequency frequency1 = new(1, FrequencyUnit.Hertz);
+        Frequency frequency2 = new(1, FrequencyUnit.CyclePerSecond);
+        Frequency frequency3 = new(2, FrequencyUnit.CyclePerSecond);
         (frequency1 >= frequency3).ShouldBeFalse();
         (frequency3 >= frequency1).ShouldBeTrue();
         (frequency1 >= frequency2).ShouldBeTrue();
@@ -65,9 +65,9 @@ public class FrequencyOperators
 
     [Fact]
     public void OpInverseEquals() {
-        var frequency1 = new Frequency(1, FrequencyUnit.Hertz);
-        var frequency2 = new Frequency(1, FrequencyUnit.CyclePerSecond);
-        var frequency3 = new Frequency(2, FrequencyUnit.CyclePerSecond);
+        Frequency frequency1 = new(1, FrequencyUnit.Hertz);
+        Frequency frequency2 = new(1, FrequencyUnit.CyclePerSecond);
+        Frequency frequency3 = new(2, FrequencyUnit.CyclePerSecond);
         (frequency1 != frequency2).ShouldBeFalse();
         (frequency2 != frequency1).ShouldBeFalse();
         (frequency1 != frequency3).ShouldBeTrue();
@@ -76,9 +76,9 @@ public class FrequencyOperators
 
     [Fact]
     public void OpLessThan() {
-        var frequency1 = new Frequency(1, FrequencyUnit.Hertz);
-        var frequency2 = new Frequency(1, FrequencyUnit.CyclePerSecond);
-        var frequency3 = new Frequency(2, FrequencyUnit.CyclePerSecond);
+        Frequency frequency1 = new(1, FrequencyUnit.Hertz);
+        Frequency frequency2 = new(1, FrequencyUnit.CyclePerSecond);
+        Frequency frequency3 = new(2, FrequencyUnit.CyclePerSecond);
         (frequency1 < frequency3).ShouldBeTrue();
         (frequency3 < frequency1).ShouldBeFalse();
         (frequency1 < frequency2).ShouldBeFalse();
@@ -87,9 +87,9 @@ public class FrequencyOperators
 
     [Fact]
     public void OpLessThanOrEqual() {
-        var frequency1 = new Frequency(1, FrequencyUnit.Hertz);
-        var frequency2 = new Frequency(1, FrequencyUnit.CyclePerSecond);
-        var frequency3 = new Frequency(2, FrequencyUnit.CyclePerSecond);
+        Frequency frequency1 = new(1, FrequencyUnit.Hertz);
+        Frequency frequency2 = new(1, FrequencyUnit.CyclePerSecond);
+        Frequency frequency3 = new(2, FrequencyUnit.CyclePerSecond);
         (frequency1 <= frequency3).ShouldBeTrue();
         (frequency3 <= frequency1).ShouldBeFalse();
         (frequency1 <= frequency2).ShouldBeTrue();
@@ -98,16 +98,16 @@ public class FrequencyOperators
 
     [Fact]
     public void OpMultiplicationScaler() {
-        var frequency = new Frequency(1, FrequencyUnit.Hertz);
-        var expected = new Frequency(2, FrequencyUnit.Hertz);
+        Frequency frequency = new(1, FrequencyUnit.Hertz);
+        Frequency expected = new(2, FrequencyUnit.Hertz);
         (frequency * 2).ShouldBe(expected);
         (2 * frequency).ShouldBe(expected);
     }
 
     [Fact]
     public void OpSubtraction() {
-        var frequency1 = new Frequency(10, FrequencyUnit.Hertz);
-        var frequency2 = new Frequency(1, FrequencyUnit.CyclePerSecond);
+        Frequency frequency1 = new(10, FrequencyUnit.Hertz);
+        Frequency frequency2 = new(1, FrequencyUnit.CyclePerSecond);
         (frequency1 - frequency2).ShouldBe(new Frequency(9, FrequencyUnit.Hertz));
         (frequency2 - frequency1).ShouldBe(new Frequency(-9, FrequencyUnit.CyclePerSecond));
     }

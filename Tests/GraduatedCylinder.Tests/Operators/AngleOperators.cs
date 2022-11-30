@@ -8,16 +8,16 @@ public class AngleOperators
 
     [Fact]
     public void OpAddition() {
-        var angle1 = new Angle(180, AngleUnit.Degree);
-        var angle2 = new Angle(200, AngleUnit.Grad);
+        Angle angle1 = new(180, AngleUnit.Degree);
+        Angle angle2 = new(200, AngleUnit.Grad);
         (angle1 + angle2).In(AngleUnit.Degree).Value.ShouldBeCloseTo(360);
         (angle2 + angle1).In(AngleUnit.Revolutions).Value.ShouldBeCloseTo(1);
     }
 
     [Fact]
     public void OpDivision() {
-        var angle1 = new Angle(180, AngleUnit.Degree);
-        var angle2 = new Angle(200, AngleUnit.Grad);
+        Angle angle1 = new(180, AngleUnit.Degree);
+        Angle angle2 = new(200, AngleUnit.Grad);
         (angle1 / angle2).ShouldBeCloseTo(1);
         (angle2 / angle1).ShouldBeCloseTo(1);
 
@@ -27,9 +27,9 @@ public class AngleOperators
 
     [Fact]
     public void OpEquals() {
-        var angle1 = new Angle(180, AngleUnit.Degree);
-        var angle2 = new Angle(.5, AngleUnit.Revolutions);
-        var angle3 = new Angle(200, AngleUnit.Degree);
+        Angle angle1 = new(180, AngleUnit.Degree);
+        Angle angle2 = new(.5, AngleUnit.Revolutions);
+        Angle angle3 = new(200, AngleUnit.Degree);
         (angle1 == angle2).ShouldBeTrue();
         (angle2 == angle1).ShouldBeTrue();
         (angle1 == angle3).ShouldBeFalse();
@@ -42,9 +42,9 @@ public class AngleOperators
 
     [Fact]
     public void OpGreaterThan() {
-        var angle1 = new Angle(180, AngleUnit.Degree);
-        var angle2 = new Angle(200, AngleUnit.Grad);
-        var angle3 = new Angle(200, AngleUnit.Degree);
+        Angle angle1 = new(180, AngleUnit.Degree);
+        Angle angle2 = new(200, AngleUnit.Grad);
+        Angle angle3 = new(200, AngleUnit.Degree);
         (angle1 > angle3).ShouldBeFalse();
         (angle3 > angle1).ShouldBeTrue();
         (angle1 > angle2).ShouldBeFalse();
@@ -53,9 +53,9 @@ public class AngleOperators
 
     [Fact]
     public void OpGreaterThanOrEqual() {
-        var angle1 = new Angle(180, AngleUnit.Degree);
-        var angle2 = new Angle(200, AngleUnit.Grad);
-        var angle3 = new Angle(200, AngleUnit.Degree);
+        Angle angle1 = new(180, AngleUnit.Degree);
+        Angle angle2 = new(200, AngleUnit.Grad);
+        Angle angle3 = new(200, AngleUnit.Degree);
         (angle1 >= angle3).ShouldBeFalse();
         (angle3 >= angle1).ShouldBeTrue();
         (angle1 >= angle2).ShouldBeTrue();
@@ -64,9 +64,9 @@ public class AngleOperators
 
     [Fact]
     public void OpInverseEquals() {
-        var angle1 = new Angle(180, AngleUnit.Degree);
-        var angle2 = new Angle(200, AngleUnit.Grad);
-        var angle3 = new Angle(200, AngleUnit.Degree);
+        Angle angle1 = new(180, AngleUnit.Degree);
+        Angle angle2 = new(200, AngleUnit.Grad);
+        Angle angle3 = new(200, AngleUnit.Degree);
         (angle1 != angle2).ShouldBeFalse();
         (angle2 != angle1).ShouldBeFalse();
         (angle1 != angle3).ShouldBeTrue();
@@ -75,9 +75,9 @@ public class AngleOperators
 
     [Fact]
     public void OpLessThan() {
-        var angle1 = new Angle(180, AngleUnit.Degree);
-        var angle2 = new Angle(200, AngleUnit.Grad);
-        var angle3 = new Angle(200, AngleUnit.Degree);
+        Angle angle1 = new(180, AngleUnit.Degree);
+        Angle angle2 = new(200, AngleUnit.Grad);
+        Angle angle3 = new(200, AngleUnit.Degree);
         (angle1 < angle3).ShouldBeTrue();
         (angle3 < angle1).ShouldBeFalse();
         (angle1 < angle2).ShouldBeFalse();
@@ -86,9 +86,9 @@ public class AngleOperators
 
     [Fact]
     public void OpLessThanOrEqual() {
-        var angle1 = new Angle(180, AngleUnit.Degree);
-        var angle2 = new Angle(200, AngleUnit.Grad);
-        var angle3 = new Angle(200, AngleUnit.Degree);
+        Angle angle1 = new(180, AngleUnit.Degree);
+        Angle angle2 = new(200, AngleUnit.Grad);
+        Angle angle3 = new(200, AngleUnit.Degree);
         (angle1 <= angle3).ShouldBeTrue();
         (angle3 <= angle1).ShouldBeFalse();
         (angle1 <= angle2).ShouldBeTrue();
@@ -97,16 +97,16 @@ public class AngleOperators
 
     [Fact]
     public void OpMultiplicationScaler() {
-        var angle = new Angle(100, AngleUnit.Degree);
-        var expected = new Angle(200, AngleUnit.Degree);
+        Angle angle = new(100, AngleUnit.Degree);
+        Angle expected = new(200, AngleUnit.Degree);
         (angle * 2).ShouldBe(expected);
         (2 * angle).ShouldBe(expected);
     }
 
     [Fact]
     public void OpSubtraction() {
-        var angle1 = new Angle(180, AngleUnit.Degree);
-        var angle2 = new Angle(100, AngleUnit.Grad);
+        Angle angle1 = new(180, AngleUnit.Degree);
+        Angle angle2 = new(100, AngleUnit.Grad);
         (angle1 - angle2).ShouldBe(new Angle(90, AngleUnit.Degree));
         (angle2 - angle1).ShouldBe(new Angle(-100, AngleUnit.Grad));
     }

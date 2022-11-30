@@ -8,17 +8,17 @@ public class TorqueOperators
 
     [Fact]
     public void OpAddition() {
-        var torque1 = new Torque(9.81, TorqueUnit.NewtonMeters);
-        var torque2 = new Torque(1, TorqueUnit.KiloGramForceMeters);
-        var expected = new Torque(19.62, TorqueUnit.NewtonMeters);
+        Torque torque1 = new(9.81, TorqueUnit.NewtonMeters);
+        Torque torque2 = new(1, TorqueUnit.KiloGramForceMeters);
+        Torque expected = new(19.62, TorqueUnit.NewtonMeters);
         (torque1 + torque2).ShouldBe(expected);
         (torque2 + torque1).ShouldBe(expected);
     }
 
     [Fact]
     public void OpDivision() {
-        var torque1 = new Torque(19.62, TorqueUnit.NewtonMeters);
-        var torque2 = new Torque(2, TorqueUnit.KiloGramForceMeters);
+        Torque torque1 = new(19.62, TorqueUnit.NewtonMeters);
+        Torque torque2 = new(2, TorqueUnit.KiloGramForceMeters);
         (torque1 / torque2).ShouldBeCloseTo(1);
         (torque2 / torque1).ShouldBeCloseTo(1);
 
@@ -28,9 +28,9 @@ public class TorqueOperators
 
     [Fact]
     public void OpEquals() {
-        var torque1 = new Torque(19.62, TorqueUnit.NewtonMeters);
-        var torque2 = new Torque(2, TorqueUnit.KiloGramForceMeters);
-        var torque3 = new Torque(3, TorqueUnit.KiloGramForceMeters);
+        Torque torque1 = new(19.62, TorqueUnit.NewtonMeters);
+        Torque torque2 = new(2, TorqueUnit.KiloGramForceMeters);
+        Torque torque3 = new(3, TorqueUnit.KiloGramForceMeters);
         (torque1 == torque2).ShouldBeTrue();
         (torque2 == torque1).ShouldBeTrue();
         (torque1 == torque3).ShouldBeFalse();
@@ -43,9 +43,9 @@ public class TorqueOperators
 
     [Fact]
     public void OpGreaterThan() {
-        var torque1 = new Torque(19.62, TorqueUnit.NewtonMeters);
-        var torque2 = new Torque(2, TorqueUnit.KiloGramForceMeters);
-        var torque3 = new Torque(3, TorqueUnit.KiloGramForceMeters);
+        Torque torque1 = new(19.62, TorqueUnit.NewtonMeters);
+        Torque torque2 = new(2, TorqueUnit.KiloGramForceMeters);
+        Torque torque3 = new(3, TorqueUnit.KiloGramForceMeters);
         (torque1 > torque3).ShouldBeFalse();
         (torque3 > torque1).ShouldBeTrue();
         (torque1 > torque2).ShouldBeFalse();
@@ -54,9 +54,9 @@ public class TorqueOperators
 
     [Fact]
     public void OpGreaterThanOrEqual() {
-        var torque1 = new Torque(19.62, TorqueUnit.NewtonMeters);
-        var torque2 = new Torque(2, TorqueUnit.KiloGramForceMeters);
-        var torque3 = new Torque(3, TorqueUnit.KiloGramForceMeters);
+        Torque torque1 = new(19.62, TorqueUnit.NewtonMeters);
+        Torque torque2 = new(2, TorqueUnit.KiloGramForceMeters);
+        Torque torque3 = new(3, TorqueUnit.KiloGramForceMeters);
         (torque1 >= torque3).ShouldBeFalse();
         (torque3 >= torque1).ShouldBeTrue();
         (torque1 >= torque2).ShouldBeTrue();
@@ -65,9 +65,9 @@ public class TorqueOperators
 
     [Fact]
     public void OpInverseEquals() {
-        var torque1 = new Torque(19.62, TorqueUnit.NewtonMeters);
-        var torque2 = new Torque(2, TorqueUnit.KiloGramForceMeters);
-        var torque3 = new Torque(3, TorqueUnit.KiloGramForceMeters);
+        Torque torque1 = new(19.62, TorqueUnit.NewtonMeters);
+        Torque torque2 = new(2, TorqueUnit.KiloGramForceMeters);
+        Torque torque3 = new(3, TorqueUnit.KiloGramForceMeters);
         (torque1 != torque2).ShouldBeFalse();
         (torque2 != torque1).ShouldBeFalse();
         (torque1 != torque3).ShouldBeTrue();
@@ -76,9 +76,9 @@ public class TorqueOperators
 
     [Fact]
     public void OpLessThan() {
-        var torque1 = new Torque(19.62, TorqueUnit.NewtonMeters);
-        var torque2 = new Torque(2, TorqueUnit.KiloGramForceMeters);
-        var torque3 = new Torque(3, TorqueUnit.KiloGramForceMeters);
+        Torque torque1 = new(19.62, TorqueUnit.NewtonMeters);
+        Torque torque2 = new(2, TorqueUnit.KiloGramForceMeters);
+        Torque torque3 = new(3, TorqueUnit.KiloGramForceMeters);
         (torque1 < torque3).ShouldBeTrue();
         (torque3 < torque1).ShouldBeFalse();
         (torque1 < torque2).ShouldBeFalse();
@@ -87,9 +87,9 @@ public class TorqueOperators
 
     [Fact]
     public void OpLessThanOrEqual() {
-        var torque1 = new Torque(19.62, TorqueUnit.NewtonMeters);
-        var torque2 = new Torque(2, TorqueUnit.KiloGramForceMeters);
-        var torque3 = new Torque(3, TorqueUnit.KiloGramForceMeters);
+        Torque torque1 = new(19.62, TorqueUnit.NewtonMeters);
+        Torque torque2 = new(2, TorqueUnit.KiloGramForceMeters);
+        Torque torque3 = new(3, TorqueUnit.KiloGramForceMeters);
         (torque1 <= torque3).ShouldBeTrue();
         (torque3 <= torque1).ShouldBeFalse();
         (torque1 <= torque2).ShouldBeTrue();
@@ -98,16 +98,16 @@ public class TorqueOperators
 
     [Fact]
     public void OpMultiplicationScaler() {
-        var torque = new Torque(1, TorqueUnit.NewtonMeters);
-        var expected = new Torque(2, TorqueUnit.NewtonMeters);
+        Torque torque = new(1, TorqueUnit.NewtonMeters);
+        Torque expected = new(2, TorqueUnit.NewtonMeters);
         (torque * 2).ShouldBe(expected);
         (2 * torque).ShouldBe(expected);
     }
 
     [Fact]
     public void OpSubtraction() {
-        var torque1 = new Torque(19.62, TorqueUnit.NewtonMeters);
-        var torque2 = new Torque(1, TorqueUnit.KiloGramForceMeters);
+        Torque torque1 = new(19.62, TorqueUnit.NewtonMeters);
+        Torque torque2 = new(1, TorqueUnit.KiloGramForceMeters);
         (torque1 - torque2).ShouldBe(new Torque(9.81, TorqueUnit.NewtonMeters));
         (torque2 - torque1).ShouldBe(new Torque(-1, TorqueUnit.KiloGramForceMeters));
     }
