@@ -155,6 +155,6 @@ class Build : NukeBuild
 
     AbsolutePath TestsDirectory => RootDirectory / "Tests";
 
-    public static int Main() => Execute<Build>(x => x.Pack);
+    public static int Main() => Execute<Build>(x => x.Test, x => x.Pack);
 
 }
