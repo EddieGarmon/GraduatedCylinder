@@ -8,7 +8,7 @@ public class LaserUnit : IDisposable
 {
 
     private readonly IProvideSentences _nmeaProvider;
-    private readonly OutputParser _outputParser = new OutputParser();
+    private readonly OutputParser _outputParser = new();
 
     public LaserUnit(IProvideSentences nmeaProvider) {
         _nmeaProvider = nmeaProvider;

@@ -15,7 +15,7 @@ public static class HeightSentence
             return null;
         }
         // todo high-res check
-        Length height = new Length(double.Parse(sentence[2]), LengthUnit.Foot);
+        Length height = new(double.Parse(sentence[2]), LengthUnit.Foot);
         return height;
     }
 
