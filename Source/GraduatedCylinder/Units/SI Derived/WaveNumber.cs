@@ -3,7 +3,6 @@
 public partial struct WaveNumber : IDimension<WaveNumber, WaveNumberUnit>
 {
 
-
     public Length ToWaveLength() {
         switch (Units) {
             case WaveNumberUnit.ReciprocalCentiMeter:

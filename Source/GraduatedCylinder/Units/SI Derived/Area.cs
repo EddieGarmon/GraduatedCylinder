@@ -5,7 +5,7 @@ public partial struct Area : IDimension<Area, AreaUnit>
 
     public Length SquareLength() {
         Area area = In(AreaUnit.SquareMeter);
-        Length length = new Length(Math.Sqrt(area.Value), LengthUnit.Meter);
+        Length length = new(Math.Sqrt(area.Value), LengthUnit.Meter);
         return length;
     }
 

@@ -6,7 +6,7 @@ namespace GraduatedCylinder.Text;
 internal static class Formats
 {
 
-    private static Dictionary<int, string> PrecisionFormats { get; } = new Dictionary<int, string>();
+    private static Dictionary<int, string> PrecisionFormats { get; } = new();
 
     public static string GetPrecisionFormat(int precision) {
         if (!PrecisionFormats.TryGetValue(precision, out string? format)) {

@@ -5,7 +5,7 @@ public partial struct Volume : IDimension<Volume, VolumeUnit>
 
     public Length CubeLength() {
         Volume cube = In(VolumeUnit.CubicMeters);
-        Length length = new Length(Math.Pow(cube.Value, 1.0 / 3.0), LengthUnit.Meter);
+        Length length = new(Math.Pow(cube.Value, 1.0 / 3.0), LengthUnit.Meter);
         return length;
     }
 
@@ -44,4 +44,5 @@ public partial struct Volume : IDimension<Volume, VolumeUnit>
         fuelEconomy = fuelEconomy.In(FuelEconomyUnit.KiloMetersPerLiter);
         return new Length(volume.Value * fuelEconomy.Value, LengthUnit.KiloMeter);
     }
+
 }

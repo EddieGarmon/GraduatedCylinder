@@ -40,6 +40,6 @@ public enum MagneticFluxDensityUnit : short
 
     [UnitAbbreviation("G")]
     [Scale(10000.0)]
-    Gauss = 100,
+    Gauss = 100
 
 }

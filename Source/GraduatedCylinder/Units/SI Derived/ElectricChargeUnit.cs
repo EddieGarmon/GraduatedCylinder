@@ -37,6 +37,6 @@ public enum ElectricChargeUnit : short
 
     [UnitAbbreviation("Ah")]
     [Scale(3600)]
-    AmpereHour,
+    AmpereHour
 
 }

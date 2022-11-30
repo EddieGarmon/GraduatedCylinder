@@ -3,7 +3,7 @@
 public partial struct Speed : IDimension<Speed, SpeedUnit>
 {
 
-    public static Speed OfLight { get; } = new Speed(299_792_458, SpeedUnit.MeterPerSecond);
+    public static Speed OfLight { get; } = new(299_792_458, SpeedUnit.MeterPerSecond);
 
     public static Acceleration operator /(Speed speed, Time time) {
         speed = speed.In(SpeedUnit.MeterPerSecond);

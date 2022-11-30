@@ -16,6 +16,6 @@ public enum RelativeHumidityUnit : short
 
     [UnitAbbreviation("%")]
     [Scale(100)]
-    Percent = 1,
+    Percent = 1
 
 }
