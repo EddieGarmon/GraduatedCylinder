@@ -3,14 +3,14 @@
 public static class GreatArc
 {
 
-    private static Length EarthsRadius { get; } = new Length(6371, LengthUnit.KiloMeter);
+    private static Length EarthsRadius { get; } = new(6371, LengthUnit.KiloMeter);
 
     //http://www.movable-type.co.uk/scripts/latlong.html
     public static Length Distance(GeoPosition start, GeoPosition stop) {
-        Angle phi1 = new Angle(start.Latitude, AngleUnit.Degree) { Units = AngleUnit.Radian };
-        Angle phi2 = new Angle(stop.Latitude, AngleUnit.Degree) { Units = AngleUnit.Radian };
-        Angle deltaPhi = new Angle(stop.Latitude - start.Latitude, AngleUnit.Degree) { Units = AngleUnit.Radian };
-        Angle deltaLong = new Angle(stop.Longitude - start.Longitude, AngleUnit.Degree) { Units = AngleUnit.Radian };
+        Angle phi1 = new(start.Latitude, AngleUnit.Degree) { Units = AngleUnit.Radian };
+        Angle phi2 = new(stop.Latitude, AngleUnit.Degree) { Units = AngleUnit.Radian };
+        Angle deltaPhi = new(stop.Latitude - start.Latitude, AngleUnit.Degree) { Units = AngleUnit.Radian };
+        Angle deltaLong = new(stop.Longitude - start.Longitude, AngleUnit.Degree) { Units = AngleUnit.Radian };
 
         double sinOfHalfPhi = Math.Sin(deltaPhi.Value / 2);
         double sinOfHalfLong = Math.Sin(deltaLong.Value / 2);

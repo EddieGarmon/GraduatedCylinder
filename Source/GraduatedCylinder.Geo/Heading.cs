@@ -30,7 +30,7 @@ public readonly struct Heading
     public const double MaxValue = 360;
     public const double MinValue = 0;
 
-    public static Heading Unknown { get; } = new Heading();
+    public static Heading Unknown { get; } = new();
 
     public static Heading Parse(string heading) {
         return new Heading(double.Parse(heading.TrimEnd(PrettyPrinter.DegreesSymbol)));

@@ -5,7 +5,7 @@ namespace GraduatedCylinder.Geo;
 public class GeoTrail
 {
 
-    private Collection<Datum> _trail = new Collection<Datum>();
+    private Collection<Datum> _trail = new();
 
     public class Datum
     {

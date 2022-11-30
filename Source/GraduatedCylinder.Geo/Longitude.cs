@@ -16,7 +16,7 @@ public readonly struct Longitude : IComparable<Longitude>, IEquatable<Longitude>
         Value = value;
     }
 
-    public char Hemisphere => (Value < 0) ? 'W' : 'E';
+    public char Hemisphere => Value < 0 ? 'W' : 'E';
 
     public double Value { get; }
 
