@@ -8,17 +8,17 @@ public class EnergyOperators
 
     [Fact]
     public void OpAddition() {
-        var energy1 = new Energy(2000, EnergyUnit.NewtonMeters);
-        var energy2 = new Energy(2, EnergyUnit.KiloJoules);
-        var expected = new Energy(4000, EnergyUnit.NewtonMeters);
+        Energy energy1 = new(2000, EnergyUnit.NewtonMeters);
+        Energy energy2 = new(2, EnergyUnit.KiloJoules);
+        Energy expected = new(4000, EnergyUnit.NewtonMeters);
         (energy1 + energy2).ShouldBe(expected);
         (energy2 + energy1).ShouldBe(expected);
     }
 
     [Fact]
     public void OpDivision() {
-        var energy1 = new Energy(2000, EnergyUnit.NewtonMeters);
-        var energy2 = new Energy(2, EnergyUnit.KiloJoules);
+        Energy energy1 = new(2000, EnergyUnit.NewtonMeters);
+        Energy energy2 = new(2, EnergyUnit.KiloJoules);
         (energy1 / energy2).ShouldBeCloseTo(1);
         (energy2 / energy1).ShouldBeCloseTo(1);
 
@@ -28,9 +28,9 @@ public class EnergyOperators
 
     [Fact]
     public void OpEquals() {
-        var energy1 = new Energy(2000, EnergyUnit.NewtonMeters);
-        var energy2 = new Energy(2, EnergyUnit.KiloJoules);
-        var energy3 = new Energy(4000, EnergyUnit.Joules);
+        Energy energy1 = new(2000, EnergyUnit.NewtonMeters);
+        Energy energy2 = new(2, EnergyUnit.KiloJoules);
+        Energy energy3 = new(4000, EnergyUnit.Joules);
         (energy1 == energy2).ShouldBeTrue();
         (energy2 == energy1).ShouldBeTrue();
         (energy1 == energy3).ShouldBeFalse();
@@ -43,9 +43,9 @@ public class EnergyOperators
 
     [Fact]
     public void OpGreaterThan() {
-        var energy1 = new Energy(2000, EnergyUnit.NewtonMeters);
-        var energy2 = new Energy(2, EnergyUnit.KiloJoules);
-        var energy3 = new Energy(4000, EnergyUnit.Joules);
+        Energy energy1 = new(2000, EnergyUnit.NewtonMeters);
+        Energy energy2 = new(2, EnergyUnit.KiloJoules);
+        Energy energy3 = new(4000, EnergyUnit.Joules);
         (energy1 > energy3).ShouldBeFalse();
         (energy3 > energy1).ShouldBeTrue();
         (energy1 > energy2).ShouldBeFalse();
@@ -54,9 +54,9 @@ public class EnergyOperators
 
     [Fact]
     public void OpGreaterThanOrEqual() {
-        var energy1 = new Energy(2000, EnergyUnit.NewtonMeters);
-        var energy2 = new Energy(2, EnergyUnit.KiloJoules);
-        var energy3 = new Energy(4000, EnergyUnit.Joules);
+        Energy energy1 = new(2000, EnergyUnit.NewtonMeters);
+        Energy energy2 = new(2, EnergyUnit.KiloJoules);
+        Energy energy3 = new(4000, EnergyUnit.Joules);
         (energy1 >= energy3).ShouldBeFalse();
         (energy3 >= energy1).ShouldBeTrue();
         (energy1 >= energy2).ShouldBeTrue();
@@ -65,9 +65,9 @@ public class EnergyOperators
 
     [Fact]
     public void OpInverseEquals() {
-        var energy1 = new Energy(2000, EnergyUnit.NewtonMeters);
-        var energy2 = new Energy(2, EnergyUnit.KiloJoules);
-        var energy3 = new Energy(4000, EnergyUnit.Joules);
+        Energy energy1 = new(2000, EnergyUnit.NewtonMeters);
+        Energy energy2 = new(2, EnergyUnit.KiloJoules);
+        Energy energy3 = new(4000, EnergyUnit.Joules);
         (energy1 != energy2).ShouldBeFalse();
         (energy2 != energy1).ShouldBeFalse();
         (energy1 != energy3).ShouldBeTrue();
@@ -76,9 +76,9 @@ public class EnergyOperators
 
     [Fact]
     public void OpLessThan() {
-        var energy1 = new Energy(2000, EnergyUnit.NewtonMeters);
-        var energy2 = new Energy(2, EnergyUnit.KiloJoules);
-        var energy3 = new Energy(4000, EnergyUnit.Joules);
+        Energy energy1 = new(2000, EnergyUnit.NewtonMeters);
+        Energy energy2 = new(2, EnergyUnit.KiloJoules);
+        Energy energy3 = new(4000, EnergyUnit.Joules);
         (energy1 < energy3).ShouldBeTrue();
         (energy3 < energy1).ShouldBeFalse();
         (energy1 < energy2).ShouldBeFalse();
@@ -87,9 +87,9 @@ public class EnergyOperators
 
     [Fact]
     public void OpLessThanOrEqual() {
-        var energy1 = new Energy(2000, EnergyUnit.NewtonMeters);
-        var energy2 = new Energy(2, EnergyUnit.KiloJoules);
-        var energy3 = new Energy(4000, EnergyUnit.Joules);
+        Energy energy1 = new(2000, EnergyUnit.NewtonMeters);
+        Energy energy2 = new(2, EnergyUnit.KiloJoules);
+        Energy energy3 = new(4000, EnergyUnit.Joules);
         (energy1 <= energy3).ShouldBeTrue();
         (energy3 <= energy1).ShouldBeFalse();
         (energy1 <= energy2).ShouldBeTrue();
@@ -98,16 +98,16 @@ public class EnergyOperators
 
     [Fact]
     public void OpMultiplicationScaler() {
-        var energy = new Energy(1, EnergyUnit.KiloJoules);
-        var expected = new Energy(2, EnergyUnit.KiloJoules);
+        Energy energy = new(1, EnergyUnit.KiloJoules);
+        Energy expected = new(2, EnergyUnit.KiloJoules);
         (energy * 2).ShouldBe(expected);
         (2 * energy).ShouldBe(expected);
     }
 
     [Fact]
     public void OpSubtraction() {
-        var energy1 = new Energy(2000, EnergyUnit.Joules);
-        var energy2 = new Energy(1, EnergyUnit.KiloJoules);
+        Energy energy1 = new(2000, EnergyUnit.Joules);
+        Energy energy2 = new(1, EnergyUnit.KiloJoules);
         (energy1 - energy2).ShouldBe(new Energy(1000, EnergyUnit.Joules));
         (energy2 - energy1).ShouldBe(new Energy(-1, EnergyUnit.KiloJoules));
     }

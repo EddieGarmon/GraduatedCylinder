@@ -68,13 +68,13 @@ public class RMC_Sentence
             CurrentSpeed = currentSpeed;
         }
 
-        public Heading CurrentHeading { get; private set; }
+        public Heading CurrentHeading { get; }
 
-        public GeoPosition CurrentLocation { get; private set; }
+        public GeoPosition CurrentLocation { get; }
 
-        public Speed CurrentSpeed { get; private set; }
+        public Speed CurrentSpeed { get; }
 
-        public DateTimeOffset CurrentTime { get; private set; }
+        public DateTimeOffset CurrentTime { get; }
 
     }
 

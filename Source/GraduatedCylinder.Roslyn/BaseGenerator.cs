@@ -13,11 +13,11 @@ public abstract class BaseGenerator : ISourceGenerator
     public string? ExternalGenerationPath { get; private set; }
 
     /// <summary>
-    /// Assembly Name for which this generator should run
+    ///     Assembly Name for which this generator should run
     /// </summary>
     public string[] GeneratorFor { get; }
 
-    protected StringBuilder Buffer { get; set; } = new StringBuilder(16384);
+    protected StringBuilder Buffer { get; set; } = new(16384);
 
 #if DEBUG
     private List<string> Logs { get; set; } = new();
@@ -36,8 +36,7 @@ public abstract class BaseGenerator : ISourceGenerator
             Log($"Execute Started: {DateTime.Now:O}");
             ExecuteInternal(context);
         } catch (Exception e) {
-            DiagnosticDescriptor descriptor =
-                new DiagnosticDescriptor(GetType().Name, "Error", e.ToString(), "Error", DiagnosticSeverity.Error, true);
+            DiagnosticDescriptor descriptor = new(GetType().Name, "Error", e.ToString(), "Error", DiagnosticSeverity.Error, true);
             Diagnostic diagnostic = Diagnostic.Create(descriptor, Location.None);
             context.ReportDiagnostic(diagnostic);
         } finally {
@@ -58,7 +57,7 @@ public abstract class BaseGenerator : ISourceGenerator
             fileName = ExternalGenerationPath + fileName;
         }
         Log($"//Buffer->File: {fileName}; Buffer.Length: {Buffer.Length}; Buffer.Capacity: {Buffer.Capacity}");
-        GeneratedFile file = new GeneratedFile(fileName, Buffer.ToString());
+        GeneratedFile file = new(fileName, Buffer.ToString());
         Buffer.Clear();
 
         return file;
@@ -77,23 +76,23 @@ public abstract class BaseGenerator : ISourceGenerator
     protected bool SetExternalGenerationPath(GeneratorExecutionContext context) {
         ExternalGenerationPath = Environment.GetEnvironmentVariable("GraduatedCylinder");
         if (ExternalGenerationPath is null) {
-            DiagnosticDescriptor descriptor = new DiagnosticDescriptor("GC-ENV-01",
-                                                                       "Build Environment Variable Missing",
-                                                                       "Missing Environment Variable named 'GraduatedCylinder', please add it. It should have the value of the root directory of the repository.",
-                                                                       "Error",
-                                                                       DiagnosticSeverity.Error,
-                                                                       true);
+            DiagnosticDescriptor descriptor = new("GC-ENV-01",
+                                                  "Build Environment Variable Missing",
+                                                  "Missing Environment Variable named 'GraduatedCylinder', please add it. It should have the value of the root directory of the repository.",
+                                                  "Error",
+                                                  DiagnosticSeverity.Error,
+                                                  true);
             Diagnostic diagnostic = Diagnostic.Create(descriptor, Location.None);
             context.ReportDiagnostic(diagnostic);
             return false;
         }
         if (!Directory.Exists(ExternalGenerationPath)) {
-            DiagnosticDescriptor descriptor = new DiagnosticDescriptor("GC-ENV-02",
-                                                                       "Build Environment Variable Invalid",
-                                                                       "Invalid Environment Variable named 'GraduatedCylinder'. It should have the value of the root directory of the repository.",
-                                                                       "Error",
-                                                                       DiagnosticSeverity.Error,
-                                                                       true);
+            DiagnosticDescriptor descriptor = new("GC-ENV-02",
+                                                  "Build Environment Variable Invalid",
+                                                  "Invalid Environment Variable named 'GraduatedCylinder'. It should have the value of the root directory of the repository.",
+                                                  "Error",
+                                                  DiagnosticSeverity.Error,
+                                                  true);
             Diagnostic diagnostic = Diagnostic.Create(descriptor, Location.None);
             context.ReportDiagnostic(diagnostic);
             return false;

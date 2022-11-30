@@ -44,9 +44,9 @@ public class GLL_Sentence
             CurrentTime = currentTime;
         }
 
-        public GeoPosition CurrentLocation { get; private set; }
+        public GeoPosition CurrentLocation { get; }
 
-        public DateTimeOffset CurrentTime { get; private set; }
+        public DateTimeOffset CurrentTime { get; }
 
     }
 

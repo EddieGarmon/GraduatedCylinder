@@ -36,6 +36,6 @@ public enum MagneticFluxUnit : short
 
     [UnitAbbreviation("MWb")]
     [Scale(1e6)]
-    MegaWeber = 6,
+    MegaWeber = 6
 
 }

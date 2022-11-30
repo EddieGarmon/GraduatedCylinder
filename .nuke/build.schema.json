@@ -82,7 +82,7 @@
               "Clean",
               "Compile",
               "Pack",
-              "PushToNuGet",
+              "Publish",
               "Restore",
               "Test"
             ]
@@ -101,7 +101,7 @@
               "Clean",
               "Compile",
               "Pack",
-              "PushToNuGet",
+              "Publish",
               "Restore",
               "Test"
             ]

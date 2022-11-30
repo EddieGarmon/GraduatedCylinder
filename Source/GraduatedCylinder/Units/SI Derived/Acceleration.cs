@@ -3,7 +3,7 @@
 public partial struct Acceleration : IDimension<Acceleration, AccelerationUnit>
 {
 
-    public static Acceleration Gravity => new Acceleration(9.80665f, AccelerationUnit.MeterPerSquareSecond);
+    public static Acceleration Gravity => new(9.80665f, AccelerationUnit.MeterPerSquareSecond);
 
     public static Time operator /(Acceleration acceleration, Jerk jerk) {
         acceleration = acceleration.In(AccelerationUnit.MeterPerSquareSecond);

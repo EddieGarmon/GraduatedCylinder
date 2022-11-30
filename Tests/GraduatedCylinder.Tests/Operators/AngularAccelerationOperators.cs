@@ -8,17 +8,17 @@ public class AngularAngularAccelerationOperators
 
     [Fact]
     public void OpAddition() {
-        var angularAcceleration1 = new AngularAcceleration(3600, AngularAccelerationUnit.RevolutionsPerSquareMinute);
-        var angularAcceleration2 = new AngularAcceleration(1, AngularAccelerationUnit.RevolutionsPerSquareSecond);
-        var expected = new AngularAcceleration(7200, AngularAccelerationUnit.RevolutionsPerSquareMinute);
+        AngularAcceleration angularAcceleration1 = new(3600, AngularAccelerationUnit.RevolutionsPerSquareMinute);
+        AngularAcceleration angularAcceleration2 = new(1, AngularAccelerationUnit.RevolutionsPerSquareSecond);
+        AngularAcceleration expected = new(7200, AngularAccelerationUnit.RevolutionsPerSquareMinute);
         (angularAcceleration1 + angularAcceleration2).ShouldBe(expected);
         (angularAcceleration2 + angularAcceleration1).ShouldBe(expected);
     }
 
     [Fact]
     public void OpDivision() {
-        var angularAcceleration1 = new AngularAcceleration(3600, AngularAccelerationUnit.RevolutionsPerSquareMinute);
-        var angularAcceleration2 = new AngularAcceleration(1, AngularAccelerationUnit.RevolutionsPerSquareSecond);
+        AngularAcceleration angularAcceleration1 = new(3600, AngularAccelerationUnit.RevolutionsPerSquareMinute);
+        AngularAcceleration angularAcceleration2 = new(1, AngularAccelerationUnit.RevolutionsPerSquareSecond);
         (angularAcceleration1 / angularAcceleration2).ShouldBeCloseTo(1);
         (angularAcceleration2 / angularAcceleration1).ShouldBeCloseTo(1);
 
@@ -28,8 +28,8 @@ public class AngularAngularAccelerationOperators
 
     [Fact]
     public void OpEquals() {
-        var angularAcceleration1 = new AngularAcceleration(3600, AngularAccelerationUnit.RevolutionsPerSquareMinute);
-        var angularAcceleration2 = new AngularAcceleration(1, AngularAccelerationUnit.RevolutionsPerSquareSecond);
+        AngularAcceleration angularAcceleration1 = new(3600, AngularAccelerationUnit.RevolutionsPerSquareMinute);
+        AngularAcceleration angularAcceleration2 = new(1, AngularAccelerationUnit.RevolutionsPerSquareSecond);
         (angularAcceleration1 == angularAcceleration2).ShouldBeTrue();
         (angularAcceleration2 == angularAcceleration1).ShouldBeTrue();
         angularAcceleration1.Equals(angularAcceleration2).ShouldBeTrue();
@@ -40,9 +40,9 @@ public class AngularAngularAccelerationOperators
 
     [Fact]
     public void OpGreaterThan() {
-        var angularAcceleration1 = new AngularAcceleration(3600, AngularAccelerationUnit.RevolutionsPerSquareMinute);
-        var angularAcceleration2 = new AngularAcceleration(1, AngularAccelerationUnit.RevolutionsPerSquareSecond);
-        var angularAcceleration3 = new AngularAcceleration(180, AngularAccelerationUnit.RevolutionsPerSquareMinute);
+        AngularAcceleration angularAcceleration1 = new(3600, AngularAccelerationUnit.RevolutionsPerSquareMinute);
+        AngularAcceleration angularAcceleration2 = new(1, AngularAccelerationUnit.RevolutionsPerSquareSecond);
+        AngularAcceleration angularAcceleration3 = new(180, AngularAccelerationUnit.RevolutionsPerSquareMinute);
         (angularAcceleration1 > angularAcceleration3).ShouldBeTrue();
         (angularAcceleration3 > angularAcceleration1).ShouldBeFalse();
         (angularAcceleration1 > angularAcceleration2).ShouldBeFalse();
@@ -51,9 +51,9 @@ public class AngularAngularAccelerationOperators
 
     [Fact]
     public void OpGreaterThanOrEqual() {
-        var angularAcceleration1 = new AngularAcceleration(3600, AngularAccelerationUnit.RevolutionsPerSquareMinute);
-        var angularAcceleration2 = new AngularAcceleration(1, AngularAccelerationUnit.RevolutionsPerSquareSecond);
-        var angularAcceleration3 = new AngularAcceleration(180, AngularAccelerationUnit.RevolutionsPerSquareMinute);
+        AngularAcceleration angularAcceleration1 = new(3600, AngularAccelerationUnit.RevolutionsPerSquareMinute);
+        AngularAcceleration angularAcceleration2 = new(1, AngularAccelerationUnit.RevolutionsPerSquareSecond);
+        AngularAcceleration angularAcceleration3 = new(180, AngularAccelerationUnit.RevolutionsPerSquareMinute);
         (angularAcceleration1 >= angularAcceleration3).ShouldBeTrue();
         (angularAcceleration3 >= angularAcceleration1).ShouldBeFalse();
         (angularAcceleration1 >= angularAcceleration2).ShouldBeTrue();
@@ -62,9 +62,9 @@ public class AngularAngularAccelerationOperators
 
     [Fact]
     public void OpLessThan() {
-        var angularAcceleration1 = new AngularAcceleration(3600, AngularAccelerationUnit.RevolutionsPerSquareMinute);
-        var angularAcceleration2 = new AngularAcceleration(1, AngularAccelerationUnit.RevolutionsPerSquareSecond);
-        var angularAcceleration3 = new AngularAcceleration(180, AngularAccelerationUnit.RevolutionsPerSquareMinute);
+        AngularAcceleration angularAcceleration1 = new(3600, AngularAccelerationUnit.RevolutionsPerSquareMinute);
+        AngularAcceleration angularAcceleration2 = new(1, AngularAccelerationUnit.RevolutionsPerSquareSecond);
+        AngularAcceleration angularAcceleration3 = new(180, AngularAccelerationUnit.RevolutionsPerSquareMinute);
         (angularAcceleration1 < angularAcceleration3).ShouldBeFalse();
         (angularAcceleration3 < angularAcceleration1).ShouldBeTrue();
         (angularAcceleration1 < angularAcceleration2).ShouldBeFalse();
@@ -73,9 +73,9 @@ public class AngularAngularAccelerationOperators
 
     [Fact]
     public void OpLessThanOrEqual() {
-        var angularAcceleration1 = new AngularAcceleration(3600, AngularAccelerationUnit.RevolutionsPerSquareMinute);
-        var angularAcceleration2 = new AngularAcceleration(1, AngularAccelerationUnit.RevolutionsPerSquareSecond);
-        var angularAcceleration3 = new AngularAcceleration(180, AngularAccelerationUnit.RevolutionsPerSquareMinute);
+        AngularAcceleration angularAcceleration1 = new(3600, AngularAccelerationUnit.RevolutionsPerSquareMinute);
+        AngularAcceleration angularAcceleration2 = new(1, AngularAccelerationUnit.RevolutionsPerSquareSecond);
+        AngularAcceleration angularAcceleration3 = new(180, AngularAccelerationUnit.RevolutionsPerSquareMinute);
         (angularAcceleration1 <= angularAcceleration3).ShouldBeFalse();
         (angularAcceleration3 <= angularAcceleration1).ShouldBeTrue();
         (angularAcceleration1 <= angularAcceleration2).ShouldBeTrue();
@@ -84,17 +84,17 @@ public class AngularAngularAccelerationOperators
 
     [Fact]
     public void OpMultiplicationScaler() {
-        var angularAcceleration = new AngularAcceleration(1, AngularAccelerationUnit.RevolutionsPerSquareSecond);
-        var expected = new AngularAcceleration(2, AngularAccelerationUnit.RevolutionsPerSquareSecond);
+        AngularAcceleration angularAcceleration = new(1, AngularAccelerationUnit.RevolutionsPerSquareSecond);
+        AngularAcceleration expected = new(2, AngularAccelerationUnit.RevolutionsPerSquareSecond);
         (angularAcceleration * 2).ShouldBe(expected);
         (2 * angularAcceleration).ShouldBe(expected);
     }
 
     [Fact]
     public void OpNotEquals() {
-        var angularAcceleration1 = new AngularAcceleration(3600, AngularAccelerationUnit.RevolutionsPerSquareMinute);
-        var angularAcceleration2 = new AngularAcceleration(1, AngularAccelerationUnit.RevolutionsPerSquareSecond);
-        var angularAcceleration3 = new AngularAcceleration(180, AngularAccelerationUnit.RevolutionsPerSquareMinute);
+        AngularAcceleration angularAcceleration1 = new(3600, AngularAccelerationUnit.RevolutionsPerSquareMinute);
+        AngularAcceleration angularAcceleration2 = new(1, AngularAccelerationUnit.RevolutionsPerSquareSecond);
+        AngularAcceleration angularAcceleration3 = new(180, AngularAccelerationUnit.RevolutionsPerSquareMinute);
         (angularAcceleration1 != angularAcceleration2).ShouldBeFalse();
         (angularAcceleration2 != angularAcceleration1).ShouldBeFalse();
         (angularAcceleration1 != angularAcceleration3).ShouldBeTrue();
@@ -103,8 +103,8 @@ public class AngularAngularAccelerationOperators
 
     [Fact]
     public void OpSubtraction() {
-        var angularAcceleration1 = new AngularAcceleration(120, AngularAccelerationUnit.RevolutionsPerSquareMinute);
-        var angularAcceleration2 = new AngularAcceleration(40, AngularAccelerationUnit.RevolutionsPerSquareMinute);
+        AngularAcceleration angularAcceleration1 = new(120, AngularAccelerationUnit.RevolutionsPerSquareMinute);
+        AngularAcceleration angularAcceleration2 = new(40, AngularAccelerationUnit.RevolutionsPerSquareMinute);
         (angularAcceleration1 - angularAcceleration2).ShouldBe(
             new AngularAcceleration(80, AngularAccelerationUnit.RevolutionsPerSquareMinute));
     }

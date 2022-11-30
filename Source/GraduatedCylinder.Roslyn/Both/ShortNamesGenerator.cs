@@ -34,7 +34,7 @@ public class ShortNamesGenerator : BaseGenerator
         Buffer.AppendLine("{");
 
         StringBuilder getAbbreviation = Buffer;
-        StringBuilder getUnits = new StringBuilder();
+        StringBuilder getUnits = new();
 
         foreach (EnumDeclarationSyntax @enum in receiver.GetUnits(context.Compilation)) {
             Log($"Generating Abbreviations for {@enum.Identifier}");

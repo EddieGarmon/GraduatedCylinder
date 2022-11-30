@@ -121,6 +121,6 @@ public enum AngleUnit : short
     [UnitAbbreviation("rev")]
     [Scale(6.28318530717959)]
     [Extension("Revolutions")]
-    Revolutions = 120,
+    Revolutions = 120
 
 }

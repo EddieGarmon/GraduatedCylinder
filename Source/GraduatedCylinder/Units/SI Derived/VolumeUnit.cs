@@ -98,6 +98,6 @@ public enum VolumeUnit : short
 
     [UnitAbbreviation("gal-UK")]
     [Scale(.00454609)]
-    GallonsUK = 160,
+    GallonsUK = 160
 
 }

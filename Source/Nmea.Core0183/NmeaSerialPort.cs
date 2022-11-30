@@ -55,7 +55,7 @@ public sealed class NmeaSerialPort : ITalkSentences, IDisposable
     }
 
     public void Send(Sentence sentence) {
-        _port.Write(sentence.ToString(includeChecksum: false));
+        _port.Write(sentence.ToString(false));
     }
 
     private void AppendToBuffer(char[] data) {
@@ -87,7 +87,7 @@ public sealed class NmeaSerialPort : ITalkSentences, IDisposable
     private string? GetNextBufferedSentence() {
         for (int i = _bufferHead; i < _bufferTail; i++) {
             if (_buffer[i] == '\r' && _buffer[i + 1] == '\n') {
-                string result = new string(_buffer, _bufferHead, i - _bufferHead);
+                string result = new(_buffer, _bufferHead, i - _bufferHead);
                 _bufferHead = i + 2;
                 return result;
             }
@@ -113,7 +113,7 @@ public sealed class NmeaSerialPort : ITalkSentences, IDisposable
                 possibleSentence = GetNextBufferedSentence();
             }
         } catch (Exception ex) {
-            string bufferContent = new string(_buffer, _bufferHead, _bufferTail - _bufferHead);
+            string bufferContent = new(_buffer, _bufferHead, _bufferTail - _bufferHead);
             ParseException?.Invoke(ex, bufferContent);
             //clear buffer and restart parsing
             _bufferHead = 0;

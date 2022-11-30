@@ -44,6 +44,6 @@ public enum AngularAccelerationUnit : short
 
     [UnitAbbreviation("rev/hr²")]
     [Scale(4.8481368110953599358991410235795e-7)]
-    RevolutionsPerSquareHour = 202,
+    RevolutionsPerSquareHour = 202
 
 }

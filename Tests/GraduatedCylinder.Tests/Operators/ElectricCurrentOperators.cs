@@ -8,17 +8,17 @@ public class ElectricCurrentOperators
 
     [Fact]
     public void OpAddition() {
-        var current1 = new ElectricCurrent(3000, ElectricCurrentUnit.Ampere);
-        var current2 = new ElectricCurrent(1, ElectricCurrentUnit.KiloAmpere);
-        var expected = new ElectricCurrent(4000, ElectricCurrentUnit.Ampere);
+        ElectricCurrent current1 = new(3000, ElectricCurrentUnit.Ampere);
+        ElectricCurrent current2 = new(1, ElectricCurrentUnit.KiloAmpere);
+        ElectricCurrent expected = new(4000, ElectricCurrentUnit.Ampere);
         (current1 + current2).ShouldBe(expected);
         (current2 + current1).ShouldBe(expected);
     }
 
     [Fact]
     public void OpDivision() {
-        var current1 = new ElectricCurrent(2000, ElectricCurrentUnit.Ampere);
-        var current2 = new ElectricCurrent(2, ElectricCurrentUnit.KiloAmpere);
+        ElectricCurrent current1 = new(2000, ElectricCurrentUnit.Ampere);
+        ElectricCurrent current2 = new(2, ElectricCurrentUnit.KiloAmpere);
         (current1 / current2).ShouldBeCloseTo(1);
         (current2 / current1).ShouldBeCloseTo(1);
 
@@ -28,9 +28,9 @@ public class ElectricCurrentOperators
 
     [Fact]
     public void OpEquals() {
-        var current1 = new ElectricCurrent(3000, ElectricCurrentUnit.Ampere);
-        var current2 = new ElectricCurrent(3, ElectricCurrentUnit.KiloAmpere);
-        var current3 = new ElectricCurrent(6, ElectricCurrentUnit.KiloAmpere);
+        ElectricCurrent current1 = new(3000, ElectricCurrentUnit.Ampere);
+        ElectricCurrent current2 = new(3, ElectricCurrentUnit.KiloAmpere);
+        ElectricCurrent current3 = new(6, ElectricCurrentUnit.KiloAmpere);
         (current1 == current2).ShouldBeTrue();
         (current2 == current1).ShouldBeTrue();
         (current1 == current3).ShouldBeFalse();
@@ -43,9 +43,9 @@ public class ElectricCurrentOperators
 
     [Fact]
     public void OpGreaterThan() {
-        var current1 = new ElectricCurrent(3000, ElectricCurrentUnit.Ampere);
-        var current2 = new ElectricCurrent(3, ElectricCurrentUnit.KiloAmpere);
-        var current3 = new ElectricCurrent(6, ElectricCurrentUnit.KiloAmpere);
+        ElectricCurrent current1 = new(3000, ElectricCurrentUnit.Ampere);
+        ElectricCurrent current2 = new(3, ElectricCurrentUnit.KiloAmpere);
+        ElectricCurrent current3 = new(6, ElectricCurrentUnit.KiloAmpere);
         (current1 > current3).ShouldBeFalse();
         (current3 > current1).ShouldBeTrue();
         (current1 > current2).ShouldBeFalse();
@@ -54,9 +54,9 @@ public class ElectricCurrentOperators
 
     [Fact]
     public void OpGreaterThanOrEqual() {
-        var current1 = new ElectricCurrent(3000, ElectricCurrentUnit.Ampere);
-        var current2 = new ElectricCurrent(3, ElectricCurrentUnit.KiloAmpere);
-        var current3 = new ElectricCurrent(6, ElectricCurrentUnit.KiloAmpere);
+        ElectricCurrent current1 = new(3000, ElectricCurrentUnit.Ampere);
+        ElectricCurrent current2 = new(3, ElectricCurrentUnit.KiloAmpere);
+        ElectricCurrent current3 = new(6, ElectricCurrentUnit.KiloAmpere);
         (current1 >= current3).ShouldBeFalse();
         (current3 >= current1).ShouldBeTrue();
         (current1 >= current2).ShouldBeTrue();
@@ -65,9 +65,9 @@ public class ElectricCurrentOperators
 
     [Fact]
     public void OpInverseEquals() {
-        var current1 = new ElectricCurrent(3000, ElectricCurrentUnit.Ampere);
-        var current2 = new ElectricCurrent(3, ElectricCurrentUnit.KiloAmpere);
-        var current3 = new ElectricCurrent(6, ElectricCurrentUnit.KiloAmpere);
+        ElectricCurrent current1 = new(3000, ElectricCurrentUnit.Ampere);
+        ElectricCurrent current2 = new(3, ElectricCurrentUnit.KiloAmpere);
+        ElectricCurrent current3 = new(6, ElectricCurrentUnit.KiloAmpere);
         (current1 != current2).ShouldBeFalse();
         (current2 != current1).ShouldBeFalse();
         (current1 != current3).ShouldBeTrue();
@@ -76,9 +76,9 @@ public class ElectricCurrentOperators
 
     [Fact]
     public void OpLessThan() {
-        var current1 = new ElectricCurrent(3000, ElectricCurrentUnit.Ampere);
-        var current2 = new ElectricCurrent(3, ElectricCurrentUnit.KiloAmpere);
-        var current3 = new ElectricCurrent(6, ElectricCurrentUnit.KiloAmpere);
+        ElectricCurrent current1 = new(3000, ElectricCurrentUnit.Ampere);
+        ElectricCurrent current2 = new(3, ElectricCurrentUnit.KiloAmpere);
+        ElectricCurrent current3 = new(6, ElectricCurrentUnit.KiloAmpere);
         (current1 < current3).ShouldBeTrue();
         (current3 < current1).ShouldBeFalse();
         (current1 < current2).ShouldBeFalse();
@@ -87,9 +87,9 @@ public class ElectricCurrentOperators
 
     [Fact]
     public void OpLessThanOrEqual() {
-        var current1 = new ElectricCurrent(3000, ElectricCurrentUnit.Ampere);
-        var current2 = new ElectricCurrent(3, ElectricCurrentUnit.KiloAmpere);
-        var current3 = new ElectricCurrent(6, ElectricCurrentUnit.KiloAmpere);
+        ElectricCurrent current1 = new(3000, ElectricCurrentUnit.Ampere);
+        ElectricCurrent current2 = new(3, ElectricCurrentUnit.KiloAmpere);
+        ElectricCurrent current3 = new(6, ElectricCurrentUnit.KiloAmpere);
         (current1 <= current3).ShouldBeTrue();
         (current3 <= current1).ShouldBeFalse();
         (current1 <= current2).ShouldBeTrue();
@@ -98,16 +98,16 @@ public class ElectricCurrentOperators
 
     [Fact]
     public void OpMultiplicationScaler() {
-        var current = new ElectricCurrent(1, ElectricCurrentUnit.Ampere);
-        var expected = new ElectricCurrent(2, ElectricCurrentUnit.Ampere);
+        ElectricCurrent current = new(1, ElectricCurrentUnit.Ampere);
+        ElectricCurrent expected = new(2, ElectricCurrentUnit.Ampere);
         (current * 2).ShouldBe(expected);
         (2 * current).ShouldBe(expected);
     }
 
     [Fact]
     public void OpSubtraction() {
-        var current1 = new ElectricCurrent(7000, ElectricCurrentUnit.Ampere);
-        var current2 = new ElectricCurrent(1, ElectricCurrentUnit.KiloAmpere);
+        ElectricCurrent current1 = new(7000, ElectricCurrentUnit.Ampere);
+        ElectricCurrent current2 = new(1, ElectricCurrentUnit.KiloAmpere);
         (current1 - current2).ShouldBe(new ElectricCurrent(6000, ElectricCurrentUnit.Ampere));
         (current2 - current1).ShouldBe(new ElectricCurrent(-6, ElectricCurrentUnit.KiloAmpere));
     }

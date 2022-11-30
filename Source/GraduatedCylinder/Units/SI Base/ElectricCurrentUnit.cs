@@ -95,6 +95,6 @@ public enum ElectricCurrentUnit : short
 
     [UnitAbbreviation("YA")]
     [Scale(1e24)]
-    YottaAmpere = 24,
+    YottaAmpere = 24
 
 }

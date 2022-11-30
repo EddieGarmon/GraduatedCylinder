@@ -3,10 +3,10 @@
 internal static class Commands
 {
 
-    internal static Command PowerOff { get; } = new Command("PO");
+    internal static Command PowerOff { get; } = new("PO");
 
-    internal static Command Start { get; } = new Command("GO");
+    internal static Command Start { get; } = new("GO");
 
-    internal static Command Stop { get; } = new Command("ST");
+    internal static Command Stop { get; } = new("ST");
 
 }

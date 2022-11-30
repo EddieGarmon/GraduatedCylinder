@@ -11,7 +11,7 @@ public static class NmeaClock
 
     public static DateTimeOffset GetDateTime(TimeSpan timeOfDay) {
         DateTime dateTime = GetDate() + timeOfDay;
-        DateTimeOffset dateTimeOffset = new DateTimeOffset(dateTime, TimeSpan.Zero);
+        DateTimeOffset dateTimeOffset = new(dateTime, TimeSpan.Zero);
         return dateTimeOffset;
     }
 

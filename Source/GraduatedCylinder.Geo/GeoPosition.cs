@@ -6,24 +6,20 @@ namespace GraduatedCylinder.Geo;
 public readonly struct GeoPosition
 {
 
-    private readonly Latitude _latitude;
-    private readonly Longitude _longitude;
-    private readonly Length _altitude;
-
     public GeoPosition(Latitude latitude, Longitude longitude)
         : this(latitude, longitude, Length.Unknown) { }
 
     public GeoPosition(Latitude latitude, Longitude longitude, Length altitude) {
-        _latitude = latitude;
-        _longitude = longitude;
-        _altitude = altitude;
+        Latitude = latitude;
+        Longitude = longitude;
+        Altitude = altitude;
     }
 
-    public Length Altitude => _altitude;
+    public Length Altitude { get; }
 
-    public Latitude Latitude => _latitude;
+    public Latitude Latitude { get; }
 
-    public Longitude Longitude => _longitude;
+    public Longitude Longitude { get; }
 
     public override string ToString() {
         return Altitude == Length.Unknown ? ToStringWithoutAltitude() : ToStringWithAltitude();

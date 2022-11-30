@@ -15,7 +15,7 @@ public readonly struct Latitude : IComparable<Latitude>, IEquatable<Latitude>
         Value = value;
     }
 
-    public char Hemisphere => (Value < 0) ? 'S' : 'N';
+    public char Hemisphere => Value < 0 ? 'S' : 'N';
 
     public double Value { get; }
 
@@ -42,9 +42,9 @@ public readonly struct Latitude : IComparable<Latitude>, IEquatable<Latitude>
     public const double MaxValue = 90.0;
     public const double MinValue = -90.0;
 
-    public static Latitude NorthPole { get; } = new Latitude(MaxValue);
+    public static Latitude NorthPole { get; } = new(MaxValue);
 
-    public static Latitude SouthPole { get; } = new Latitude(MinValue);
+    public static Latitude SouthPole { get; } = new(MinValue);
 
     public static bool operator ==(Latitude left, Latitude right) {
         return GeoComparer.AreEqual(left, right);

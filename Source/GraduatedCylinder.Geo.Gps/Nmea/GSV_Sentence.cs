@@ -55,7 +55,7 @@ public class GSV_Sentence
             Satellites = satellites;
         }
 
-        public IEnumerable<SatelliteInfo> Satellites { get; private set; }
+        public IEnumerable<SatelliteInfo> Satellites { get; }
 
     }
 

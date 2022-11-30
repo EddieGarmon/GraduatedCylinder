@@ -44,6 +44,6 @@ public enum AngularSpeedUnit : short
 
     [UnitAbbreviation("rph")]
     [Scale(0.00174532925199433)]
-    RevolutionsPerHour = 202,
+    RevolutionsPerHour = 202
 
 }

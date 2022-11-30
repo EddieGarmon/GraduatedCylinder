@@ -9,8 +9,8 @@ public class NmeaSerialPortSpec
     [Fact]
     public void EmptyLinesInBuffer() {
         int counter = 0;
-        EmulatedSerialPort port = new EmulatedSerialPort();
-        NmeaSerialPort nmea = new NmeaSerialPort(port);
+        EmulatedSerialPort port = new();
+        NmeaSerialPort nmea = new(port);
         nmea.SentenceReceived += sentence => { counter++; };
         nmea.Open();
         port.QueueData("$sent1\r\n\r\n$sent2\r\n".ToCharArray());
@@ -23,8 +23,8 @@ public class NmeaSerialPortSpec
     [Fact]
     public void MultipleSentencesInBuffer() {
         int counter = 0;
-        EmulatedSerialPort port = new EmulatedSerialPort();
-        NmeaSerialPort nmea = new NmeaSerialPort(port);
+        EmulatedSerialPort port = new();
+        NmeaSerialPort nmea = new(port);
         nmea.SentenceReceived += sentence => { counter++; };
         nmea.Open();
         port.QueueData("$sent1\r\n$sent2\r\n".ToCharArray());
@@ -37,8 +37,8 @@ public class NmeaSerialPortSpec
     [Fact]
     public void PartialSentenceInBuffer() {
         int counter = 0;
-        EmulatedSerialPort port = new EmulatedSerialPort();
-        NmeaSerialPort nmea = new NmeaSerialPort(port);
+        EmulatedSerialPort port = new();
+        NmeaSerialPort nmea = new(port);
         nmea.SentenceReceived += sentence => { counter++; };
         nmea.Open();
         port.QueueData("$sent1\r\n$sent2\r\n$sent3".ToCharArray());
@@ -51,8 +51,8 @@ public class NmeaSerialPortSpec
     [Fact]
     public void SplitNewlineAcrossTwoReceiveEvents() {
         int counter = 0;
-        EmulatedSerialPort port = new EmulatedSerialPort();
-        NmeaSerialPort nmea = new NmeaSerialPort(port);
+        EmulatedSerialPort port = new();
+        NmeaSerialPort nmea = new(port);
         nmea.SentenceReceived += sentence => { counter++; };
         nmea.Open();
         port.QueueData("$sent1\r".ToCharArray());
@@ -69,8 +69,8 @@ public class NmeaSerialPortSpec
     [Fact]
     public void StartMidSentence() {
         int counter = 0;
-        EmulatedSerialPort port = new EmulatedSerialPort();
-        NmeaSerialPort nmea = new NmeaSerialPort(port);
+        EmulatedSerialPort port = new();
+        NmeaSerialPort nmea = new(port);
         nmea.SentenceReceived += sentence => { counter++; };
         nmea.Open();
         port.QueueData("nt1\r\n$sent2\r\n".ToCharArray());
