@@ -2,8 +2,7 @@
 [Bb]in
 *.g.cs
 
-Deploy/*
-Tools/*
+Artifacts/*
 
 **/.vs/*
 
