@@ -100,6 +100,10 @@ public enum AccelerationUnit : short
 
     [UnitAbbreviation("mph/s")]
     [Scale(0.44704)]
-    MilePerHourPerSecond = 102
+    MilePerHourPerSecond = 102,
+
+    [UnitAbbreviation("ft/s²")]
+    [Scale(0.3048)]
+    FeetPerSquareSecond = 103
 
 }
