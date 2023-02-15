@@ -51,4 +51,10 @@ public partial struct Power : IDimension<Power, PowerUnit>
         return new ElectricPotential(power.Value / current.Value, ElectricPotentialUnit.Volt);
     }
 
+    public static Energy operator *(Power power, Time time) {
+        power = power.In(PowerUnit.NewtonMetersPerSecond);
+        time = time.In(TimeUnit.Second);
+        return new Energy(time.Value * power.Value, EnergyUnit.NewtonMeters);
+    }
+
 }

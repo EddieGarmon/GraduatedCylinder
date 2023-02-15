@@ -18,6 +18,7 @@ public enum ForceUnit : short
 
     [UnitAbbreviation("lbf")]
     [Scale(4.44822)]
+    [Extension("PoundForce")]
     PoundForce = 1,
 
     [UnitAbbreviation("kgf")]
