@@ -107,7 +107,7 @@ public enum MassUnit : short
 
     [UnitAbbreviation("lbs")]
     [Scale(0.45359237)]
-    [Extension("Pounds")]
+    [Extension("PoundMass")]
     Pounds = 103,
 
     [UnitAbbreviation("T")]
