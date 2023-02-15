@@ -17,4 +17,10 @@ public partial struct Speed : IDimension<Speed, SpeedUnit>
         return new Time(speed.Value / acceleration.Value, TimeUnit.Second);
     }
 
+    public static Length operator *(Speed speed, Time time) {
+        speed = speed.In(SpeedUnit.MeterPerSecond);
+        time = time.In(TimeUnit.Second);
+        return new Length(speed.Value / time.Value, LengthUnit.Meter);
+    }
+
 }
