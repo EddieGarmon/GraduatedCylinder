@@ -118,14 +118,17 @@ public enum TimeUnit : short
 
     [UnitAbbreviation("week")]
     [Scale(604800)]
+    [Extension("Weeks")]
     Weeks = 113,
 
     [UnitAbbreviation("month")]
     [Scale(2629746)]
+    [Extension("Months")]
     Months = 114,
 
     [UnitAbbreviation("year")]
     [Scale(3.154e+7)]
+    [Extension("Years")]
     Years = 115
 
 }

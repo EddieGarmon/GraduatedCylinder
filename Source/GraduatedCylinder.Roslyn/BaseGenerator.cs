@@ -1,8 +1,12 @@
-﻿using System.Text;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text;
 using Microsoft.CodeAnalysis;
 
 namespace GraduatedCylinder.Roslyn;
 
+[SuppressMessage("MicrosoftCodeAnalysisCorrectness",
+                 "RS1035:Do not use APIs banned for analyzers",
+                 Justification = "Were doin our own thing")]
 public abstract class BaseGenerator : ISourceGenerator
 {
 
@@ -17,7 +21,7 @@ public abstract class BaseGenerator : ISourceGenerator
     /// </summary>
     public string[] GeneratorFor { get; }
 
-    protected StringBuilder Buffer { get; set; } = new(16384);
+    protected StringBuilder Buffer { get; set; } = new(0x4000);
 
 #if DEBUG
     private List<string> Logs { get; set; } = new();

@@ -21,6 +21,7 @@ public enum PressureUnit : short
 
     [UnitAbbreviation("kPa")]
     [Scale(1e3)]
+    [Extension("KiloPascals")]
     KiloPascals = 3,
 
     [UnitAbbreviation("bar")]
