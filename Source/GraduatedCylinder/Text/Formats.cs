@@ -1,7 +1,11 @@
-﻿#nullable enable
-using System.Globalization;
+﻿using System.Globalization;
 
+#if GraduatedCylinder
 namespace GraduatedCylinder.Text;
+#endif
+#if Pipette
+namespace Pipette.Text;
+#endif
 
 internal static class Formats
 {

@@ -37,48 +37,18 @@ class Build : NukeBuild
               .Executes(() => {
                             PathToSources.GlobDirectories("**/bin", "**/obj").ForEach(path => path.DeleteDirectory());
                             PathToTests.GlobDirectories("**/bin", "**/obj").ForEach(path => path.DeleteDirectory());
-                            PathToSources.GlobFiles("**/*.g.cs").ForEach(path => path.DeleteFile());
                             PathToArtifacts.CreateOrCleanDirectory();
                         });
 
     Target Compile =>
         _ => _.DependsOn(Restore)
               .Executes(() => {
-                            // The build depends on massive code generation, so project build order matters
-                            // therefore we cannot just build the solution, unfortunately
-
-                            string[] buildOrder = {
-                                //Libraries
-                                "GraduatedCylinder.Roslyn",
-                                "Nmea.Core0183",
-                                "GraduatedCylinder",
-                                "GraduatedCylinder.Geo",
-                                "GraduatedCylinder.Geo.Gps",
-                                "GraduatedCylinder.Geo.Laser",
-                                "GraduatedCylinder.Json",
-                                "GraduatedCylinder.IoT",
-                                "GraduatedCylinder.IoT.Text",
-                                "GraduatedCylinder.IoT.Json",
-
-                                //Tests
-                                "Nmea.Core0183.Tests",
-                                "GraduatedCylinder.Tests",
-                                "GraduatedCylinder.Geo.Tests",
-                                "GraduatedCylinder.Geo.Gps.Tests",
-                                "GraduatedCylinder.Geo.Laser.Tests",
-                                "GraduatedCylinder.Json.Tests",
-                                "GraduatedCylinder.IoT.Tests"
-                            };
-
-                            foreach (string name in buildOrder) {
-                                Project project = Solution.AllProjects.Single(p => p.Name == name);
-                                DotNetBuild(s => s.SetProjectFile(project.Path)
-                                                  .SetConfiguration(Configuration)
-                                                  .EnableNoLogo()
-                                                  .EnableNoRestore()
-                                                  .EnableDeterministic()
-                                                  .EnableContinuousIntegrationBuild());
-                            }
+                            DotNetBuild(s => s.SetProjectFile(Solution)
+                                              .SetConfiguration(Configuration)
+                                              .EnableNoLogo()
+                                              .EnableNoRestore()
+                                              .EnableDeterministic()
+                                              .EnableContinuousIntegrationBuild());
                         });
 
     Target Pack =>
@@ -86,13 +56,13 @@ class Build : NukeBuild
               .After(Test)
               .Produces(PathToArtifacts)
               .Executes(() => {
-                            DotNetPack(s => s.SetConfiguration(Configuration)
+                            DotNetPack(s => s.SetProject(Solution)
+                                             .SetConfiguration(Configuration)
                                              .SetOutputDirectory(PathToArtifacts)
                                              .EnableNoLogo()
                                              .EnableNoRestore()
                                              .EnableNoBuild()
-                                             .EnableContinuousIntegrationBuild()
-                                             .SetProject(Solution));
+                                             .EnableContinuousIntegrationBuild());
                         });
 
     AbsolutePath PathToArtifacts => RootDirectory / "Artifacts";

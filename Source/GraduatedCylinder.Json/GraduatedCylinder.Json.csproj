@@ -2,9 +2,6 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net6.0;net7.0;net8.0</TargetFrameworks>
-    <LangVersion>10</LangVersion>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
 
     <OutputType>Library</OutputType>
     <AssemblyName>GraduatedCylinder.Json</AssemblyName>
@@ -17,11 +14,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Text.Json" Version="8.0.0" />
+    <!-- Note that this is not a "normal" ProjectReference.
+         It needs the additional 'OutputItemType' and 'ReferenceOutputAssmbly' attributes. -->
+    <ProjectReference Include="..\GraduatedCylinder\GraduatedCylinder.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GraduatedCylinder\GraduatedCylinder.csproj" />
+    <PackageReference Include="System.Text.Json" Version="8.0.0" />
   </ItemGroup>
 
 </Project>

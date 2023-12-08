@@ -1,6 +1,11 @@
 ﻿using System.Text.RegularExpressions;
 
+#if GraduatedCylinder
 namespace GraduatedCylinder.Text;
+#endif
+#if Pipette
+namespace Pipette.Text;
+#endif
 
 internal static class Regexs
 {

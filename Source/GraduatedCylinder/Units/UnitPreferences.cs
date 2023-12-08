@@ -1,4 +1,9 @@
-﻿namespace GraduatedCylinder;
+﻿#if GraduatedCylinder
+namespace GraduatedCylinder;
+#endif
+#if Pipette
+namespace Pipette;
+#endif
 
 public partial class UnitPreferences
 {
@@ -22,7 +27,6 @@ public partial class UnitPreferences
             PressureUnit = PressureUnit.PoundsPerSquareInch,
             SpeedUnit = SpeedUnit.MilesPerHour,
             TemperatureUnit = TemperatureUnit.Fahrenheit,
-            TimeUnit = TimeUnit.Hours,
             TorqueUnit = TorqueUnit.FootPounds,
             VolumeUnit = VolumeUnit.GallonsUSLiquid,
             VolumetricFlowRateUnit = VolumetricFlowRateUnit.GallonsUsPerHour

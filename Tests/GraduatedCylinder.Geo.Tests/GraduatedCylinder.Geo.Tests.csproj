@@ -2,14 +2,9 @@
 
   <PropertyGroup>
     <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
-    <LangVersion>10</LangVersion>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
 
     <AssemblyName>GraduatedCylinder.Geo.Tests</AssemblyName>
     <RootNamespace>GraduatedCylinder.Geo</RootNamespace>
-
-    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
