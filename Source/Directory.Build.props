@@ -21,7 +21,7 @@
         <IncludeSource>false</IncludeSource>
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
 
-        <Version>7.1.0</Version>
+        <Version>8.0.0-alpha.1</Version>
     </PropertyGroup>
 
     <ItemGroup>
