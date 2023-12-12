@@ -119,7 +119,7 @@ class Build : NukeBuild
                                              .CombineWith(testProjects,
                                                           (s, p) => s.SetProjectFile(p).SetLoggers($"trx;LogFileName={p.Name}.trx")));
 
-                            foreach (AbsolutePath path in PathToTestResults.GlobFiles("*.trx")) {
+                            foreach (AbsolutePath path in PathToTestOutput.GlobFiles("*.trx")) {
                                 TrxHelper helper = new(path);
                                 //move results.trx file to test results
                                 MoveFileToDirectory(helper.TrxFilepath, PathToTestResults);
