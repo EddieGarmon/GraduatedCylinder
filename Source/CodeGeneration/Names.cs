@@ -1,6 +1,6 @@
 ﻿namespace CodeGeneration;
 
-public static class Names
+internal static class Names
 {
 
     public const string GraduatedCylinder = nameof(GraduatedCylinder);

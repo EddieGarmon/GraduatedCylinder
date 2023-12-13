@@ -1,8 +1,11 @@
 ﻿// ReSharper disable once CheckNamespace
 
-namespace CodeGeneration { }
+namespace CodeGeneration
+{
+    //public record RecordTest(float Value);
+}
 
 namespace System.Runtime.CompilerServices
 {
-    public static class PolyFill { }
+    public static class IsExternalInit { }
 }
