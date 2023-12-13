@@ -167,16 +167,28 @@ public partial struct {info.DimensionType} : IComparable<{info.DimensionType}>, 
         return new {info.DimensionType}(-source.Value, source.Units);
     }}
 
-    public static {info.DimensionType} operator *({info.DimensionType} left, {info.ValueType} right) {{
+    public static {info.DimensionType} operator *({info.DimensionType} left, float right) {{
         return new {info.DimensionType}(left.Value * right, left.Units);
     }}
 
-    public static {info.DimensionType} operator *({info.ValueType} left, {info.DimensionType} right) {{
+    public static {info.DimensionType} operator *({info.DimensionType} left, double right) {{
+        return new {info.DimensionType}(({info.ValueType})(left.Value * right), left.Units);
+    }}
+
+    public static {info.DimensionType} operator *(float left, {info.DimensionType} right) {{
         return new {info.DimensionType}(left * right.Value, right.Units);
     }}
 
-    public static {info.DimensionType} operator /({info.DimensionType} left, {info.ValueType} right) {{
+    public static {info.DimensionType} operator *(double left, {info.DimensionType} right) {{
+        return new {info.DimensionType}(({info.ValueType})(left * right.Value), right.Units);
+    }}
+
+    public static {info.DimensionType} operator /({info.DimensionType} left, float right) {{
         return new {info.DimensionType}(left.Value / right, left.Units);
+    }}
+
+    public static {info.DimensionType} operator /({info.DimensionType} left, double right) {{
+        return new {info.DimensionType}(({info.ValueType})(left.Value / right), left.Units);
     }}
 
     public static {info.ValueType} operator /({info.DimensionType} left, {info.DimensionType} right) {{
