@@ -1,4 +1,9 @@
-﻿namespace GraduatedCylinder.Calculators;
+﻿#if GraduatedCylinder
+namespace GraduatedCylinder.Calculators;
+#endif
+#if Pipette
+namespace Pipette.Calculators;
+#endif
 
 public static class MotionCalculator
 {
@@ -8,8 +13,8 @@ public static class MotionCalculator
         endSpeed = endSpeed.In(SpeedUnit.MeterPerSecond);
         distance = distance.In(LengthUnit.Meter);
 
-        double value = (endSpeed.Value * endSpeed.Value - startSpeed.Value * startSpeed.Value) / (2 * distance.Value);
-        return new Acceleration(value, AccelerationUnit.MeterPerSquareSecond);
+        return new Acceleration((endSpeed.Value * endSpeed.Value - startSpeed.Value * startSpeed.Value) / (2 * distance.Value),
+                                AccelerationUnit.MeterPerSquareSecond);
     }
 
 }

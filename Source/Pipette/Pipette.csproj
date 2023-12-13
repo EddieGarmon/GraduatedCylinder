@@ -19,6 +19,9 @@
     <Compile Include="..\GraduatedCylinder\Attributes\**\*.cs">
       <Link>Attributes\%(RecursiveDir)%(FileName)%(Extension)</Link>
     </Compile>
+    <Compile Include="..\GraduatedCylinder\Calculators\**\*.cs">
+      <Link>Calculators\%(RecursiveDir)%(FileName)%(Extension)</Link>
+    </Compile>
     <Compile Include="..\GraduatedCylinder\Dimensions\**\*.cs">
       <Link>Dimensions\%(RecursiveDir)%(FileName)%(Extension)</Link>
     </Compile>
