@@ -1,7 +1,9 @@
-using DigitalHammer.Testing;
-using Xunit;
-
+#if GraduatedCylinder
 namespace GraduatedCylinder.Operators;
+#endif
+#if Pipette
+namespace Pipette.Operators;
+#endif
 
 public class TorqueOperators
 {

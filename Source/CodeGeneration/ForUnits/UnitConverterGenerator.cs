@@ -26,8 +26,8 @@ public class UnitConverterGenerator : IIncrementalGenerator
         context.RegisterSourceOutput(valueProvider,
                                      (output, tuple) => {
                                          switch (tuple.AssemblyName) {
-                                             case "GraduatedCylinder":
-                                             case "Pipette":
+                                             case Names.GraduatedCylinder:
+                                             case Names.Pipette:
                                                  foreach (UnitsInfo unit in tuple.Units) {
                                                      output.AddSource($"{unit.Enum.Identifier}.Converter.g", GenerateConverterFor(unit));
                                                  }
@@ -43,9 +43,9 @@ public class UnitConverterGenerator : IIncrementalGenerator
     private static string GenerateConverterFor(UnitsInfo info) {
         return $@"namespace {info.Namespace}.Converters;
 
-internal static class {info.Names.ConverterTypeName}
+internal static class {info.NameSet.ConverterTypeName}
 {{
-    public static {info.ValueType} FromBase({info.ValueType} baseValue, {info.Names.UnitsTypeName} wantedUnits) {{
+    public static {info.ValueType} FromBase({info.ValueType} baseValue, {info.NameSet.UnitsTypeName} wantedUnits) {{
         switch (wantedUnits) {{
 {GenerateFromBaseSwitchCases(info)}
             default:
@@ -53,11 +53,11 @@ internal static class {info.Names.ConverterTypeName}
         }}
     }}
 
-    public static {info.ValueType} ToBase({info.Names.DimensionTypeName} dimension) {{
+    public static {info.ValueType} ToBase({info.NameSet.DimensionTypeName} dimension) {{
         return ToBase(dimension.Value, dimension.Units);
     }}
 
-    public static {info.ValueType} ToBase({info.ValueType} value, {info.Names.UnitsTypeName} units) {{
+    public static {info.ValueType} ToBase(double value, {info.NameSet.UnitsTypeName} units) {{
         switch (units) {{
 {GenerateToBaseSwitchCases(info)}
             default:

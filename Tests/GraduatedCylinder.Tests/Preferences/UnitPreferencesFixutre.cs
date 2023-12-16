@@ -1,8 +1,9 @@
-using DigitalHammer.Testing;
-using GraduatedCylinder.Text;
-using Xunit;
-
+#if GraduatedCylinder
 namespace GraduatedCylinder.Preferences;
+#endif
+#if Pipette
+namespace Pipette.Preferences;
+#endif
 
 public class UnitPreferencesFixture
 {

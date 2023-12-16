@@ -1,7 +1,9 @@
-using DigitalHammer.Testing;
-using Xunit;
-
+#if GraduatedCylinder
 namespace GraduatedCylinder.Conversions;
+#endif
+#if Pipette
+namespace Pipette.Conversions;
+#endif
 
 public class TimeConversionsFixture
 {

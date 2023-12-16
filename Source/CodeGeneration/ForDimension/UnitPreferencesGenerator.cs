@@ -39,12 +39,15 @@ public class UnitPreferencesGenerator : IIncrementalGenerator
 
     private static string GenerateUnitPreferences(ImmutableArray<DimensionInfo> dimensions) {
         StringBuilder buffer = new(0x1000);
-        buffer.AppendLine("using System;");
-        buffer.AppendLine();
-        buffer.AppendLine($"namespace {dimensions[0].Namespace};");
-        buffer.AppendLine();
-        buffer.AppendLine("public partial class UnitPreferences {");
-        buffer.AppendLine();
+        buffer.AppendLine($@"using System;
+
+namespace {dimensions[0].Namespace};
+
+public partial class UnitPreferences {{
+
+    public static UnitPreferences Default {{ get; }} = new();
+
+");
 
         foreach (DimensionInfo dimension in dimensions) {
             buffer.AppendLine($"\tpublic {dimension.UnitsType} {dimension.UnitsType} {{ get; set; }}");

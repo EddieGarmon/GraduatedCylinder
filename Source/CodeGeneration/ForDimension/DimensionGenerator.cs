@@ -50,15 +50,21 @@ public partial struct {info.DimensionType} : IComparable<{info.DimensionType}>, 
 {{
     private readonly {info.ValueType} _baseValue;
     private {info.ValueType} _value;
-    private {info.DimensionType}Unit _units;
+    private {info.UnitsType} _units;
 
-    public {info.DimensionType}({info.ValueType} value, {info.DimensionType}Unit units) {{
+    public {info.DimensionType}(float value, {info.UnitsType} units) {{
         _value = value;
         _units = units;
         _baseValue = {info.DimensionType}Converter.ToBase(value, units);
     }}
 
-    public {info.DimensionType}Unit Units {{
+    public {info.DimensionType}(double value, {info.UnitsType} units) {{
+        _value = ({info.ValueType})value;
+        _units = units;
+        _baseValue = {info.DimensionType}Converter.ToBase(value, units);
+    }}
+
+    public {info.UnitsType} Units {{
         get => _units;
         set {{
             if (_units == value) {{
@@ -95,15 +101,15 @@ public partial struct {info.DimensionType} : IComparable<{info.DimensionType}>, 
         return _baseValue.GetHashCode();
     }}
 
-    public {info.DimensionType} In({info.DimensionType}Unit units) {{
-        if ((Units == units) || (units == {info.DimensionType}Unit.Unspecified)) {{
+    public {info.DimensionType} In({info.UnitsType} units) {{
+        if ((Units == units) || (units == {info.UnitsType}.Unspecified)) {{
             return this;
         }}
         return new {info.DimensionType}({info.DimensionType}Converter.FromBase(_baseValue, units), units);
     }}
 
     public override string ToString() {{
-        string format = Formats.GetPrecisionFormat(2);
+        string format = Formats.GetPrecisionFormat(UnitPreferences.Default.Precision);
         return string.Format(format, Value, Units.GetAbbreviation());
     }}
 
@@ -117,9 +123,9 @@ public partial struct {info.DimensionType} : IComparable<{info.DimensionType}>, 
         return ToString(preferences.{info.UnitsType}, preferences.Precision);
     }}
 
-    public static {info.DimensionType} Unknown {{ get; }} = new {info.DimensionType}({info.ValueType}.NaN, {info.DimensionType}Unit.BaseUnit);
+    public static {info.DimensionType} Unknown {{ get; }} = new {info.DimensionType}({info.ValueType}.NaN, {info.UnitsType}.BaseUnit);
 
-    public static {info.DimensionType} Zero {{ get; }} = new {info.DimensionType}(0, {info.DimensionType}Unit.BaseUnit);
+    public static {info.DimensionType} Zero {{ get; }} = new {info.DimensionType}(0, {info.UnitsType}.BaseUnit);
 
 	public static {info.DimensionType} Parse(string valueWithUnits) {{
 		return UnitParser.Parse{info.DimensionType}(valueWithUnits);

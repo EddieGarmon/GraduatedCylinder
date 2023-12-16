@@ -9,16 +9,16 @@ internal class UnitsInfo
     public UnitsInfo(EnumDeclarationSyntax @enum, List<(EnumMemberDeclarationSyntax member, ISymbol)> members) {
         Enum = @enum;
         Members = members;
-        Names = NameSet.FromUnitsType(@enum.Identifier.ToString());
+        NameSet = NameSet.FromUnitsType(@enum.Identifier.ToString());
         Namespace = @enum.GetNamespace();
-        ValueType = Namespace == "GraduatedCylinder" ? "double" : "float";
+        ValueType = Namespace == Names.GraduatedCylinder ? "double" : "float";
     }
 
     public EnumDeclarationSyntax Enum { get; }
 
     public List<(EnumMemberDeclarationSyntax member, ISymbol symbol)> Members { get; }
 
-    public NameSet Names { get; }
+    public NameSet NameSet { get; }
 
     public string Namespace { get; }
 

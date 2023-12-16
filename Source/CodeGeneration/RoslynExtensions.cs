@@ -20,8 +20,8 @@ internal static class RoslynExtensions
             return null;
         }
         return @namespace.Name switch {
-            "GraduatedCylinder" => new DimensionInfo("GraduatedCylinder", symbol.Name),
-            "Pipette" => new DimensionInfo("Pipette", symbol.Name),
+            Names.GraduatedCylinder => new DimensionInfo(Names.GraduatedCylinder, symbol.Name),
+            Names.Pipette => new DimensionInfo(Names.Pipette, symbol.Name),
             _ => null
         };
     }

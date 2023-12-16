@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="GraduatedCylinder.csproj.DotSettings" Visible="false" />
+    <None Remove="GraduatedCylinder.csproj.DotSettings" />
   </ItemGroup>
 
 </Project>

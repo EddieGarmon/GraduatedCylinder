@@ -29,22 +29,25 @@ public class ExtensionApiGenerator : IIncrementalGenerator
                                              case "GraduatedCylinder":
                                              case "Pipette":
                                                  foreach (UnitsInfo unit in tuple.Units) {
-                                                     output.AddSource(unit.Names.ExtensionsTypeName, GenerateExtensionsFor(unit));
+                                                     string? extensionsFor = GenerateExtensionsFor(unit);
+                                                     if (extensionsFor is not null) {
+                                                         output.AddSource(unit.NameSet.ExtensionsTypeName, extensionsFor);
+                                                     }
                                                  }
                                                  break;
                                          }
                                      });
     }
 
-    private static string GenerateExtensionsFor(UnitsInfo unit) {
+    private static string? GenerateExtensionsFor(UnitsInfo unit) {
         StringBuilder buffer = new(0x1000);
+        bool hasExtension = false;
 
-        buffer.AppendLine($@"#nullable enable
-using System.Runtime.CompilerServices;
+        buffer.AppendLine($@"using System.Runtime.CompilerServices;
 
 namespace {unit.Namespace}.Extensions;
 
-public static class {unit.Names.ExtensionsTypeName} {{");
+public static class {unit.NameSet.ExtensionsTypeName} {{");
 
         foreach ((EnumMemberDeclarationSyntax member, ISymbol symbol) in unit.Members) {
             AttributeData? attribute = symbol.GetAttributes().SingleOrDefault(a => a.AttributeClass?.Name == "ExtensionAttribute");
@@ -52,35 +55,36 @@ public static class {unit.Names.ExtensionsTypeName} {{");
                 continue;
             }
 
+            hasExtension = true;
             string methodName = attribute.ConstructorArguments[0].Value!.ToString();
 
             buffer.AppendLine($@"
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static {unit.Names.DimensionTypeName} {methodName}(this int value) {{
-        return new {unit.Names.DimensionTypeName}(({unit.ValueType})value, {unit.Names.UnitsTypeName}.{symbol?.Name});
+    public static {unit.NameSet.DimensionTypeName} {methodName}(this int value) {{
+        return new {unit.NameSet.DimensionTypeName}(({unit.ValueType})value, {unit.NameSet.UnitsTypeName}.{symbol?.Name});
     }}
 
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static {unit.Names.DimensionTypeName} {methodName}(this long value) {{
-        return new {unit.Names.DimensionTypeName}(({unit.ValueType})value, {unit.Names.UnitsTypeName}.{symbol?.Name});
+    public static {unit.NameSet.DimensionTypeName} {methodName}(this long value) {{
+        return new {unit.NameSet.DimensionTypeName}(({unit.ValueType})value, {unit.NameSet.UnitsTypeName}.{symbol?.Name});
     }}
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static {unit.Names.DimensionTypeName} {methodName}(this float value) {{
-            return new {unit.Names.DimensionTypeName}(({unit.ValueType})value, {unit.Names.UnitsTypeName}.{symbol?.Name});
+        public static {unit.NameSet.DimensionTypeName} {methodName}(this float value) {{
+            return new {unit.NameSet.DimensionTypeName}(({unit.ValueType})value, {unit.NameSet.UnitsTypeName}.{symbol?.Name});
     }}
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static {unit.Names.DimensionTypeName} {methodName}(this double value) {{
-        return new {unit.Names.DimensionTypeName}(({unit.ValueType})value, {unit.Names.UnitsTypeName}.{symbol?.Name});
+    public static {unit.NameSet.DimensionTypeName} {methodName}(this double value) {{
+        return new {unit.NameSet.DimensionTypeName}(({unit.ValueType})value, {unit.NameSet.UnitsTypeName}.{symbol?.Name});
     }}
 ");
         }
 
         buffer.AppendLine("}");
 
-        return buffer.ToString();
+        return hasExtension ? buffer.ToString() : null;
     }
 
 }

@@ -45,7 +45,7 @@ using System.Text.RegularExpressions;
 
 namespace {dimensions[0].Namespace}.Text;
 
-public static class UnitParser {{");
+internal static class UnitParser {{");
 
         foreach (DimensionInfo dimension in dimensions) {
             buffer.AppendLine($@"

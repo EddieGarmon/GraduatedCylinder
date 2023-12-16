@@ -43,6 +43,7 @@ public class JsonConverterGenerator : IIncrementalGenerator
         context.RegisterSourceOutput(valueProvider,
                                      (productionContext, tuple) => {
                                          switch (tuple.AssemblyName) {
+                                             case "GraduatedCylinder.Json":
                                              case "Pipette.Json":
                                                  //converters
                                                  foreach (DimensionInfo? info in tuple.Dimensions) {
