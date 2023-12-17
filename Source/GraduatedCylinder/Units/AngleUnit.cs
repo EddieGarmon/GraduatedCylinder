@@ -7,7 +7,6 @@ namespace GraduatedCylinder;
 namespace Pipette;
 #endif
 
-
 [UnitsFor(typeof(Angle))]
 public enum AngleUnit : short
 {

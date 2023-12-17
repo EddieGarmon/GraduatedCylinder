@@ -1,3 +1,5 @@
+using Xunit.Abstractions;
+
 #if GraduatedCylinder
 namespace GraduatedCylinder.Conversions;
 #endif
@@ -5,7 +7,7 @@ namespace GraduatedCylinder.Conversions;
 namespace Pipette.Conversions;
 #endif
 
-public class PressureConversionsFixture
+public class PressureConversions(ITestOutputHelper output) : ConversionTestBase(output)
 {
 
     [Theory]
@@ -17,9 +19,8 @@ public class PressureConversionsFixture
     [InlineData(5897.56, PressureUnit.Pascals, 0.00589756, PressureUnit.MegaPascals)]
     [InlineData(5897.56, PressureUnit.Pascals, 58.9756, PressureUnit.MilliBars)]
     [InlineData(5897.56, PressureUnit.Pascals, 5897.56, PressureUnit.NewtonsPerSquareMeter)]
-    public void PressureConversions(double value1, PressureUnit units1, double value2, PressureUnit units2) {
-        new Pressure(value1, units1).In(units2).ShouldBe(new Pressure(value2, units2));
-        new Pressure(value2, units2).In(units1).ShouldBe(new Pressure(value1, units1));
+    public void Conversions(double value1, PressureUnit units1, double value2, PressureUnit units2) {
+        Validate(value1, units1, value2, units2, (value, unit) => new Pressure(value, unit));
     }
 
 }

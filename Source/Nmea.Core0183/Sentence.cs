@@ -78,7 +78,7 @@ public class Sentence
     /// <returns>IEnumerable{Sentence}.</returns>
     public static IEnumerable<Sentence> ParseAll(string raw) {
         string[] lines = raw.Split(new[] { Terminator }, StringSplitOptions.RemoveEmptyEntries);
-        List<Sentence> result = new List<Sentence>();
+        List<Sentence> result = new();
         foreach (string line in lines) {
             Sentence? sentence = Parse(line);
             if (sentence != null) {

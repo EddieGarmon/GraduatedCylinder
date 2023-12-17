@@ -42,11 +42,11 @@ public class AbbreviationGenerator : IIncrementalGenerator
 
         buffer.AppendLine($@"namespace {units[0].Namespace};
 
-public static class ShortNames {{");
+public static class Abbreviations {{");
 
         StringBuilder getUnits = new();
 
-        foreach (UnitsInfo unit in units) {
+        foreach (UnitsInfo unit in units.OrderBy(info => info.Enum.Identifier.ToString())) {
             buffer.AppendLine();
             buffer.AppendLine($"\tpublic static string GetAbbreviation(this {unit.NameSet.UnitsTypeName} unit) {{");
             buffer.AppendLine("\t\treturn unit switch {");

@@ -39,13 +39,15 @@ public class DimensionGenerator : IIncrementalGenerator
     }
 
     private static string GenerateDimensionFor(DimensionInfo info) {
-        return $@"using System.Runtime.InteropServices;
+        return $@"using System.Diagnostics;
+using System.Runtime.InteropServices;
 using {info.Namespace}.Converters;
 using {info.Namespace}.Text;
 
 namespace {info.Namespace};
 
 [StructLayout(LayoutKind.Sequential)]
+[DebuggerDisplay(""{{ToDebugString()}}"")]
 public partial struct {info.DimensionType} : IComparable<{info.DimensionType}>, IEquatable<{info.DimensionType}>
 {{
     private readonly {info.ValueType} _baseValue;
@@ -65,7 +67,7 @@ public partial struct {info.DimensionType} : IComparable<{info.DimensionType}>, 
     }}
 
     public {info.UnitsType} Units {{
-        get => _units;
+        readonly get => _units;
         set {{
             if (_units == value) {{
                 return;
@@ -75,21 +77,38 @@ public partial struct {info.DimensionType} : IComparable<{info.DimensionType}>, 
         }}
     }}
 
-    public {info.ValueType} Value => _value;
+    public readonly {info.ValueType} Value => _value;
 
-    public int CompareTo({info.DimensionType} other) {{
-        {info.ValueType} otherBase = other._baseValue;
-        {info.ValueType} delta = _baseValue - otherBase;
-        if (delta < 0) {{
-            delta = -delta;
+    public readonly int CompareTo({info.DimensionType} other) {{
+        {info.ValueType} delta;
+        switch (Equality.Units) {{
+            case Equality.CompareInUnits.Base:
+                delta = _baseValue - other._baseValue;
+                if (delta < 0) {{
+                    delta = -delta;
+                }}
+                if (delta <= Equality.Tolerance) {{
+                    return 0;
+                }}
+                return _baseValue > other._baseValue ? 1 : -1;
+
+            case Equality.CompareInUnits.LeftHandSide:
+                {info.ValueType} otherValue = other.Units == Units ? other.Value : {info.DimensionType}Converter.FromBase(other._baseValue, Units);
+                delta = _value - otherValue;
+                if (delta < 0) {{
+                    delta = -delta;
+                }}
+                if (delta <= Equality.Tolerance) {{
+                    return 0;
+                }}
+                return _value > otherValue ? 1 : -1;
+
+            default:
+                throw new NotSupportedException();
         }}
-        if (delta < Equality.Tolerance) {{
-            return 0;
-        }}
-        return _baseValue > otherBase ? 1 : -1;
     }}
 
-    public bool Equals({info.DimensionType} other) {{
+    public readonly bool Equals({info.DimensionType} other) {{
         return CompareTo(other) == 0;
     }}
 
@@ -97,18 +116,25 @@ public partial struct {info.DimensionType} : IComparable<{info.DimensionType}>, 
         return obj is {info.DimensionType} other && Equals(other);
     }}
 
-    public override int GetHashCode() {{
+    public override readonly int GetHashCode() {{
         return _baseValue.GetHashCode();
     }}
 
-    public {info.DimensionType} In({info.UnitsType} units) {{
+    public readonly {info.DimensionType} In({info.UnitsType} units) {{
         if ((Units == units) || (units == {info.UnitsType}.Unspecified)) {{
             return this;
         }}
         return new {info.DimensionType}({info.DimensionType}Converter.FromBase(_baseValue, units), units);
     }}
 
-    public override string ToString() {{
+    public readonly string ToDebugString() {{
+        string format = Formats.GetPrecisionFormat(UnitPreferences.Default.Precision);
+        string baseString = string.Format(format, _baseValue, EnergyUnit.BaseUnit.GetAbbreviation());
+        string current = string.Format(format, _value, _units.GetAbbreviation());
+        return $""{{current}} [{{baseString}}]"";
+    }}
+
+    public override readonly string ToString() {{
         string format = Formats.GetPrecisionFormat(UnitPreferences.Default.Precision);
         return string.Format(format, Value, Units.GetAbbreviation());
     }}

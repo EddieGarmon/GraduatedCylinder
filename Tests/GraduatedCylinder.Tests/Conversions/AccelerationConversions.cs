@@ -1,3 +1,5 @@
+using Xunit.Abstractions;
+
 #if GraduatedCylinder
 namespace GraduatedCylinder.Conversions;
 #endif
@@ -5,7 +7,7 @@ namespace GraduatedCylinder.Conversions;
 namespace Pipette.Conversions;
 #endif
 
-public class AccelerationConversionsFixture
+public class AccelerationConversions(ITestOutputHelper output) : ConversionTestBase(output)
 {
 
     [Theory]
@@ -14,9 +16,8 @@ public class AccelerationConversionsFixture
     [InlineData(3.25, AccelerationUnit.MeterPerSquareSecond, 7.27004295, AccelerationUnit.MilePerHourPerSecond)]
     [InlineData(4.65, AccelerationUnit.MilePerHourPerSecond, 7.4834496, AccelerationUnit.KiloMeterPerHourPerSecond)]
     [InlineData(6.5, AccelerationUnit.KiloMeterPerHourPerSecond, 4.0389127, AccelerationUnit.MilePerHourPerSecond)]
-    public void AccelerationConversions(double value1, AccelerationUnit units1, double value2, AccelerationUnit units2) {
-        new Acceleration(value1, units1).In(units2).ShouldBe(new Acceleration(value2, units2));
-        new Acceleration(value2, units2).In(units1).ShouldBe(new Acceleration(value1, units1));
+    public void Conversions(double value1, AccelerationUnit units1, double value2, AccelerationUnit units2) {
+        Validate(value1, units1, value2, units2, (value, unit) => new Acceleration(value, unit));
     }
 
 }

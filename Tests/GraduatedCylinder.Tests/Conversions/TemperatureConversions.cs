@@ -1,3 +1,5 @@
+using Xunit.Abstractions;
+
 #if GraduatedCylinder
 namespace GraduatedCylinder.Conversions;
 #endif
@@ -5,7 +7,7 @@ namespace GraduatedCylinder.Conversions;
 namespace Pipette.Conversions;
 #endif
 
-public class TemperatureConversionsFixture
+public class TemperatureConversions(ITestOutputHelper output) : ConversionTestBase(output)
 {
 
     [Theory]
@@ -19,9 +21,8 @@ public class TemperatureConversionsFixture
     [InlineData(100, TemperatureUnit.Celsius, 373.15, TemperatureUnit.Kelvin)]
     [InlineData(68, TemperatureUnit.Fahrenheit, 293.15, TemperatureUnit.Kelvin)]
     [InlineData(167, TemperatureUnit.Fahrenheit, 348.15, TemperatureUnit.Kelvin)]
-    public void TemperatureConversions(double value1, TemperatureUnit units1, double value2, TemperatureUnit units2) {
-        new Temperature(value1, units1).In(units2).ShouldBe(new Temperature(value2, units2));
-        new Temperature(value2, units2).In(units1).ShouldBe(new Temperature(value1, units1));
+    public void Conversions(double value1, TemperatureUnit units1, double value2, TemperatureUnit units2) {
+        Validate(value1, units1, value2, units2, (value, unit) => new Temperature(value, unit));
     }
 
 }

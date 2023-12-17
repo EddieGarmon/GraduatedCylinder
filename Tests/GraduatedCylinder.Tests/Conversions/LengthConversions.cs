@@ -1,3 +1,5 @@
+using Xunit.Abstractions;
+
 #if GraduatedCylinder
 namespace GraduatedCylinder.Conversions;
 #endif
@@ -5,7 +7,7 @@ namespace GraduatedCylinder.Conversions;
 namespace Pipette.Conversions;
 #endif
 
-public class LengthConversionsFixture
+public class LengthConversions(ITestOutputHelper output) : ConversionTestBase(output)
 {
 
     [Theory]
@@ -21,9 +23,8 @@ public class LengthConversionsFixture
     [InlineData(100.546, LengthUnit.Meter, 54.97922134733, LengthUnit.Fathom)]
     [InlineData(1769.98, LengthUnit.KiloMeter, 1099.814582836236, LengthUnit.Mile)]
     [InlineData(1800.7685, LengthUnit.Mile, 2898.055980864, LengthUnit.KiloMeter)]
-    public void LengthConversions(double value1, LengthUnit units1, double value2, LengthUnit units2) {
-        new Length(value1, units1).In(units2).ShouldBe(new Length(value2, units2));
-        new Length(value2, units2).In(units1).ShouldBe(new Length(value1, units1));
+    public void Conversions(double value1, LengthUnit units1, double value2, LengthUnit units2) {
+        Validate(value1, units1, value2, units2, (value, unit) => new Length(value, unit));
     }
 
 }

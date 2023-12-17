@@ -15,5 +15,4 @@ public partial struct ElectricCharge : IDimension<ElectricCharge, ElectricCharge
     public static ElectricCharge ElementaryCharge { get; } = new(1.602_176_634e-19f, ElectricChargeUnit.Coulomb);
 #endif
 
-
 }

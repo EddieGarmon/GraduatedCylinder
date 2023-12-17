@@ -24,6 +24,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Source\Pipette\Pipette.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Include="..\GraduatedCylinder.Tests\Conversions\**\*.cs">
       <Link>Conversions\%(RecursiveDir)%(FileName)%(Extension)</Link>
     </Compile>
@@ -33,10 +37,6 @@
     <Compile Include="..\GraduatedCylinder.Tests\Preferences\**\*.cs">
       <Link>Preferences\%(RecursiveDir)%(FileName)%(Extension)</Link>
     </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\Source\Pipette\Pipette.csproj" />
   </ItemGroup>
 
 </Project>

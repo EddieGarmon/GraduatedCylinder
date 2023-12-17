@@ -1,3 +1,5 @@
+using Xunit.Abstractions;
+
 #if GraduatedCylinder
 namespace GraduatedCylinder.Conversions;
 #endif
@@ -5,7 +7,7 @@ namespace GraduatedCylinder.Conversions;
 namespace Pipette.Conversions;
 #endif
 
-public class PowerConversionsFixture
+public class PowerConversions(ITestOutputHelper output) : ConversionTestBase(output)
 {
 
     [Theory]
@@ -19,9 +21,8 @@ public class PowerConversionsFixture
     [InlineData(7654.986, PowerUnit.Watts, 7.654986, PowerUnit.KiloWatts)]
     [InlineData(7654.986, PowerUnit.Watts, 0.007654986, PowerUnit.MegaWatts)]
     [InlineData(7654.986, PowerUnit.Watts, 7654.986, PowerUnit.NewtonMetersPerSecond)]
-    public void PowerConversions(double value1, PowerUnit units1, double value2, PowerUnit units2) {
-        new Power(value1, units1).In(units2).ShouldBe(new Power(value2, units2));
-        new Power(value2, units2).In(units1).ShouldBe(new Power(value1, units1));
+    public void Conversions(double value1, PowerUnit units1, double value2, PowerUnit units2) {
+        Validate(value1, units1, value2, units2, (value, unit) => new Power(value, unit));
     }
 
 }

@@ -53,7 +53,7 @@ internal static class UnitParser {{");
         Match match = Regexs.Pair.Match(valueWithUnits);
         if (match.Success) {{
             if ({dimension.ValueType}.TryParse(match.Groups[""value""].Value, out {dimension.ValueType} parsedValue)) {{
-                {dimension.UnitsType} units = ShortNames.Get{dimension.UnitsType}(match.Groups[""units""].Value);
+                {dimension.UnitsType} units = Abbreviations.Get{dimension.UnitsType}(match.Groups[""units""].Value);
                 return new {dimension.DimensionType}(parsedValue, units);
             }}
         }}

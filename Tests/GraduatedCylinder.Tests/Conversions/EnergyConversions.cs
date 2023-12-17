@@ -1,3 +1,5 @@
+using Xunit.Abstractions;
+
 #if GraduatedCylinder
 namespace GraduatedCylinder.Conversions;
 #endif
@@ -5,7 +7,7 @@ namespace GraduatedCylinder.Conversions;
 namespace Pipette.Conversions;
 #endif
 
-public class EnergyConversionsFixture
+public class EnergyConversions(ITestOutputHelper output) : ConversionTestBase(output)
 {
 
     [Theory]
@@ -17,9 +19,8 @@ public class EnergyConversionsFixture
     [InlineData(1000.345, EnergyUnit.Joules, 1000.345, EnergyUnit.NewtonMeters)]
     [InlineData(1000.345, EnergyUnit.Joules, 0.2778736111, EnergyUnit.WattHours)]
     [InlineData(1000.345, EnergyUnit.Joules, 1000.345, EnergyUnit.WattSeconds)]
-    public void EnergyConversions(double value1, EnergyUnit units1, double value2, EnergyUnit units2) {
-        new Energy(value1, units1).In(units2).ShouldBe(new Energy(value2, units2));
-        new Energy(value2, units2).In(units1).ShouldBe(new Energy(value1, units1));
+    public void Conversions(double value1, EnergyUnit units1, double value2, EnergyUnit units2) {
+        Validate(value1, units1, value2, units2, (value, unit) => new Energy(value, unit));
     }
 
 }
