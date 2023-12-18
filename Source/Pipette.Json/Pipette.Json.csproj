@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net6.0;net7.0;net8.0</TargetFrameworks>
+
+    <OutputType>Library</OutputType>
+    <AssemblyName>Pipette.Json</AssemblyName>
+    <RootNamespace>Pipette.Json</RootNamespace>
+
+    <PackageId>Pipette.Json</PackageId>
+    <Title>Pipette Json</Title>
+    <Description>JSON serialization support for Pipette</Description>
+    <PackageTags>unit;units;measure;measures;json;serialization</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Pipette\Pipette.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Note that this is not a "normal" ProjectReference.
+         It needs the additional 'OutputItemType' and 'ReferenceOutputAssmbly' attributes. -->
+    <ProjectReference Include="..\CodeGeneration\CodeGeneration.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net6.0;net7.0;net8.0</TargetFrameworks>
+
+    <OutputType>Library</OutputType>
+    <AssemblyName>Pipette</AssemblyName>
+    <RootNamespace>Pipette</RootNamespace>
+
+    <DefineConstants>$(DefineConstants);Pipette</DefineConstants>
+
+    <PackageId>Pipette</PackageId>
+    <Title>Pipette</Title>
+    <Description>A modeling of units of measures that does automatic conversion between units for any modeled quantity using Float32 values.</Description>
+    <PackageTags>unit;units;measure;measures;quantity;quantities;dimension;conversion;UOM;physical;SI;imperial;metric;unitsofmeasure;abbreviation;length;mass;time;temperature;current;acceleration;area;angle;electric;charge;potential;resistance;energy;force;frequency;jerk;density;flow rate;momentum;power;pressure;speed;torque;volume</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\GraduatedCylinder\Attributes\**\*.cs">
+      <Link>Attributes\%(RecursiveDir)%(FileName)%(Extension)</Link>
+    </Compile>
+    <Compile Include="..\GraduatedCylinder\Calculators\**\*.cs">
+      <Link>Calculators\%(RecursiveDir)%(FileName)%(Extension)</Link>
+    </Compile>
+    <Compile Include="..\GraduatedCylinder\Dimensions\**\*.cs">
+      <Link>Dimensions\%(RecursiveDir)%(FileName)%(Extension)</Link>
+    </Compile>
+    <Compile Include="..\GraduatedCylinder\Text\**\*.cs">
+      <Link>Text\%(RecursiveDir)%(FileName)%(Extension)</Link>
+    </Compile>
+    <Compile Include="..\GraduatedCylinder\Units\**\*.cs">
+      <Link>Units\%(RecursiveDir)%(FileName)%(Extension)</Link>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Pipette.csproj.DotSettings" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Note that this is not a "normal" ProjectReference.
+         It needs the additional 'OutputItemType' and 'ReferenceOutputAssmbly' attributes. -->
+    <ProjectReference Include="..\CodeGeneration\CodeGeneration.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+
+</Project>

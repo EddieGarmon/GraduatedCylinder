@@ -1,19 +1,24 @@
-﻿namespace GraduatedCylinder.Calculators;
+﻿#if GraduatedCylinder
+namespace GraduatedCylinder.Calculators;
+#endif
+#if Pipette
+namespace Pipette.Calculators;
+#endif
 
 public static class SurfaceAreaCalculator
 {
 
     public static Area OfCone(Length radius, Length height) {
         Length sideLength = TriangleCalculator.GetHypotenuse(radius, height);
-        return Const.Pi * radius * radius + Const.Pi * radius * sideLength;
+        return Constants.Pi * radius * radius + Constants.Pi * radius * sideLength;
     }
 
     public static Area OfCylinder(Length radius, Length height) {
-        return Const.TwoPi * radius * radius + Const.TwoPi * radius * height;
+        return Constants.TwoPi * radius * radius + Constants.TwoPi * radius * height;
     }
 
     public static Area OfSphere(Length radius) {
-        return Const.FourPi * radius * radius;
+        return Constants.FourPi * radius * radius;
     }
 
 }

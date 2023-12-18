@@ -1,4 +1,9 @@
-﻿namespace GraduatedCylinder.Calculators;
+﻿#if GraduatedCylinder
+namespace GraduatedCylinder.Calculators;
+#endif
+#if Pipette
+namespace Pipette.Calculators;
+#endif
 
 public class TriangleCalculator
 {

@@ -1,7 +1,9 @@
-using DigitalHammer.Testing;
-using Xunit;
-
+#if GraduatedCylinder
 namespace GraduatedCylinder.Operators;
+#endif
+#if Pipette
+namespace Pipette.Operators;
+#endif
 
 public class TemperatureOperators
 {
@@ -16,8 +18,8 @@ public class TemperatureOperators
     public void OpDivision() {
         Temperature temperature1 = new(60, TemperatureUnit.Celsius);
         Temperature temperature2 = new(20, TemperatureUnit.Celsius);
-        (temperature1 / temperature2).ShouldBeCloseTo(3.0);
-        (temperature2 / temperature1).ShouldBeCloseTo(1.0 / 3.0);
+        (temperature1 / temperature2).ShouldBeCloseTo(3.0f);
+        (temperature2 / temperature1).ShouldBeCloseTo(0.333333333f);
 
         (temperature1 / 2).ShouldBe(new Temperature(30, TemperatureUnit.Celsius));
         (temperature2 / 2).ShouldBe(new Temperature(10, TemperatureUnit.Celsius));

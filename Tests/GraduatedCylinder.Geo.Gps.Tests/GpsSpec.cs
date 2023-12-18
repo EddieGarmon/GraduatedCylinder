@@ -1,7 +1,5 @@
 ﻿using System.Diagnostics;
-using DigitalHammer.Testing;
 using Nmea.Core0183;
-using Xunit;
 
 namespace GraduatedCylinder.Geo.Gps;
 

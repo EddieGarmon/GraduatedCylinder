@@ -1,29 +1,28 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net6.0;net7.0</TargetFrameworks>
-    <LangVersion>10</LangVersion>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <TargetFrameworks>netstandard2.0;net6.0;net7.0;net8.0</TargetFrameworks>
 
     <OutputType>Library</OutputType>
     <AssemblyName>GraduatedCylinder</AssemblyName>
     <RootNamespace>GraduatedCylinder</RootNamespace>
 
+    <DefineConstants>$(DefineConstants);GraduatedCylinder</DefineConstants>
+
     <PackageId>GraduatedCylinder</PackageId>
     <Title>Graduated Cylinder</Title>
-    <Description>A modeling of units of measures that does automatic conversion between units for any modeled quantity.</Description>
+    <Description>A modeling of units of measures that does automatic conversion between units for any modeled quantity using Float64 values.</Description>
     <PackageTags>unit;units;measure;measures;quantity;quantities;dimension;conversion;UOM;physical;SI;imperial;metric;unitsofmeasure;abbreviation;length;mass;time;temperature;current;acceleration;area;angle;electric;charge;potential;resistance;energy;force;frequency;jerk;density;flow rate;momentum;power;pressure;speed;torque;volume</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
     <!-- Note that this is not a "normal" ProjectReference.
          It needs the additional 'OutputItemType' and 'ReferenceOutputAssmbly' attributes. -->
-    <ProjectReference Include="..\GraduatedCylinder.Roslyn\GraduatedCylinder.Roslyn.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\CodeGeneration\CodeGeneration.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="GraduatedCylinder.csproj.DotSettings" Visible="false" />
+    <None Remove="GraduatedCylinder.csproj.DotSettings" />
   </ItemGroup>
 
 </Project>

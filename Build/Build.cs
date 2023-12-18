@@ -12,7 +12,6 @@ using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Tools.ReportGenerator;
 using Nuke.Common.Utilities.Collections;
 using static Nuke.Common.IO.FileSystemTasks;
-using static Nuke.Common.IO.PathConstruction;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 using static Nuke.Common.Tools.ReportGenerator.ReportGeneratorTasks;
 
@@ -33,69 +32,54 @@ class Build : NukeBuild
     [Solution]
     readonly Solution Solution;
 
-    AbsolutePath ArtifactsDirectory => RootDirectory / "Artifacts";
-
     Target Clean =>
         _ => _.Before(Restore)
               .Executes(() => {
-                            SourceDirectory.GlobDirectories("**/bin", "**/obj").ForEach(DeleteDirectory);
-                            TestsDirectory.GlobDirectories("**/bin", "**/obj").ForEach(DeleteDirectory);
-                            EnsureCleanDirectory(ArtifactsDirectory);
-                            SourceDirectory.GlobFiles("**/*.g.cs").ForEach(DeleteFile);
+                            PathToSources.GlobDirectories("**/bin", "**/obj").ForEach(path => path.DeleteDirectory());
+                            PathToTests.GlobDirectories("**/bin", "**/obj").ForEach(path => path.DeleteDirectory());
+                            PathToArtifacts.CreateOrCleanDirectory();
                         });
 
     Target Compile =>
         _ => _.DependsOn(Restore)
               .Executes(() => {
-                            // The build depends on massive code generation, so project build order matters
-                            // therefore we cannot just build the solution, unfortunately
-
-                            string[] buildOrder = {
-                                //Libraries
-                                "GraduatedCylinder.Roslyn",
-                                "Nmea.Core0183",
-                                "GraduatedCylinder",
-                                "GraduatedCylinder.Geo",
-                                "GraduatedCylinder.Geo.Gps",
-                                "GraduatedCylinder.Geo.Laser",
-                                "GraduatedCylinder.Json",
-                                "GraduatedCylinder.IoT",
-                                "GraduatedCylinder.IoT.Text",
-                                "GraduatedCylinder.IoT.Json",
-
-                                //Tests
-                                "Nmea.Core0183.Tests",
-                                "GraduatedCylinder.Tests",
-                                "GraduatedCylinder.Geo.Tests",
-                                "GraduatedCylinder.Geo.Gps.Tests",
-                                "GraduatedCylinder.Geo.Laser.Tests",
-                                "GraduatedCylinder.Json.Tests",
-                                "GraduatedCylinder.IoT.Tests"
-                            };
-
-                            foreach (string project in buildOrder) {
-                                DotNetBuild(s => s.SetProjectFile(Solution.GetProject(project))
-                                                  .SetConfiguration(Configuration)
-                                                  .EnableNoLogo()
-                                                  .EnableNoRestore()
-                                                  .EnableDeterministic()
-                                                  .EnableContinuousIntegrationBuild());
-                            }
+                            DotNetBuild(s => s.SetProjectFile(Solution)
+                                              .SetConfiguration(Configuration)
+                                              .EnableNoLogo()
+                                              .EnableNoRestore()
+                                              .EnableDeterministic()
+                                              .EnableContinuousIntegrationBuild());
                         });
 
     Target Pack =>
         _ => _.DependsOn(Compile)
               .After(Test)
-              .Produces(ArtifactsDirectory)
+              .Produces(PathToArtifacts)
               .Executes(() => {
-                            DotNetPack(s => s.SetConfiguration(Configuration)
-                                             .SetOutputDirectory(ArtifactsDirectory)
+                            DotNetPack(s => s.SetProject(Solution)
+                                             .SetConfiguration(Configuration)
+                                             .SetOutputDirectory(PathToArtifacts)
                                              .EnableNoLogo()
                                              .EnableNoRestore()
                                              .EnableNoBuild()
-                                             .EnableContinuousIntegrationBuild()
-                                             .SetProject(Solution));
+                                             .EnableContinuousIntegrationBuild());
                         });
+
+    AbsolutePath PathToArtifacts => RootDirectory / "Artifacts";
+
+    AbsolutePath PathToCoverageReport => PathToArtifacts / "04 Coverage Report";
+
+    AbsolutePath PathToCoverageResults => PathToArtifacts / "03 Coverage Results";
+
+    AbsolutePath PathToGeneratedPackages => PathToArtifacts / "05 Packages";
+
+    AbsolutePath PathToSources => RootDirectory / "Source";
+
+    AbsolutePath PathToTestOutput => PathToArtifacts / "01 Test Output";
+
+    AbsolutePath PathToTestResults => PathToArtifacts / "02 Test Results";
+
+    AbsolutePath PathToTests => RootDirectory / "Tests";
 
     Target Publish =>
         _ => _.DependsOn(Clean)
@@ -106,54 +90,48 @@ class Build : NukeBuild
               .Requires(() => Configuration.Equals(Configuration.Release))
               .WhenSkipped(DependencyBehavior.Execute)
               .Executes(() => {
-                            GlobFiles(ArtifactsDirectory, "*.nupkg")
-                                .ForEach(packageName => DotNetNuGetPush(s => s.SetTargetPath(packageName)
-                                                                              .SetSource(NugetApiUrl)
-                                                                              .SetApiKey(NugetApiKey)
-                                                                              .EnableSkipDuplicate()));
+                            DotNetNuGetPush(s => s.SetSource(NugetApiUrl)
+                                                  .SetApiKey(NugetApiKey)
+                                                  .EnableNoServiceEndpoint()
+                                                  .EnableSkipDuplicate()
+                                                  .CombineWith(PathToGeneratedPackages.GlobFiles("*.nupkg"),
+                                                               (s, package) => s.SetTargetPath(package)));
                         });
 
     Target Restore => _ => _.Executes(() => { DotNetRestore(s => s.SetProjectFile(Solution)); });
 
-    AbsolutePath SourceDirectory => RootDirectory / "Source";
-
     Target Test =>
         _ => _.DependsOn(Compile)
-              .Produces(TestResultsDirectory, TestCoverageResultsDirectory, TestCoverageReportDirectory)
+              .Produces(PathToTestOutput, PathToTestResults, PathToCoverageResults, PathToCoverageReport)
               .Executes(() => {
-                            EnsureCleanDirectory(TestResultsDirectory);
-                            EnsureCleanDirectory(TestCoverageResultsDirectory);
-                            EnsureCleanDirectory(TestCoverageReportDirectory);
+                            PathToTestOutput.CreateOrCleanDirectory();
+                            PathToTestResults.CreateOrCleanDirectory();
+                            PathToCoverageResults.CreateOrCleanDirectory();
+                            PathToCoverageReport.CreateOrCleanDirectory();
 
-                            List<Project> testProjects = Solution.GetProjects("*.Tests").ToList();
+                            List<Project> testProjects = Solution.GetAllProjects("*.Tests").ToList();
 
                             DotNetTest(_ => _.EnableNoLogo()
                                              .EnableNoBuild()
                                              .SetConfiguration(Configuration)
-                                             .SetResultsDirectory(TestResultsDirectory)
+                                             .SetResultsDirectory(PathToTestOutput)
                                              .SetDataCollector("XPlat Code Coverage")
                                              .CombineWith(testProjects,
                                                           (s, p) => s.SetProjectFile(p).SetLoggers($"trx;LogFileName={p.Name}.trx")));
 
-                            foreach (AbsolutePath path in TestResultsDirectory.GlobFiles("*.trx")) {
+                            foreach (AbsolutePath path in PathToTestOutput.GlobFiles("*.trx")) {
                                 TrxHelper helper = new(path);
-                                //move coverage file
-                                MoveFile(helper.CoverageSource, TestCoverageResultsDirectory / helper.CoverageDestination);
+                                //move results.trx file to test results
+                                MoveFileToDirectory(helper.TrxFilepath, PathToTestResults);
+                                //move coverage.xml file to coverage results folder
+                                MoveFile(helper.CoverageSource, PathToCoverageResults / helper.CoverageDestination);
                             }
 
-                            ReportGenerator(s => s.SetTargetDirectory(TestCoverageReportDirectory)
-                                                  .SetFramework("net6.0")
-                                                  .SetReportTypes(ReportTypes.Html) //xml?
-                                                  .SetReports(TestCoverageResultsDirectory / "*.xml"));
+                            ReportGenerator(s => s.SetTargetDirectory(PathToCoverageReport)
+                                                  .SetFramework("net8.0")
+                                                  .SetReportTypes(ReportTypes.Html)
+                                                  .SetReports(PathToCoverageResults / "*.xml"));
                         });
-
-    AbsolutePath TestCoverageReportDirectory => ArtifactsDirectory / "Coverage" / "Report";
-
-    AbsolutePath TestCoverageResultsDirectory => ArtifactsDirectory / "Coverage" / "Results";
-
-    AbsolutePath TestResultsDirectory => ArtifactsDirectory / "TestResults";
-
-    AbsolutePath TestsDirectory => RootDirectory / "Tests";
 
     public static int Main() => Execute<Build>(x => x.Test, x => x.Pack);
 
