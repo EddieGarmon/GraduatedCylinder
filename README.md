@@ -4,13 +4,14 @@
   (i.e. Length, Speed, Acceleration, Jerk). 
 
 - There are 2 versions of this library:
-  - GraduatedCylinder uses 64bit doubles to store the values of the dimension,
+  - [GraduatedCylinder](https://www.nuget.org/packages/GraduatedCylinder) uses 64bit doubles to store the values of the dimension,
     and supports changing units 'in place' by setting the units property to the
     value of the wanted units, as well as using the 'In(units)' method to get a
     new instance of the dimension.
-  - GraduatedCylinder.IoT uses 32bit floats to store the values of the dimension,
-    are readonly, and requires you to change units by using the 'In(units)' 
-    method to get a new instance of the dimension. 
+  - [Pipette](https://www.nuget.org/packages/Pipette) uses 32bit floats to store the values of the dimension,
+    and supports changing units 'in place' by setting the units property to the
+    value of the wanted units, as well as using the 'In(units)' method to get a
+    new instance of the dimension. 
 
 - Many operators are implemented to allow derivative computations 
 without you explicitly worrying about units, it is taken care of 
