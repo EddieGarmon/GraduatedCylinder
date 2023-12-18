@@ -1,7 +1,4 @@
-﻿using DigitalHammer.Testing;
-using Xunit;
-
-namespace Nmea.Core0183;
+﻿namespace Nmea.Core0183;
 
 public class NmeaSerialPortSpec
 {
