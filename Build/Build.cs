@@ -54,11 +54,11 @@ class Build : NukeBuild
     Target Pack =>
         _ => _.DependsOn(Compile)
               .After(Test)
-              .Produces(PathToArtifacts)
+              .Produces(PathToGeneratedPackages)
               .Executes(() => {
                             DotNetPack(s => s.SetProject(Solution)
                                              .SetConfiguration(Configuration)
-                                             .SetOutputDirectory(PathToArtifacts)
+                                             .SetOutputDirectory(PathToGeneratedPackages)
                                              .EnableNoLogo()
                                              .EnableNoRestore()
                                              .EnableNoBuild()
