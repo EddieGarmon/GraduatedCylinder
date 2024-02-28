@@ -49,6 +49,7 @@ public enum PressureUnit : short
 
     [UnitAbbreviation("psi")]
     [Scale(6894.76)]
+    [Extension("PoundsPerSquareInch")]
     PoundsPerSquareInch = 102,
 
     BaseUnit = Pascals

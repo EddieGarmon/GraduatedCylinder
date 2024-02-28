@@ -113,6 +113,7 @@ public enum SpeedUnit : short
 
     [UnitAbbreviation("ft/s")]
     [Scale(0.3048)]
+    [Extension("FeetPerSecond")]
     FeetPerSecond = 104,
 
     [UnitAbbreviation("ft/min")]
@@ -130,6 +131,7 @@ public enum SpeedUnit : short
 
     [UnitAbbreviation("knots")]
     [Scale(0.514444)]
+    [Extension("Knots")]
     NauticalMilesPerHour = 108,
 
     [UnitAbbreviation("yd/s")]

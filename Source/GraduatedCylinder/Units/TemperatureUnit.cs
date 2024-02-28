@@ -20,6 +20,7 @@ public enum TemperatureUnit : short
 
     [UnitAbbreviation("°K")]
     [ScaleAndOffset(1.0, 273.15)]
+    [Extension("Kelvin")]
     Kelvin = 1,
 
     [UnitAbbreviation("°F")]
