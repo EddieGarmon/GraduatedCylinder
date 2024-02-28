@@ -13,8 +13,6 @@ public enum ElectricCapacitanceUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = Farad,
-
     [UnitAbbreviation("pF")]
     [Scale(1e-12)]
     PicoFarad = -12,
@@ -42,6 +40,8 @@ public enum ElectricCapacitanceUnit : short
 
     [UnitAbbreviation("MF")]
     [Scale(1e6)]
-    MegaFarad = 6
+    MegaFarad = 6,
+
+    BaseUnit = Farad
 
 }

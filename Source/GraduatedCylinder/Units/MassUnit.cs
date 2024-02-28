@@ -13,8 +13,6 @@ public enum MassUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = KiloGram,
-
     [UnitAbbreviation("yg")]
     [Scale(1e-27)]
     YoctoGram = -24,
@@ -120,6 +118,8 @@ public enum MassUnit : short
 
     [UnitAbbreviation("t")]
     [Scale(1016.0469088)]
-    TonsUK = 105
+    TonsUK = 105,
+
+    BaseUnit = KiloGram
 
 }

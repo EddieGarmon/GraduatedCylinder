@@ -13,8 +13,6 @@ public enum MassFlowRateUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = KiloGramsPerSecond,
-
     [UnitAbbreviation("g/s")]
     [Scale(1e-3)]
     GramsPerSecond = -3,
@@ -33,6 +31,8 @@ public enum MassFlowRateUnit : short
 
     [UnitAbbreviation("lbs/s")]
     [Scale(0.45359237)]
-    PoundsPerSecond = 200
+    PoundsPerSecond = 200,
+
+    BaseUnit = KiloGramsPerSecond
 
 }

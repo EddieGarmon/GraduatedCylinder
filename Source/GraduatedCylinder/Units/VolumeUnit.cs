@@ -13,8 +13,6 @@ public enum VolumeUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = CubicMeters,
-
     [UnitAbbreviation("mm³")]
     [Scale(1E-9)]
     CubicMilliMeters = -9,
@@ -102,6 +100,8 @@ public enum VolumeUnit : short
 
     [UnitAbbreviation("gal-UK")]
     [Scale(.00454609)]
-    GallonsUK = 160
+    GallonsUK = 160,
+
+    BaseUnit = CubicMeters
 
 }

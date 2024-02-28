@@ -13,8 +13,6 @@ public enum SpeedUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = MeterPerSecond,
-
     [UnitAbbreviation("ym/s")]
     [Scale(1e-24)]
     YoctoMeterPerSecond = -24,
@@ -136,6 +134,8 @@ public enum SpeedUnit : short
 
     [UnitAbbreviation("yd/s")]
     [Scale(0.9144)]
-    YardsPerSecond = 109
+    YardsPerSecond = 109,
+
+    BaseUnit = MeterPerSecond
 
 }

@@ -13,8 +13,6 @@ public enum ElectricInductanceUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = Henry,
-
     [UnitAbbreviation("pH")]
     [Scale(1e-12)]
     PicoHenry = -12,
@@ -41,6 +39,8 @@ public enum ElectricInductanceUnit : short
 
     [UnitAbbreviation("MH")]
     [Scale(1e6)]
-    MegaHenry = 6
+    MegaHenry = 6,
+
+    BaseUnit = Henry
 
 }

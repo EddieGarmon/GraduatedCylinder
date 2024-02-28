@@ -13,8 +13,6 @@ public enum AreaUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = SquareMeter,
-
     [UnitAbbreviation("ym²")]
     [Scale(1e-48)]
     SquareYoctoMeter = -48,
@@ -117,6 +115,8 @@ public enum AreaUnit : short
 
     [UnitAbbreviation("mi²")]
     [Scale(2589988.110336)]
-    SquareMiles = 105
+    SquareMiles = 105,
+
+    BaseUnit = SquareMeter
 
 }

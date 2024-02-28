@@ -13,8 +13,6 @@ public enum LengthUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = Meter,
-
     [UnitAbbreviation("ym")]
     [Scale(1e-24)]
     YoctoMeter = -24,
@@ -129,6 +127,8 @@ public enum LengthUnit : short
 
     [UnitAbbreviation("nmi")]
     [Scale(1852.0)]
-    NauticalMile = 106
+    NauticalMile = 106,
+
+    BaseUnit = Meter
 
 }

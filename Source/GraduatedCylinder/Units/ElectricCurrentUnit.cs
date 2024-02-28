@@ -13,8 +13,6 @@ public enum ElectricCurrentUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = Ampere,
-
     [UnitAbbreviation("yA")]
     [Scale(1e-24)]
     YoctoAmpere = -24,
@@ -99,6 +97,8 @@ public enum ElectricCurrentUnit : short
 
     [UnitAbbreviation("YA")]
     [Scale(1e24)]
-    YottaAmpere = 24
+    YottaAmpere = 24,
+
+    BaseUnit = Ampere
 
 }

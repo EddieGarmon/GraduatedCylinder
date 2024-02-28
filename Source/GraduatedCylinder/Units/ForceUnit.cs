@@ -13,8 +13,6 @@ public enum ForceUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = Newtons,
-
     [UnitAbbreviation("N")]
     [Scale(1.0)]
     [Extension("Newtons")]
@@ -27,6 +25,8 @@ public enum ForceUnit : short
 
     [UnitAbbreviation("kgf")]
     [Scale(9.81)]
-    KiloGramForce = 2
+    KiloGramForce = 2,
+
+    BaseUnit = Newtons
 
 }

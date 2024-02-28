@@ -13,8 +13,6 @@ public enum VolumetricFlowRateUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = LitersPerSecond,
-
     [UnitAbbreviation("L/s")]
     [Scale(1.0)]
     LitersPerSecond = 0,
@@ -37,6 +35,8 @@ public enum VolumetricFlowRateUnit : short
 
     [UnitAbbreviation("gal/h")]
     [Scale(3.785411784 / 3600.0)]
-    GallonsUsPerHour = 5
+    GallonsUsPerHour = 5,
+
+    BaseUnit = LitersPerSecond
 
 }

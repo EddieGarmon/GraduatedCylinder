@@ -13,8 +13,6 @@ public enum TimeUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = Second,
-
     [UnitAbbreviation("ys")]
     [Scale(1e-24)]
     YoctoSecond = -24,
@@ -133,6 +131,8 @@ public enum TimeUnit : short
     [UnitAbbreviation("year")]
     [Scale(3.154e+7)]
     [Extension("Years")]
-    Years = 115
+    Years = 115,
+
+    BaseUnit = Second
 
 }

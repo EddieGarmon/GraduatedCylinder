@@ -13,8 +13,6 @@ public enum PowerUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = Watts,
-
     [UnitAbbreviation("mW")]
     [Scale(0.001)]
     MilliWatts = -3,
@@ -63,6 +61,8 @@ public enum PowerUnit : short
 
     [UnitAbbreviation("hp")]
     [Scale(0.7457e3)]
-    Horsepower = 105
+    Horsepower = 105,
+
+    BaseUnit = Watts
 
 }

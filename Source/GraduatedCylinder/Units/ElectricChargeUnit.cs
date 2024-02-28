@@ -13,8 +13,6 @@ public enum ElectricChargeUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = Coulomb,
-
     [UnitAbbreviation("mC")]
     [Scale(0.001)]
     MilliCoulomb = -3,
@@ -41,6 +39,8 @@ public enum ElectricChargeUnit : short
 
     [UnitAbbreviation("Ah")]
     [Scale(3600)]
-    AmpereHour
+    AmpereHour,
+
+    BaseUnit = Coulomb
 
 }

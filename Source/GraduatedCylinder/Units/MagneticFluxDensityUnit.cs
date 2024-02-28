@@ -13,8 +13,6 @@ public enum MagneticFluxDensityUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = Tesla,
-
     [UnitAbbreviation("pT")]
     [Scale(1e-12)]
     PicoTesla = -12,
@@ -45,6 +43,8 @@ public enum MagneticFluxDensityUnit : short
 
     [UnitAbbreviation("G")]
     [Scale(10000.0)]
-    Gauss = 100
+    Gauss = 100,
+
+    BaseUnit = Tesla
 
 }

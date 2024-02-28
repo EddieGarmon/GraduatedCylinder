@@ -13,8 +13,6 @@ public enum AngleUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = Radian,
-
     [UnitAbbreviation("yrad")]
     [Scale(1e-24)]
     YoctoRadian = -24,
@@ -125,6 +123,8 @@ public enum AngleUnit : short
     [UnitAbbreviation("rev")]
     [Scale(6.28318530717959)]
     [Extension("Revolutions")]
-    Revolutions = 120
+    Revolutions = 120,
+
+    BaseUnit = Radian
 
 }

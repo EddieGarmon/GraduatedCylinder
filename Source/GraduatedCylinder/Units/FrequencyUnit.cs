@@ -13,8 +13,6 @@ public enum FrequencyUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = Hertz,
-
     [UnitAbbreviation("Hz")]
     [Scale(1.0)]
     [Extension("Hertz")]
@@ -46,6 +44,8 @@ public enum FrequencyUnit : short
     //[AlternateUnitAbbreviation("rpm")]
     [Scale(0.0166666666667)]
     [Extension("RevolutionsPerMinute")]
-    RevolutionsPerMinute = 102
+    RevolutionsPerMinute = 102,
+
+    BaseUnit = Hertz
 
 }

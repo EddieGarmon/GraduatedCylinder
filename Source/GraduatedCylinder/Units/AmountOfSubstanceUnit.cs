@@ -13,8 +13,6 @@ public enum AmountOfSubstanceUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = Mole,
-
     [UnitAbbreviation("ymol")]
     [Scale(1e-24)]
     YoctoMole = -24,
@@ -98,6 +96,8 @@ public enum AmountOfSubstanceUnit : short
 
     [UnitAbbreviation("Ymol")]
     [Scale(1e24)]
-    YottaMole = 24
+    YottaMole = 24,
+
+    BaseUnit = Mole
 
 }

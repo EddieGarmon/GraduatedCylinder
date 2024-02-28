@@ -13,8 +13,6 @@ public enum EnergyUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = Joules,
-
     [UnitAbbreviation("mJ")]
     [Scale(0.001)]
     MilliJoules = -3,
@@ -57,6 +55,8 @@ public enum EnergyUnit : short
 
     [UnitAbbreviation("BTU")]
     [Scale(1055.056)]
-    BritishThermalUnit = 105
+    BritishThermalUnit = 105,
+
+    BaseUnit = Joules
 
 }

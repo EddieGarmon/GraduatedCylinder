@@ -13,8 +13,6 @@ public enum ElectricConductanceUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = Siemens,
-
     [UnitAbbreviation("pS")]
     [Scale(1e-12)]
     PicoSiemens = -12,
@@ -41,6 +39,8 @@ public enum ElectricConductanceUnit : short
 
     [UnitAbbreviation("MS")]
     [Scale(1e6)]
-    MegaSiemens = 6
+    MegaSiemens = 6,
+
+    BaseUnit = Siemens
 
 }
