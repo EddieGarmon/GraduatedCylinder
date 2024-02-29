@@ -13,8 +13,7 @@ public enum JerkUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = MetersPerSecondCubed,
-
+    [BaseUnit]
     [UnitAbbreviation("m/s³")]
     [Scale(1.0)]
     MetersPerSecondCubed = 0,

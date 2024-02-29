@@ -13,8 +13,7 @@ public enum PressureUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = Pascals,
-
+    [BaseUnit]
     [UnitAbbreviation("Pa")]
     [Scale(1.0)]
     Pascals = 0,
@@ -51,6 +50,7 @@ public enum PressureUnit : short
 
     [UnitAbbreviation("psi")]
     [Scale(6894.76)]
+    [Extension("PoundsPerSquareInch")]
     PoundsPerSquareInch = 102
 
 }

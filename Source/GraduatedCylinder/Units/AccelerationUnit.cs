@@ -13,8 +13,6 @@ public enum AccelerationUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = MeterPerSquareSecond,
-
     [UnitAbbreviation("ym/s²")]
     [Scale(1e-24)]
     YoctoMeterPerSquareSecond = -24,
@@ -55,6 +53,7 @@ public enum AccelerationUnit : short
     [Scale(1e-1)]
     DeciMeterPerSquareSecond = -1,
 
+    [BaseUnit]
     [UnitAbbreviation("m/s²")]
     [Scale(1.0)]
     MeterPerSquareSecond = 0,

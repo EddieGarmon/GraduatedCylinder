@@ -13,8 +13,7 @@ public enum FrequencyUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = Hertz,
-
+    [BaseUnit]
     [UnitAbbreviation("Hz")]
     [Scale(1.0)]
     [Extension("Hertz")]

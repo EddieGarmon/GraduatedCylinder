@@ -13,8 +13,6 @@ public enum LuminousIntensityUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = Candela,
-
     [UnitAbbreviation("ycd")]
     [Scale(1e-24)]
     YoctoCandela = -24,
@@ -55,6 +53,7 @@ public enum LuminousIntensityUnit : short
     [Scale(1e-1)]
     DeciCandela = -1,
 
+    [BaseUnit]
     [UnitAbbreviation("cd")]
     [Scale(1.0)]
     [Extension("Candela")]

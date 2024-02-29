@@ -13,8 +13,6 @@ public enum ElectricPotentialUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = Volt,
-
     [UnitAbbreviation("yV")]
     [Scale(1e-24)]
     YoctoVolt = -24,
@@ -55,6 +53,7 @@ public enum ElectricPotentialUnit : short
     [Scale(1e-1)]
     DeciVolt = -1,
 
+    [BaseUnit]
     [UnitAbbreviation("V")]
     [Scale(1.0)]
     [Extension("Volts")]

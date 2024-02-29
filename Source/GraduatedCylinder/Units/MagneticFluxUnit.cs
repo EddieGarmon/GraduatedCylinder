@@ -13,8 +13,6 @@ public enum MagneticFluxUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = Weber,
-
     [UnitAbbreviation("pWb")]
     [Scale(1e-12)]
     PicoWeber = -12,
@@ -31,6 +29,7 @@ public enum MagneticFluxUnit : short
     [Scale(1e-3)]
     MilliWeber = -3,
 
+    [BaseUnit]
     [UnitAbbreviation("Wb")]
     [Scale(1.0)]
     Weber = 0,

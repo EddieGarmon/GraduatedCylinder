@@ -13,8 +13,7 @@ public enum AngularAccelerationUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = RadiansPerSquareSecond,
-
+    [BaseUnit]
     [UnitAbbreviation("rad/s²")]
     [Scale(1.0)]
     RadiansPerSquareSecond = 0,

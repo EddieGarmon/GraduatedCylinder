@@ -13,8 +13,7 @@ public enum ForceUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = Newtons,
-
+    [BaseUnit]
     [UnitAbbreviation("N")]
     [Scale(1.0)]
     [Extension("Newtons")]

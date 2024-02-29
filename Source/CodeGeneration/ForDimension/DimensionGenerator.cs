@@ -129,7 +129,7 @@ public partial struct {info.DimensionType} : IComparable<{info.DimensionType}>, 
 
     public readonly string ToDebugString() {{
         string format = Formats.GetPrecisionFormat(UnitPreferences.Default.Precision);
-        string baseString = string.Format(format, _baseValue, EnergyUnit.BaseUnit.GetAbbreviation());
+        string baseString = string.Format(format, _baseValue, _units.GetBaseAbbreviation());
         string current = string.Format(format, _value, _units.GetAbbreviation());
         return $""{{current}} [{{baseString}}]"";
     }}
@@ -149,9 +149,9 @@ public partial struct {info.DimensionType} : IComparable<{info.DimensionType}>, 
         return ToString(preferences.{info.UnitsType}, preferences.Precision);
     }}
 
-    public static {info.DimensionType} Unknown {{ get; }} = new {info.DimensionType}({info.ValueType}.NaN, {info.UnitsType}.BaseUnit);
+    public static {info.DimensionType} Unknown {{ get; }} = new {info.DimensionType}({info.ValueType}.NaN, ({info.UnitsType})0);
 
-    public static {info.DimensionType} Zero {{ get; }} = new {info.DimensionType}(0, {info.UnitsType}.BaseUnit);
+    public static {info.DimensionType} Zero {{ get; }} = new {info.DimensionType}(0, ({info.UnitsType})0);
 
 	public static {info.DimensionType} Parse(string valueWithUnits) {{
 		return UnitParser.Parse{info.DimensionType}(valueWithUnits);

@@ -13,8 +13,6 @@ public enum MassUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = KiloGram,
-
     [UnitAbbreviation("yg")]
     [Scale(1e-27)]
     YoctoGram = -24,
@@ -55,6 +53,7 @@ public enum MassUnit : short
     [Scale(1e-4)]
     DeciGram = -1,
 
+    [BaseUnit]
     [UnitAbbreviation("g")]
     [Scale(1e-3)]
     [Extension("Grams")]

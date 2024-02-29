@@ -13,8 +13,7 @@ public enum FuelEconomyUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = KiloMetersPerLiter,
-
+    [BaseUnit]
     [UnitAbbreviation("km/L")]
     [Scale(1.0)]
     [Extension("KiloMetersPerLiter")]

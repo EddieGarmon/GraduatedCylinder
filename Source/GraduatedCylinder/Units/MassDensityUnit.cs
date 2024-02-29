@@ -13,8 +13,7 @@ public enum MassDensityUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = KiloGramsPerCubicMeter,
-
+    [BaseUnit]
     [UnitAbbreviation("kg/m³")]
     [Scale(1.0)]
     KiloGramsPerCubicMeter = 0,

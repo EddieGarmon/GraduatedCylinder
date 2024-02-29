@@ -13,8 +13,6 @@ public enum VolumeUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = CubicMeters,
-
     [UnitAbbreviation("mm³")]
     [Scale(1E-9)]
     CubicMilliMeters = -9,
@@ -27,6 +25,7 @@ public enum VolumeUnit : short
     [Scale(.001)]
     CubicDeciMeters = -3,
 
+    [BaseUnit]
     [UnitAbbreviation("m³")]
     [Scale(1.0)]
     CubicMeters = 0,

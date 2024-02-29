@@ -13,8 +13,6 @@ public enum TimeUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = Second,
-
     [UnitAbbreviation("ys")]
     [Scale(1e-24)]
     YoctoSecond = -24,
@@ -60,6 +58,7 @@ public enum TimeUnit : short
     [Scale(1e-1)]
     DeciSecond = -1,
 
+    [BaseUnit]
     [UnitAbbreviation("s")]
     [Scale(1.0)]
     [Extension("Seconds")]

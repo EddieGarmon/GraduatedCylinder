@@ -13,12 +13,11 @@ public enum WaveNumberUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = ReciprocalMeter,
-
     [UnitAbbreviation("1/cm")]
     [Scale(1e-2)]
     ReciprocalCentiMeter = -2,
 
+    [BaseUnit]
     [UnitAbbreviation("1/m")]
     [Scale(1.0)]
     ReciprocalMeter = 0,

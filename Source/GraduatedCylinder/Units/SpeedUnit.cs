@@ -13,8 +13,6 @@ public enum SpeedUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = MeterPerSecond,
-
     [UnitAbbreviation("ym/s")]
     [Scale(1e-24)]
     YoctoMeterPerSecond = -24,
@@ -55,6 +53,7 @@ public enum SpeedUnit : short
     [Scale(1e-1)]
     DeciMeterPerSecond = -1,
 
+    [BaseUnit]
     [UnitAbbreviation("m/s")]
     [Scale(1.0)]
     [Extension("MetersPerSecond")]
@@ -115,6 +114,7 @@ public enum SpeedUnit : short
 
     [UnitAbbreviation("ft/s")]
     [Scale(0.3048)]
+    [Extension("FeetPerSecond")]
     FeetPerSecond = 104,
 
     [UnitAbbreviation("ft/min")]
@@ -132,6 +132,7 @@ public enum SpeedUnit : short
 
     [UnitAbbreviation("knots")]
     [Scale(0.514444)]
+    [Extension("Knots")]
     NauticalMilesPerHour = 108,
 
     [UnitAbbreviation("yd/s")]

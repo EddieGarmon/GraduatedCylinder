@@ -13,12 +13,11 @@ public enum EnergyUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = Joules,
-
     [UnitAbbreviation("mJ")]
     [Scale(0.001)]
     MilliJoules = -3,
 
+    [BaseUnit]
     [UnitAbbreviation("J")]
     [Scale(1.0)]
     Joules = 0,

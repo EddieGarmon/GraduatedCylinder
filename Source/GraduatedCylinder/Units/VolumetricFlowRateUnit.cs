@@ -13,8 +13,7 @@ public enum VolumetricFlowRateUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = LitersPerSecond,
-
+    [BaseUnit]
     [UnitAbbreviation("L/s")]
     [Scale(1.0)]
     LitersPerSecond = 0,

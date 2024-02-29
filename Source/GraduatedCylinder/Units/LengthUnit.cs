@@ -13,8 +13,6 @@ public enum LengthUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = Meter,
-
     [UnitAbbreviation("ym")]
     [Scale(1e-24)]
     YoctoMeter = -24,
@@ -57,6 +55,7 @@ public enum LengthUnit : short
     [Scale(1e-1)]
     DeciMeter = -1,
 
+    [BaseUnit]
     [UnitAbbreviation("m")]
     [Scale(1.0)]
     [Extension("Meters")]

@@ -13,8 +13,7 @@ public enum AbsoluteHumidityUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = GramsPerCubicMeter,
-
+    [BaseUnit]
     [UnitAbbreviation("g/m³")]
     [Scale(1)]
     GramsPerCubicMeter = 0,

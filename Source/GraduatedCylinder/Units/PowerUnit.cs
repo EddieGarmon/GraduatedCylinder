@@ -13,12 +13,11 @@ public enum PowerUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = Watts,
-
     [UnitAbbreviation("mW")]
     [Scale(0.001)]
     MilliWatts = -3,
 
+    [BaseUnit]
     [UnitAbbreviation("W")]
     [Scale(1.0)]
     [Extension("Watts")]

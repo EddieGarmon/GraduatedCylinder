@@ -13,8 +13,7 @@ public enum MomentumUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = KiloGramMetersPerSecond,
-
+    [BaseUnit]
     [UnitAbbreviation("kgm/s")]
     [Scale(1.0)]
     KiloGramMetersPerSecond = 0,

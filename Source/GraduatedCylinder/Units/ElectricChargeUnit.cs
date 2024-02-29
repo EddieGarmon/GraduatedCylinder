@@ -13,12 +13,11 @@ public enum ElectricChargeUnit : short
 
     Unspecified = short.MinValue,
 
-    BaseUnit = Coulomb,
-
     [UnitAbbreviation("mC")]
     [Scale(0.001)]
     MilliCoulomb = -3,
 
+    [BaseUnit]
     [UnitAbbreviation("C")]
     [Scale(1.0)]
     Coulomb = 0,
