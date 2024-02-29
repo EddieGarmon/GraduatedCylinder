@@ -53,6 +53,7 @@ public enum AngleUnit : short
     [Scale(1e-1)]
     DeciRadian = -1,
 
+    [BaseUnit]
     [UnitAbbreviation("rad")]
     [Scale(1)]
     [Extension("Radians")]
@@ -123,8 +124,6 @@ public enum AngleUnit : short
     [UnitAbbreviation("rev")]
     [Scale(6.28318530717959)]
     [Extension("Revolutions")]
-    Revolutions = 120,
-
-    BaseUnit = Radian
+    Revolutions = 120
 
 }

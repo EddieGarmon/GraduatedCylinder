@@ -29,6 +29,7 @@ public enum ElectricCapacitanceUnit : short
     [Scale(1e-3)]
     MilliFarad = -3,
 
+    [BaseUnit]
     [UnitAbbreviation("F")]
     [Scale(1.0)]
     [Extension("Farads")]
@@ -40,8 +41,6 @@ public enum ElectricCapacitanceUnit : short
 
     [UnitAbbreviation("MF")]
     [Scale(1e6)]
-    MegaFarad = 6,
-
-    BaseUnit = Farad
+    MegaFarad = 6
 
 }

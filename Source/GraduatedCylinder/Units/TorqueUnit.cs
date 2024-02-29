@@ -13,6 +13,7 @@ public enum TorqueUnit : short
 
     Unspecified = short.MinValue,
 
+    [BaseUnit]
     [UnitAbbreviation("Nm")]
     [Scale(1.0)]
     [Extension("NewtonMeters")]
@@ -25,8 +26,6 @@ public enum TorqueUnit : short
     [UnitAbbreviation("ft-lbs")]
     [Scale(1.35581795)]
     [Extension("FootPounds")]
-    FootPounds = 2,
-
-    BaseUnit = NewtonMeters
+    FootPounds = 2
 
 }

@@ -13,6 +13,7 @@ public enum AngularSpeedUnit : short
 
     Unspecified = short.MinValue,
 
+    [BaseUnit]
     [UnitAbbreviation("rad/s")]
     [Scale(1.0)]
     [Extension("RadiansPerSecond")]
@@ -49,8 +50,6 @@ public enum AngularSpeedUnit : short
 
     [UnitAbbreviation("rph")]
     [Scale(0.00174532925199433)]
-    RevolutionsPerHour = 202,
-
-    BaseUnit = RadiansPerSecond
+    RevolutionsPerHour = 202
 
 }

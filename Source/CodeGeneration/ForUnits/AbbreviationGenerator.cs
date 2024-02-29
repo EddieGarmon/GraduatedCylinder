@@ -45,6 +45,7 @@ public class AbbreviationGenerator : IIncrementalGenerator
 public static class Abbreviations {{");
 
         StringBuilder getUnits = new();
+        StringBuilder getBase = new();
 
         foreach (UnitsInfo unit in units.OrderBy(info => info.Enum.Identifier.ToString())) {
             buffer.AppendLine();
@@ -56,17 +57,25 @@ public static class Abbreviations {{");
             getUnits.AppendLine("\t\treturn abbreviation switch {");
 
             foreach ((EnumMemberDeclarationSyntax member, ISymbol? symbol) in unit.Members) {
-                AttributeData? attribute =
-                    symbol.GetAttributes().SingleOrDefault(a => a.AttributeClass?.Name == "UnitAbbreviationAttribute");
-                if (attribute is null) {
+                ImmutableArray<AttributeData> attributes = symbol.GetAttributes();
+                AttributeData? abbreviation = attributes.SingleOrDefault(a => a.AttributeClass?.Name == "UnitAbbreviationAttribute");
+                if (abbreviation is null) {
                     continue;
                 }
 
                 buffer.AppendLine(
-                    $"\t\t\t{unit.NameSet.UnitsTypeName}.{member.Identifier} =>  \"{attribute.ConstructorArguments[0].Value}\",");
+                    $"\t\t\t{unit.NameSet.UnitsTypeName}.{member.Identifier} =>  \"{abbreviation.ConstructorArguments[0].Value}\",");
+
+                bool isBase = attributes.SingleOrDefault(a => a.AttributeClass?.Name == "BaseUnitAttribute") is not null;
+                if (isBase) {
+                    getBase.AppendLine();
+                    getBase.AppendLine($"\tpublic static string GetBaseAbbreviation(this {unit.NameSet.UnitsTypeName} unit) {{");
+                    getBase.AppendLine($"\t\treturn \"{abbreviation.ConstructorArguments[0].Value}\";");
+                    getBase.AppendLine("\t}");
+                }
 
                 getUnits.AppendLine(
-                    $"\t\t\t\"{attribute.ConstructorArguments[0].Value}\" => {unit.NameSet.UnitsTypeName}.{member.Identifier},");
+                    $"\t\t\t\"{abbreviation.ConstructorArguments[0].Value}\" => {unit.NameSet.UnitsTypeName}.{member.Identifier},");
             }
 
             buffer.AppendLine(@"           _ => throw new Exception(""Unknown unit type"")
@@ -78,6 +87,7 @@ public static class Abbreviations {{");
     }");
         }
 
+        buffer.AppendLine(getBase.ToString());
         buffer.AppendLine(getUnits.ToString());
         buffer.AppendLine();
         buffer.AppendLine(@"}");

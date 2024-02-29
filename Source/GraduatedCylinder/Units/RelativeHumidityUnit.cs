@@ -13,14 +13,13 @@ public enum RelativeHumidityUnit : short
 
     Unspecified = short.MinValue,
 
+    [BaseUnit]
     [UnitAbbreviation("")]
     [Scale(1)]
     Value = 0,
 
     [UnitAbbreviation("%")]
     [Scale(100)]
-    Percent = 1,
-
-    BaseUnit = Value
+    Percent = 1
 
 }

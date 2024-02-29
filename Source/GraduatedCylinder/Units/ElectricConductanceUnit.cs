@@ -29,6 +29,7 @@ public enum ElectricConductanceUnit : short
     [Scale(1e-3)]
     MilliSiemens = -3,
 
+    [BaseUnit]
     [UnitAbbreviation("S")]
     [Scale(1.0)]
     Siemens = 0,
@@ -39,8 +40,6 @@ public enum ElectricConductanceUnit : short
 
     [UnitAbbreviation("MS")]
     [Scale(1e6)]
-    MegaSiemens = 6,
-
-    BaseUnit = Siemens
+    MegaSiemens = 6
 
 }

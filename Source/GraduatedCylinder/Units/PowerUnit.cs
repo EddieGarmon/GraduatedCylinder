@@ -17,6 +17,7 @@ public enum PowerUnit : short
     [Scale(0.001)]
     MilliWatts = -3,
 
+    [BaseUnit]
     [UnitAbbreviation("W")]
     [Scale(1.0)]
     [Extension("Watts")]
@@ -61,8 +62,6 @@ public enum PowerUnit : short
 
     [UnitAbbreviation("hp")]
     [Scale(0.7457e3)]
-    Horsepower = 105,
-
-    BaseUnit = Watts
+    Horsepower = 105
 
 }

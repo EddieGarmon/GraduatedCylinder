@@ -17,6 +17,7 @@ public enum MassFlowRateUnit : short
     [Scale(1e-3)]
     GramsPerSecond = -3,
 
+    [BaseUnit]
     [UnitAbbreviation("kg/s")]
     [Scale(1.0)]
     KiloGramsPerSecond = 0,
@@ -31,8 +32,6 @@ public enum MassFlowRateUnit : short
 
     [UnitAbbreviation("lbs/s")]
     [Scale(0.45359237)]
-    PoundsPerSecond = 200,
-
-    BaseUnit = KiloGramsPerSecond
+    PoundsPerSecond = 200
 
 }

@@ -13,10 +13,9 @@ public enum AzimuthUnit : short
 
     Unspecified = short.MinValue,
 
+    [BaseUnit]
     [UnitAbbreviation("°")]
     [Scale(1.0)]
-    Degree = 0,
-
-    BaseUnit = Degree
+    Degree = 0
 
 }

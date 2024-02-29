@@ -53,6 +53,7 @@ public enum AccelerationUnit : short
     [Scale(1e-1)]
     DeciMeterPerSquareSecond = -1,
 
+    [BaseUnit]
     [UnitAbbreviation("m/s²")]
     [Scale(1.0)]
     MeterPerSquareSecond = 0,
@@ -107,8 +108,6 @@ public enum AccelerationUnit : short
 
     [UnitAbbreviation("ft/s²")]
     [Scale(0.3048)]
-    FeetPerSquareSecond = 103,
-
-    BaseUnit = MeterPerSquareSecond
+    FeetPerSquareSecond = 103
 
 }

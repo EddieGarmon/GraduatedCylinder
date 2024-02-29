@@ -55,6 +55,7 @@ public enum LengthUnit : short
     [Scale(1e-1)]
     DeciMeter = -1,
 
+    [BaseUnit]
     [UnitAbbreviation("m")]
     [Scale(1.0)]
     [Extension("Meters")]
@@ -127,8 +128,6 @@ public enum LengthUnit : short
 
     [UnitAbbreviation("nmi")]
     [Scale(1852.0)]
-    NauticalMile = 106,
-
-    BaseUnit = Meter
+    NauticalMile = 106
 
 }

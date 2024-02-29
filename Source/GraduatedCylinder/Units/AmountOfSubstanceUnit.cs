@@ -53,6 +53,7 @@ public enum AmountOfSubstanceUnit : short
     [Scale(1e-1)]
     DeciMole = -1,
 
+    [BaseUnit]
     [UnitAbbreviation("mol")]
     [Scale(1.0)]
     [Extension("Moles")]
@@ -96,8 +97,6 @@ public enum AmountOfSubstanceUnit : short
 
     [UnitAbbreviation("Ymol")]
     [Scale(1e24)]
-    YottaMole = 24,
-
-    BaseUnit = Mole
+    YottaMole = 24
 
 }

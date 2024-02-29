@@ -53,6 +53,7 @@ public enum LuminousIntensityUnit : short
     [Scale(1e-1)]
     DeciCandela = -1,
 
+    [BaseUnit]
     [UnitAbbreviation("cd")]
     [Scale(1.0)]
     [Extension("Candela")]
@@ -96,8 +97,6 @@ public enum LuminousIntensityUnit : short
 
     [UnitAbbreviation("Ycd")]
     [Scale(1e24)]
-    YottaCandela = 24,
-
-    BaseUnit = Candela
+    YottaCandela = 24
 
 }

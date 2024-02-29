@@ -17,14 +17,13 @@ public enum WaveNumberUnit : short
     [Scale(1e-2)]
     ReciprocalCentiMeter = -2,
 
+    [BaseUnit]
     [UnitAbbreviation("1/m")]
     [Scale(1.0)]
     ReciprocalMeter = 0,
 
     [UnitAbbreviation("1/km")]
     [Scale(1e3)]
-    ReciprocalKiloMeter = 3,
-
-    BaseUnit = ReciprocalMeter
+    ReciprocalKiloMeter = 3
 
 }

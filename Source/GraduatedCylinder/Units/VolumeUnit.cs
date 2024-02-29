@@ -25,6 +25,7 @@ public enum VolumeUnit : short
     [Scale(.001)]
     CubicDeciMeters = -3,
 
+    [BaseUnit]
     [UnitAbbreviation("m³")]
     [Scale(1.0)]
     CubicMeters = 0,
@@ -100,8 +101,6 @@ public enum VolumeUnit : short
 
     [UnitAbbreviation("gal-UK")]
     [Scale(.00454609)]
-    GallonsUK = 160,
-
-    BaseUnit = CubicMeters
+    GallonsUK = 160
 
 }

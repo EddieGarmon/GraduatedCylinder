@@ -29,6 +29,7 @@ public enum MagneticFluxUnit : short
     [Scale(1e-3)]
     MilliWeber = -3,
 
+    [BaseUnit]
     [UnitAbbreviation("Wb")]
     [Scale(1.0)]
     Weber = 0,
@@ -39,8 +40,6 @@ public enum MagneticFluxUnit : short
 
     [UnitAbbreviation("MWb")]
     [Scale(1e6)]
-    MegaWeber = 6,
-
-    BaseUnit = Weber
+    MegaWeber = 6
 
 }

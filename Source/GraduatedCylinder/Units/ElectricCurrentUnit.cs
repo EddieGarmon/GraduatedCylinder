@@ -54,6 +54,7 @@ public enum ElectricCurrentUnit : short
     [Scale(1e-1)]
     DeciAmpere = -1,
 
+    [BaseUnit]
     [UnitAbbreviation("A")]
     [Scale(1.0)]
     [Extension("Amps")]
@@ -97,8 +98,6 @@ public enum ElectricCurrentUnit : short
 
     [UnitAbbreviation("YA")]
     [Scale(1e24)]
-    YottaAmpere = 24,
-
-    BaseUnit = Ampere
+    YottaAmpere = 24
 
 }

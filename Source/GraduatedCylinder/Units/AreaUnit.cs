@@ -53,6 +53,7 @@ public enum AreaUnit : short
     [Scale(1e-2)]
     SquareDeciMeter = -2,
 
+    [BaseUnit]
     [UnitAbbreviation("m²")]
     [Scale(1.0)]
     SquareMeter = 0,
@@ -115,8 +116,6 @@ public enum AreaUnit : short
 
     [UnitAbbreviation("mi²")]
     [Scale(2589988.110336)]
-    SquareMiles = 105,
-
-    BaseUnit = SquareMeter
+    SquareMiles = 105
 
 }

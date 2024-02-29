@@ -53,6 +53,7 @@ public enum SpeedUnit : short
     [Scale(1e-1)]
     DeciMeterPerSecond = -1,
 
+    [BaseUnit]
     [UnitAbbreviation("m/s")]
     [Scale(1.0)]
     [Extension("MetersPerSecond")]
@@ -136,8 +137,6 @@ public enum SpeedUnit : short
 
     [UnitAbbreviation("yd/s")]
     [Scale(0.9144)]
-    YardsPerSecond = 109,
-
-    BaseUnit = MeterPerSecond
+    YardsPerSecond = 109
 
 }

@@ -58,6 +58,7 @@ public enum TimeUnit : short
     [Scale(1e-1)]
     DeciSecond = -1,
 
+    [BaseUnit]
     [UnitAbbreviation("s")]
     [Scale(1.0)]
     [Extension("Seconds")]
@@ -131,8 +132,6 @@ public enum TimeUnit : short
     [UnitAbbreviation("year")]
     [Scale(3.154e+7)]
     [Extension("Years")]
-    Years = 115,
-
-    BaseUnit = Second
+    Years = 115
 
 }

@@ -29,6 +29,7 @@ public enum MagneticFluxDensityUnit : short
     [Scale(1e-3)]
     MilliTesla = -3,
 
+    [BaseUnit]
     [UnitAbbreviation("T")]
     [Scale(1.0)]
     Tesla = 0,
@@ -43,8 +44,6 @@ public enum MagneticFluxDensityUnit : short
 
     [UnitAbbreviation("G")]
     [Scale(10000.0)]
-    Gauss = 100,
-
-    BaseUnit = Tesla
+    Gauss = 100
 
 }

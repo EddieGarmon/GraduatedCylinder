@@ -29,6 +29,7 @@ public enum ElectricInductanceUnit : short
     [Scale(1e-3)]
     MilliHenry = -3,
 
+    [BaseUnit]
     [UnitAbbreviation("H")]
     [Scale(1.0)]
     Henry = 0,
@@ -39,8 +40,6 @@ public enum ElectricInductanceUnit : short
 
     [UnitAbbreviation("MH")]
     [Scale(1e6)]
-    MegaHenry = 6,
-
-    BaseUnit = Henry
+    MegaHenry = 6
 
 }

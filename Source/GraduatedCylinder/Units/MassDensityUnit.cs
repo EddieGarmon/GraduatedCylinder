@@ -13,6 +13,7 @@ public enum MassDensityUnit : short
 
     Unspecified = short.MinValue,
 
+    [BaseUnit]
     [UnitAbbreviation("kg/m³")]
     [Scale(1.0)]
     KiloGramsPerCubicMeter = 0,
@@ -39,8 +40,6 @@ public enum MassDensityUnit : short
 
     [UnitAbbreviation("lb/in³")]
     [Scale(27679.90)]
-    PoundsPerCubicInch = 6,
-
-    BaseUnit = KiloGramsPerCubicMeter
+    PoundsPerCubicInch = 6
 
 }

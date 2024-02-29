@@ -13,6 +13,7 @@ public enum FuelEconomyUnit : short
 
     Unspecified = short.MinValue,
 
+    [BaseUnit]
     [UnitAbbreviation("km/L")]
     [Scale(1.0)]
     [Extension("KiloMetersPerLiter")]
@@ -31,8 +32,6 @@ public enum FuelEconomyUnit : short
 
     [UnitAbbreviation("mpg(UK)")]
     [Scale(0.354006)]
-    MilesPerGallonUK = 3,
-
-    BaseUnit = KiloMetersPerLiter
+    MilesPerGallonUK = 3
 
 }

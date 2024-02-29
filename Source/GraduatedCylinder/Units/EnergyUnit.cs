@@ -17,6 +17,7 @@ public enum EnergyUnit : short
     [Scale(0.001)]
     MilliJoules = -3,
 
+    [BaseUnit]
     [UnitAbbreviation("J")]
     [Scale(1.0)]
     Joules = 0,
@@ -55,8 +56,6 @@ public enum EnergyUnit : short
 
     [UnitAbbreviation("BTU")]
     [Scale(1055.056)]
-    BritishThermalUnit = 105,
-
-    BaseUnit = Joules
+    BritishThermalUnit = 105
 
 }

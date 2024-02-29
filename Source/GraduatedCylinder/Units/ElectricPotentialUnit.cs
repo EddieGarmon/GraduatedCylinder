@@ -53,6 +53,7 @@ public enum ElectricPotentialUnit : short
     [Scale(1e-1)]
     DeciVolt = -1,
 
+    [BaseUnit]
     [UnitAbbreviation("V")]
     [Scale(1.0)]
     [Extension("Volts")]
@@ -96,8 +97,6 @@ public enum ElectricPotentialUnit : short
 
     [UnitAbbreviation("YV")]
     [Scale(1e24)]
-    YottaVolt = 24,
-
-    BaseUnit = Volt
+    YottaVolt = 24
 
 }
