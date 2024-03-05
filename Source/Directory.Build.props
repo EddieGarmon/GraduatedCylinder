@@ -22,7 +22,7 @@
         <IncludeSource>false</IncludeSource>
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
 
-        <Version>9.0.0</Version>
+        <Version>9.1.0</Version>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)'=='Debug'">
