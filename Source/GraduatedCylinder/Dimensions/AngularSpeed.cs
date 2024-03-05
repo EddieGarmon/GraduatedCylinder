@@ -1,9 +1,11 @@
-﻿using GraduatedCylinder.Calculators;
+﻿#if GraduatedCylinder
+using GraduatedCylinder.Calculators;
 
-#if GraduatedCylinder
 namespace GraduatedCylinder;
 #endif
 #if Pipette
+using Pipette.Calculators;
+
 namespace Pipette;
 #endif
 
