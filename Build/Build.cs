@@ -19,9 +19,6 @@ using static Nuke.Common.Tools.ReportGenerator.ReportGeneratorTasks;
 class Build : NukeBuild
 {
 
-    [Parameter("Configuration to build - Default is 'Release'")]
-    readonly Configuration Configuration = Configuration.Release;
-
     [Parameter]
     [Secret]
     readonly string NugetApiKey;
@@ -32,38 +29,43 @@ class Build : NukeBuild
     [Solution]
     readonly Solution Solution;
 
+    [Parameter("Configuration to build - Default is 'Release'")]
+    Configuration Configuration = Configuration.Release;
+
     Target Clean =>
-        _ => _.Before(Restore)
-              .Executes(() => {
-                            PathToSources.GlobDirectories("**/bin", "**/obj").ForEach(path => path.DeleteDirectory());
-                            PathToTests.GlobDirectories("**/bin", "**/obj").ForEach(path => path.DeleteDirectory());
-                            PathToArtifacts.CreateOrCleanDirectory();
-                        });
+        def => def.Before(Restore)
+                  .Executes(() => {
+                                PathToSources.GlobDirectories("**/bin", "**/obj").ForEach(path => path.DeleteDirectory());
+                                PathToTests.GlobDirectories("**/bin", "**/obj").ForEach(path => path.DeleteDirectory());
+                                PathToArtifacts.CreateOrCleanDirectory();
+                            });
 
     Target Compile =>
-        _ => _.DependsOn(Restore)
-              .Executes(() => {
-                            DotNetBuild(s => s.SetProjectFile(Solution)
-                                              .SetConfiguration(Configuration)
-                                              .EnableNoLogo()
-                                              .EnableNoRestore()
-                                              .EnableDeterministic()
-                                              .EnableContinuousIntegrationBuild());
-                        });
+        def => def.DependsOn(Restore)
+                  .Executes(() => {
+                                DotNetBuild(s => s.SetProjectFile(Solution)
+                                                  .SetConfiguration(Configuration)
+                                                  .EnableNoLogo()
+                                                  .EnableNoRestore()
+                                                  .EnableDeterministic()
+                                                  .EnableContinuousIntegrationBuild());
+                            });
+
+    Target Debug => def => def.Before(Compile).Executes(() => Configuration = Configuration.Debug);
 
     Target Pack =>
-        _ => _.DependsOn(Compile)
-              .After(Test)
-              .Produces(PathToGeneratedPackages)
-              .Executes(() => {
-                            DotNetPack(s => s.SetProject(Solution)
-                                             .SetConfiguration(Configuration)
-                                             .SetOutputDirectory(PathToGeneratedPackages)
-                                             .EnableNoLogo()
-                                             .EnableNoRestore()
-                                             .EnableNoBuild()
-                                             .EnableContinuousIntegrationBuild());
-                        });
+        def => def.DependsOn(Compile)
+                  .After(Test)
+                  .Produces(PathToGeneratedPackages)
+                  .Executes(() => {
+                                DotNetPack(s => s.SetProject(Solution)
+                                                 .SetConfiguration(Configuration)
+                                                 .SetOutputDirectory(PathToGeneratedPackages)
+                                                 .EnableNoLogo()
+                                                 .EnableNoRestore()
+                                                 .EnableNoBuild()
+                                                 .EnableContinuousIntegrationBuild());
+                            });
 
     AbsolutePath PathToArtifacts => RootDirectory / "Artifacts";
 
@@ -82,56 +84,57 @@ class Build : NukeBuild
     AbsolutePath PathToTests => RootDirectory / "Tests";
 
     Target Publish =>
-        _ => _.DependsOn(Clean)
-              .DependsOn(Test)
-              .DependsOn(Pack)
-              .Requires(() => NugetApiUrl)
-              .Requires(() => NugetApiKey)
-              .Requires(() => Configuration.Equals(Configuration.Release))
-              .WhenSkipped(DependencyBehavior.Execute)
-              .Executes(() => {
-                            DotNetNuGetPush(s => s.SetSource(NugetApiUrl)
-                                                  .SetApiKey(NugetApiKey)
-                                                  .EnableNoServiceEndpoint()
-                                                  .EnableSkipDuplicate()
-                                                  .CombineWith(PathToGeneratedPackages.GlobFiles("*.nupkg"),
-                                                               (s, package) => s.SetTargetPath(package)));
-                        });
+        def => def.DependsOn(Clean)
+                  .DependsOn(Test)
+                  .DependsOn(Pack)
+                  .Requires(() => NugetApiUrl)
+                  .Requires(() => NugetApiKey)
+                  .Requires(() => Configuration.Equals(Configuration.Release))
+                  .WhenSkipped(DependencyBehavior.Execute)
+                  .Executes(() => {
+                                DotNetNuGetPush(s => s.SetSource(NugetApiUrl)
+                                                      .SetApiKey(NugetApiKey)
+                                                      .EnableNoServiceEndpoint()
+                                                      .EnableSkipDuplicate()
+                                                      .CombineWith(PathToGeneratedPackages.GlobFiles("*.nupkg"),
+                                                                   (s, package) => s.SetTargetPath(package)));
+                            });
 
-    Target Restore => _ => _.Executes(() => { DotNetRestore(s => s.SetProjectFile(Solution)); });
+    Target Restore => def => def.Executes(() => { DotNetRestore(s => s.SetProjectFile(Solution)); });
 
     Target Test =>
-        _ => _.DependsOn(Compile)
-              .Produces(PathToTestOutput, PathToTestResults, PathToCoverageResults, PathToCoverageReport)
-              .Executes(() => {
-                            PathToTestOutput.CreateOrCleanDirectory();
-                            PathToTestResults.CreateOrCleanDirectory();
-                            PathToCoverageResults.CreateOrCleanDirectory();
-                            PathToCoverageReport.CreateOrCleanDirectory();
+        def => def.DependsOn(Compile)
+                  .Produces(PathToTestOutput, PathToTestResults, PathToCoverageResults, PathToCoverageReport)
+                  .Executes(() => {
+                                PathToTestOutput.CreateOrCleanDirectory();
+                                PathToTestResults.CreateOrCleanDirectory();
+                                PathToCoverageResults.CreateOrCleanDirectory();
+                                PathToCoverageReport.CreateOrCleanDirectory();
 
-                            List<Project> testProjects = Solution.GetAllProjects("*.Tests").ToList();
+                                List<Project> testProjects = Solution.GetAllProjects("*.Tests").ToList();
 
-                            DotNetTest(_ => _.EnableNoLogo()
-                                             .EnableNoBuild()
-                                             .SetConfiguration(Configuration)
-                                             .SetResultsDirectory(PathToTestOutput)
-                                             .SetDataCollector("XPlat Code Coverage")
-                                             .CombineWith(testProjects,
-                                                          (s, p) => s.SetProjectFile(p).SetLoggers($"trx;LogFileName={p.Name}.trx")));
+                                DotNetTest(cfg => cfg.EnableNoLogo()
+                                                     .EnableNoBuild()
+                                                     .SetConfiguration(Configuration)
+                                                     .SetResultsDirectory(PathToTestOutput)
+                                                     .SetDataCollector("XPlat Code Coverage")
+                                                     .CombineWith(testProjects,
+                                                                  (s, p) => s.SetProjectFile(p)
+                                                                             .SetLoggers($"trx;LogFileName={p.Name}.trx")));
 
-                            foreach (AbsolutePath path in PathToTestOutput.GlobFiles("*.trx")) {
-                                TrxHelper helper = new(path);
-                                //move results.trx file to test results
-                                MoveFileToDirectory(helper.TrxFilepath, PathToTestResults);
-                                //move coverage.xml file to coverage results folder
-                                MoveFile(helper.CoverageSource, PathToCoverageResults / helper.CoverageDestination);
-                            }
+                                foreach (AbsolutePath path in PathToTestOutput.GlobFiles("*.trx")) {
+                                    TrxHelper helper = new(path);
+                                    //move results.trx file to test results
+                                    MoveFileToDirectory(helper.TrxFilepath, PathToTestResults);
+                                    //move coverage.xml file to coverage results folder
+                                    MoveFile(helper.CoverageSource, PathToCoverageResults / helper.CoverageDestination);
+                                }
 
-                            ReportGenerator(s => s.SetTargetDirectory(PathToCoverageReport)
-                                                  .SetFramework("net8.0")
-                                                  .SetReportTypes(ReportTypes.Html)
-                                                  .SetReports(PathToCoverageResults / "*.xml"));
-                        });
+                                ReportGenerator(s => s.SetTargetDirectory(PathToCoverageReport)
+                                                      .SetFramework("net8.0")
+                                                      .SetReportTypes(ReportTypes.Html)
+                                                      .SetReports(PathToCoverageResults / "*.xml"));
+                            });
 
     public static int Main() => Execute<Build>(x => x.Test, x => x.Pack);
 
