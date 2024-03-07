@@ -48,10 +48,12 @@ public enum EnergyUnit : short
 
     [UnitAbbreviation("Wh")]
     [Scale(3600.0)]
+    [Extension("WattHours")]
     WattHours = 103,
 
     [UnitAbbreviation("kWh")]
     [Scale(3600000.0)]
+    [Extension("KiloWattHours")]
     KiloWattHours = 104,
 
     [UnitAbbreviation("BTU")]
