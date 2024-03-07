@@ -56,6 +56,7 @@ public enum AccelerationUnit : short
     [BaseUnit]
     [UnitAbbreviation("m/s²")]
     [Scale(1.0)]
+    [Extension("MeterPerSquareSecond")]
     MeterPerSquareSecond = 0,
 
     [UnitAbbreviation("dam/s²")]

@@ -20,14 +20,17 @@ public enum MassFlowRateUnit : short
     [BaseUnit]
     [UnitAbbreviation("kg/s")]
     [Scale(1.0)]
+    [Extension("KiloGramsPerSecond")]
     KiloGramsPerSecond = 0,
 
     [UnitAbbreviation("kg/min")]
     [Scale(1.0f / 60.0)]
+    [Extension("KiloGramsPerMinute")]
     KiloGramsPerMinute = 100,
 
     [UnitAbbreviation("kg/h")]
     [Scale(1.0f / 3600.0)]
+    [Extension("KiloGramsPerHour")]
     KiloGramsPerHour = 101,
 
     [UnitAbbreviation("lbs/s")]
