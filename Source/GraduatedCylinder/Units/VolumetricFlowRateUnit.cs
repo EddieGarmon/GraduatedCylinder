@@ -24,6 +24,7 @@ public enum VolumetricFlowRateUnit : short
 
     [UnitAbbreviation("L/h")]
     [Scale(1.0f / 3600.0)]
+    [Extension("LitersPerHour")]
     LitersPerHour = 2,
 
     [UnitAbbreviation("m³/s")]
