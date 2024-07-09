@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="GraduatedCylinder.Json" Version="6.2.1" />
-    <PackageReference Include="System.Text.Json" Version="6.0.4" />
+    <PackageReference Include="System.Text.Json" Version="8.0.4" />
   </ItemGroup>
 
 </Project>
