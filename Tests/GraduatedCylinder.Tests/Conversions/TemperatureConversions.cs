@@ -1,5 +1,3 @@
-using Xunit.Abstractions;
-
 #if GraduatedCylinder
 namespace GraduatedCylinder.Conversions;
 #endif

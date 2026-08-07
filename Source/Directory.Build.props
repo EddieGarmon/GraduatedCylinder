@@ -7,7 +7,7 @@
         <Product>Graduated Cylinder</Product>
         <Authors>Eddie Garmon</Authors>
         <Company />
-        <Copyright>Copyright (c) Eddie Garmon 2010-2023</Copyright>
+        <Copyright>Copyright (c) Eddie Garmon 2010-2026</Copyright>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <PackageIcon>icon.png</PackageIcon>
@@ -30,7 +30,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.301" PrivateAssets="All" />
     </ItemGroup>
 
     <ItemGroup>
