@@ -6,4 +6,4 @@ namespace Pipette;
 #endif
 
 //todo: Add Luminance and Illuminance?
-public partial struct LuminousIntensity : IDimension<LuminousIntensity, LuminousIntensityUnit> { }
+public partial struct LuminousIntensity : IDimension<LuminousIntensity, LuminousIntensityUnit>;

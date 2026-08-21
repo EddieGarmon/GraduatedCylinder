@@ -25,12 +25,12 @@ internal sealed class ScaleAndOffsetAttribute : Attribute
     ///     Gets or sets the 'zero' offset.
     /// </summary>
     /// <value>The offset.</value>
-    public double Offset { get; private set; }
+    public double Offset { get; }
 
     /// <summary>
     ///     Gets or sets the scale factor.
     /// </summary>
     /// <value>The scale factor.</value>
-    public double ScaleFactor { get; private set; }
+    public double ScaleFactor { get; }
 
 }
