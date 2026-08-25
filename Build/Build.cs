@@ -2,7 +2,6 @@
 
 #pragma warning disable IDE1006 // Naming Styles
 using System.Collections.Generic;
-using System.Linq;
 using Nuke.Common;
 using Nuke.Common.CI;
 using Nuke.Common.IO;
@@ -11,6 +10,7 @@ using Nuke.Common.Tooling;
 using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Tools.ReportGenerator;
 using Nuke.Common.Utilities.Collections;
+using Serilog;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 using static Nuke.Common.Tools.ReportGenerator.ReportGeneratorTasks;
 
@@ -68,17 +68,17 @@ class Build : NukeBuild
 
     AbsolutePath PathToArtifacts => RootDirectory / "Artifacts";
 
-    AbsolutePath PathToCoverageReport => PathToArtifacts / "04 Coverage Report";
+    AbsolutePath PathToCoverageReport => PathToArtifacts / "04.Coverage.Report";
 
-    AbsolutePath PathToCoverageResults => PathToArtifacts / "03 Coverage Results";
+    AbsolutePath PathToCoverageResults => PathToArtifacts / "03.Coverage.Results";
 
-    AbsolutePath PathToGeneratedPackages => PathToArtifacts / "05 Packages";
+    AbsolutePath PathToGeneratedPackages => PathToArtifacts / "05.Packages";
 
     AbsolutePath PathToSources => RootDirectory / "Source";
 
-    AbsolutePath PathToTestOutput => PathToArtifacts / "01 Test Output";
+    AbsolutePath PathToTestOutput => PathToArtifacts / "01.Test.Output";
 
-    AbsolutePath PathToTestResults => PathToArtifacts / "02 Test Results";
+    AbsolutePath PathToTestResults => PathToArtifacts / "02.Test.Results";
 
     AbsolutePath PathToTests => RootDirectory / "Tests";
 
@@ -110,29 +110,28 @@ class Build : NukeBuild
                                 PathToCoverageResults.CreateOrCleanDirectory();
                                 PathToCoverageReport.CreateOrCleanDirectory();
 
-                                List<Project> testProjects = Solution.GetAllProjects("*.Tests").ToList();
+                                IEnumerable<Project> testProjects = Solution.GetAllProjects("*.Tests");
 
-                                DotNetTest(cfg => cfg.EnableNoLogo()
-                                                     .EnableNoBuild()
-                                                     .SetConfiguration(Configuration)
-                                                     .SetResultsDirectory(PathToTestOutput)
-                                                     .SetDataCollector("XPlat Code Coverage")
-                                                     .CombineWith(testProjects,
-                                                                  (s, p) => s.SetProjectFile(p)
-                                                                             .SetLoggers($"trx;LogFileName={p.Name}.trx")));
-
-                                foreach (AbsolutePath path in PathToTestOutput.GlobFiles("*.trx")) {
-                                    TrxHelper helper = new(path);
-                                    //move results.trx file to test results
-                                    helper.TrxFilepath.MoveToDirectory(PathToTestResults);
-                                    //move coverage.xml file to coverage results folder
-                                    helper.CoverageSource.Move(PathToCoverageResults / helper.CoverageDestination);
+                                foreach (Project project in testProjects) {
+                                    // Execute the test executable directly (bypasses VSTest overhead)
+                                    DotNetRun(s => s.SetProjectFile(project)
+                                                    .SetConfiguration(Configuration)
+                                                    .EnableNoRestore()
+                                                    .EnableNoBuild()
+                                                    // Native switches feed directly into the built-in coverage engine
+                                                    .SetApplicationArguments("--coverage",
+                                                                             "--coverage-output-format",
+                                                                             "cobertura",
+                                                                             "--results-directory",
+                                                                             $"{PathToCoverageResults}"));
                                 }
 
                                 ReportGenerator(s => s.SetTargetDirectory(PathToCoverageReport)
                                                       .SetFramework("net10.0")
-                                                      .SetReportTypes(ReportTypes.Html)
-                                                      .SetReports(PathToCoverageResults / "*.xml"));
+                                                      .SetReports(PathToCoverageResults / "*.xml")
+                                                      .SetReportTypes(ReportTypes.HtmlInline, ReportTypes.Badges));
+
+                                Log.Information("Coverage report generated at {Path}", PathToCoverageReport / "index.html");
                             });
 
     public static int Main() => Execute<Build>(x => x.Test, x => x.Pack);
