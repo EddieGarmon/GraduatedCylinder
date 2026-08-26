@@ -129,7 +129,8 @@ class Build : NukeBuild
                                 ReportGenerator(s => s.SetTargetDirectory(PathToCoverageReport)
                                                       .SetFramework("net10.0")
                                                       .SetReports(PathToCoverageResults / "*.xml")
-                                                      .SetReportTypes(ReportTypes.HtmlInline, ReportTypes.Badges));
+                                                      .SetReportTypes(ReportTypes.HtmlInline, ReportTypes.Badges)
+                                                      .SetClassFilters("-*CodeGeneration*", "-*.g.*", "-*.Abbreviations*"));
 
                                 Log.Information("Coverage report generated at {Path}", PathToCoverageReport / "index.html");
                             });
