@@ -5,4 +5,4 @@ namespace GraduatedCylinder;
 namespace Pipette;
 #endif
 
-public partial struct MagneticFlux : IDimension<MagneticFlux, MagneticFluxUnit> { }
+public partial struct MagneticFlux : IDimension<MagneticFlux, MagneticFluxUnit>;

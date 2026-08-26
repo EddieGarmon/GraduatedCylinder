@@ -35,10 +35,12 @@ public class BuildInformationGenerator : IIncrementalGenerator
     }
 
     private static string GenerateFor(BuildInfo buildInfo) {
-        return $@"using System.Globalization;
+        return $@"using System.CodeDom.Compiler;
+using System.Globalization;
 
 namespace {buildInfo.Namespace};
 
+[GeneratedCode(""BuildInformationGenerator"", ""1.0.0"")]
 public static class BuildInformation
 {{
     /// <summary>

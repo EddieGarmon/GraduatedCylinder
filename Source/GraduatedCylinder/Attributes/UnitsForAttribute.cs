@@ -1,7 +1,7 @@
 ﻿namespace CodeGeneration.Attributes;
 
 [AttributeUsage(AttributeTargets.Enum)]
-internal class UnitsForAttribute : Attribute
+internal sealed class UnitsForAttribute : Attribute
 {
 
     public UnitsForAttribute(Type dimensionType) {

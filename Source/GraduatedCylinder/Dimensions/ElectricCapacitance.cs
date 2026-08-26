@@ -5,4 +5,4 @@ namespace GraduatedCylinder;
 namespace Pipette;
 #endif
 
-public partial struct ElectricCapacitance : IDimension<ElectricCapacitance, ElectricCapacitanceUnit> { }
+public partial struct ElectricCapacitance : IDimension<ElectricCapacitance, ElectricCapacitanceUnit>;

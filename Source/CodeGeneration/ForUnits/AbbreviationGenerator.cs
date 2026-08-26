@@ -40,8 +40,11 @@ public class AbbreviationGenerator : IIncrementalGenerator
     private static string GenerateAbbreviations(ImmutableArray<UnitsInfo> units) {
         StringBuilder buffer = new(0x1000);
 
-        buffer.AppendLine($@"namespace {units[0].Namespace};
+        buffer.AppendLine($@"using System.CodeDom.Compiler;
 
+namespace {units[0].Namespace};
+
+[GeneratedCode(""AbbreviationGenerator"", ""1.0.0"")]
 public static class Abbreviations {{");
 
         StringBuilder getUnits = new();

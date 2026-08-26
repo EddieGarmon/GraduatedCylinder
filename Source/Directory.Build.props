@@ -1,13 +1,13 @@
 <Project>
     <PropertyGroup>
-        <LangVersion>12</LangVersion>
+        <LangVersion>14</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
 
         <Product>Graduated Cylinder</Product>
         <Authors>Eddie Garmon</Authors>
         <Company />
-        <Copyright>Copyright (c) Eddie Garmon 2010-2023</Copyright>
+        <Copyright>Copyright (c) Eddie Garmon 2010-2026</Copyright>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <PackageIcon>icon.png</PackageIcon>
@@ -22,7 +22,7 @@
         <IncludeSource>false</IncludeSource>
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
 
-        <Version>9.3.0</Version>
+        <Version>10.0.0</Version>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)'=='Debug'">
@@ -30,7 +30,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.400" PrivateAssets="All" />
     </ItemGroup>
 
     <ItemGroup>

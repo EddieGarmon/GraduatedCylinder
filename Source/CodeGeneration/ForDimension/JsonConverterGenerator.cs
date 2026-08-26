@@ -57,12 +57,14 @@ public class JsonConverterGenerator : IIncrementalGenerator
     }
 
     private static string GenerateJsonConverter(DimensionInfo dimension) {
-        return $@"using System.Text.Json;
+        return $@"using System.CodeDom.Compiler;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using {dimension.Namespace}.Text;
 
 namespace {dimension.Namespace}.Json;
 
+[GeneratedCode(""JsonConverterGenerator"", ""1.0.0"")]
 public class {dimension.JsonConverterType} : JsonConverter<{dimension.DimensionType}> {{
 
     public int Precision {{ get; set; }} = 2;

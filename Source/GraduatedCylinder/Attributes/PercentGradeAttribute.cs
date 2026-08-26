@@ -1,4 +1,4 @@
 ﻿namespace CodeGeneration.Attributes;
 
 [AttributeUsage(AttributeTargets.Field)]
-internal class PercentGradeAttribute : Attribute { }
+internal class PercentGradeAttribute : Attribute;

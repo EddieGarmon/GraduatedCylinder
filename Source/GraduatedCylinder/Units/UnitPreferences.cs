@@ -58,19 +58,11 @@ public partial class UnitPreferences
 
     public static UnitPreferences GetCultureUnits(string cultureCode) {
         cultureCode = cultureCode.ToLowerInvariant();
-        switch (cultureCode) {
-            case "en":
-            case "en-us":
-                return GetAmericanEnglishUnits();
-            case "en-gb":
-                return GetBritishEnglishUnits();
-            case "es":
-            case "es-mx":
-            case "fr":
-            case "fr-ca":
-            default:
-                return GetMetricUnits();
-        }
+        return cultureCode switch {
+            "en" or "en-us" => GetAmericanEnglishUnits(),
+            "en-gb" => GetBritishEnglishUnits(),
+            _ => GetMetricUnits()
+        };
     }
 
     public static UnitPreferences GetMetricUnits() {

@@ -40,9 +40,11 @@ public class UnitPreferencesGenerator : IIncrementalGenerator
     private static string GenerateUnitPreferences(ImmutableArray<DimensionInfo> dimensions) {
         StringBuilder buffer = new(0x1000);
         buffer.AppendLine($@"using System;
+using System.CodeDom.Compiler;
 
 namespace {dimensions[0].Namespace};
 
+[GeneratedCode(""UnitPreferencesGenerator"", ""1.0.0"")]
 public partial class UnitPreferences {{
 
     public static UnitPreferences Default {{ get; }} = new();

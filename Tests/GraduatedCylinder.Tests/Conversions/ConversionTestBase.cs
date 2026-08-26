@@ -1,6 +1,4 @@
-﻿using Xunit.Abstractions;
-
-#if GraduatedCylinder
+﻿#if GraduatedCylinder
 namespace GraduatedCylinder.Conversions;
 #endif
 #if Pipette

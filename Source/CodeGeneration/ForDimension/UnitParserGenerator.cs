@@ -41,10 +41,12 @@ public class UnitParserGenerator : IIncrementalGenerator
         StringBuilder buffer = new(0x1000);
 
         buffer.AppendLine($@"using System;
+using System.CodeDom.Compiler;
 using System.Text.RegularExpressions;
 
 namespace {dimensions[0].Namespace}.Text;
 
+[GeneratedCode(""UnitParserGenerator"", ""1.0.0"")]
 internal static class UnitParser {{");
 
         foreach (DimensionInfo dimension in dimensions) {

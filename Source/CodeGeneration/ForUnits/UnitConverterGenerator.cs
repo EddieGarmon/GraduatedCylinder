@@ -41,8 +41,11 @@ public class UnitConverterGenerator : IIncrementalGenerator
     private const string ScaleAttribute = "ScaleAttribute";
 
     private static string GenerateConverterFor(UnitsInfo info) {
-        return $@"namespace {info.Namespace}.Converters;
+        return $@"using System.CodeDom.Compiler;
 
+namespace {info.Namespace}.Converters;
+
+[GeneratedCode(""UnitConverterGenerator"", ""1.0.0"")]
 internal static class {info.NameSet.ConverterTypeName}
 {{
     public static {info.ValueType} FromBase({info.ValueType} baseValue, {info.NameSet.UnitsTypeName} wantedUnits) {{

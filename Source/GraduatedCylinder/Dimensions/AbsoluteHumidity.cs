@@ -5,4 +5,4 @@ namespace GraduatedCylinder;
 namespace Pipette;
 #endif
 
-public partial struct AbsoluteHumidity : IDimension<AbsoluteHumidity, AbsoluteHumidityUnit> { }
+public partial struct AbsoluteHumidity : IDimension<AbsoluteHumidity, AbsoluteHumidityUnit>;
