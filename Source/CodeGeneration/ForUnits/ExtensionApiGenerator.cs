@@ -43,10 +43,12 @@ public class ExtensionApiGenerator : IIncrementalGenerator
         StringBuilder buffer = new(0x1000);
         bool hasExtension = false;
 
-        buffer.AppendLine($@"using System.Runtime.CompilerServices;
+        buffer.AppendLine($@"using System.CodeDom.Compiler;
+using System.Runtime.CompilerServices;
 
 namespace {unit.Namespace}.Extensions;
 
+[GeneratedCode(""ExtensionApiGenerator"", ""1.0.0"")]
 public static class {unit.NameSet.ExtensionsTypeName} {{");
 
         foreach ((EnumMemberDeclarationSyntax member, ISymbol symbol) in unit.Members) {

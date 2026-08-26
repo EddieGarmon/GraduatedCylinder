@@ -22,7 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageDownload Include="ReportGenerator" Version="[5.5.11]" />
+    <!-- Pin to version 4.8.13 for free method level coverage -->
+    <PackageDownload Include="ReportGenerator" Version="[4.8.13]" />
+    <!--<PackageDownload Include="ReportGenerator" Version="[5.5.11]" />-->
   </ItemGroup>
 
 </Project>
