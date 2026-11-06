@@ -1,0 +1,36 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="ARM" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/Build/">
+    <File Path="README.md" />
+    <Project Path="build/_build.csproj">
+      <Build Project="false" />
+    </Project>
+    <Project Path="Source/CodeGeneration/CodeGeneration.csproj" />
+  </Folder>
+  <Folder Name="/GraduatedCylinder (64bit)/">
+    <Project Path="Source/GraduatedCylinder.Json/GraduatedCylinder.Json.csproj" />
+    <Project Path="Source/GraduatedCylinder/GraduatedCylinder.csproj" />
+    <Project Path="Tests/GraduatedCylinder.Tests/GraduatedCylinder.Tests.csproj" />
+  </Folder>
+  <Folder Name="/GraduatedCylinder.Geo (64bit)/">
+    <Project Path="Source/GraduatedCylinder.Geo.Gps/GraduatedCylinder.Geo.Gps.csproj" />
+    <Project Path="Source/GraduatedCylinder.Geo.Laser/GraduatedCylinder.Geo.Laser.csproj" />
+    <Project Path="Source/GraduatedCylinder.Geo/GraduatedCylinder.Geo.csproj" />
+    <Project Path="Tests/GraduatedCylinder.Geo.Gps.Tests/GraduatedCylinder.Geo.Gps.Tests.csproj" />
+    <Project Path="Tests/GraduatedCylinder.Geo.Tests/GraduatedCylinder.Geo.Tests.csproj" />
+  </Folder>
+  <Folder Name="/NMEA 0183/">
+    <Project Path="Source/Nmea.Core0183/Nmea.Core0183.csproj" />
+    <Project Path="Tests/Nmea.Core0183.Tests/Nmea.Core0183.Tests.csproj" />
+  </Folder>
+  <Folder Name="/Pipette (32bit)/">
+    <Project Path="Source/Pipette.Json/Pipette.Json.csproj" />
+    <Project Path="Source/Pipette/Pipette.csproj" />
+    <Project Path="Tests/Pipette.Tests/Pipette.Tests.csproj" />
+  </Folder>
+</Solution>

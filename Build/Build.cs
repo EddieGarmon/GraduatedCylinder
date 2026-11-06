@@ -1,21 +1,24 @@
 // ReSharper disable InconsistentNaming
 
-#pragma warning disable IDE1006 // Naming Styles
+using System;
 using System.Collections.Generic;
-using Nuke.Common;
-using Nuke.Common.CI;
-using Nuke.Common.IO;
-using Nuke.Common.ProjectModel;
-using Nuke.Common.Tooling;
-using Nuke.Common.Tools.DotNet;
-using Nuke.Common.Tools.ReportGenerator;
-using Nuke.Common.Utilities.Collections;
+using System.IO;
+using System.Linq;
+using System.Xml.Linq;
+using Fallout.Common;
+using Fallout.Common.CI;
+using Fallout.Common.IO;
+using Fallout.Solutions;
+using Fallout.Common.Tooling;
+using Fallout.Common.Tools.DotNet;
+using Fallout.Common.Tools.ReportGenerator;
+using Fallout.Common.Utilities.Collections;
 using Serilog;
-using static Nuke.Common.Tools.DotNet.DotNetTasks;
-using static Nuke.Common.Tools.ReportGenerator.ReportGeneratorTasks;
+using static Fallout.Common.Tools.DotNet.DotNetTasks;
+using static Fallout.Common.Tools.ReportGenerator.ReportGeneratorTasks;
 
 [ShutdownDotNetAfterServerBuild]
-class Build : NukeBuild
+class Build : FalloutBuild
 {
 
     [Parameter]
@@ -42,6 +45,11 @@ class Build : NukeBuild
     Target Compile =>
         def => def.DependsOn(Restore)
                   .Executes(() => {
+                                // If we are building in Debug AND Pack is scheduled, modify the props file BEFORE compilation starts
+                                if (Configuration == Configuration.Debug && ScheduledTargets.Contains(Pack)) {
+                                    UpdateVersion();
+                                }
+
                                 DotNetBuild(s => s.SetProjectFile(Solution)
                                                   .SetConfiguration(Configuration)
                                                   .EnableNoLogo()
@@ -57,6 +65,8 @@ class Build : NukeBuild
                   .After(Test)
                   .Produces(PathToGeneratedPackages)
                   .Executes(() => {
+                                PathToGeneratedPackages.CreateOrCleanDirectory();
+
                                 DotNetPack(s => s.SetProject(Solution)
                                                  .SetConfiguration(Configuration)
                                                  .SetOutputDirectory(PathToGeneratedPackages)
@@ -64,6 +74,8 @@ class Build : NukeBuild
                                                  .EnableNoRestore()
                                                  .EnableNoBuild()
                                                  .EnableContinuousIntegrationBuild());
+
+                                CopyPackagesToDevFolder();
                             });
 
     AbsolutePath PathToArtifacts => RootDirectory / "Artifacts";
@@ -90,14 +102,7 @@ class Build : NukeBuild
                   .Requires(() => NugetApiKey)
                   .Requires(() => Configuration.Equals(Configuration.Release))
                   .WhenSkipped(DependencyBehavior.Execute)
-                  .Executes(() => {
-                                DotNetNuGetPush(s => s.SetSource(NugetApiUrl)
-                                                      .SetApiKey(NugetApiKey)
-                                                      .EnableNoServiceEndpoint()
-                                                      .EnableSkipDuplicate()
-                                                      .CombineWith(PathToGeneratedPackages.GlobFiles("*.nupkg"),
-                                                                   (s, package) => s.SetTargetPath(package)));
-                            });
+                  .Executes(() => { PublishTo(NugetApiUrl, NugetApiKey); });
 
     Target Restore => def => def.Executes(() => { DotNetRestore(s => s.SetProjectFile(Solution)); });
 
@@ -134,6 +139,66 @@ class Build : NukeBuild
 
                                 Log.Information("Coverage report generated at {Path}", PathToCoverageReport / "index.html");
                             });
+
+    void CopyPackagesToDevFolder() {
+        string? devNugetFolder = Environment.GetEnvironmentVariable("NuGetDevPackages");
+        if (string.IsNullOrWhiteSpace(devNugetFolder)) {
+            Log.Information("[Fallout Pack] NuGetDevPackages environment variable not set. Skipping copy of generated packages.");
+        } else {
+            AbsolutePath nugetFolder = devNugetFolder;
+
+            if (nugetFolder.DirectoryExists()) {
+                Log.Information("[Fallout Pack] Copying packages to: {Path}", nugetFolder);
+
+                PathToGeneratedPackages.GlobFiles("*.nupkg")
+                                       .ForEach(packagePath => {
+                                                    AbsolutePath targetPath = nugetFolder / packagePath.Name;
+                                                    packagePath.Copy(targetPath, ExistsPolicy.FileOverwrite);
+                                                });
+            } else {
+                Log.Warning("[Fallout Pack] NuGetDevPackages variable is defined but target path does not exist: {Path}", nugetFolder);
+            }
+        }
+    }
+
+    void PublishTo(string nugetSource, string nugetApiKey) =>
+        DotNetNuGetPush(nuget => nuget.SetSource(nugetSource)
+                                      .SetApiKey(nugetApiKey)
+                                      .EnableNoServiceEndpoint()
+                                      .EnableSkipDuplicate()
+                                      .CombineWith(PathToGeneratedPackages.GlobFiles("*.nupkg"), (s, package) => s.SetTargetPath(package)));
+
+    void UpdateVersion() {
+        AbsolutePath propsFile = PathToSources / "Directory.Build.props";
+        if (!propsFile.FileExists()) {
+            throw new FileNotFoundException($"Could not find expected file layout at: {propsFile}");
+        }
+
+        XDocument doc = XDocument.Load(propsFile, LoadOptions.PreserveWhitespace);
+        XElement? versionElement = doc.Descendants("Version").FirstOrDefault();
+        if (versionElement is null) {
+            XNamespace ns = "http://schemas.microsoft.com/developer/msbuild/2003";
+            versionElement = doc.Descendants(ns + "Version").FirstOrDefault();
+        }
+
+        if (versionElement is null) {
+            throw new InvalidOperationException("Could not find <Version> tag in Directory.Build.props");
+        }
+
+        string rawVersion = versionElement.Value.Trim();
+        if (Version.TryParse(rawVersion, out Version? currentVersion)) {
+            // System.Version structure: major.minor[.build[.revision]]
+            // but we use the SymVer model
+            int newRevision = (currentVersion.Build >= 0 ? currentVersion.Build : 0) + 1;
+            string updatedVersion = $"{currentVersion.Major}.{currentVersion.Minor}.{newRevision}";
+            versionElement.Value = updatedVersion;
+            doc.Save(propsFile);
+
+            Log.Information("[Fallout Build] Incremented Directory.Build.props version to: {Version}", updatedVersion);
+        } else {
+            throw new FormatException($"The value '{rawVersion}' inside your Directory.Build.props is not a valid System.Version string.");
+        }
+    }
 
     public static int Main() => Execute<Build>(x => x.Test, x => x.Pack);
 
