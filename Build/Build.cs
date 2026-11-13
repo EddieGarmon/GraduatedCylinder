@@ -8,11 +8,11 @@ using System.Xml.Linq;
 using Fallout.Common;
 using Fallout.Common.CI;
 using Fallout.Common.IO;
-using Fallout.Solutions;
 using Fallout.Common.Tooling;
 using Fallout.Common.Tools.DotNet;
 using Fallout.Common.Tools.ReportGenerator;
 using Fallout.Common.Utilities.Collections;
+using Fallout.Solutions;
 using Serilog;
 using static Fallout.Common.Tools.DotNet.DotNetTasks;
 using static Fallout.Common.Tools.ReportGenerator.ReportGeneratorTasks;
@@ -20,63 +20,57 @@ using static Fallout.Common.Tools.ReportGenerator.ReportGeneratorTasks;
 [ShutdownDotNetAfterServerBuild]
 class Build : FalloutBuild
 {
+    [Parameter] [Secret] readonly string NugetApiKey;
 
-    [Parameter]
-    [Secret]
-    readonly string NugetApiKey;
+    [Parameter] readonly string NugetApiUrl = "https://api.nuget.org/v3/index.json";
 
-    [Parameter]
-    readonly string NugetApiUrl = "https://api.nuget.org/v3/index.json";
+    [Solution("GraduatedCylinder.slnx")] readonly Solution Solution;
 
-    [Solution]
-    readonly Solution Solution;
-
-    [Parameter("Configuration to build - Default is 'Release'")]
-    Configuration Configuration = Configuration.Release;
+    [Parameter("Configuration to build - Default is 'Release'")] Configuration Configuration = Configuration.Release;
 
     Target Clean =>
         def => def.Before(Restore)
-                  .Executes(() => {
-                                PathToSources.GlobDirectories("**/bin", "**/obj").ForEach(path => path.DeleteDirectory());
-                                PathToTests.GlobDirectories("**/bin", "**/obj").ForEach(path => path.DeleteDirectory());
-                                PathToArtifacts.CreateOrCleanDirectory();
-                            });
+            .Executes(() => {
+                PathToSources.GlobDirectories("**/bin", "**/obj").ForEach(path => path.DeleteDirectory());
+                PathToTests.GlobDirectories("**/bin", "**/obj").ForEach(path => path.DeleteDirectory());
+                PathToArtifacts.CreateOrCleanDirectory();
+            });
 
     Target Compile =>
         def => def.DependsOn(Restore)
-                  .Executes(() => {
-                                // If we are building in Debug AND Pack is scheduled, modify the props file BEFORE compilation starts
-                                if (Configuration == Configuration.Debug && ScheduledTargets.Contains(Pack)) {
-                                    UpdateVersion();
-                                }
+            .Executes(() => {
+                // If we are building in Debug AND Pack is scheduled, modify the props file BEFORE compilation starts
+                if (Configuration == Configuration.Debug && ScheduledTargets.Contains(Pack)) {
+                    UpdateVersion();
+                }
 
-                                DotNetBuild(s => s.SetProjectFile(Solution)
-                                                  .SetConfiguration(Configuration)
-                                                  .EnableNoLogo()
-                                                  .EnableNoRestore()
-                                                  .EnableDeterministic()
-                                                  .EnableContinuousIntegrationBuild());
-                            });
+                DotNetBuild(s => s.SetProjectFile(Solution)
+                    .SetConfiguration(Configuration)
+                    .EnableNoLogo()
+                    .EnableNoRestore()
+                    .EnableDeterministic()
+                    .EnableContinuousIntegrationBuild());
+            });
 
     Target Debug => def => def.Before(Compile).Executes(() => Configuration = Configuration.Debug);
 
     Target Pack =>
         def => def.DependsOn(Compile)
-                  .After(Test)
-                  .Produces(PathToGeneratedPackages)
-                  .Executes(() => {
-                                PathToGeneratedPackages.CreateOrCleanDirectory();
+            .After(Test)
+            .Produces(PathToGeneratedPackages)
+            .Executes(() => {
+                PathToGeneratedPackages.CreateOrCleanDirectory();
 
-                                DotNetPack(s => s.SetProject(Solution)
-                                                 .SetConfiguration(Configuration)
-                                                 .SetOutputDirectory(PathToGeneratedPackages)
-                                                 .EnableNoLogo()
-                                                 .EnableNoRestore()
-                                                 .EnableNoBuild()
-                                                 .EnableContinuousIntegrationBuild());
+                DotNetPack(s => s.SetProject(Solution)
+                    .SetConfiguration(Configuration)
+                    .SetOutputDirectory(PathToGeneratedPackages)
+                    .EnableNoLogo()
+                    .EnableNoRestore()
+                    .EnableNoBuild()
+                    .EnableContinuousIntegrationBuild());
 
-                                CopyPackagesToDevFolder();
-                            });
+                CopyPackagesToDevFolder();
+            });
 
     AbsolutePath PathToArtifacts => RootDirectory / "Artifacts";
 
@@ -96,49 +90,49 @@ class Build : FalloutBuild
 
     Target Publish =>
         def => def.DependsOn(Clean)
-                  .DependsOn(Test)
-                  .DependsOn(Pack)
-                  .Requires(() => NugetApiUrl)
-                  .Requires(() => NugetApiKey)
-                  .Requires(() => Configuration.Equals(Configuration.Release))
-                  .WhenSkipped(DependencyBehavior.Execute)
-                  .Executes(() => { PublishTo(NugetApiUrl, NugetApiKey); });
+            .DependsOn(Test)
+            .DependsOn(Pack)
+            .Requires(() => NugetApiUrl)
+            .Requires(() => NugetApiKey)
+            .Requires(() => Configuration.Equals(Configuration.Release))
+            .WhenSkipped(DependencyBehavior.Execute)
+            .Executes(() => { PublishTo(NugetApiUrl, NugetApiKey); });
 
     Target Restore => def => def.Executes(() => { DotNetRestore(s => s.SetProjectFile(Solution)); });
 
     Target Test =>
         def => def.DependsOn(Compile)
-                  .Produces(PathToTestOutput, PathToTestResults, PathToCoverageResults, PathToCoverageReport)
-                  .Executes(() => {
-                                PathToTestOutput.CreateOrCleanDirectory();
-                                PathToTestResults.CreateOrCleanDirectory();
-                                PathToCoverageResults.CreateOrCleanDirectory();
-                                PathToCoverageReport.CreateOrCleanDirectory();
+            .Produces(PathToTestOutput, PathToTestResults, PathToCoverageResults, PathToCoverageReport)
+            .Executes(() => {
+                PathToTestOutput.CreateOrCleanDirectory();
+                PathToTestResults.CreateOrCleanDirectory();
+                PathToCoverageResults.CreateOrCleanDirectory();
+                PathToCoverageReport.CreateOrCleanDirectory();
 
-                                IEnumerable<Project> testProjects = Solution.GetAllProjects("*.Tests");
+                IEnumerable<Project> testProjects = Solution.GetAllProjects("*.Tests");
 
-                                foreach (Project project in testProjects) {
-                                    // Execute the test executable directly (bypasses VSTest overhead)
-                                    DotNetRun(s => s.SetProjectFile(project)
-                                                    .SetConfiguration(Configuration)
-                                                    .EnableNoRestore()
-                                                    .EnableNoBuild()
-                                                    // Native switches feed directly into the built-in coverage engine
-                                                    .SetApplicationArguments("--coverage",
-                                                                             "--coverage-output-format",
-                                                                             "cobertura",
-                                                                             "--results-directory",
-                                                                             $"{PathToCoverageResults}"));
-                                }
+                foreach (Project project in testProjects) {
+                    // Execute the test executable directly (bypasses VSTest overhead)
+                    DotNetRun(s => s.SetProjectFile(project)
+                        .SetConfiguration(Configuration)
+                        .EnableNoRestore()
+                        .EnableNoBuild()
+                        // Native switches feed directly into the built-in coverage engine
+                        .SetApplicationArguments("--coverage",
+                            "--coverage-output-format",
+                            "cobertura",
+                            "--results-directory",
+                            $"{PathToCoverageResults}"));
+                }
 
-                                ReportGenerator(s => s.SetTargetDirectory(PathToCoverageReport)
-                                                      .SetFramework("net10.0")
-                                                      .SetReports(PathToCoverageResults / "*.xml")
-                                                      .SetReportTypes(ReportTypes.HtmlInline, ReportTypes.Badges)
-                                                      .SetClassFilters("-*CodeGeneration*", "-*.g.*", "-*.Abbreviations*"));
+                ReportGenerator(s => s.SetTargetDirectory(PathToCoverageReport)
+                    .SetFramework("net10.0")
+                    .SetReports(PathToCoverageResults / "*.xml")
+                    .SetReportTypes(ReportTypes.HtmlInline, ReportTypes.Badges)
+                    .SetClassFilters("-*CodeGeneration*", "-*.g.*", "-*.Abbreviations*"));
 
-                                Log.Information("Coverage report generated at {Path}", PathToCoverageReport / "index.html");
-                            });
+                Log.Information("Coverage report generated at {Path}", PathToCoverageReport / "index.html");
+            });
 
     void CopyPackagesToDevFolder() {
         string? devNugetFolder = Environment.GetEnvironmentVariable("NuGetDevPackages");
@@ -151,10 +145,10 @@ class Build : FalloutBuild
                 Log.Information("[Fallout Pack] Copying packages to: {Path}", nugetFolder);
 
                 PathToGeneratedPackages.GlobFiles("*.nupkg")
-                                       .ForEach(packagePath => {
-                                                    AbsolutePath targetPath = nugetFolder / packagePath.Name;
-                                                    packagePath.Copy(targetPath, ExistsPolicy.FileOverwrite);
-                                                });
+                    .ForEach(packagePath => {
+                        AbsolutePath targetPath = nugetFolder / packagePath.Name;
+                        packagePath.Copy(targetPath, ExistsPolicy.FileOverwrite);
+                    });
             } else {
                 Log.Warning("[Fallout Pack] NuGetDevPackages variable is defined but target path does not exist: {Path}", nugetFolder);
             }
@@ -163,10 +157,10 @@ class Build : FalloutBuild
 
     void PublishTo(string nugetSource, string nugetApiKey) =>
         DotNetNuGetPush(nuget => nuget.SetSource(nugetSource)
-                                      .SetApiKey(nugetApiKey)
-                                      .EnableNoServiceEndpoint()
-                                      .EnableSkipDuplicate()
-                                      .CombineWith(PathToGeneratedPackages.GlobFiles("*.nupkg"), (s, package) => s.SetTargetPath(package)));
+            .SetApiKey(nugetApiKey)
+            .EnableNoServiceEndpoint()
+            .EnableSkipDuplicate()
+            .CombineWith(PathToGeneratedPackages.GlobFiles("*.nupkg"), (s, package) => s.SetTargetPath(package)));
 
     void UpdateVersion() {
         AbsolutePath propsFile = PathToSources / "Directory.Build.props";
@@ -201,5 +195,4 @@ class Build : FalloutBuild
     }
 
     public static int Main() => Execute<Build>(x => x.Test, x => x.Pack);
-
 }
