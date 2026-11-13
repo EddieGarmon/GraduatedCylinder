@@ -7,24 +7,16 @@
     <NoWarn>CS0649;CS0169;CS8618;CA1050;CA1822;CA2211;IDE1006;NU1901;NU1902;NU1903</NoWarn>
     <FalloutRootDirectory>..</FalloutRootDirectory>
     <FalloutScriptDirectory>..</FalloutScriptDirectory>
-<Nullable>enable</Nullable>
+    <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Fallout.Common" Version="10.4.0" />
+    <PackageReference Include="Fallout.Common" Version="10.5.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Forces the app-local assemblies to match the version the 10.0.400 SDK expects -->
-    <PackageReference Include="NuGet.Frameworks" Version="7.9.0" />
-    <PackageReference Include="Microsoft.Build" Version="18.0.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <!-- Pin to version 4.8.13 for free method level coverage -->
-    <PackageDownload Include="ReportGenerator" Version="[4.8.13]" />
-    <!--<PackageDownload Include="ReportGenerator" Version="[5.5.11]" />-->
+    <PackageDownload Include="ReportGenerator" Version="[5.6.0]" />
   </ItemGroup>
 
 </Project>
